@@ -1,0 +1,28 @@
+create table usertest(
+	userID number(10) constraint pk_userID primary key,
+	loginID varchar(30) constraint uq_loginID unique,
+	username varchar(30) not null,
+	password varchar(12) not null,
+	iconpath varchar(256) not null
+);
+
+create table posttest(
+	postID number(10) constraint pk_postID primary key,
+	caption varchar(600),
+	imageURL varchar(256) unique,
+	timestamp date default sysdate
+);
+
+create sequence test_seq start with 1 increment by 1;
+
+
+PrintWriter out = response.getWriter();
+		out.println("<html>");
+		out.println("<head>");
+		out.println("<title>Test Show</title>");
+		out.println("</head>");
+		out.println("<body>");
+		out.println("<img src='C:/LittlePlayground/uploadTest/image/image.png'>");
+		out.println("</body>");
+		out.println("</html>");
+		out.close();
