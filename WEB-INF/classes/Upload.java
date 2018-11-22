@@ -3,21 +3,29 @@ import java.io.IOException;
 import javax.servlet.http.Part;
 
 public class Upload{
-	final String url = "C:/github/Animal-Snap/post-url/";
 	DAO dao = new DAO();
 	
 	public void uploadPhoto(Part part, String caption){
-		String fileName = getFileName();
+		String fileName = getFileName(part);
 		try{
-			part.write(url+fileName);
+			part.write(path+fileName);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		dao.post(url+fileName, caption);
+		dao.post(path+fileName, caption);
 	}
-	public String getFileName(){
-		String fileName = "image";
+	public String getFileName(Part part){
+		String fileName = null;
+		String contentType = part.getContentType();
+		//contentType = FileType / FileFormat => image/png
+		//s[0] = image, s[1] = png
+		String[] s = contentType.split("/");
+		System.out.println(part.getContentType());
+		//postTest　Tableの行をCount
 		int i = dao.postCount();
-		return fileName + i + ".png";
+		//image_1.png
+		fileName = s[0] + "_" + i + "." + s[1];
+		
+		return fileName;
 	}
 }

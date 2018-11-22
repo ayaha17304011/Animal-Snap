@@ -6,9 +6,8 @@
 	<body>
 		<form method="post" action="servlet" enctype="multipart/form-data">
 			<input type="text" name="caption"><br>
-			<input type="file" name="image" required><br>
+			<input type="file" name="image" accept="video/*,image/*" required><br>
 			<input type="submit" name="Upload">
 		</form>
-		<img src="image/image.png">
 	</body>
 </html>
