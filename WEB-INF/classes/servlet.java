@@ -14,6 +14,7 @@ import javax.servlet.http.Part;
 public class servlet extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws IOException, ServletException {
+		request.setCharacterEncoding("Windows-31J");
 		String caption = request.getParameter("caption");
 		Part part = request.getPart("image");
 		Upload up = new Upload();
