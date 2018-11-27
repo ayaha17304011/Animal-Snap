@@ -15,14 +15,4 @@ create table posttest(
 
 create sequence test_seq start with 1 increment by 1;
 
-
-PrintWriter out = response.getWriter();
-		out.println("<html>");
-		out.println("<head>");
-		out.println("<title>Test Show</title>");
-		out.println("</head>");
-		out.println("<body>");
-		out.println("<img src='C:/LittlePlayground/uploadTest/image/image.png'>");
-		out.println("</body>");
-		out.println("</html>");
-		out.close();
+select ImageURL, caption from posttest;

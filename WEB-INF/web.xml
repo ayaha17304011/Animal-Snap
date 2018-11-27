@@ -1,10 +1,18 @@
 <web-app>
+		<welcome-file-list>
+		<welcome-file>/WEB-INF/jsp/uploadtest.jsp</welcome-file>
+	</welcome-file-list>
 	<servlet>
-		<servlet-name>servlet</servlet-name>
-		<servlet-class>servlet</servlet-class>
+		<servlet-name>FrontServlet</servlet-name>
+		<servlet-class>main.FrontServlet</servlet-class>
+			<multipart-config>
+		   	<max-file-size>5242880</max-file-size>
+		   	<max-request-size>27262976</max-request-size>
+		   	<file-size-threshold>0</file-size-threshold>
+		</multipart-config>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>servlet</servlet-name>
-		<url-pattern>/servlet</url-pattern>
+		<servlet-name>FrontServlet</servlet-name>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 </web-app>
