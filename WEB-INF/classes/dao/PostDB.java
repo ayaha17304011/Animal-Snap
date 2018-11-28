@@ -6,6 +6,15 @@ import beans.PostBean;
 public class PostDB {
 	private static ArrayList post = new ArrayList();
 
+	static{
+		for(int i = 0; i <= 2; i++){
+			PostBean pb = new PostBean();
+			pb.setImageURL("C:/github/Animal-Snap/WebContent/src/image"+ i +".jpg");
+			pb.setCaption("Caption"+ i);
+			post.add(pb);
+		}
+	}
+
 	public static void addPost(PostBean p) {
 		post.add(p);
 	}

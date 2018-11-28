@@ -5,9 +5,24 @@
 		<title>Show Test</title>
 	</head>
 	<body>
+		<%
+			if(request.getAttribute("data") == null){
+				response.sendRedirect("postlist");
+			}
+		%>
+		<a href="upload">upload</a><br>
 		<c:forEach var="data" items="${data}">
 			<img src="${data.imageURL}">
-			<h2>${data.caption}</h2>
+			<br>
+			${data.caption}
+			<br>
+			<span>show reply...<span>
+			<form action="addReply" method="post">
+				<input type="hidden" name="postId" value="${data.postId}">
+				<input type="textarea" name="reply" required>
+				<input type="submit" value="reply">
+			</form>
+			<hr>
 		</c:forEach>
 	</body>
 </html>

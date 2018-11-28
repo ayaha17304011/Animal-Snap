@@ -1,5 +1,5 @@
 package dao;
-
+import beans.UserBean;
 import java.util.ArrayList;
 
 public class UserDB {
