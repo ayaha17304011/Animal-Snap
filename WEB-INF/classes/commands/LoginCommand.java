@@ -29,7 +29,7 @@ public class LoginCommand extends AbstractCommand{
     // AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
     // KretaDao dao = factory.getKretaDao();
 
-    //ログイン情報がデータベースに登録されているか確認する
+    // ログイン情報がデータベースに登録されているか確認する
     // userbean = dao.LoginProcessing(userbean);
 
     //フォームから入力されたパスワードがあっているか確認する
@@ -46,7 +46,7 @@ public class LoginCommand extends AbstractCommand{
         session.setAttribute("loginUser", userbean);
     }
 
-    resc.setTarget("login");
+    resc.setTarget("showtest");
     return resc;
     }
 }

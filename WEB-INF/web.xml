@@ -2,12 +2,13 @@
 		<welcome-file-list>
 		<welcome-file>/WEB-INF/jsp/showtest.jsp</welcome-file>
 	</welcome-file-list>
+	
 	<servlet>
 		<servlet-name>FrontServlet</servlet-name>
 		<servlet-class>main.FrontServlet</servlet-class>
 			<multipart-config>
-		   	<max-file-size>5242880</max-file-size>
-		   	<max-request-size>27262976</max-request-size>
+		   	<max-file-size>52428800</max-file-size>
+		   	<max-request-size>52428800</max-request-size>
 		   	<file-size-threshold>0</file-size-threshold>
 		</multipart-config>
 	</servlet>
@@ -15,4 +16,12 @@
 		<servlet-name>FrontServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+
+	<!-- 画像を表示 -->
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>/WebContent/*</url-pattern>
+	</servlet-mapping>
+
 </web-app>

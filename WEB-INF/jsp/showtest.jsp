@@ -5,6 +5,17 @@
 		<title>Show Test</title>
 	</head>
 	<body>
+		<% if(session.getAttribute("loginUser") == null){ %>
+
+			<a href="log">Login</a>
+			<a href="signup">Signup</a>
+
+		<% } else { %>
+
+			${sessionScope.loginUser.loginId}
+			<a href="logout">Logout</a>
+
+		<% } %>
 		<%
 			if(request.getAttribute("data") == null){
 				response.sendRedirect("postlist");
@@ -12,7 +23,7 @@
 		%>
 		<a href="upload">upload</a><br>
 		<c:forEach var="data" items="${data}">
-			<img src="${data.imageURL}">
+			<img src="<c:url value='/WebContent/images/${data.imageURL}'/>">
 			<br>
 			${data.caption}
 			<br>

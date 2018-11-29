@@ -19,7 +19,7 @@ public class Upload{
 
 		String fileName = null;
 		//"docBase" /post-url/
-		String path = req.getServletContext().getRealPath("/WebContent/src/");
+		String path = req.getServletContext().getRealPath("/WebContent/images/");
 		PostBean post = new PostBean();
 		try{
 			String caption = req.getParameter("caption");
@@ -28,9 +28,9 @@ public class Upload{
 			if(req!=null) System.out.println(req.getServletPath());
 			fileName = getFileName(file);
 			file.write(path+fileName);
-			post.setImageURL(path+fileName);
+			post.setImageURL(fileName);
 
-
+			//test
 			post.setPostId(path+fileName);
 
 
