@@ -24,4 +24,15 @@
 		<url-pattern>/WebContent/*</url-pattern>
 	</servlet-mapping>
 
+
+	<servlet>
+		<servlet-name>test</servlet-name>
+		<jsp-file>/WEB-INF/jsp/postview.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>test</servlet-name>
+		<url-pattern>/k</url-pattern>
+	</servlet-mapping>
+
+
 </web-app>
