@@ -2,8 +2,6 @@ package commands;
 
 import main.RequestContext;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
@@ -15,7 +13,7 @@ public abstract class CommandFactory {
 		Properties prop = new Properties();
 		
 		try{
-			prop.load(new FileInputStream("C:/github/Animal-Snap/WEB-INF/classes/properties/test.properties"));
+			prop.load(CommandFactory.class.getClassLoader().getResourceAsStream("../properties/commands.properties"));
 			
 			String name = prop.getProperty(rec.getCommandPath());
 			

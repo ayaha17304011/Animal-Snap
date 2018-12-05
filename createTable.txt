@@ -19,7 +19,7 @@ create table as_post(
 	caption varchar2(600),
 	imageURL varchar2(256) unique,
 	timestamp date default sysdate,
-	state number(1) default 1
+	state number(1) default 1 check (state = 0 or state = 1)
 );
 
 create table as_reply(
