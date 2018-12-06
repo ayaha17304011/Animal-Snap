@@ -6,6 +6,7 @@ public class PostBean implements Bean{
 	private String caption;
 	private String imageURL;
 	private String timestamp;
+	private String userName;
 
 	public PostBean(){}
 
@@ -24,6 +25,9 @@ public class PostBean implements Bean{
 	public void setTimestamp(String time){
 		timestamp = time;
 	}
+	public void setUserName(String name){
+		userName = name;
+	}
 
 	public String getPostId(){
 		return postId;
@@ -39,5 +43,8 @@ public class PostBean implements Bean{
 	}
 	public String getTimestamp(){
 		return timestamp;
+	}
+	public String getUserName(){
+		return userName;
 	}
 }

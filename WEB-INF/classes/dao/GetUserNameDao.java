@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GetProductDao extends AbstractDao{
+public class GetUserNameDao{
     public String getUserName(String uid){
         Connection cn = null;
         PreparedStatement st = null;
@@ -16,7 +16,7 @@ public class GetProductDao extends AbstractDao{
         String name = null;
         
         try{
-            cn = OraConnectionManager.getInstance().getConnection();
+            cn = OracleConnectionManager.getInstance().getConnection();
             String sql = "select username from as_user where userid=?";
             st = cn.prepareStatement(sql);
             st.setString(1, uid);
@@ -24,7 +24,7 @@ public class GetProductDao extends AbstractDao{
             rs.next();
             name = rs.getString(1);
         }catch(SQLException e){
-            OraConnectionManager.getInstance().rollback();
+            OracleConnectionManager.getInstance().rollback();
         }finally{
             try{
                 if(rs!= null){
@@ -36,6 +36,6 @@ public class GetProductDao extends AbstractDao{
                 ex.printStackTrace();
             }
         }
-        return postList;
+        return name;
     }
 }

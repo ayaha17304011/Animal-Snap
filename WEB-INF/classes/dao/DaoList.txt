@@ -1,0 +1,16 @@
+/**********************************
+*---------DAO Check List--------
+*login[X]
+*regist[O] >12/05
+*follow[X]
+*like[X]
+*post[x]
+*getUserInfo[x]
+*getReplyList[x]
+*getLikeList[x]
+*getPostList[T] >12/06
+*getFollowingList[x]
+*getFollowerList[x]
+*getPostView[O](test version) >12/06
+*getUserName[O] >12/06
+**********************************/

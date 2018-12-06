@@ -9,13 +9,12 @@
 <body>
 	<div class="post">
 		<div class="header">
-			<img src="<c:url value='/WebContent/images/${post.iconPath}'/>" alt="icon">
-			<a href="">${user.userName}</a>
+			<a href="">${data.userName}</a>
 
 		</div>
 
 		<div class="image">
-			<img src="<c:url value='/WebContent/images/${post.imageURL}'/>" alt="post">
+			<img src="<c:url value='/WebContent/images/${data.imageURL}'/>" alt="post">
 		</div>
 		<div class="command">
 			<span style="font-size: 2em;">
@@ -27,17 +26,17 @@
 		</div>
 		<div class="content">
 			<div class="caption">
-				<a href="">${user.userName}</a>${post.caption}
+				<a href="">${data.userName}</a>${data.caption}
 			</div>
 			<div class="reply">
 				<c:forEach var="replies" items="${post}">
-					<!-- reply.username --> ${post.reply}
+					<!-- reply.username ${post.reply} -->
 				</c:forEach>
 			</div>
 			<form class="replybox">
 				<input type="textarea" name="replybox">
 				<input type="submit" name="submit" value="reply">
-				<input type="hidden" value="${sessionScope.loginUser.loginId}"
+				<!-- <input type="hidden" value="${sessionScope.loginUser.loginId}" -->
 			</form>
 		</div>
 	</div>
