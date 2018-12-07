@@ -4,18 +4,22 @@ import java.util.Map;
 import java.util.ArrayList;
 
 import main.ResponseContext;
-import dao.ReplyDao;
+import main.RequestContext;
+import dao.LikeDao;
 import dao.OraConnectionManager;
 import beans.PostBean;
 
-public class GetPostViewCommand extends AbstractCommand{
+public class LikeCommand extends AbstractCommand{
     public ResponseContext execute(ResponseContext resc){
         PostBean pb = new PostBean();
-        HttpServletRequest req = resc.getRequest();
-        int userid = req.getParameter("userid");
-
+        LikeDao dao = new LikeDao();
+        RequestContext reqc = getRequestContext();
+        String[] uid = reqc.getParameter("uid");
+        pb.setUserId(uid[0]);
+        String[] pid = reqc.getParameter("pid");
+        pb.setPostId(pid[0]);
         OraConnectionManager.getInstance().beginTransaction();
-        dao.like(pb, userid);
+        dao.like(pb);
         OraConnectionManager.getInstance().closeConnection();
 
         resc.setTarget("postview");

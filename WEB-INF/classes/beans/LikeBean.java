@@ -1,6 +1,6 @@
 package beans;
 
-public class LikeBean implements Bean{
+public class LikeBean extends Bean{
 	private String likeId;
 	private String userId;
 	private String postId;

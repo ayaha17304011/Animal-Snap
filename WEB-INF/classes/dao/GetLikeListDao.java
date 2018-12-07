@@ -6,25 +6,26 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
-public class GetLikeListDao extends AbstractDao{
+import beans.LikeBean;
+
+public class GetLikeListDao{
     public ArrayList getLikeList(LikeBean lb){
         Connection cn = null;
         PreparedStatement st = null;
         ResultSet rs = null;
         ArrayList likeList = new ArrayList();
-        GetUserNameDao dao = new GetUserNameDao();
+        GetUserNameDao getName = new GetUserNameDao();
 
         try{
             cn = OraConnectionManager.getInstance().getConnection();
             String sql = "select userid from as_like where postID=? order by timestamp";
             st = cn.prepareStatement(sql);
-            st.setInt(1, lb.getPostId());
+            st.setString(1, lb.getPostId());
             rs = st.executeQuery();
 
             while(rs.next()){
-                lb.setUserName(dao.getUserName(rs.getString(1)));
+                lb.setUserName(getName.getUserName(rs.getString(1)));
                 likeList.add(lb);
             }
         }catch(SQLException e){
