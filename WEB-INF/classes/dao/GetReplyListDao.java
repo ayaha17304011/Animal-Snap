@@ -20,16 +20,16 @@ public class ReplyListDao extends AbstractDao{
 
         try{
             cn = OraConnectionManager.getInstance().getConnection();
-            String sql = "select * from as_reply where postID=? order by timestamp";
+            String sql = "select userid,reply,timestamp from as_reply where postID=? order by timestamp";
             st = cn.prepareStatement(sql);
             st.setInt(1, pb.getPostId());
             rs = st.executeQuery();
 
             while(rs.next()){
-                rb.setusername(dao.getUserName(rs.getString(2)));
-                rb.setReply(rs.getString(4));
-                rb.setTimestamp(rs.getString(5));
-                replyList.add(ReplyBean);
+                rb.setUserName(dao.getUserName(rs.getString(1)));
+                rb.setReply(rs.getString(2));
+                rb.setTimestamp(rs.getString(3));
+                replyList.add(rb);
             }
         }catch(SQLException e){
             OraConnectionManager.getInstance().rollback();
