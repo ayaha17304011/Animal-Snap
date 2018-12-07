@@ -1,0 +1,14 @@
+	<header class="site-header">
+			<h1 class="site-logo"><img src="../WebContent/images/default_icon.png" alt="WEBDESIGNDAY"></h1>
+			<nav class="gnav">
+				<ul class="gnav__menu">
+					<li class="gnav__menu__item"><a href=""><img src="../WebContent/images/default_icon.png"></a></li>
+					<li class="gnav__menu__item"><a href=""><img src="../WebContent/images/default_icon.png"></a></li>
+					<li class="gnav__menu__item"><a href=""><img src="../WebContent/images/default_icon.png"></a></li>
+					<li class="gnav__menu__item"><a href=""><img src="../WebContent/images/default_icon.png"></a></li>
+	
+				</ul>
+			</nav>
+			<LINK REL="stylesheet" TYPE="text/css" HREF="../WebContent/style/timeline.css">
+				<title>‚ ‚É‚Ü‚é ‚·‚È‚Á‚Õ</title>
+		</header>
