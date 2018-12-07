@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import main.ResponseContext;
 import dao.GetReplyListDao;
 import dao.OraConnectionManager;
-import bean.PostBean;
+import beans.PostBean;
 
 public class GetPostViewCommand extends AbstractCommand{
     public ResponseContext execute(ResponseContext resc){
