@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import main.ResponseContext;
 import dao.GetPostViewDao;
-import dao.OracleConnectionManager;
+import dao.OraConnectionManager;
 
 import beans.PostBean;
 
@@ -15,9 +15,9 @@ public class GetPostViewCommand extends AbstractCommand{
         PostBean pb = new PostBean();
         pb.setPostId("1");
         GetPostViewDao dao = new GetPostViewDao();
-        OracleConnectionManager.getInstance().beginTransaction();
+        OraConnectionManager.getInstance().beginTransaction();
         Object result = dao.getPost(pb);
-        OracleConnectionManager.getInstance().closeConnection();
+        OraConnectionManager.getInstance().closeConnection();
 
         resc.setResult(result);
         resc.setTarget("postview");

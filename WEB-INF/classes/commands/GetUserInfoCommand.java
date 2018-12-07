@@ -4,13 +4,13 @@ import java.util.Map;
 import java.util.ArrayList;
 
 import main.ResponseContext;
-import dao.GetReplyListDao;
+import dao.GetUserInfoDao;
 import dao.OraConnectionManager;
-import bean.UserBean;
+import beans.UserBean;
 
 public class GetUserInfoCommand extends AbstractCommand{
     public ResponseContext execute(ResponseContext resc){
-        GetReplyListDao dao = new GetReplyListDao();
+        GetUserInfoDao dao = new GetUserInfoDao();
         UserBean ub = new UserBean();
 
         OraConnectionManager.getInstance().beginTransaction();

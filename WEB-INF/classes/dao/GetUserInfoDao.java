@@ -8,7 +8,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GetUserInfoDao extends AbstractDao{
+import beans.UserBean;
+
+public class GetUserInfoDao{
     public ArrayList getUserInfo(UserBean ub){
         Connection cn = null;
         PreparedStatement st = null;
@@ -19,30 +21,30 @@ public class GetUserInfoDao extends AbstractDao{
             cn = OraConnectionManager.getInstance().getConnection();
             String sql = "select loginid,username,password,iconpath,state from as_user where userID=?";
             st = cn.prepareStatement(sql);
-            st.setInt(1, ub.getUserId());
+            st.setString(1, ub.getUserId());
             rs = st.executeQuery();
 
             rs.next();
-            if(rs.getInt(5)==1){ //state==0ÇÕëﬁâÔÇµÇΩÉÜÅ[ÉUÅ[
+            if(rs.getInt(5)==1){ 
                 ub.setLoginId(rs.getString(1));
                 ub.setUserName(rs.getString(2));
                 ub.setPassword(rs.getString(3));
-                ub.setIconPath(rs.getString(4));
+                ub.setIconImage(rs.getString(4));
                 userInfo.add(ub);
             }
         }catch(SQLException e){
             OraConnectionManager.getInstance().rollback();
         }finally{
             try{
-                if(rs!= null){
+                if(rs != null){
                     rs.close();
-                }if(st!= null){
+                }if(st != null){
                     st.close();
                 }
             }catch(SQLException ex){
                 ex.printStackTrace();
             }
         }
-        return replyList;
+        return userInfo;
     }
 }

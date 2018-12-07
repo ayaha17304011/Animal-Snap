@@ -4,15 +4,18 @@ import java.util.Map;
 import java.util.ArrayList;
 
 import main.ResponseContext;
+import main.RequestContext;
 import dao.GetReplyListDao;
 import dao.OraConnectionManager;
-import bean.PostBean;
+import beans.PostBean;
 
-public class GetPostViewCommand extends AbstractCommand{
+public class GetReplyListCommand extends AbstractCommand{
     public ResponseContext execute(ResponseContext resc){
         GetReplyListDao dao = new GetReplyListDao();
+        RequestContext reqc = getRequestContext();
         PostBean pb = new PostBean();
-
+        String[] pid = reqc.getParameter("pid");
+        pb.setPostId(pid[0]);
         OraConnectionManager.getInstance().beginTransaction();
         Object result = dao.getReplyList(pb);
         OraConnectionManager.getInstance().closeConnection();

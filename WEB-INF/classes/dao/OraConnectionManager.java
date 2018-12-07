@@ -4,15 +4,15 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class OracleConnectionManager {
-  private static OracleConnectionManager oracn = null;
+public class OraConnectionManager {
+  private static OraConnectionManager oracn = null;
   private Connection cn = null;
 
-  private OracleConnectionManager(){}
+  private OraConnectionManager(){}
 
-  public static OracleConnectionManager getInstance(){
+  public static OraConnectionManager getInstance(){
     if(oracn == null){
-      oracn = new OracleConnectionManager();
+      oracn = new OraConnectionManager();
     }
 
     return oracn;

@@ -13,7 +13,7 @@ public class GetPostViewDao{
     try{
       Connection cn = null;
       ResultSet rs = null;
-      cn = OracleConnectionManager.getInstance().getConnection();
+      cn = OraConnectionManager.getInstance().getConnection();
       String sql = "select postId, userId, caption, imageUrl ,timeStamp from as_post where postId = ?";
       st = cn.prepareStatement(sql);
       st.setString(1, pb.getPostId());
@@ -27,10 +27,10 @@ public class GetPostViewDao{
       pb.setImageURL(rs.getString(4));
       pb.setTimestamp(rs.getString(5));
     }catch (SQLException e) {
-			OracleConnectionManager.getInstance().rollback();
+			OraConnectionManager.getInstance().rollback();
 		}finally{
 			try{
-				if(st!=null){
+				if(st != null){
 					st.close();
 				}
 			}catch(SQLException e){

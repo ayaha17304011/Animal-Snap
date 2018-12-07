@@ -18,7 +18,7 @@ public class GetPostListDao{
         ArrayList postList = new ArrayList();
         
         try{
-            cn = OracleConnectionManager.getInstance().getConnection();
+            cn = OraConnectionManager.getInstance().getConnection();
             String sql = "select postID,userID,caption,imageURL,timestamp from as_post";
             st = cn.prepareStatement(sql);
             rs = st.executeQuery();
@@ -34,12 +34,12 @@ public class GetPostListDao{
                 postList.add(p);
             }
         }catch(SQLException e){
-            OracleConnectionManager.getInstance().rollback();
+            OraConnectionManager.getInstance().rollback();
         }finally{
             try{
-                if(rs!= null){
+                if(rs != null){
                     rs.close();
-                }if(st!= null){
+                }if(st != null){
                     st.close();
                 }
             }catch(SQLException ex){

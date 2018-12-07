@@ -6,6 +6,7 @@ public class ReplyBean extends Bean{
 	private String postId;
 	private String reply;
 	private String timestamp;
+	private String userName;
 
 	public ReplyBean() {}
 
@@ -24,6 +25,9 @@ public class ReplyBean extends Bean{
 	public void setTimestamp(String ts){
 		timestamp = ts;
 	}
+	public void setUserName(String name){
+		userName = name;
+	}
 
 	public String getReplyId(){
 		return replyId;
@@ -39,5 +43,8 @@ public class ReplyBean extends Bean{
 	}
 	public String getTimestamp(){
 		return timestamp;
+	}
+	public String getUserName(){
+		return userName;
 	}
 }

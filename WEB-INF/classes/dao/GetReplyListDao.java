@@ -7,9 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import bean.ReplyBean;
+import beans.ReplyBean;
+import beans.PostBean;
 
-public class ReplyListDao extends AbstractDao{
+public class GetReplyListDao{
     public ArrayList getReplyList(PostBean pb){
         Connection cn = null;
         PreparedStatement st = null;
@@ -22,7 +23,7 @@ public class ReplyListDao extends AbstractDao{
             cn = OraConnectionManager.getInstance().getConnection();
             String sql = "select userid,reply,timestamp from as_reply where postID=? order by timestamp";
             st = cn.prepareStatement(sql);
-            st.setInt(1, pb.getPostId());
+            st.setString(1, pb.getPostId());
             rs = st.executeQuery();
 
             while(rs.next()){
@@ -35,9 +36,9 @@ public class ReplyListDao extends AbstractDao{
             OraConnectionManager.getInstance().rollback();
         }finally{
             try{
-                if(rs!= null){
+                if(rs != null){
                     rs.close();
-                }if(st!= null){
+                }if(st != null){
                     st.close();
                 }
             }catch(SQLException ex){

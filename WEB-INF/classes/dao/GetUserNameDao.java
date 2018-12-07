@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import beans.UserBean;
+
 public class GetUserNameDao{
     public String getUserName(String uid){
         Connection cn = null;
@@ -16,7 +18,7 @@ public class GetUserNameDao{
         String name = null;
         
         try{
-            cn = OracleConnectionManager.getInstance().getConnection();
+            cn = OraConnectionManager.getInstance().getConnection();
             String sql = "select username from as_user where userid=?";
             st = cn.prepareStatement(sql);
             st.setString(1, uid);
@@ -24,12 +26,12 @@ public class GetUserNameDao{
             rs.next();
             name = rs.getString(1);
         }catch(SQLException e){
-            OracleConnectionManager.getInstance().rollback();
+            OraConnectionManager.getInstance().rollback();
         }finally{
             try{
-                if(rs!= null){
+                if(rs != null){
                     rs.close();
-                }if(st!= null){
+                }if(st != null){
                     st.close();
                 }
             }catch(SQLException ex){

@@ -12,7 +12,7 @@ public class RegistDao{
     PreparedStatement st = null;
     try{
       Connection cn = null;
-      cn = OracleConnectionManager.getInstance().getConnection();
+      cn = OraConnectionManager.getInstance().getConnection();
       String sql = "insert into as_user(userId, LoginId, userName, password, iconPath) values(as_seq_userId.next_val, ?, ?, ?,'defaultIcon.jpg')";
       st = cn.prepareStatement(sql);
       st.setString(1,ub.getLoginId());
@@ -21,7 +21,7 @@ public class RegistDao{
 
       st.executeUpdate();
     }catch (SQLException e) {
-			OracleConnectionManager.getInstance().rollback();
+			OraConnectionManager.getInstance().rollback();
 		}finally{
 			try{
 				if(st!=null){
