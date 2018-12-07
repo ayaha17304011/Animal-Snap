@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ReplyDao extends AbstractDao{
-    public void reply(PostBean pb){
+    public void reply(PostBean pb, String reply){
         Connection cn = null;
         PreparedStatement st = null;
         ResultSet rs = null;
@@ -18,7 +18,7 @@ public class ReplyDao extends AbstractDao{
             st = cn.prepareStatement(sql);
             st.setInt(1, pb.getUserId());
             st.setInt(2, pb.getPostId());
-            st.setString(3, pb.getReply());
+            st.setString(3, reply);
             rs = st.executeQuery();
         }catch(SQLException e){
             OraConnectionManager.getInstance().rollback();
