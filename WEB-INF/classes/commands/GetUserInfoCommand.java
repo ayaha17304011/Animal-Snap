@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import main.ResponseContext;
 import dao.GetReplyListDao;
 import dao.OraConnectionManager;
-import bean.UserBean;
+import beans.UserBean;
 
 public class GetUserInfoCommand extends AbstractCommand{
     public ResponseContext execute(ResponseContext resc){
