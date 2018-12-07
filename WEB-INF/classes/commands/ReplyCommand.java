@@ -6,13 +6,17 @@ import java.util.ArrayList;
 import main.ResponseContext;
 import dao.ReplyDao;
 import dao.OraConnectionManager;
+import bean.PostBean;
 
 public class GetPostViewCommand extends AbstractCommand{
     public ResponseContext execute(ResponseContext resc){
         ReplyDao dao = new ReplyDao();
+        PostBean pb = new PostBean();
+        HttpServletRequest req = resc.getRequest();
+        String reply = req.getParameter("reply");
 
         OraConnectionManager.getInstance().beginTransaction();
-        Object result = dao.reply();
+        dao.reply(pb, reply);
         OraConnectionManager.getInstance().closeConnection();
 
         resc.setTarget("postview");
