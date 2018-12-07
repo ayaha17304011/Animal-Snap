@@ -1,11 +1,11 @@
 package beans;
 
-public class UserBean extends Bean{
+public class UserBean implements Bean{
 	private String userId;
 	private String loginId;
 	private String password;
 	private String userName;
-	private String iconImage;
+	private String iconPath;
 
 	public UserBean(){};
 
@@ -21,8 +21,8 @@ public class UserBean extends Bean{
 	public void setUserName(String name){
 		userName = name;
 	}
-	public void setIconImage(String icon){
-		iconImage = icon;
+	public void setIconPath(String icon){
+		iconPath = icon;
 	}
 
 	public String getUserId(){
