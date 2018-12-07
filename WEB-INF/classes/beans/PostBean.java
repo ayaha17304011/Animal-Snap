@@ -1,6 +1,6 @@
 package beans;
 
-public class PostBean implements Bean{
+public class PostBean extends Bean{
 	private String postId;
 	private String userId;
 	private String caption;

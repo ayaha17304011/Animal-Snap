@@ -1,6 +1,6 @@
 package beans;
 
-public class UserBean implements Bean{
+public class UserBean extends Bean{
 	private String userId;
 	private String loginId;
 	private String password;

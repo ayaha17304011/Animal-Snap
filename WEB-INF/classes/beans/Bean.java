@@ -1,3 +1,3 @@
 package beans;
 import java.io.Serializable;
-interface Bean extends Serializable {}
+public abstract class Bean implements Serializable {}

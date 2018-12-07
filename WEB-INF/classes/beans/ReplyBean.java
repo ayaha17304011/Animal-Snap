@@ -1,6 +1,6 @@
 package beans;
 
-public class ReplyBean implements Bean{
+public class ReplyBean extends Bean{
 	private String replyId;
 	private String userId;
 	private String postId;

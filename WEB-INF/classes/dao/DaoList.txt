@@ -14,3 +14,6 @@
 *getPostView[O](test version) >12/06
 *getUserName[O] >12/06
 **********************************/
+
+
+insert into as_post values(2,1,'caption','image1.jpg',sysdate,1);

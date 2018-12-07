@@ -8,22 +8,23 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import bean.PostBean;
+import beans.PostBean;
 
-public class GetPostListDao extends AbstractDao{
-    public List getPosList(){
+public class GetPostListDao{
+    public List getPostList(){
         Connection cn = null;
         PreparedStatement st = null;
         ResultSet rs = null;
         ArrayList postList = new ArrayList();
         
         try{
-            cn = OraConnectionManager.getInstance().getConnection();
+            cn = OracleConnectionManager.getInstance().getConnection();
             String sql = "select postID,userID,caption,imageURL,timestamp from as_post";
             st = cn.prepareStatement(sql);
             rs = st.executeQuery();
+            GetUserNameDao getName = new GetUserNameDao();
             while(rs.next()){
-                String name = GetUserNameDao.getUserName(rs.getString(2));
+                String name = getName.getUserName(rs.getString(2));
                 PostBean p = new PostBean();
                 p.setPostId(rs.getString(1));
                 p.setUserName(name);
@@ -33,7 +34,7 @@ public class GetPostListDao extends AbstractDao{
                 postList.add(p);
             }
         }catch(SQLException e){
-            OraConnectionManager.getInstance().rollback();
+            OracleConnectionManager.getInstance().rollback();
         }finally{
             try{
                 if(rs!= null){
