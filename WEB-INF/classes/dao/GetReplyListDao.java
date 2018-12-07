@@ -16,6 +16,7 @@ public class ReplyListDao extends AbstractDao{
         ResultSet rs = null;
         ArrayList replyList = new ArrayList();
         ReplyBean rb = new ReplyBean();
+        GetUserNameDao dao = new GetUserNameDao();
 
         try{
             cn = OraConnectionManager.getInstance().getConnection();
@@ -25,7 +26,7 @@ public class ReplyListDao extends AbstractDao{
             rs = st.executeQuery();
 
             while(rs.next()){
-                rb.setusername(getUserName(rs.getString(2)));
+                rb.setusername(dao.getUserName(rs.getString(2)));
                 rb.setReply(rs.getString(4));
                 rb.setTimestamp(rs.getString(5));
                 replyList.add(ReplyBean);
