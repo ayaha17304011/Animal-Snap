@@ -14,7 +14,7 @@ public class AddPostCommand extends AbstractCommand{
 		Upload u = new Upload();
 		PostBean pb = u.uploadFlie(reqc);
 		PostDB.addPost(pb);
-		resc.setTarget("showtest");
+		resc.setTarget("timeline");
 		return resc;
 	}
 }
