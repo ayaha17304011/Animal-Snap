@@ -10,7 +10,7 @@ public abstract class AbstractDaoFactory {
 		Properties prop = new Properties();
 		
 		try{
-			prop.load(AbstractDaoFactory.class.getClassLoader().getResourceAsStream("../properties/dao.properties"));
+			prop.load(AbstractDaoFactory.class.getClassLoader().getResourceAsStream("../../properties/dao.properties"));
 			String name = prop.getProperty("dao");
 			Class c = Class.forName(name);
 			factory = (AbstractDaoFactory) c.newInstance();
@@ -27,6 +27,4 @@ public abstract class AbstractDaoFactory {
 		}
 		return factory;
 	}
-
-	public abstract AnimalDao getDao();
 }

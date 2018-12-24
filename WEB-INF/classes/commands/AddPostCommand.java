@@ -1,6 +1,5 @@
 package commands;
 
-import dao.PostDB;
 import main.RequestContext;
 import main.ResponseContext;
 import util.Upload;
@@ -13,7 +12,7 @@ public class AddPostCommand extends AbstractCommand{
 		RequestContext reqc = getRequestContext();
 		Upload u = new Upload();
 		PostBean pb = u.uploadFlie(reqc);
-		PostDB.addPost(pb);
+		
 		resc.setTarget("showtest");
 		return resc;
 	}

@@ -34,6 +34,7 @@ public class OraConnectionManager {
     try{
       if(cn != null || !(cn.isClosed())){
         cn.close();
+      	cn = null;
       }
     }catch(SQLException e){
       e.printStackTrace();
