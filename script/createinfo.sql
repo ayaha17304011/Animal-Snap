@@ -1,10 +1,13 @@
+/* ユーザーを作成するスクリプト */
+/* sys as sysdbaで接続してから＠ script\createinfo.sqlで実行する */
+
 set echo off
 set feed off
 
-@ c:\script\alter_profile             -- �p�X���[�h�̊����𖳊����ɕύX
+@ script\alter_profile.sql            -- パスワードの期限を無期限に変更
 
 
-/** ���[�U�����݂��Ă���ꍇ�A�폜���� **/
+/** ユーザが存在している場合、削除する **/
 
 DECLARE
   v_cnt NUMBER;
@@ -19,7 +22,7 @@ BEGIN
 END;
 /
 
-@ c:\script\createuser                -- ���[�U���쐬���܂��B
+@ script\createuser.sql                -- ユーザを作成
 
 
 set serveroutput on
@@ -34,7 +37,7 @@ BEGIN
 
   IF v_cnt = 1 THEN
      DBMS_OUTPUT.PUT_LINE('------------------------');
-     DBMS_OUTPUT.PUT_LINE('ANIMAL���[�U���쐬���܂���');
+     DBMS_OUTPUT.PUT_LINE('ANIMALユーザを作成しました');
      DBMS_OUTPUT.PUT_LINE('------------------------');
   END IF;
 END;
