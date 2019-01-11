@@ -1,0 +1,44 @@
+create table as_user(
+	userID number(10) constraint pk_userID primary key,
+	loginID varchar2(30) constraint uq_loginID unique,
+	username varchar2(30) not null,
+	password varchar2(12) not null,
+	iconpath varchar2(256) not null
+);
+
+create table as_follower(
+	userID number(10),
+	observerID number(10),
+	CONSTRAINT FK_follow_userID FOREIGN KEY (userID) REFERENCES as_user(userID),
+	CONSTRAINT FK_follow_observerID FOREIGN KEY (ObserverID) REFERENCES as_user(userID)
+);
+
+create table as_post(
+	postID number(10) constraint pk_postID primary key,
+	userID number(10) constraint fk_Post_userID references as_user(userID),
+	caption varchar2(600),
+	imageURL varchar2(256) not null,
+	timestamp date default sysdate,
+	state number(1) default 1 check (state = 0 or state = 1)
+);
+
+create table as_reply(
+	replyID number(10) constraint pk_replyId primary key,
+	userID number(10) constraint fk_reply_userId references as_user(userID),
+	postID number(10) constraint fk_reply_postId references as_post(postID),
+	reply varchar2(600) not null,
+	timestamp date default sysdate
+);
+
+create table as_like(
+	likeID number(10) constraint pk_likeId primary key,
+	userID number (10) constraint fk_like_userId references as_user(userID),
+	postID number (10) constraint fk_like_postId references as_post(postId)
+);
+
+create sequence as_seq_userId start with 1 increment by 1;
+create sequence as_seq_postId start with 1 increment by 1;
+create sequence as_seq_replyId start with 1 increment by 1;
+create sequence as_seq_likeId start with 1 increment by 1;
+
+
