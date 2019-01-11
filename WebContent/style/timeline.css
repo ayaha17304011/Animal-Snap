@@ -9,14 +9,15 @@
     height: 10%;
 }
 .site-logo img{
-    height: 10px;
+
     width: auto;
 }
 .gnav__menu{
     display: flex;
+    margin: auto;
 }
 .gnav__menu__item{
-    margin-left: 10px;
+    margin-left: 1%;
     width: 5%;
     list-style: none;
     
