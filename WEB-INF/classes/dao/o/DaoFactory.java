@@ -27,6 +27,4 @@ public abstract class DaoFactory {
 		}
 		return factory;
 	}
-
-	public abstract AnimalDao getDao();
 }

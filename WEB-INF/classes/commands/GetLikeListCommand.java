@@ -8,6 +8,7 @@ import main.RequestContext;
 import dao.GetLikeListDao;
 import dao.OraConnectionManager;
 import beans.LikeBean;
+import dao.AnimalDao;
 
 public class GetLikeListCommand extends AbstractCommand{
     public ResponseContext execute(ResponseContext resc){

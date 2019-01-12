@@ -14,7 +14,7 @@ public abstract class CommandFactory {
 		Properties prop = new Properties();
 		
 		try{
-			prop.load(CommandFactory.class.getClassLoader().getResourceAsStream("../../properties/commands.properties"));
+			prop.load(CommandFactory.class.getClassLoader().getResourceAsStream("../properties/commands.properties"));
 			
 			String name = prop.getProperty(rec.getCommandPath());
 			
@@ -35,3 +35,4 @@ public abstract class CommandFactory {
 		}
 	return command;
 	}
+}

@@ -1,0 +1,35 @@
+/**********************************
+*---------Command Check List--------
+*login[X]
+*regist[O] >12/05
+*follow[O]
+*like[O]
+*post[O]
+*getUserInfo[O]
+*getReplyList[O]
+*getLikeList[O]
+*getPostList[T] >12/06
+*getFollowingList[O]
+*getFollowerList[O]
+*getPostView[O](test version) >12/06
+*getUserName[O] >12/06
+**********************************/
+
+/**********************************
+*---------DAO Check List--------
+*SQLUpdate[O] 01/11
+*login[X]
+*follow[X]
+*like[O] 01/11
+*getUserInfo[O] 01/11
+*getReplyList[O] 01/11
+*getLikeList[O] 01/11
+*getPostList[O] 01/11
+*getFollowingList[X]
+*getFollowerList[X]
+*getPostView[O] 01/11
+*getUserName[O] 01/11
+**********************************/
+
+
+insert into as_post values(2,1,'caption','image1.jpg',sysdate,1);

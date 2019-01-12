@@ -1,8 +1,5 @@
 package commands;
 
-import java.util.Map;
-import java.util.ArrayList;
-
 import main.ResponseContext;
 import main.RequestContext;
 import dao.LikeDao;

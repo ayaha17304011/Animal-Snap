@@ -29,11 +29,6 @@ public class Upload{
 			fileName = getFileName(file);
 			file.write(path+fileName);
 			post.setImageURL(fileName);
-
-			//test
-			post.setPostId(path+fileName);
-
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}	catch (ServletException e){
