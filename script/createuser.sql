@@ -1,7 +1,7 @@
--- 実習用ユーザを作成します(ユーザ名：web　パスワード：pro)
+-- 実習用ユーザを作成します(ユーザ名：animal　パスワード：pass)
 
 CREATE USER animal
-IDENTIFIED BY animal
+IDENTIFIED BY pass
 DEFAULT TABLESPACE users
 TEMPORARY TABLESPACE temp
 QUOTA UNLIMITED ON users;
