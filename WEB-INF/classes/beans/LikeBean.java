@@ -5,6 +5,7 @@ public class LikeBean extends Bean{
 	private String userId;
 	private String postId;
 	private String userName;
+	private String iconPath;
 
 	public LikeBean(){};
 
@@ -20,6 +21,9 @@ public class LikeBean extends Bean{
 	public void setUserName(String name){
 		userName = name;
 	}
+	public void setIconPath(String ipath){
+		iconPath = ipath;
+	}
 
 	public String getUserId(){
 		return userId;
@@ -32,5 +36,8 @@ public class LikeBean extends Bean{
 	}
 	public String getUserName(){
 		return userName;
+	}
+	public String getIconPath(){
+		return iconPath;
 	}
 }

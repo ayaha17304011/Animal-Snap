@@ -1,23 +1,21 @@
 package commands;
 
-import java.util.Map;
-import java.util.ArrayList;
-
 import main.ResponseContext;
-import dao.GetUserInfoDao;
+import main.RequestContext;
 import dao.OraConnectionManager;
 import beans.UserBean;
 
 public class GetUserInfoCommand extends AbstractCommand{
     public ResponseContext execute(ResponseContext resc){
-        GetUserInfoDao dao = new GetUserInfoDao();
-        UserBean ub = new UserBean();
-
+        RequestContext reqc = getRequestContext();
+        UserBean ub = null;
+        String[] uid = reqc.getParameter("uid");
         OraConnectionManager.getInstance().beginTransaction();
-        Object result = dao.getUserInfo(ub);
+        ub = dao.getUserInfo(uid[0]);
         OraConnectionManager.getInstance().closeConnection();
 
-        resc.setResult(result);
+        resc.setResult(ub);
+        resc.setTarget("");
         return resc;
     }
 }

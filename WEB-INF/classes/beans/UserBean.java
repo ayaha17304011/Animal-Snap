@@ -6,6 +6,9 @@ public class UserBean extends Bean{
 	private String password;
 	private String userName;
 	private String iconImage;
+	private String postCount;
+	private String observer;
+	private String following;
 
 	public UserBean(){};
 
@@ -24,6 +27,15 @@ public class UserBean extends Bean{
 	public void setIconImage(String icon){
 		iconImage = icon;
 	}
+	public void setPostCount(String pcount){
+		postCount = pcount;
+	}
+	public void setObserver(String ocount){
+		observer = ocount;
+	}
+	public void setFollowing(String fcount){
+		following = fcount;
+	}
 
 	public String getUserId(){
 		return userId;
@@ -39,5 +51,14 @@ public class UserBean extends Bean{
 	}
 	public String getIconImage(){
 		return iconImage;
+	}
+	public String getPostCount(){
+		return postCount;
+	}
+	public String getObserver(){
+		return observer;
+	}
+	public String getFollowing(){
+		return following;
 	}
 }

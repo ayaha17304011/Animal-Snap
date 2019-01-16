@@ -23,7 +23,7 @@ create table as_post(
 );
 
 create table as_reply(
-	replyID number(10) constraint pk_replyId primary key,
+	replyID number(10) constraint pk_replyId primary key,****
 	userID number(10) constraint fk_reply_userId references as_user(userID),
 	postID number(10) constraint fk_reply_postId references as_post(postID),
 	reply varchar2(600) not null,
@@ -31,9 +31,10 @@ create table as_reply(
 );
 
 create table as_like(
-	likeID number(10) constraint pk_likeId primary key,
+	likeID number(10) constraint pk_likeId primary key,****
 	userID number (10) constraint fk_like_userId references as_user(userID),
-	postID number (10) constraint fk_like_postId references as_post(postId)
+	postID number (10) constraint fk_like_postId references as_post(postId),
+	timestamp date default sysdate
 );
 
 create sequence as_seq_userId start with 1 increment by 1;
