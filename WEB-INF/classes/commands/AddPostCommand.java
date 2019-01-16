@@ -8,18 +8,22 @@ import dao.PostDao;
 
 import java.util.ArrayList;
 
-public class PostCommand extends AbstractCommand{
+public class AddPostCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
 		RequestContext reqc = getRequestContext();
-		Upload u = new Upload();
-		PostBean pb = u.uploadFlie(reqc);
-		String sql = "insert"
+		// Upload u = new Upload();
+		String[] uid = (String[])reqc.getParameter("userId");
+		String[] cap = (String[])reqc.getParameter("caption");
+		String[] url = (String[])reqc.getParameter("imageURL");
+		String userId = uid[0];
+		String caption = cap[0];
+		String imageURL = url[0];
+		// PostBean pb = u.uploadFlie(reqc);
+		String sql = "INSERT INTO as_post VALUES(as_seq_postId.nextval"+","+userId+"'"+caption+"','"+imageURL+"',sysdate,1);"
 		PostDao dao = new PostDao();
-		String[] uid = reqc.getParameter("UserId");
-		pb.setUserId(uid[0]);
 		dao.SQLUpdate(sql);
 		
-		resc.setTarget("showtest");
+		resc.setTarget("postview"); //ì]ëóêÊurlÇÕï ìrïœçX
 		return resc;
 	}
 }
