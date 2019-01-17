@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import main.RequestContext;
 import main.ResponseContext;
 import util.Upload;
-import dao.UserDB;
+import dao.AnimalDao;
 import beans.UserBean;
 
 public class LoginCommand extends AbstractCommand{
@@ -18,6 +18,7 @@ public class LoginCommand extends AbstractCommand{
         boolean loginflag= false;
         String result = "";
         UserBean ub = new UserBean();
+        AnimalDao dao = new AnimalDao();
 
         String[] loginIdArray = (String[])reqc.getParameter("loginid");
         String loginId = loginIdArray[0];
@@ -30,9 +31,9 @@ public class LoginCommand extends AbstractCommand{
         // ログイン情報がデータベースに登録されているか確認する
         // ub = dao.LoginProcessing(ub);
 
-        result = dao.login(ub);
+        result = dao.Login(ub);
 
-        if result != null{
+        if(result != null){
             loginflag = true;
         }else{
             System.out.println("パスワードもしくはIDが違います");
