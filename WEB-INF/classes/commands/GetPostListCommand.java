@@ -5,11 +5,11 @@ import main.RequestContext;
 
 import java.util.List;
 import dao.OraConnectionManager;
-import dao.GetPostListDao;
+import dao.AnimalDao;
 
 public class GetPostListCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
-		GetPostListDao dao = new GetPostListDao();
+		AnimalDao dao = new AnimalDao(); 
 		OraConnectionManager.getInstance().beginTransaction();
 		List result = dao.getPostList();
 		OraConnectionManager.getInstance().closeConnection();

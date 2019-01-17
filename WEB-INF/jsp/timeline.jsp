@@ -26,11 +26,11 @@
 				<div class="post">
 
 						<div class="header">
-							<a href="">${data.userName}</a>
+							<img src="<c:url value='/${data.iconPath}'/>"><a href="">${data.userName}</a>
 						</div>
 				
 						<div class="image">
-							<img src="<c:url value='/WebContent/images/${data.imageURL}'/>" alt="Post Image">
+							<img src="<c:url value='/${data.imageURL}'/>" alt="Post Image">
 						</div>
 
 						<!-- iine, comment(reply) -->
@@ -49,7 +49,7 @@
 							</div>
 							<div class="reply">
 								<c:forEach var="replies" items="${post}">
-									<!-- reply.username ${post.reply} -->
+									 reply.username ${post.reply}
 								</c:forEach>
 							</div>
 							

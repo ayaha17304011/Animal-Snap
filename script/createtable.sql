@@ -71,9 +71,9 @@ INSERT INTO as_follower VALUES(1,2);
 INSERT INTO as_post VALUES(as_seq_postId.nextval,1,'test','sample_image\dogcat.jpg',sysdate,1);
 
 -- as_reply表にデータを挿入します。
-INSERT INTO as_reply VALUES(as_seq_replyId.nextval,1,10,'testtest',sysdate);
+INSERT INTO as_reply VALUES(as_seq_replyId.nextval,1,1,'testtest',sysdate);
 
 --as_like表にデータを挿入します。
-INSERT INTO as_reply VALUES(as_seq_likeId.nextval,1,10);
+INSERT INTO as_like VALUES(as_seq_likeId.nextval,1,1);
 
 commit;

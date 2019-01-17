@@ -22,7 +22,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import java.util.Arraylist;
+import java.util.ArrayList;
 import java.util.List;
 
 import beans.*;
@@ -35,9 +35,10 @@ public class AnimalDao{
     try{
       cn = OraConnectionManager.getInstance().getConnection();
       st = cn.prepareStatement(sql);
-      st = executeUpdate();
+      st.executeUpdate();
     }catch(SQLException e){
       OraConnectionManager.getInstance().rollback();
+      e.printStackTrace();
     }finally{
       try{
         if(st!= null){
@@ -56,27 +57,29 @@ public class AnimalDao{
         ResultSet rs = null;
         ArrayList postList = new ArrayList();
         try{
+
             cn = OraConnectionManager.getInstance().getConnection();
-            String sql = "SELECT p.postID,u.username,u.IconPath,p.caption,p.imageURL,p.timestamp,
-                          (SELECT count(*) FROM as_like WHERE postId = p.postId) AS like_count,
-                          (SELECT count(*) FROM as_reply WHERE postId = p.postId) AS reply_count
-                          FROM as_post p LEFT JOIN as_user u on(p.userId = u.userId)";
+            String sql = "SELECT p.postID,u.username,u.IconPath,p.caption,p.imageURL,p.timestamp,"+
+                         "(SELECT count(*) FROM as_like WHERE postId = p.postId) AS like_count,"+
+                         "(SELECT count(*) FROM as_reply WHERE postId = p.postId) AS reply_count "+
+                         "FROM as_post p LEFT JOIN as_user u on(p.userId = u.userId)";
             st = cn.prepareStatement(sql);
             rs = st.executeQuery();
             while(rs.next()){
                 PostBean pb = new PostBean();
                 pb.setPostId(rs.getString(1));
                 pb.setUserName(rs.getString(2));
-                pb.setIconPath(rs.getString(3))
+                pb.setIconPath(rs.getString(3));
                 pb.setCaption(rs.getString(4));
                 pb.setImageURL(rs.getString(5));
                 pb.setTimestamp(rs.getString(6));
                 pb.setLikeCount(rs.getString(7));
                 pb.setReplyCount(rs.getString(8));
-                postList.add(p);
+                postList.add(pb);
             }
         }catch(SQLException e){
             OraConnectionManager.getInstance().rollback();
+            e.printStackTrace();
         }finally{
             try{
                 if(rs != null){
@@ -93,21 +96,21 @@ public class AnimalDao{
     //GetPostView
     public PostBean getPost(PostBean pb){
     PreparedStatement st = null;
+    Connection cn = null;
+    ResultSet rs = null;
     try{
-        Connection cn = null;
-        ResultSet rs = null;
         cn = OraConnectionManager.getInstance().getConnection();
-        String sql = "SELECT p.postID,u.username,u.IconPath,p.caption,p.imageURL,p.timestamp,
-                      (SELECT count(*) FROM as_like WHERE postId = p.postId) AS like_count,
-                      (SELECT count(*) FROM as_reply WHERE postId = p.postId) AS reply_count
-                      FROM as_post p LEFT JOIN as_user u on(p.userId = u.userId) WHERE p.postId = ?";
+        String sql = "SELECT p.postID,u.username,u.IconPath,p.caption,p.imageURL,p.timestamp,"+
+                      "(SELECT count(*) FROM as_like WHERE postId = p.postId) AS like_count,"+
+                      "(SELECT count(*) FROM as_reply WHERE postId = p.postId) AS reply_count"+
+                      "FROM as_post p LEFT JOIN as_user u on(p.userId = u.userId) WHERE p.postId = ?";
         st = cn.prepareStatement(sql);
         st.setString(1, pb.getPostId());
         rs = st.executeQuery();
         rs.next();
         pb.setPostId(rs.getString(1));
         pb.setUserName(rs.getString(2));
-        pb.setIconPath(rs.getString(3))
+        pb.setIconPath(rs.getString(3));
         pb.setCaption(rs.getString(4));
         pb.setImageURL(rs.getString(5));
         pb.setTimestamp(rs.getString(6));
@@ -115,18 +118,18 @@ public class AnimalDao{
         pb.setReplyCount(rs.getString(8));
     }catch (SQLException e) {
 			OraConnectionManager.getInstance().rollback();
-		}finally{
-			try{
-        if(rs != null){
-          rs.close();
+            e.printStackTrace();
+    }finally{
+        try{
+            if(rs != null){
+                rs.close();
+            }if(st != null){
+                st.close();
+            }
+        }catch(SQLException ex){
+            ex.printStackTrace();
         }
-				if(st != null){
-					st.close();
-				}
-			}catch(SQLException e){
-        e.printStackTrace();
-      }
-		}
+    }
     return pb;
   }
   //getLikeList
@@ -135,12 +138,11 @@ public class AnimalDao{
         PreparedStatement st = null;
         ResultSet rs = null;
         ArrayList likeList = new ArrayList();
-        GetUserNameDao getName = new GetUserNameDao();
         try{
             cn = OraConnectionManager.getInstance().getConnection();
-            String sql = "SELECT u.username, u.iconpath 
-                          FROM as_like l LEFT JOIN as_user u on (u.userId = l.userId) 
-                          WHERE postID=? order by timestamp";
+            String sql = "SELECT u.username, u.iconpath "+
+                          "FROM as_like l LEFT JOIN as_user u on (u.userId = l.userId)"+ 
+                          "WHERE postID=? order by timestamp";
             st = cn.prepareStatement(sql);
             st.setString(1, lb.getPostId());
             rs = st.executeQuery();
@@ -151,6 +153,7 @@ public class AnimalDao{
             }
         }catch(SQLException e){
             OraConnectionManager.getInstance().rollback();
+            e.printStackTrace();
         }finally{
             try{
                 if(rs!= null){
@@ -171,13 +174,12 @@ public class AnimalDao{
         ResultSet rs = null;
         ArrayList replyList = new ArrayList();
         ReplyBean rb = new ReplyBean();
-        GetUserNameDao dao = new GetUserNameDao();
 
         try{
             cn = OraConnectionManager.getInstance().getConnection();
-            String sql = "SELECT u.username,r.reply,r.timestamp 
-                          FROM as_reply r LEFT JOIN as_user u 
-                          WHERE postID=? order by timestamp";
+            String sql = "SELECT u.username,r.reply,r.timestamp "+
+                          "FROM as_reply r LEFT JOIN as_user u "+
+                          "WHERE postID=? order by timestamp";
             st = cn.prepareStatement(sql);
             st.setString(1, pb.getPostId());
             rs = st.executeQuery();
@@ -190,6 +192,7 @@ public class AnimalDao{
             }
         }catch(SQLException e){
             OraConnectionManager.getInstance().rollback();
+            e.printStackTrace();
         }finally{
             try{
                 if(rs != null){
@@ -212,12 +215,12 @@ public class AnimalDao{
         try{
             cn = OraConnectionManager.getInstance().getConnection();
             // no state
-            String sql = "SELECT u.loginid,u.username,u.password,u.iconpath,
-                          (SELECT count(*) FROM as_post WHERE userId = u.userId and state = 1) AS POST_COUNT,
-                          (SELECT count(*) FROM as_follower WHERE userId = u.userId) AS OBSERVER,
-                          (SELECT count(*) FROM as_follower WHERE observerId = u.userId) AS FOLLOWING
-                          FROM as_user u
-                          WHERE u.userID = " + uid;
+            String sql = "SELECT u.loginid,u.username,u.password,u.iconpath,"+
+                          "(SELECT count(*) FROM as_post WHERE userId = u.userId and state = 1) AS POST_COUNT,"+
+                          "(SELECT count(*) FROM as_follower WHERE userId = u.userId) AS OBSERVER,"+
+                          "(SELECT count(*) FROM as_follower WHERE observerId = u.userId) AS FOLLOWING "+
+                          "FROM as_user u" +
+                          "WHERE u.userID = " + uid;
             st = cn.prepareStatement(sql);
             rs = st.executeQuery();
 
@@ -233,6 +236,7 @@ public class AnimalDao{
             }
         }catch(SQLException e){
             OraConnectionManager.getInstance().rollback();
+            e.printStackTrace();
         }finally{
             try{
                 if(rs != null){
@@ -271,6 +275,7 @@ public class AnimalDao{
             }
         }catch(SQLException e){
             OraConnectionManager.getInstance().rollback();
+            e.printStackTrace();
         }finally{
             try{
                 if(rs != null){
@@ -303,6 +308,7 @@ public class AnimalDao{
             }
         }catch(SQLException e){
             OraConnectionManager.getInstance().rollback();
+            e.printStackTrace();
         }finally{
             try{
                 if(rs != null){
@@ -327,21 +333,22 @@ public class AnimalDao{
             cn = OraConnectionManager.getInstance().getConnection();
             String select = "SELECT userId, observerId FROM as_follower WHERE userId = ? AND observerId ?";
             st = cn.prepareStatement(select);
-            st.setString(1, pb.getUserId());
-            st.setString(2, pb.getObserverId());
+            st.setString(1, fb.getUserId());
+            st.setString(2, fb.getObserverId());
             rs = st.executeQuery();
             if(rs.next()){
                 String uid = rs.getString("userId");
                 sql = "delete from as_follower where userid = " + uid;
                 SQLUpdate(sql);
             }else{
-                String uid = pb.getUserId();
-                String oid = pb.getObserverId();
+                String uid = fb.getUserId();
+                String oid = fb.getObserverId();
                 sql = "insert into as_follower(userId,observerId) values(" + uid + "," + oid + ")";
                 SQLUpdate(sql);
             }
         }catch(SQLException e){
             OraConnectionManager.getInstance().rollback();
+            e.printStackTrace();
         }finally{
             try{
                 if(rs != null){
@@ -371,6 +378,7 @@ public class AnimalDao{
             }
         }catch(SQLException e){
             OraConnectionManager.getInstance().rollback();
+            e.printStackTrace();
         }finally{
             try{
                 if(rs != null){
@@ -382,5 +390,6 @@ public class AnimalDao{
                 ex.printStackTrace();
             }
         }
+        return list;
     }
 }

@@ -31,7 +31,7 @@ public class PostBean extends Bean{
 	public void setUserName(String name){
 		userName = name;
 	}
-	public void setIcocPath(String ipath){
+	public void setIconPath(String ipath){
 		iconPath = ipath;
 	}
 	public void setLikeCount(String lcount){

@@ -21,7 +21,7 @@ public class OraConnectionManager {
     try{
       if(cn == null || cn.isClosed()){
         Class.forName("oracle.jdbc.driver.OracleDriver");
-        cn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","info","pro");
+        cn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","animal","pass");
       }
     }catch(ClassNotFoundException e){
       e.printStackTrace();
