@@ -2,18 +2,32 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 	<head>
-		<title>Show Test</title>
+		<header class="site-header">
+			<h1 class="site-logo"><a href=""><img src="WebContent/logo/animal-log.png" alt="ロゴ"></h1>
+			<nav class="gnav">
+				<ul class="gnav__menu">
+					<li class="gnav__menu__item"><a href=""><img src="WebContent/profileIcon/default_icon.png" alt="通知"></a></li>
+					<li class="gnav__menu__item"><a href=""><img src="WebContent/profileIcon/default_icon.png" alt="いいね早見表"></a></li>
+					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/profileIcon/default_icon.png" alt="アイコン"></a></li>
+	
+				</ul>
+			</nav>
+		</header>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/timeline.css"/>
+		<title>タイムライン</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	</head>
 	<body>
+	<br/><br/><br/><br/>
 		<% if(session.getAttribute("loginUser") == null){ %>
 
-			<a href="log">Login</a>
-			<a href="signup">Signup</a>
+			<a href="log">ログイン</a>
+			<a href="signup">新規登録</a>
 
 		<% } else { %>
 
 			${sessionScope.loginUser.loginId}
-			<a href="logout">Logout</a>
+			<a href="logout">ログアウト</a>
 
 		<% } %>
 		<%
@@ -26,11 +40,11 @@
 				<div class="post">
 
 						<div class="header">
-							<img src="<c:url value='/${data.iconPath}'/>"><a href="">${data.userName}</a>
+							<img src="<c:url value='/WebContent/${data.iconPath}'/>"><a href="">${data.userName}</a>
 						</div>
 				
 						<div class="image">
-							<img src="<c:url value='/${data.imageURL}'/>" alt="Post Image">
+							<img src="<c:url value='/WebContent/${data.imageURL}'/>" alt="Post Image">
 						</div>
 
 						<!-- iine, comment(reply) -->
@@ -56,7 +70,7 @@
 							<form class="replybox">
 								<input type="textarea" name="replybox">
 								<input type="submit" name="submit" value="reply">
-								<!-- <input type="hidden" value="${sessionScope.loginUser.loginId}" -->
+								<input type="hidden" value="${sessionScope.loginUser.loginId}">
 							</form>
 						</div>
 					</div>

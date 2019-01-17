@@ -21,7 +21,7 @@
 	<!-- 画像を表示 -->
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
-		<url-pattern>/sample_image/*</url-pattern>
+		<url-pattern>/WebContent/*</url-pattern>
 	</servlet-mapping>
 
 
