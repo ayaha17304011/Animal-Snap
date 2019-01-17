@@ -1,17 +1,17 @@
-/***********************last update -01/16
+/***********************last update -01/17
 *--name---        -line-
-*SQLUpdate      | 32->50
-*getPostList    | 53->89
-*getPost        | 91->124
-*getlikeList    | 126->158
-*getReplyList   | 161->196
-*getUserInfo    | 197->238
-**getUserName   | 239->273 ---- delete
-*like           | 275->310
-*login          | 311->343
-*follow         | 344->383
-*getFollowerlist| -------- oo
-*getFolloingList| --------
+*SQLUpdate      | 32->51
+*getPostList    | 53->95
+*getPost        | 96->134
+*getlikeList    | 135->169
+*getReplyList   | 170->208
+**getUserInfo   | 209->252
+*like           | 253->290
+*login          | 291->324
+*follow         | 325->363
+*getFollowerlist| 364->396
+*getFolloingList| 397->429
+*likeCheck      | --------
 *followCheck    | --------
 ******************************************/
 
@@ -51,7 +51,7 @@ public class AnimalDao{
   }
 
   //GetPostList
-  public List getPostList(){
+  public List getPostList(String uid){
         Connection cn = null;
         PreparedStatement st = null;
         ResultSet rs = null;
@@ -59,11 +59,15 @@ public class AnimalDao{
         try{
 
             cn = OraConnectionManager.getInstance().getConnection();
-            String sql = "SELECT p.postID,u.username,u.IconPath,p.caption,p.imageURL,p.timestamp,"+
+            String sql = "SELECT distinct p.postID, u.username, u.IconPath, p.caption, p.imageURL, p.timestamp,"+
                          "(SELECT count(*) FROM as_like WHERE postId = p.postId) AS like_count,"+
                          "(SELECT count(*) FROM as_reply WHERE postId = p.postId) AS reply_count "+
-                         "FROM as_post p LEFT JOIN as_user u on(p.userId = u.userId)";
+                         "FROM as_post p JOIN as_follower f on(p.userId = f.userID) "+
+                         "JOIN as_user u on(f.userID = u.userID) "+
+                         "WHERE p.userID = f.userID and (f.observerID = ? or p.userId = ?)";
             st = cn.prepareStatement(sql);
+            st.setString(1, uid);
+            st.setString(2, uid);
             rs = st.executeQuery();
             while(rs.next()){
                 PostBean pb = new PostBean();
@@ -102,7 +106,7 @@ public class AnimalDao{
         cn = OraConnectionManager.getInstance().getConnection();
         String sql = "SELECT p.postID,u.username,u.IconPath,p.caption,p.imageURL,p.timestamp,"+
                       "(SELECT count(*) FROM as_like WHERE postId = p.postId) AS like_count,"+
-                      "(SELECT count(*) FROM as_reply WHERE postId = p.postId) AS reply_count"+
+                      "(SELECT count(*) FROM as_reply WHERE postId = p.postId) AS reply_count "+
                       "FROM as_post p LEFT JOIN as_user u on(p.userId = u.userId) WHERE p.postId = ?";
         st = cn.prepareStatement(sql);
         st.setString(1, pb.getPostId());
@@ -141,8 +145,8 @@ public class AnimalDao{
         try{
             cn = OraConnectionManager.getInstance().getConnection();
             String sql = "SELECT u.username, u.iconpath "+
-                          "FROM as_like l LEFT JOIN as_user u on (u.userId = l.userId)"+ 
-                          "WHERE postID=? order by timestamp";
+                         "FROM as_like l LEFT JOIN as_user u on (u.userId = l.userId) "+ 
+                         "WHERE postID = ?";
             st = cn.prepareStatement(sql);
             st.setString(1, lb.getPostId());
             rs = st.executeQuery();
@@ -219,7 +223,7 @@ public class AnimalDao{
                           "(SELECT count(*) FROM as_post WHERE userId = u.userId and state = 1) AS POST_COUNT,"+
                           "(SELECT count(*) FROM as_follower WHERE userId = u.userId) AS OBSERVER,"+
                           "(SELECT count(*) FROM as_follower WHERE observerId = u.userId) AS FOLLOWING "+
-                          "FROM as_user u" +
+                          "FROM as_user u " +
                           "WHERE u.userID = " + uid;
             st = cn.prepareStatement(sql);
             rs = st.executeQuery();
@@ -251,7 +255,7 @@ public class AnimalDao{
         return ub;
     }
     //DoLike
-    public void like(PostBean pb){
+    public void like(LikeBean lb){
         Connection cn = null;
         PreparedStatement st = null;
         ResultSet rs = null;
@@ -260,16 +264,16 @@ public class AnimalDao{
             cn = OraConnectionManager.getInstance().getConnection();
             String select = "select likeId from as_like where userId = ? and postId = ?";
             st = cn.prepareStatement(select);
-            st.setString(1, pb.getUserId());
-            st.setString(2, pb.getPostId());
+            st.setString(1, lb.getUserId());
+            st.setString(2, lb.getPostId());
             rs = st.executeQuery();
             if(rs.next()){
                 String likeId = rs.getString("likeId");
                 sql = "delete from as_like where likeId = " + likeId;
                 SQLUpdate(sql);
             }else{
-                String uid = pb.getUserId();
-                String pid = pb.getPostId();
+                String uid = lb.getUserId();
+                String pid = lb.getPostId();
                 sql = "insert into as_like(likeid,userid,postid) values(as_seq_likeId.next_val, " + uid + ", " + pid + ")";
                 SQLUpdate(sql);
             }
@@ -331,7 +335,7 @@ public class AnimalDao{
         //userid == you || observerid == me
         try{
             cn = OraConnectionManager.getInstance().getConnection();
-            String select = "SELECT userId, observerId FROM as_follower WHERE userId = ? AND observerId ?";
+            String select = "SELECT userId, observerId FROM as_follower WHERE userId = ? AND observerId = ?";
             st = cn.prepareStatement(select);
             st.setString(1, fb.getUserId());
             st.setString(2, fb.getObserverId());
@@ -368,7 +372,42 @@ public class AnimalDao{
         ResultSet rs = null;
         ArrayList<String> list = new ArrayList<String>();
         try{
-            String sql = "SELECT observerId FROM as_follower WHERE userid = ?";
+            String sql = "SELECT u.iconPath, u.username, f.observerId " +
+            "FROM as_follower f INNER JOIN as_user u on(u.userId = f.observerId) "+
+            "WHERE f.userid = ?";
+            st = cn.prepareStatement(sql);
+            st.setString(1, uid);
+            rs = st.executeQuery();
+            while(rs.next()){
+                String follower = rs.getString(1);
+                list.add(follower);
+            }
+        }catch(SQLException e){
+            OraConnectionManager.getInstance().rollback();
+            e.printStackTrace();
+        }finally{
+            try{
+                if(rs != null){
+                    rs.close();
+                }if(st != null){
+                    st.close();
+                }
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        return list;
+    }
+    //
+    public ArrayList getFollowinglist(String uid){
+        Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        ArrayList<String> list = new ArrayList<String>();
+        try{
+            String sql = "SELECT u.iconPath, u.username, f.userId "+
+                         "FROM as_follower f INNER JOIN as_user u on(u.userId = f.userId) "+
+                         "WHERE f.observerId = ?";
             st = cn.prepareStatement(sql);
             st.setString(1, uid);
             rs = st.executeQuery();

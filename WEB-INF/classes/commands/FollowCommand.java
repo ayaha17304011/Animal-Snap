@@ -7,13 +7,13 @@ import main.ResponseContext;
 import main.RequestContext;
 import dao.OraConnectionManager;
 import beans.FollowBean;
-import dao.FollowDao;
+import dao.AnimalDao;
 
 
 public class FollowCommand extends AbstractCommand{
     public ResponseContext execute(ResponseContext resc){
         FollowBean fb = new FollowBean();
-
+        AnimalDao dao = new AnimalDao();
         RequestContext reqc = getRequestContext();
         String[] uid = reqc.getParameter("userId");
         fb.setUserId(uid[0]);
@@ -23,7 +23,7 @@ public class FollowCommand extends AbstractCommand{
         dao.follow(fb);
         OraConnectionManager.getInstance().closeConnection();
 
-        resc.setTarget("postview");
+        resc.setTarget("timeline");
         return resc;
     }
 }
