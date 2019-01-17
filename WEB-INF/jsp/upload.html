@@ -1,0 +1,33 @@
+<%@ page pageEncoding="Windows-31J" contentType="text/html;charset=Windows-31J" %>
+<html>
+	<head>
+	
+		<script>
+			UPLOADCARE_PUBLIC_KEY = 'ff85e12f115ff930ded0';
+			UPLOADCARE_LOCALE = 'ja';
+			UPLOADCARE_TABS = 'file';
+			UPLOADCARE_EFFECTS = 'crop,rotate,mirror,enhance,sharp,blur,grayscale';
+			UPLOADCARE_IMAGE_SHRINK = '1024x1024 false%';
+			UPLOADCARE_IMAGES_ONLY = true;
+			UPLOADCARE_PREVIEW_STEP = true;
+		</script>
+		
+		<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script><script src="https://ucarecdn.com/libs/widget-tab-effects/1.x/uploadcare.tab-effects.js"></script>
+		<script>
+			uploadcare.registerTab('preview', uploadcareTabEffects)
+		</script>
+	
+		<title>Upload Test</title>
+		
+	</head>
+	<body>
+		<form method="post" action="addpost" enctype="multipart/form-data">
+			<input type="text" name="userId"><br>
+			<input type="text" name="caption"><br>
+			<input type="file" name="upload" accept="video/*,image/*" required><br>
+			<input type="hidden" role="uploadcare-uploader" name="content" data-image-shrink="1024x1024 false%" data-multiple="true" data-multiple-min="1" data-multiple-max="4" data-crop="1:1" />
+			<input type="submit" name="Upload">
+			
+		</form>
+	</body>
+</html>
