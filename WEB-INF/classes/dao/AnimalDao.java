@@ -1,20 +1,20 @@
 /***********************last update -01/17
 *--name---        -line-
-*SQLUpdate      | 32->51
-*getPostList    | 53->95
-*getPost        | 96->134
-*getlikeList    | 135->169
-*getReplyList   | 170->208
-**getUserInfo   | 209->252
-*like           | 253->290
-*login          | 291->324
-*follow         | 325->363
-*getFollowerlist| 364->396
-*getFolloingList| 397->429
+*SQLUpdate      | 30->51
+*getPostList    | 53->99
+*getPost        | 100->139
+*getlikeList    | 140->174
+*getReplyList   | 175->213
+**getUserInfo   | 214->257
+*like           | 258->295
+*login          | 296->329
+*follow         | 330->368
+*getFollowerlist| 369->401
+*getFolloingList| 402->434
+*NextReplyCount | 435->465
 *likeCheck      | --------
 *followCheck    | --------
 ******************************************/
-
 package dao;
 
 import java.sql.Connection;

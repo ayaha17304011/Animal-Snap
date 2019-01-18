@@ -6,8 +6,6 @@ import dao.AnimalDao;
 import dao.OraConnectionManager;
 import beans.LikeBean;
 
-import java.util.ArrayList;
-
 public class LikeCommand extends AbstractCommand{
     public ResponseContext execute(ResponseContext resc){
         RequestContext reqc = getRequestContext();

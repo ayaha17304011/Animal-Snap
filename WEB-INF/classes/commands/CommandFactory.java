@@ -1,4 +1,3 @@
-
 package commands;
 
 import main.RequestContext;
