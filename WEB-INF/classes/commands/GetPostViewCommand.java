@@ -1,20 +1,31 @@
 package commands;
 
-import main.ResponseContext;
+import java.util.Map;
+import java.util.ArrayList;
+
 import main.RequestContext;
-import dao.AnimalDao;
+import main.ResponseContext;
 import dao.OraConnectionManager;
+import dao.AnimalDao;
+import beans.UserBean;
+import beans.PostBean;
 
 public class GetPostViewCommand extends AbstractCommand{
     public ResponseContext execute(ResponseContext resc){
-        RequestContext reqc = getRequestContext();
+		RequestContext reqc = getRequestContext();
+        String[] pidArr = (String[])reqc.getParameter("postId");
+        String pid = pidArr[0];
+
         AnimalDao dao = new AnimalDao();
-        String[] pid = reqc.getParameter("postId"); 
+        PostBean pb = null;
+
+        pb.setPostId(pid);
+
         OraConnectionManager.getInstance().beginTransaction();
-        Object result = dao.getPost(pid[0]);
+        pb = dao.getPost(pb);
         OraConnectionManager.getInstance().closeConnection();
 
-        resc.setResult(result);
+        resc.setResult(pb);
         resc.setTarget("postview");
         return resc;
     }
