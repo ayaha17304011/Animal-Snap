@@ -98,10 +98,11 @@ public class AnimalDao{
         return postList;
     }
     //GetPostView
-    public PostBean getPost(PostBean pb){
+    public PostBean getPost(String pid){
     PreparedStatement st = null;
     Connection cn = null;
     ResultSet rs = null;
+    PostBean pb = new PostBean();
     try{
         cn = OraConnectionManager.getInstance().getConnection();
         String sql = "SELECT p.postID,u.username,u.IconPath,p.caption,p.imageURL,p.timestamp,"+
@@ -109,7 +110,7 @@ public class AnimalDao{
                       "(SELECT count(*) FROM as_reply WHERE postId = p.postId) AS reply_count "+
                       "FROM as_post p LEFT JOIN as_user u on(p.userId = u.userId) WHERE p.postId = ?";
         st = cn.prepareStatement(sql);
-        st.setString(1, pb.getPostId());
+        st.setString(1, pid);
         rs = st.executeQuery();
         rs.next();
         pb.setPostId(rs.getString(1));

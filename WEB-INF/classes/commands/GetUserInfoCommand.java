@@ -9,7 +9,7 @@ public class GetUserInfoCommand extends AbstractCommand{
     public ResponseContext execute(ResponseContext resc){
         RequestContext reqc = getRequestContext();
         UserBean ub = null;
-        String[] uid = reqc.getParameter("uid");
+        String[] uid = reqc.getParameter("userId");
         OraConnectionManager.getInstance().beginTransaction();
         ub = dao.getUserInfo(uid[0]);
         OraConnectionManager.getInstance().closeConnection();

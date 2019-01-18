@@ -1,8 +1,5 @@
 package commands;
 
-import java.util.Map;
-import java.util.ArrayList;
-
 import main.ResponseContext;
 import main.RequestContext;
 import dao.AnimalDao;
@@ -14,7 +11,7 @@ public class GetReplyListCommand extends AbstractCommand{
         AnimalDao dao = new AnimalDao();
         RequestContext reqc = getRequestContext();
         PostBean pb = new PostBean();
-        String[] pid = reqc.getParameter("pid");
+        String[] pid = reqc.getParameter("postId");
         pb.setPostId(pid[0]);
         OraConnectionManager.getInstance().beginTransaction();
         Object result = dao.getReplyList(pb);
