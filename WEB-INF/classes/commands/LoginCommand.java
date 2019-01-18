@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 import main.RequestContext;
 import main.ResponseContext;
-import util.Upload;
 import dao.AnimalDao;
 import beans.UserBean;
 
@@ -27,9 +26,6 @@ public class LoginCommand extends AbstractCommand{
         String[] passArray = (String[])reqc.getParameter("pass");
         String pass = passArray[0];
         ub.setPassword(pass);
-
-        // ログイン情報がデータベースに登録されているか確認する
-        // ub = dao.LoginProcessing(ub);
 
         result = dao.Login(ub);
 
