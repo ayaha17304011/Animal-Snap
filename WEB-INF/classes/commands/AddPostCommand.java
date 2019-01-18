@@ -6,8 +6,6 @@ import util.Upload;
 import beans.PostBean;
 import dao.AnimalDao;
 
-import java.util.ArrayList;
-
 public class AddPostCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
 		RequestContext reqc = getRequestContext();
