@@ -2,8 +2,7 @@ package commands;
 
 import main.RequestContext;
 import main.ResponseContext;
-import util.Upload;
-import beans.PostBean;
+import dao.OraConnectionManager;
 import dao.AnimalDao;
 
 public class AddPostCommand extends AbstractCommand{
@@ -17,9 +16,11 @@ public class AddPostCommand extends AbstractCommand{
 		String caption = cap[0];
 		String imageURL = url[0];
 
-		String sql = "INSERT INTO as_post VALUES(as_seq_postId.nextval"+","+userId+"'"+caption+"','"+imageURL+"',sysdate,1)";
 		AnimalDao dao = new AnimalDao();
+		String sql = "INSERT INTO as_post VALUES(as_seq_postId.nextval"+","+userId+"'"+caption+"','"+imageURL+"',sysdate,1)";
+        OraConnectionManager.getInstance().beginTransaction();
 		dao.SQLUpdate(sql);
+        OraConnectionManager.getInstance().closeConnection();
 		
 		resc.setTarget("postview");
 		return resc;
