@@ -12,7 +12,7 @@ public class GetUserInfoCommand extends AbstractCommand{
         UserBean ub = null;
         AnimalDao dao = new AnimalDao();
         
-        String[] uid = reqc.getParameter("uid");
+        String[] uid = reqc.getParameter("userId");
         OraConnectionManager.getInstance().beginTransaction();
         ub = dao.getUserInfo(uid[0]);
         OraConnectionManager.getInstance().closeConnection();

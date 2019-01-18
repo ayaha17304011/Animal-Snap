@@ -17,7 +17,9 @@ public class AddPostCommand extends AbstractCommand{
 
 		String sql = "INSERT INTO as_post VALUES(as_seq_postId.nextval,"+userId+"'"+caption+"','"+imageURL+"',sysdate,1)";
 		AnimalDao dao = new AnimalDao();
+		OraConnectionManager.getInstance().beginTransaction();
 		dao.SQLUpdate(sql);
+    OraConnectionManager.getInstance().closeConnection();
 		
 		resc.setTarget("postview");
 		return resc;
