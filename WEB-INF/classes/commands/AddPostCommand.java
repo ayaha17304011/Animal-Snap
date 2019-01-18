@@ -23,7 +23,7 @@ public class AddPostCommand extends AbstractCommand{
 		AnimalDao dao = new AnimalDao();
 		dao.SQLUpdate(sql);
 		
-		resc.setTarget("postview"); //“]‘—æurl‚Í•Ê“r•ÏX
+		resc.setTarget("postview");
 		return resc;
 	}
 }
