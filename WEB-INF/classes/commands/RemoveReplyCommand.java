@@ -10,7 +10,8 @@ public class RemoveReplyCommand extends AbstractCommand{
     RequestContext reqc = getRequestContext();
     AnimalDao dao = new AnimalDao();
     String[] rid = reqc.getParameter("replyId");
-    String sql = "DELETE FROM as_reply WHERE replyId = " + rid[0];
+    String[] pid =reqc.getParameter("postId");
+    String sql = "DELETE FROM as_reply WHERE replyId = " + rid[0] + " AND postId = " + pid[0] + ")";
     OraConnectionManager.getInstance().beginTransaction();
     dao.SQLUpdate(sql);
     OraConnectionManager.getInstance().closeConnection();

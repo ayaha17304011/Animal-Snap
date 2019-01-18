@@ -432,4 +432,35 @@ public class AnimalDao{
         }
         return list;
     }
+    //replyId count
+    public int getNextReplyCount(String pid){
+        Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        int new_count = 0;
+        try{
+            String sql = "SELECT count(*) WHERE as_reply WHERE postId = " + pid;
+            st = cn.prepareStatement(sql);
+            rs = st.executeQuery();
+            if(rs.next()){
+                new_count = rs.getInt(1) + 1;
+            }else{
+                new_count = 1;
+            }
+        }catch(SQLException e){
+            OraConnectionManager.getInstance().rollback();
+            e.printStackTrace();
+        }finally{
+            try{
+                if(rs != null){
+                    rs.close();
+                }if(st != null){
+                    st.close();
+                }
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        return new_count;
+    }
 }

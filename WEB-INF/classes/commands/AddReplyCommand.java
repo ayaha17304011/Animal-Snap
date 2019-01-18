@@ -16,13 +16,13 @@ public class AddReplyCommand extends AbstractCommand{
 		String userId = userIdArr[0];
 		String postId = postIdArr[0];
 		String reply = replyArr[0];
-
-		String sql = "insert into as_reply(userId, postId, reply, timestamp) values("+userId+","+postId+","+reply+",default)";
+		int count = dao.getNextReplyCount(postId);
+		String sql = "insert into as_reply(replyId, userId, postId, reply, timestamp) values("+count+","+userId+","+postId+","+reply+",default)";
         OraConnectionManager.getInstance().beginTransaction();
 		dao.SQLUpdate(sql);
         OraConnectionManager.getInstance().closeConnection();
 		
-		resc.setTarget("timeline"); // <= “¯‚¶URL‚É–ß‚·
+		resc.setTarget("timeline");
 		return resc;
 	}
 }
