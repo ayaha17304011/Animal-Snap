@@ -19,10 +19,8 @@ public class GetPostViewCommand extends AbstractCommand{
         AnimalDao dao = new AnimalDao();
         PostBean pb = null;
 
-        pb.setPostId(pid);
-
         OraConnectionManager.getInstance().beginTransaction();
-        pb = dao.getPost(pb);
+        pb = dao.getPost(pidArr[0]);
         OraConnectionManager.getInstance().closeConnection();
 
         resc.setResult(pb);
