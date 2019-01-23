@@ -41,14 +41,3 @@ create sequence as_seq_userId start with 1 increment by 1;
 create sequence as_seq_postId start with 1 increment by 1;
 create sequence as_seq_replyId start with 1 increment by 1;
 create sequence as_seq_likeId start with 1 increment by 1;
-
-
-SELECT distinct p.postID, u.username, u.IconPath, p.caption, p.imageURL, p.timestamp, p.userId,
-(SELECT count(*) FROM as_like WHERE postId = p.postId) AS like_count,
-(SELECT count(*) FROM as_reply WHERE postId = p.postId) AS reply_count 
-FROM as_user u RIGHT JOIN as_post p on(u.userId = p.userId)
-LEFT JOIN as_follower f on(u.userid = f.userId) 
-WHERE u.userid = 1 or f.observerId = 1;
-
-
-INSERT INTO as_post VALUES(as_seq_postId.nextval,2,'captest2sssss','sample_image\sheep.jpg',default,default);
