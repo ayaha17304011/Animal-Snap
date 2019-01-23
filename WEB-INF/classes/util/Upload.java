@@ -23,22 +23,12 @@ public class Upload{
 		PostBean post = new PostBean();
 		try{
 			String caption = req.getParameter("caption");
-			String userId = req.getParameter("uid");
+			String userId = req.getParameter("userId");
 			post.setCaption(caption);
 			post.setUserId(userId);
 			Part file = req.getPart("post");
 
 			if(req!=null) System.out.println(req.getServletPath());
-
-			String ct = file.getContentType();
-			String[] s = ct.split("/");
-			if(s[0] == "image"){
-				path = path + "image/";
-			}else if(s[0] == "video"){
-				path = path + "video";
-			}else{
-				path = path + "etc";
-			}
 
 			fileName = "user" + userId + "_" + getFileName(file);
 			file.write(path+fileName);

@@ -4,10 +4,12 @@
 		<title>Upload Test</title>
 	</head>
 	<body>
-		<form method="post" action="addpost" enctype="multipart/form-data">
+		<form method="post" action="post" enctype="multipart/form-data">
 			<input type="text" name="caption"><br>
-			<input type="file" name="upload" accept="video/*,image/*" required><br>
+			<input type="file" name="post" accept="video/*,image/*" required><br>
+			<input type="hidden" name="userId" value="${sessionScope.userId}"><br>			
 			<input type="submit" name="Upload">
+			${sessionScope.userId}
 		</form>
 	</body>
 </html>

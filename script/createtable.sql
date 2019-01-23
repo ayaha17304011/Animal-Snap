@@ -71,6 +71,8 @@ INSERT INTO as_follower VALUES(1,2);
 
 -- as_post�\
 INSERT INTO as_post VALUES(as_seq_postId.nextval,1,'captiontest','sample_image\dogcat.jpg',default,default);
+INSERT INTO as_post VALUES(as_seq_postId.nextval,2,'captest2sssss','sample_image\sheep.jpg',default,default);
+
 
 -- as_reply�\
 INSERT INTO as_reply VALUES(1,1,1,'replytest',default);

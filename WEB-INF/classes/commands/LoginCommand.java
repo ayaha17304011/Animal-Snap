@@ -37,7 +37,7 @@ public class LoginCommand extends AbstractCommand{
 
         if(loginflag){
             HttpSession session = req.getSession();
-            session.setAttribute("loginUser", ub);
+            session.setAttribute("userId", result);
             resc.setTarget("timeline");
         }else{
             resc.setTarget("login");

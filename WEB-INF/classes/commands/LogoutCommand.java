@@ -12,7 +12,7 @@ public class LogoutCommand extends AbstractCommand{
   	HttpServletRequest req =(HttpServletRequest)reqc.getRequest();
   	HttpSession session = req.getSession();
   	session.invalidate();
-    resc.setTarget("showtest");
+    resc.setTarget("login");
     return resc;
   }
 }

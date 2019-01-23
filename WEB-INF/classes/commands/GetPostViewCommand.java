@@ -21,7 +21,7 @@ public class GetPostViewCommand extends AbstractCommand{
         OraConnectionManager.getInstance().closeConnection();
 
         resc.setResult(pb);
-        resc.setTarget("postview");
+        resc.setTarget("getpostlist");
         return resc;
     }
 }

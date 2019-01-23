@@ -3,31 +3,30 @@
 <html>
 	<head>
 		<header class="site-header">
-			<h1 class="site-logo"><a href=""><img src="WebContent/logo/animal-log.png" alt="ロゴ"></h1>
+			<h1 class="site-logo"><a href=""><img src="WebContent/logo/animal-log.png" alt="logo"></h1>
 			<nav class="gnav">
 				<ul class="gnav__menu">
-					<li class="gnav__menu__item"><a href=""><img src="WebContent/profileIcon/default_icon.png" alt="通知"></a></li>
-					<li class="gnav__menu__item"><a href=""><img src="WebContent/profileIcon/default_icon.png" alt="いいね早見表"></a></li>
-					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/profileIcon/default_icon.png" alt="アイコン"></a></li>
+					<li class="gnav__menu__item"><a href=""><img src="WebContent/profileIcon/default_icon.png" alt="??m"></a></li>
+					<li class="gnav__menu__item"><a href=""><img src="WebContent/profileIcon/default_icon.png" alt="??????????\"></a></li>
+					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/profileIcon/default_icon.png" alt="?A?C?R??"></a></li>
 	
 				</ul>
 			</nav>
 		</header>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/timeline.css"/>
-		<title>タイムライン</title>
+		<title></title>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	</head>
 	<body>
 	<br/><br/><br/><br/>
-		<% if(session.getAttribute("loginUser") == null){ %>
+		<% if(session.getAttribute("userId") == null){ %>
 
-			<a href="log">ログイン</a>
-			<a href="signup">新規登録</a>
+			<a href="log">login</a>
+			<a href="signup">sign up</a>
 
 		<% } else { %>
 
-			${sessionScope.loginUser.loginId}
-			<a href="logout">ログアウト</a>
+			<a href="logout">Logout</a>
 
 		<% } %>
 		<%
@@ -40,7 +39,7 @@
 				<div class="post">
 
 						<div class="header">
-							<img src="<c:url value='/WebContent/${data.iconPath}'/>"><a href="">${data.userName}</a>
+							<img src="<c:url value='/WebContent/${data.iconPath}'/>"><a href="getpostview?postId=${data.postId}">${data.userName}</a>
 						</div>
 				
 						<div class="image">
