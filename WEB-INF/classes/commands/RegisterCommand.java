@@ -12,17 +12,17 @@ public class RegisterCommand extends AbstractCommand{
 
         RequestContext reqc = getRequestContext();
         String[] loginid = reqc.getParameter("loginid");
-        String[] password = reqc.getParameter("password");
+        String[] password = reqc.getParameter("pass");
 
-        String sql = "insert into as_user (userid,loginid,password,username,iconpath) values (as_seq_userId.nextval,"+ loginid[0] +"," + password[0] + ","+ loginid[0] +",sample_image/default_icon.png) ";    	
+        String sql = "INSERT into as_user(userid,loginid,password,username,iconpath,state) "+
+        "values (as_seq_userId.nextval,'"+ loginid[0] +"','" + password[0] + "','"+ loginid[0] +"','sample_image/default_icon.png',1) ";    	
         
 
         OraConnectionManager.getInstance().beginTransaction();
         dao.SQLUpdate(sql);
-    	
         OraConnectionManager.getInstance().closeConnection();
 
-        resc.setTarget("regist");
+        resc.setTarget("timeline");
         return resc;
     }
 }

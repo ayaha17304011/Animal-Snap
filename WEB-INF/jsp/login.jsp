@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-		
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/log.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/log.css"/>
 	<title>あにまる すなっぷ</title>
 </head>
 <body>
@@ -17,21 +17,79 @@
 					</ul>
 				</nav>
 			</header>
-<br><br><br><br>
-	<div class="box1">
-	<img src="<c:url value='WebContent/sample_image/dogcat2.jpg'/>" alt="なんかすごくキュートな動物の画像" width="80%" height="auto">
+			<br><br><br><br>
+	<div class="box">
+		<div class="box1">
+		<img src="<c:url value='WebContent/sample_image/dogcat2.jpg'/>" alt="なんかすごくキュートな動物の画像" width="80%" height="auto">
+		</div>
+		
+		<div class="box2">
+			<h1>あにまる すなっぷ</h1>
+			<button class="btn1 submitbutton" type="button">ログイン</button>
+			<br>
+			<button class="btn2 submitbutton" type="button">新規登録</button>
+		</div>
 	</div>
 	
-	<div class="box2">
-		<h1>ログイン</h1>
-		<form action="login" method="post">
-			<input type="text" name="loginid" placeholder="ユーザーID" class="nyuuryoku"><br>
-			<input type="password" name="pass" placeholder="パスワード" class="nyuuryoku"><br>
-			<input type="submit" value="ログイン" class="submitbutton">
-		</form>
-		<p><a href="signup">新規登録</p>
-	</div>
-	
-	<br><br><br><br>
+	<script>
+		$(function() {
+			$(".btn1").on("click",function(){
+				$(".box2").empty();
+				$(".box2").append(
+					$("<h1/>").text("ログイン"),
+					$("<form/>",{
+						action: 'login',
+						method: 'post'
+					}).append(
+						$("<input/>",{
+							type: 'text',
+							name: 'loginid',
+							placeholder: 'ユーザーID',
+							class: 'nyuuryoku'
+						}),
+						$("<input/>",{
+							type: 'password',
+							name: 'pass',
+							placeholder: 'パスワード',
+							class: 'nyuuryoku'
+						}),
+						$("<input/>",{
+							type: 'submit',
+							value: 'ログイン',
+							class: 'submitbutton'
+						})
+					),
+				)
+			});
+			$(".btn2").on("click",function(){
+				$(".box2").empty();
+				$(".box2").append(
+					$("<h1/>").text("新規登録"),
+					$("<form/>",{
+						action: 'login',
+						method: 'post'
+					}).append(
+						$("<input/>",{
+							type: 'text',
+							name: 'loginid',
+							placeholder: 'ユーザーID',
+							class: 'nyuuryoku'
+						}),
+						$("<input/>",{
+							type: 'password',
+							name: 'password',
+							placeholder: 'パスワード',
+							class: 'nyuuryoku'
+						}),
+						$("<input/>",{
+							type: 'submit',
+							value: '新規登録',
+							class: 'submitbutton'
+						})
+					)
+				)
+			})
+		})
+	</script>
 </body>
 </html>
