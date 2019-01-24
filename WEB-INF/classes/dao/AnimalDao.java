@@ -1,20 +1,20 @@
 /***********************last update -01/17
 *--name---        -line-
-*SQLUpdate      | 30->51
-*getPostList    | 53->99
-*getPost        | 100->139
-*getlikeList    | 140->174
-*getReplyList   | 175->213
-**getUserInfo   | 214->257
-*like           | 258->295
-*login          | 296->329
-*follow         | 330->368
-*getFollowerlist| 369->401
-*getFolloingList| 402->434
-*NextReplyCount | 435->465
+*SQLUpdate      | 32->51
+*getPostList    | 53->95
+*getPost        | 96->134
+*getlikeList    | 135->169
+*getReplyList   | 170->208
+**getUserInfo   | 209->252
+*like           | 253->290
+*login          | 291->324
+*follow         | 325->363
+*getFollowerlist| 364->396
+*getFolloingList| 397->429
 *likeCheck      | --------
 *followCheck    | --------
 ******************************************/
+
 package dao;
 
 import java.sql.Connection;
@@ -57,14 +57,14 @@ public class AnimalDao{
         ResultSet rs = null;
         ArrayList postList = new ArrayList();
         try{
+
             cn = OraConnectionManager.getInstance().getConnection();
-            String sql = "SELECT distinct p.postID, u.username, u.IconPath, p.caption, p.imageURL, p.timestamp, u.userId,"+
+            String sql = "SELECT distinct p.postID, u.username, u.IconPath, p.caption, p.imageURL, p.timestamp,"+
                          "(SELECT count(*) FROM as_like WHERE postId = p.postId) AS like_count,"+
                          "(SELECT count(*) FROM as_reply WHERE postId = p.postId) AS reply_count "+
-                         "FROM as_user u RIGHT JOIN as_post p on(u.userId = p.userId) "+
-                         "LEFT JOIN as_follower f on(u.userID = f.userId) "+
-                         "WHERE u.userId = ? or f.observerId = ? "+
-                         "ORDER BY p.timestamp desc";
+                         "FROM as_post p JOIN as_follower f on(p.userId = f.userID) "+
+                         "JOIN as_user u on(f.userID = u.userID) "+
+                         "WHERE p.userID = f.userID and (f.observerID = ? or p.userId = ?)";
             st = cn.prepareStatement(sql);
             st.setString(1, uid);
             st.setString(2, uid);
@@ -77,9 +77,8 @@ public class AnimalDao{
                 pb.setCaption(rs.getString(4));
                 pb.setImageURL(rs.getString(5));
                 pb.setTimestamp(rs.getString(6));
-                pb.setUserId(rs.getString(7));
-                pb.setLikeCount(rs.getString(8));
-                pb.setReplyCount(rs.getString(9));
+                pb.setLikeCount(rs.getString(7));
+                pb.setReplyCount(rs.getString(8));
                 postList.add(pb);
             }
         }catch(SQLException e){
@@ -99,11 +98,10 @@ public class AnimalDao{
         return postList;
     }
     //GetPostView
-    public PostBean getPost(String pid){
+    public PostBean getPost(PostBean pb){
     PreparedStatement st = null;
     Connection cn = null;
     ResultSet rs = null;
-    PostBean pb = new PostBean();
     try{
         cn = OraConnectionManager.getInstance().getConnection();
         String sql = "SELECT p.postID,u.username,u.IconPath,p.caption,p.imageURL,p.timestamp,"+
@@ -111,7 +109,7 @@ public class AnimalDao{
                       "(SELECT count(*) FROM as_reply WHERE postId = p.postId) AS reply_count "+
                       "FROM as_post p LEFT JOIN as_user u on(p.userId = u.userId) WHERE p.postId = ?";
         st = cn.prepareStatement(sql);
-        st.setString(1, pid);
+        st.setString(1, pb.getPostId());
         rs = st.executeQuery();
         rs.next();
         pb.setPostId(rs.getString(1));
@@ -301,7 +299,6 @@ public class AnimalDao{
         ResultSet rs = null;
         String result = null;
         try{
-            cn = OraConnectionManager.getInstance().getConnection();
             String sql = "SELECT userId FROM as_user WHERE loginId = ? and password = ?";
             st = cn.prepareStatement(sql);
             st.setString(1, ub.getLoginId());
@@ -375,7 +372,6 @@ public class AnimalDao{
         ResultSet rs = null;
         ArrayList<String> list = new ArrayList<String>();
         try{
-            cn = OraConnectionManager.getInstance().getConnection();
             String sql = "SELECT u.iconPath, u.username, f.observerId " +
             "FROM as_follower f INNER JOIN as_user u on(u.userId = f.observerId) "+
             "WHERE f.userid = ?";
@@ -409,7 +405,6 @@ public class AnimalDao{
         ResultSet rs = null;
         ArrayList<String> list = new ArrayList<String>();
         try{
-            cn = OraConnectionManager.getInstance().getConnection();
             String sql = "SELECT u.iconPath, u.username, f.userId "+
                          "FROM as_follower f INNER JOIN as_user u on(u.userId = f.userId) "+
                          "WHERE f.observerId = ?";
@@ -436,21 +431,32 @@ public class AnimalDao{
         }
         return list;
     }
-    //replyId count
-    public int getNextReplyCount(String pid){
+    public ArrayList search(String query){
         Connection cn = null;
         PreparedStatement st = null;
         ResultSet rs = null;
-        int new_count = 0;
+        ArrayList<String> list = new ArrayList<String>();
         try{
-            cn = OraConnectionManager.getInstance().getConnection();
-            String sql = "SELECT count(*) WHERE as_reply WHERE postId = " + pid;
+            // select postid from as_post where regexp_like(caption,'+&query+');
+            String sql = "select postid from as_post where regexp_like(caption,'+?+')";
             st = cn.prepareStatement(sql);
+            st.setString(1, query);
             rs = st.executeQuery();
-            if(rs.next()){
-                new_count = rs.getInt(1) + 1;
-            }else{
-                new_count = 1;
+            int count = 0;
+            while(rs.next() && count<10){
+                String postid = rs.getString(1);
+                list.add(postid);
+                count++;
+            }
+            sql = "select userid from as_user where regexp_like(username,'+?+')";
+            st = cn.prepareStatement(sql);
+            st.setString(1, query);
+            rs = st.executeQuery();
+            count = 0;
+            while(rs.next() && count<10){
+                String userid = rs.getString(1);
+                list.add(userid);
+                count++;
             }
         }catch(SQLException e){
             OraConnectionManager.getInstance().rollback();
@@ -466,6 +472,6 @@ public class AnimalDao{
                 ex.printStackTrace();
             }
         }
-        return new_count;
+        return list;
     }
 }
