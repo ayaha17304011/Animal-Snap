@@ -15,8 +15,7 @@ public class AddPostCommand extends AbstractCommand{
 		String userId = pb.getUserId();
 		String caption = pb.getCaption();
 		String imageURL = pb.getImageURL();
-
-		String sql = "INSERT INTO as_post(postId, userId, caption, imageURL, timestam, state)" +
+		String sql = "INSERT INTO as_post(postId, userId, caption, imageURL, timestamp, state)" +
 		"VALUES(as_seq_postId.nextval,"+userId+",'"+caption+"','"+imageURL+"',sysdate,1)";
 		AnimalDao dao = new AnimalDao();
 		OraConnectionManager.getInstance().beginTransaction();

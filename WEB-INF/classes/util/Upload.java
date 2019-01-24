@@ -30,9 +30,21 @@ public class Upload{
 
 			if(req!=null) System.out.println(req.getServletPath());
 
-			fileName = "user" + userId + "_" + getFileName(file);
-			file.write(path+fileName);
+			Date d = new Date();
+			SimpleDateFormat d1 = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+			String date = d1.format(d);
+
+			String[] contentType = ((String)file.getContentType()).split("/");
+			//contentType = FileType / FileFormat => image/png
+			//s[0] = image, s[1] = png
+			if(contentType[0].equals("image")){
+				fileName = "images/user" + userId + "_" + date + ".jpg";
+			}else if(contentType[0].equals("video")){
+				fileName = "videos/user" + userId + "_" + date + ".mp4";
+			}
+			System.out.println(fileName);
 			post.setImageURL(fileName);
+			file.write(path+fileName);
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -40,19 +52,5 @@ public class Upload{
 			e.printStackTrace();
 		}
 		return post;
-	}
-	public static String getFileName(Part part){
-		String fileName = null;
-		String contentType = part.getContentType();
-		//contentType = FileType / FileFormat => image/png
-		//s[0] = image, s[1] = png
-		String[] s = contentType.split("/");
-		Date d = new Date();
-	  SimpleDateFormat d1 = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
-	  String date = d1.format(d);
-		//image_1.png
-		fileName = s[0] + "_" + date + "." + s[1];
-		
-		return fileName;
 	}
 }
