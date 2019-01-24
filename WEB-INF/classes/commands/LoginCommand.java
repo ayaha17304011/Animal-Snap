@@ -3,6 +3,7 @@ package commands;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import dao.OraConnectionManager;
 
 import main.RequestContext;
 import main.ResponseContext;
@@ -26,7 +27,7 @@ public class LoginCommand extends AbstractCommand{
         String[] passArray = (String[])reqc.getParameter("pass");
         String pass = passArray[0];
         ub.setPassword(pass);
-
+        OraConnectionManager.getInstance().beginTransaction();
         result = dao.Login(ub);
 
         if(result != null){

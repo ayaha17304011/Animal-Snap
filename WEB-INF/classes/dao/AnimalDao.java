@@ -52,20 +52,20 @@ public class AnimalDao{
   }
 
   //GetPostList
-  public List getPostList(String uid){
+    public List getPostList(String uid){
         Connection cn = null;
         PreparedStatement st = null;
         ResultSet rs = null;
         ArrayList postList = new ArrayList();
         try{
-
             cn = OraConnectionManager.getInstance().getConnection();
-            String sql = "SELECT distinct p.postID, u.username, u.IconPath, p.caption, p.imageURL, p.timestamp,"+
+            String sql = "SELECT distinct p.postID, u.username, u.IconPath, p.caption, p.imageURL, p.timestamp, u.userId,"+
                          "(SELECT count(*) FROM as_like WHERE postId = p.postId) AS like_count,"+
                          "(SELECT count(*) FROM as_reply WHERE postId = p.postId) AS reply_count "+
-                         "FROM as_post p JOIN as_follower f on(p.userId = f.userID) "+
-                         "JOIN as_user u on(f.userID = u.userID) "+
-                         "WHERE p.userID = f.userID and (f.observerID = ? or p.userId = ?)";
+                         "FROM as_user u RIGHT JOIN as_post p on(u.userId = p.userId) "+
+                         "LEFT JOIN as_follower f on(u.userID = f.userId) "+
+                         "WHERE u.userId = ? or f.observerId = ? "+
+                         "ORDER BY p.timestamp desc";
             st = cn.prepareStatement(sql);
             st.setString(1, uid);
             st.setString(2, uid);
@@ -78,8 +78,9 @@ public class AnimalDao{
                 pb.setCaption(rs.getString(4));
                 pb.setImageURL(rs.getString(5));
                 pb.setTimestamp(rs.getString(6));
-                pb.setLikeCount(rs.getString(7));
-                pb.setReplyCount(rs.getString(8));
+                pb.setUserId(rs.getString(7));
+                pb.setLikeCount(rs.getString(8));
+                pb.setReplyCount(rs.getString(9));
                 postList.add(pb);
             }
         }catch(SQLException e){
@@ -300,6 +301,7 @@ public class AnimalDao{
         ResultSet rs = null;
         String result = null;
         try{
+            cn = OraConnectionManager.getInstance().getConnection();
             String sql = "SELECT userId FROM as_user WHERE loginId = ? and password = ?";
             st = cn.prepareStatement(sql);
             st.setString(1, ub.getLoginId());
