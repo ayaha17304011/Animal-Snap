@@ -431,4 +431,47 @@ public class AnimalDao{
         }
         return list;
     }
+    public ArrayList search(String query){
+        Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        ArrayList<String> list = new ArrayList<String>();
+        try{
+            // select postid from as_post where regexp_like(caption,'+&query+');
+            String sql = "select postid from as_post where regexp_like(caption,'+?+')";
+            st = cn.prepareStatement(sql);
+            st.setString(1, query);
+            rs = st.executeQuery();
+            int count = 0;
+            while(rs.next() && count<10){
+                String postid = rs.getString(1);
+                list.add(postid);
+                count++;
+            }
+            sql = "select userid from as_user where regexp_like(username,'+?+')";
+            st = cn.prepareStatement(sql);
+            st.setString(1, query);
+            rs = st.executeQuery();
+            count = 0;
+            while(rs.next() && count<10){
+                String userid = rs.getString(1);
+                list.add(userid);
+                count++;
+            }
+        }catch(SQLException e){
+            OraConnectionManager.getInstance().rollback();
+            e.printStackTrace();
+        }finally{
+            try{
+                if(rs != null){
+                    rs.close();
+                }if(st != null){
+                    st.close();
+                }
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        return list;
+    }
 }
