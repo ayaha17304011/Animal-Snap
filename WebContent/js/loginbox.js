@@ -23,6 +23,12 @@ $(function() {
                     type: 'submit',
                     value: 'ƒƒOƒCƒ“',
                     class: 'submitbutton'
+                }),
+                $("<input/>",{
+                    type: 'submit',
+                    name:'btn2',
+                    value: 'V‹K“o˜^',
+                    class: 'submitbutton'
                 })
             ),
         )
@@ -51,8 +57,14 @@ $(function() {
                     type: 'submit',
                     value: 'V‹K“o˜^',
                     class: 'submitbutton'
+                }),
+                $("<input/>",{
+                    type: 'submit',
+                    name:'btn1',
+                    value: 'ƒƒOƒCƒ“',
+                    class: 'submitbutton'
                 })
-            )
+            ),
         )
-    })
-})
+    });
+});
