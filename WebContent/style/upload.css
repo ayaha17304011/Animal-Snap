@@ -1,0 +1,197 @@
+
+body{
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #fcfffe;
+
+}
+#form1 {
+	margin: 16px;
+}
+
+#sbox{
+/*position: absolute; */
+    /* left: 0; */
+    /* top: 0; */
+    /* outline: 0; */
+    height: 40px;
+    width: 200px;
+    /* padding: 0 10px; */
+    border-radius: 2px 0 0 2px;
+    /* background: #eee; */	
+}
+
+/*検索ボタン*/
+#sbtn{
+    width: 70px;
+    height: 40px;
+    /* position: absolute; */
+    /* left: 270px; */
+    /* top: 0; */
+    /* border-radius: 0 2px 2px 0; */
+    color: #FFF;
+    cursor: pointer;
+    background-color: #33CCCC;
+    border: none;
+
+    font-weight: bold;
+    font-size: 16px;
+}
+/*検索ボタンマウスオーバー時*/
+#sbtn:hover{
+color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/ 
+}
+
+.site-header{
+    background:#aaf7df;
+    display: flex;
+    
+    position: fixed;
+    justify-content: space-between;
+    width: 100%;
+    height: 10%;
+    z-index: 100; 
+}
+.site-logo {
+	margin: 1px;
+}
+.site-logo img{
+
+    width: 175px;
+}
+.logo {
+    width: 50px;
+}
+
+.gnav{
+    padding: 0px;
+    padding-right: 20px;
+}
+
+.gnav__menu{
+    display: flex;
+    margin: auto;
+    padding: 0px;
+}
+}
+.gnav__menu__item{
+
+
+    list-style: none;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    display: inline-block;
+    
+
+}
+.gnav__menu__item a{
+    
+    text-decoration: none;
+}
+
+.navicon {
+    position: inherit;
+    margin-left: 1%;
+    width: 5%;
+    list-style: none;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+}
+
+h1 {
+
+text-align: center;
+}
+
+.titlelogo {
+    width: 75%;
+}
+
+.nyuuryoku {
+
+border:0;
+padding:10px;
+font-size:1.3em;
+font-family:Arial, sans-serif;
+border:solid 1px #ccc;
+-webkit-box-shadow: 0px 1px rgba(255, 255, 255, 0.5);
+-moz-box-shadow: 0px 1px rgba(255, 255, 255, 0.5);
+box-shadow: 0px 1px rgba(255, 255, 255, 0.5);
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+width:300px;
+}
+
+.submitbutton {
+
+border:solid 1px #33CCCC;
+padding:15px 30px;
+margin:5%;
+font-family:Arial, sans-serif;
+font-size:1.2em;
+text-transform:uppercase;
+font-weight:bold;
+color:#FFF;
+cursor:pointer;
+background-color:#33CCCC;
+}
+
+.gnav__menu{
+    display: flex;
+    margin: auto;
+}
+.gnav__menu__item{
+    margin-left: 1%;
+    width: 50px;
+    padding: 10px;
+    list-style: none;
+    
+
+}
+.gnav__menu__item a{
+    
+    text-decoration: none;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+}
+.box1 {
+    display: inline-block;      /* インラインブロック要素にする */
+    width: 30%;
+}
+
+.box2 {
+    display: inline-block;
+    text-align: center;
+    border: solid;
+    width: 35%;
+    height: 50%;
+    padding: 10px;
+    border-color: #33CCCC;
+    border-width: 3px;
+}
+
+.image {
+    width: 100%;
+    height: 85%;
+}
+
+img{
+
+    object-fit: cover;
+    vertical-align: middle;
+
+}
+
+#file_photo {
+    display: none;
+
+}
