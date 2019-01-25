@@ -41,9 +41,19 @@
 						</div>		<br>
 										
 						<div class="userid">
-								<h2>ユーザーIDだよ</h2>
+								<p1>ユーザーIDだよ</p1>
 								<!--${data.userId}-->
 						</div>	
+						<div class="follower">
+							<p2>フォロワー</p2>0<p2>人</p2>
+							<!--${data.follower}-->
+					</div>	
+
+					<div class="follower">
+							0<p2>人をフォロー中</p2>
+							<!--${data.following}<p2>人をフォロー中<p2>-->
+					</div>
+
 					<div class="post">
 						<!-- <div class="image"> -->
 							<ul class="photo_ul">
