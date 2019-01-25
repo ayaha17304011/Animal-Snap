@@ -4,17 +4,17 @@
 <html>
 	<head>
 		<header class="site-header">
-			<h1 class="site-logo"><a href=""><img src="WebContent/logo/animal-log.png" alt="ロゴ"></a></h1>
+			<h1 class="site-logo"><a href="getpostlist"><img src="WebContent/logo/animal-log.png" alt="ロゴ"></a></h1>
 			<form id="form1" action="" method="get">
-			<input id="sbox" id="s" name="s" type="search" placeholder="検索" />
-			<input id="sbtn" type="submit" value="検索" /></form>
+				<input id="sbox" id="s" name="s" type="search" placeholder="検索" />
+				<input id="sbtn" type="submit" value="検索" />
+			</form>
 			<nav class="gnav">
 				<ul class="gnav__menu">
 					<li class="gnav__menu__item"><a href=""><img src="WebContent/profileIcon/default_icon.png" alt="通知"></a></li>
 					<li class="gnav__menu__item"><a href=""><img src="WebContent/profileIcon/default_icon.png" alt="いいね早見表"></a></li>
 					<li class="gnav__menu__item"><a href="mypage"><img src="WebContent/profileIcon/default_icon.png" alt="マイページ"></a></li>
 					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/profileIcon/default_icon.png" alt="投稿"></a></li>
-	
 				</ul>
 			</nav>
 		</header>

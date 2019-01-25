@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<header class="site-header">
-			<h1 class="site-logo"><a href="timeline"><img src="WebContent/logo/animal-log.png" alt="ƒƒS" class="logo"></a></h1>
+			<h1 class="site-logo"><a href="getpostlist"><img src="WebContent/logo/animal-log.png" alt="ƒƒS" class="logo"></a></h1>
 			<form id="form1" action="" method="get">
 			<input id="sbox" id="s" name="s" type="search" placeholder="ŒŸõ" />
 			<input id="sbtn" type="submit" value="ŒŸõ" /></form>
