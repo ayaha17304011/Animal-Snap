@@ -103,13 +103,16 @@ color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/
 }
 
 .icon{
-    padding: 10px;
-    width: 15%;
+    width: 252.366px;
+    height: 160px;
+    margin-left: 18%;
     display: inline-block;
 }
 
 .iconimage {
     position: inherit;
+    width: 150px;
+    height: 150px;
 }
 
 .username {
@@ -123,6 +126,11 @@ color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/
     text-decoration: none;
         font-weight: bold;
 }
+
+h1 {
+    margin: 0px;
+}
+
 
 .post {
     width: 100%;
@@ -164,7 +172,7 @@ color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/
     vertical-align: middle;
 }*/
 
-img2{
+img2 {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -226,7 +234,7 @@ span {}
 body{
     width: 100%;
     margin: 0 auto;
-    background-color: #f3faf0
+    background-color:  #fcfffe;
 
 }
 
