@@ -218,9 +218,10 @@ img{
 
 
 
-.input-file .preview {
+.input_file .preview {
     background-image: url(../logo/animal-log.png);
-  }
-  .input-file input[type="file"] {
+}
+  
+.input_file input[type="file"] {
     opacity: 0;
   }
