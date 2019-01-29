@@ -1,6 +1,3 @@
-/* �e�[�u����쐬����X�N���v�g */
-
-/* �e�[�u�����ЂƂł��݂��Ă���ꍇ�A�폜 */
 -- select table_name from user_tables;
 DECLARE
   v_cnt NUMBER;
@@ -10,7 +7,7 @@ BEGIN
   WHERE table_name IN ('AS_USER','AS_FOLLOWER','AS_POST','AS_REPLY','AS_LIKE');
 
   IF v_cnt > 0 THEN
-    EXECUTE IMMEDIATE 'DROP TABLE as_user cascade constraint purge'; -- cascade constraint�Ő��񂲂Ə����Ȃ��ƃG���[�ɂȂ�
+    EXECUTE IMMEDIATE 'DROP TABLE as_user cascade constraint purge'; 
     EXECUTE IMMEDIATE 'DROP TABLE as_follower cascade constraint purge';
     EXECUTE IMMEDIATE 'DROP TABLE as_post cascade constraint purge';
     EXECUTE IMMEDIATE 'DROP TABLE as_reply cascade constraint purge';
@@ -20,13 +17,12 @@ END;
 /
 
 
-/* �\�̍쐬 */
 CREATE TABLE as_user (
   userID		number(10) constraint pk_userID primary key,
   loginID		varchar2(30) constraint uq_loginID unique,
   username	varchar2(30) not null,
   password	varchar2(12) not null,
-  iconpath	varchar2(256) not null, -- iconpath��default
+  iconpath	varchar2(256) not null, 
 	state number(1) default 1 check (state = 0 or state = 1)
 );
 
@@ -47,7 +43,7 @@ create table as_post (
 );
 
 CREATE TABLE as_reply (
-  replyID	number(10),
+  -- replyID	number(10),
   userID 	number(10) constraint fk_reply_userId references as_user(userID),
   postID 	number(10) constraint fk_reply_postId references as_post(postID),
   reply 	varchar2(600) not null,
@@ -60,24 +56,22 @@ create table as_like (
   postID number(10) constraint fk_like_postId references as_post(postId)
 );
 
-
-/* �\�Ƀf�[�^��}�� */
--- as_user�\
+-- as_user
 INSERT INTO as_user VALUES(as_seq_userId.nextval,'test01','testmen','test','sample_image\default_icon.png',default);
 INSERT INTO as_user VALUES(as_seq_userId.nextval,'test02','testmen','test','sample_image\default_icon.png',default);
 
--- as_follower�\
+-- as_follower
 INSERT INTO as_follower VALUES(1,2);
 
--- as_post�\
+-- as_post
 INSERT INTO as_post VALUES(as_seq_postId.nextval,1,'captiontest','sample_image\dogcat.jpg',default,default);
 INSERT INTO as_post VALUES(as_seq_postId.nextval,2,'captest2sssss','sample_image\sheep.jpg',default,default);
 
 
--- as_reply�\
-INSERT INTO as_reply VALUES(1,1,1,'replytest',default);
+-- as_reply
+INSERT INTO as_reply VALUES(1,1,'replytest',default);
 
---as_like�\
+--as_like
 INSERT INTO as_like VALUES(1,1);
 
 commit;

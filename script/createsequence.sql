@@ -13,8 +13,6 @@ BEGIN
   IF v_cnt > 0 THEN
     EXECUTE IMMEDIATE 'DROP sequence as_seq_userId';
     EXECUTE IMMEDIATE 'DROP sequence as_seq_postId';
-    EXECUTE IMMEDIATE 'DROP sequence as_seq_replyId';
-    EXECUTE IMMEDIATE 'DROP sequence as_seq_likeId';
   END IF;
 END;
 /
