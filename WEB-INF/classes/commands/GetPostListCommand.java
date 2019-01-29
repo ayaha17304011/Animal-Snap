@@ -2,17 +2,23 @@ package commands;
 
 import main.ResponseContext;
 import main.RequestContext;
-import dao.PostDB;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import java.util.List;
 import dao.OraConnectionManager;
-import dao.GetPostListDao;
+import dao.AnimalDao;
 
 public class GetPostListCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
-		GetPostListDao dao = new GetPostListDao();
+		AnimalDao dao = new AnimalDao();
+		RequestContext reqc = getRequestContext();
+		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
+		HttpSession session = req.getSession();
+		String uid = (String)session.getAttribute("userId");
 		OraConnectionManager.getInstance().beginTransaction();
-		List result = dao.getPostList();
+		List result = dao.getPostList(uid);
 		OraConnectionManager.getInstance().closeConnection();
 		resc.setResult(result);
 		resc.setTarget("timeline");
