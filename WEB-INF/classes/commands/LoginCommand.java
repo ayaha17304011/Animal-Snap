@@ -3,48 +3,50 @@ package commands;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import dao.OraConnectionManager;
 
 import main.RequestContext;
 import main.ResponseContext;
-import dao.AnimalDao;
+import util.Upload;
+import dao.UserDB;
 import beans.UserBean;
 
 public class LoginCommand extends AbstractCommand{
     public ResponseContext execute(ResponseContext resc){
-        RequestContext reqc = getRequestContext();
-        HttpServletRequest req =(HttpServletRequest)reqc.getRequest();
+    RequestContext reqc = getRequestContext();
+    HttpServletRequest req =(HttpServletRequest)reqc.getRequest();
+    
+    boolean loginflag= false;
+    UserBean userbean = new UserBean();
+    
+    String[] loginIdArray=(String[])reqc.getParameter("loginid");
+    String loginId = loginIdArray[0];
+    userbean.setLoginId(loginId);
+    
+    String[] passArray = (String[])reqc.getParameter("pass");
+    String pass = passArray[0];
+    userbean.setPassword(pass);
 
-        boolean loginflag= false;
-        String result = "";
-        UserBean ub = new UserBean();
-        AnimalDao dao = new AnimalDao();
+    // AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
+    // KretaDao dao = factory.getKretaDao();
 
-        String[] loginIdArray = (String[])reqc.getParameter("loginid");
-        String loginId = loginIdArray[0];
-        ub.setLoginId(loginId);
+    // ログイン情報がデータベースに登録されているか確認する
+    // userbean = dao.LoginProcessing(userbean);
 
-        String[] passArray = (String[])reqc.getParameter("pass");
-        String pass = passArray[0];
-        ub.setPassword(pass);
-        OraConnectionManager.getInstance().beginTransaction();
-        result = dao.Login(ub);
+    //フォームから入力されたパスワードがあっているか確認する
+    if(userbean.getLoginId().equals(loginId) && userbean.getPassword().equals(pass)){
+        loginflag = true;
+    }else{
+        System.out.println("パスワードもしくはIDが違います");
+        resc.setResult("パスワードもしくはIDが違います");
+        // throw new exp.SystemException("パスワードもしくはIDが違います", new RuntimeException());
+    }
 
-        if(result != null){
-            loginflag = true;
-        }else{
-            System.out.println("パスワードもしくはIDが違います");
-        }
+    if(loginflag){
+        HttpSession session = req.getSession();
+        session.setAttribute("loginUser", userbean);
+    }
 
-        if(loginflag){
-            HttpSession session = req.getSession();
-            session.setAttribute("userId", result);
-            resc.setTarget("timeline");
-        }else{
-            resc.setTarget("login");
-            // resc.setResult("パスワードもしくはIDが違います");
-            // throw new exp.SystemException("パスワードもしくはIDが違います", new RuntimeException());
-        }
-        return resc;
+    resc.setTarget("showtest");
+    return resc;
     }
 }
