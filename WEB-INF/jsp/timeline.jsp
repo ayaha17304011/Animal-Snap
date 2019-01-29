@@ -42,6 +42,10 @@
 		%>
 		<a href="upload">upload</a><br>
 		<c:forEach var="data" items="${data}">
+			<div id="popup_window">
+				<div class="popup_box">
+				</div>
+			</div>
 				<div class="post">
 
 						<div class="icon">
@@ -53,7 +57,7 @@
 						</div>						
 				
 						<div class="image">
-						<a href="">
+						<a href="getpostview?postId=${data.postId}" class="popup">
 							<c:set var="url" value="${data.imageURL}"/>
 							<c:if test="${fn:endsWith(url, '.jpg')}">
 								<img src="<c:url value='/WebContent/${data.imageURL}'/>" alt="Post Image">

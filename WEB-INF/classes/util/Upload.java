@@ -26,7 +26,9 @@ public class Upload{
 			String userId = req.getParameter("userId");
 			post.setCaption(caption);
 			post.setUserId(userId);
-			Part file = req.getPart("post");
+
+			//incomplete
+			List<Part> fileParts = req.getParts().stream().filter(part -> "file".equals(part.getName())).collect(Collectors.toList());
 
 			if(req!=null) System.out.println(req.getServletPath());
 
