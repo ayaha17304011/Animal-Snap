@@ -220,6 +220,13 @@ img{
 
 .input_file .preview {
     background-image: url(../logo/animal-log.png);
+    width: 50%;
+    object-fit: cover;
+    height: 50%;
+    vertical-align: middle;
+    background: no-repeat;
+    background-size: contain;
+}
 }
   
 .input_file input[type="file"] {
