@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<header class="site-header">
-			<h1 class="site-logo"><a href="getpostlist"><img src="WebContent/logo/animal-log.png" alt="ロゴ" class="logo"></a></h1>
+			<h1 class="site-logo"><a href="timeline"><img src="WebContent/logo/animal-log.png" alt="ロゴ" class="logo"></a></h1>
 			<form id="form1" action="" method="get">
 			<input id="sbox" id="s" name="s" type="search" placeholder="検索" />
 			<input id="sbtn" type="submit" value="検索" /></form>
@@ -38,22 +38,14 @@
 						<div class="username">
 								<h1>ユーザー名が入るよ</h1>
 								<!--${data.userName}-->
-						</div>		<br>
+						</div>
+						<img src="WebContent/sample_image/default_icon.png"  class="" width="30px">
+						<br>
 										
 						<div class="userid">
-								<p1>ユーザーIDだよ</p1>
+								<h2>ユーザーIDだよ</h2>
 								<!--${data.userId}-->
 						</div>	
-						<div class="follower">
-							<p2>フォロワー</p2>0<p2>人</p2>
-							<!--${data.follower}-->
-					</div>	
-
-					<div class="follower">
-							0<p2>人をフォロー中</p2>
-							<!--${data.following}<p2>人をフォロー中<p2>-->
-					</div>
-
 					<div class="post">
 						<!-- <div class="image"> -->
 							<ul class="photo_ul">

@@ -4,17 +4,16 @@
 <html>
 	<head>
 		<header class="site-header">
-			<h1 class="site-logo"><a href="getpostlist"><img src="WebContent/logo/animal-log.png" alt="ロゴ"></a></h1>
+			<h1 class="site-logo"><a href=""><img src="WebContent/logo/animal-log.png" alt="ロゴ"></a></h1>
 			<form id="form1" action="" method="get">
-				<input id="sbox" id="s" name="s" type="search" placeholder="検索" />
-				<input id="sbtn" type="submit" value="検索" />
-			</form>
+			<input id="sbox" id="s" name="s" type="search" placeholder="検索" />
+			<input id="sbtn" type="submit" value="検索" /></form>
 			<nav class="gnav">
 				<ul class="gnav__menu">
 					<li class="gnav__menu__item"><a href=""><img src="WebContent/profileIcon/default_icon.png" alt="通知"></a></li>
 					<li class="gnav__menu__item"><a href=""><img src="WebContent/profileIcon/default_icon.png" alt="いいね早見表"></a></li>
-					<li class="gnav__menu__item"><a href="mypage"><img src="WebContent/profileIcon/default_icon.png" alt="マイページ"></a></li>
-					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/profileIcon/default_icon.png" alt="投稿"></a></li>
+					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/profileIcon/default_icon.png" alt="アイコン"></a></li>
+	
 				</ul>
 			</nav>
 		</header>
@@ -54,6 +53,7 @@
 						</div>						
 				
 						<div class="image">
+						<a href="">
 							<c:set var="url" value="${data.imageURL}"/>
 							<c:if test="${fn:endsWith(url, '.jpg')}">
 								<img src="<c:url value='/WebContent/${data.imageURL}'/>" alt="Post Image">
@@ -62,7 +62,7 @@
 								<video width="100%" height="100%" controls>
 									<source src="<c:url value='/WebContent/${data.imageURL}'/>" type="video/mp4">
 							</c:if>
-							
+						</a>
 						</div>
 
 						<!-- iine, comment(reply) -->
@@ -86,7 +86,7 @@
 							</div>
 							
 							<form class="replybox">
-								<textarea aria-label="コメントを追加" placeholder="コメントを追加" name="replybox" class="replytext" spellcheck="false"></textarea>
+								<textarea placeholder="コメントを追加" name="caption" class="replytext" spellcheck="false"></textarea>
 								<input type="submit" name="submit" value="送信" class="replybuttom">
 								<input type="hidden" value="${sessionScope.loginUser.loginId}">
 							</form>
