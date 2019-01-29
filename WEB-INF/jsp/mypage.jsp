@@ -39,13 +39,22 @@
 								<h1>ユーザー名が入るよ</h1>
 								<!--${data.userName}-->
 						</div>
-						<img src="WebContent/sample_image/default_icon.png"  class="" width="30px">
+						<img src="WebContent/sample_image/default_icon.png"  class="profile">
 						<br>
 										
 						<div class="userid">
-								<h2>ユーザーIDだよ</h2>
-								<!--${data.userId}-->
-						</div>	
+							<p1>ユーザーIDだよ</p1>
+							<!--${data.userId}-->
+					</div>	
+					<div class="follower">
+						<p2>フォロワー</p2>0<p2>人</p2>
+						<!--${data.follower}-->
+				</div>	
+
+				<div class="follower">
+						0<p2>人をフォロー中</p2>
+						<!--${data.following}<p2>人をフォロー中<p2>-->
+				</div>
 					<div class="post">
 						<!-- <div class="image"> -->
 							<ul class="photo_ul">
