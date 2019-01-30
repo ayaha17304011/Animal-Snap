@@ -1,6 +1,5 @@
 <%@ page pageEncoding="Windows-31J" contentType="text/html;charset=Windows-31J" %>
 
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -11,12 +10,10 @@
 			<input id="sbtn" type="submit" value="検索" /></form>
 			<nav class="gnav">
 				<ul class="gnav__menu">
-						<li class="gnav__menu__item"><a href=""><img src="WebContent/profileIcon/default_icon.png" alt="通知" class="navicon"></a></li>
-						<li class="gnav__menu__item"><a href=""><img src="WebContent/profileIcon/default_icon.png" alt="いいね早見表" class="navicon"></a></li>
-						<li class="gnav__menu__item"><a href="mypage"><img src="WebContent/profileIcon/default_icon.png" alt="マイページ" class="navicon"></a></li>
-						<li class="gnav__menu__item"><a href="upload"><img src="WebContent/profileIcon/default_icon.png" alt="投稿画面" class="navicon"></a></li>
-					
-					</ul>
+					<li class="gnav__menu__item"><a href=""><img src="WebContent/profileIcon/default_icon.png" alt="いいね早見表" class="navicon"></a></li>
+					<li class="gnav__menu__item"><a href="mypage"><img src="WebContent/profileIcon/default_icon.png" alt="マイページ" class="navicon"></a></li>
+					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/profileIcon/default_icon.png" alt="投稿画面" class="navicon"></a></li>
+				</ul>
 			</nav>
 		</header>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/mypage.css"/>
@@ -25,23 +22,21 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	</head>
 
-
-
-<body>
+	<body>
 		<br><br><br><br>
 		<c:forEach var="data" items="${data}">
 						<div class="icon">
 							<img src="WebContent/profileIcon/default_icon.png" class="iconimage">
 							<!--<img src="<c:url value='/WebContent/${data.iconPath}'/>">-->
 						</div>
-						
+
 						<div class="username">
 								<h1>ユーザー名が入るよ</h1>
 								<!--${data.userName}-->
 						</div>
 						<img src="WebContent/sample_image/default_icon.png"  class="profile">
 						<br>
-										
+
 						<div class="userid">
 							<p1>ユーザーIDだよ</p1>
 							<!--${data.userId}-->
@@ -65,20 +60,13 @@
 								<li class="photo"><img src="WebContent/sample_image/dogcat2.jpg"><a href=""></a></li>
 								<li class="photo"><img src="WebContent/sample_image/fefe.jpg"><a href=""></a></li>
 							</ul>
-							
+
 							<!--<img src="<c:url value='/WebContent/${data.imageURL}'/>" alt="Post Image">-->
 						<!-- </div> -->
 					</div>
 
-
-						
-
 					<br><br><br>
 		</c:forEach>
-		
-
-
-	
-	<br><br><br><br>
+		<br><br><br><br>
 	</body>
-</html>
+</html> 
