@@ -2,28 +2,27 @@ package commands;
 
 import main.RequestContext;
 import main.ResponseContext;
+import dao.OraConnectionManager;
+import dao.AnimalDao;
 import util.Upload;
 import beans.PostBean;
-import dao.PostDao;
-
-import java.util.ArrayList;
 
 public class AddPostCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
 		RequestContext reqc = getRequestContext();
-		// Upload u = new Upload();
-		String[] uid = (String[])reqc.getParameter("userId");
-		String[] cap = (String[])reqc.getParameter("caption");
-		String[] url = (String[])reqc.getParameter("imageURL");
-		String userId = uid[0];
-		String caption = cap[0];
-		String imageURL = url[0];
-		// PostBean pb = u.uploadFlie(reqc);
-		String sql = "INSERT INTO as_post VALUES(as_seq_postId.nextval"+","+userId+"'"+caption+"','"+imageURL+"',sysdate,1);"
-		PostDao dao = new PostDao();
+		PostBean pb = Upload.uploadFile(reqc);
+		System.out.println(pb.getUserId());
+		String userId = pb.getUserId();
+		String caption = pb.getCaption();
+		String imageURL = pb.getImageURL();
+		String sql = "INSERT INTO as_post(postId, userId, caption, imageURL, timestamp, state)" +
+		"VALUES(as_seq_postId.nextval,"+userId+",'"+caption+"','"+imageURL+"',sysdate,1)";
+		AnimalDao dao = new AnimalDao();
+		OraConnectionManager.getInstance().beginTransaction();
 		dao.SQLUpdate(sql);
+		OraConnectionManager.getInstance().closeConnection();
 		
-		resc.setTarget("postview"); //ì]ëóêÊurlÇÕï ìrïœçX
+		resc.setTarget("timeline");
 		return resc;
 	}
 }

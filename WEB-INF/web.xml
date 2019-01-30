@@ -1,6 +1,6 @@
 <web-app>
-		<welcome-file-list>
-		<welcome-file>/WEB-INF/jsp/timeline.jsp</welcome-file>
+	<welcome-file-list>
+		<welcome-file>/WEB-INF/jsp/login.jsp</welcome-file>
 	</welcome-file-list>
 	
 	<servlet>
@@ -17,8 +17,6 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
-
-	<!-- 画像を表示 -->
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>/WebContent/*</url-pattern>

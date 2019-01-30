@@ -14,40 +14,45 @@ import javax.servlet.ServletException;
 
 @MultipartConfig(fileSizeThreshold=32768,maxFileSize=5242880,maxRequestSize=27262976)
 public class Upload{
-	public PostBean uploadFlie(RequestContext reqc){
+	public static PostBean uploadFile(RequestContext reqc){
 		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
 
 		String fileName = null;
 		//"docBase" /post-url/
-		String path = req.getServletContext().getRealPath("/WebContent/images/");
+		String path = req.getServletContext().getRealPath("/WebContent/");
 		PostBean post = new PostBean();
 		try{
 			String caption = req.getParameter("caption");
+			String userId = req.getParameter("userId");
 			post.setCaption(caption);
-			Part file = req.getPart("upload");
+			post.setUserId(userId);
+
+			//incomplete
+			List<Part> fileParts = req.getParts().stream().filter(part -> "file".equals(part.getName())).collect(Collectors.toList());
+
 			if(req!=null) System.out.println(req.getServletPath());
-			fileName = getFileName(file);
-			file.write(path+fileName);
+
+			Date d = new Date();
+			SimpleDateFormat d1 = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+			String date = d1.format(d);
+
+			String[] contentType = ((String)file.getContentType()).split("/");
+			//contentType = FileType / FileFormat => image/png
+			//s[0] = image, s[1] = png
+			if(contentType[0].equals("image")){
+				fileName = "images/user" + userId + "_" + date + ".jpg";
+			}else if(contentType[0].equals("video")){
+				fileName = "videos/user" + userId + "_" + date + ".mp4";
+			}
+			System.out.println(fileName);
 			post.setImageURL(fileName);
+			file.write(path+fileName);
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}	catch (ServletException e){
 			e.printStackTrace();
 		}
 		return post;
-	}
-	public String getFileName(Part part){
-		String fileName = null;
-		String contentType = part.getContentType();
-		//contentType = FileType / FileFormat => image/png
-		//s[0] = image, s[1] = png
-		String[] s = contentType.split("/");
-		Date d = new Date();
-	  SimpleDateFormat d1 = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
-	  String date = d1.format(d);
-		//image_1.png
-		fileName = s[0] + "_" + date + "." + s[1];
-		
-		return fileName;
 	}
 }

@@ -3,10 +3,10 @@ package commands;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import dao.OraConnectionManager;
 
 import main.RequestContext;
 import main.ResponseContext;
-import util.Upload;
 import dao.AnimalDao;
 import beans.UserBean;
 
@@ -27,10 +27,7 @@ public class LoginCommand extends AbstractCommand{
         String[] passArray = (String[])reqc.getParameter("pass");
         String pass = passArray[0];
         ub.setPassword(pass);
-
-        // ログイン情報がデータベースに登録されているか確認する
-        // ub = dao.LoginProcessing(ub);
-
+        OraConnectionManager.getInstance().beginTransaction();
         result = dao.Login(ub);
 
         if(result != null){
@@ -41,7 +38,7 @@ public class LoginCommand extends AbstractCommand{
 
         if(loginflag){
             HttpSession session = req.getSession();
-            session.setAttribute("loginUser", ub);
+            session.setAttribute("userId", result);
             resc.setTarget("timeline");
         }else{
             resc.setTarget("login");

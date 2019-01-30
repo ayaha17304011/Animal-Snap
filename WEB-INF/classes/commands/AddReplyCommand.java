@@ -2,14 +2,13 @@ package commands;
 
 import main.ResponseContext;
 import main.RequestContext;
-import beans.ReplyBean;
+import dao.OraConnectionManager;
 import dao.AnimalDao;
 
 public class AddReplyCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
 		RequestContext reqc = getRequestContext();
         AnimalDao dao = new AnimalDao();
-		// ReplyBean rb = new ReplyBean();
 
 		String[] userIdArr = reqc.getParameter("userId");
 		String[] postIdArr = reqc.getParameter("postId");
@@ -17,12 +16,13 @@ public class AddReplyCommand extends AbstractCommand{
 		String userId = userIdArr[0];
 		String postId = postIdArr[0];
 		String reply = replyArr[0];
-		// rb.setReply(reply);
-		// rb.setPostId(postid);
-
-		String sql = "insert into as_reply(userId, postId, reply, timestamp) values("+userId+","+postId+","+reply+",default)";
+		int count = dao.getNextReplyCount(postId);
+		String sql = "insert into as_reply(replyId, userId, postId, reply, timestamp) values("+count+","+userId+","+postId+","+reply+",default)";
+        OraConnectionManager.getInstance().beginTransaction();
 		dao.SQLUpdate(sql);
-		resc.setTarget("timeline"); // <= “¯‚¶URL‚É–ß‚·
+        OraConnectionManager.getInstance().closeConnection();
+		
+		resc.setTarget("timeline");
 		return resc;
 	}
 }

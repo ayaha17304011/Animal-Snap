@@ -1,0 +1,24 @@
+<script>
+  UPLOADCARE_PUBLIC_KEY = 'abdb1f8d39811b993b81';
+  UPLOADCARE_LOCALE = 'ja';
+  UPLOADCARE_TABS = 'file';
+  UPLOADCARE_EFFECTS = 'crop,rotate,mirror,enhance,sharp,blur,grayscale';
+  UPLOADCARE_PREVIEW_STEP = true;
+</script>
+
+<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script><script src="https://ucarecdn.com/libs/widget-tab-effects/1.x/uploadcare.tab-effects.js"></script>
+<script>
+  uploadcare.registerTab('preview', uploadcareTabEffects)
+</script>
+
+
+
+<input
+  type="hidden"
+  role="uploadcare-uploader"
+  name="content"
+  data-image-shrink="null"
+  data-multiple="true"
+  data-multiple-min="1"
+  data-multiple-max="10"
+  data-crop="1:1" />

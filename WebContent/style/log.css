@@ -1,0 +1,89 @@
+
+body{
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #fcfffe;
+
+}
+.site-header{
+    background:#aaf7df;
+    display: flex;
+    
+    position: fixed;
+    justify-content: space-between;
+    width: 100%;
+    height: 10%;
+}
+.site-logo {
+
+    margin-top: 0px;
+    margin-bottom: 0px;
+	width: 15%;
+
+
+}
+
+.nyuuryoku {
+
+border:0;
+padding:10px;
+font-size:1.3em;
+font-family:Arial, sans-serif;
+color:#aaa;
+border:solid 1px #ccc;
+-webkit-box-shadow: 0px 1px rgba(255, 255, 255, 0.5);
+-moz-box-shadow: 0px 1px rgba(255, 255, 255, 0.5);
+box-shadow: 0px 1px rgba(255, 255, 255, 0.5);
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+width:300px;
+}
+
+.submitbutton {
+
+border:solid 1px #33CCCC;
+padding:15px 30px;
+margin:5%;
+font-family:Arial, sans-serif;
+font-size:1.2em;
+text-transform:uppercase;
+font-weight:bold;
+color:#FFF;
+cursor:pointer;
+background-color:#33CCCC;
+}
+
+.gnav__menu{
+    display: flex;
+    margin: auto;
+}
+.gnav__menu__item{
+    margin-left: 1%;
+    width: 5%;
+    list-style: none;
+    
+
+}
+.gnav__menu__item a{
+    
+    text-decoration: none;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+}
+.box1 {
+    display: inline-block;      /* インラインブロック要素にする */
+}
+
+.box2 {
+    display: inline-block;
+    text-align: center;
+    border: solid;
+    width: 35%;
+    border-color: #33CCCC;
+    border-width: 3px;
+}

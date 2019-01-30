@@ -41,5 +41,3 @@ create sequence as_seq_userId start with 1 increment by 1;
 create sequence as_seq_postId start with 1 increment by 1;
 create sequence as_seq_replyId start with 1 increment by 1;
 create sequence as_seq_likeId start with 1 increment by 1;
-
-
