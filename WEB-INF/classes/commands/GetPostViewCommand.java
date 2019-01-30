@@ -14,14 +14,14 @@ public class GetPostViewCommand extends AbstractCommand{
         String pid = pidArr[0];
 
         AnimalDao dao = new AnimalDao();
-        PostBean pb = null;
-
+        PostBean pb = new PostBean();
+        pb.setPostId(pid);
         OraConnectionManager.getInstance().beginTransaction();
-        pb = dao.getPost(pidArr[0]);
+        pb = dao.getPost(pb);
         OraConnectionManager.getInstance().closeConnection();
 
         resc.setResult(pb);
-        resc.setTarget("getpostlist");
+        resc.setTarget("postview");
         return resc;
     }
 }

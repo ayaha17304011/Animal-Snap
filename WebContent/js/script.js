@@ -14,4 +14,8 @@ $(function(){
         });
         return false;
     });
+    $(document).on("click", "a.close", function(e){
+        $("#popup_window").hide();
+        $("body").css({"overflow":"initial"})
+    })
 })
