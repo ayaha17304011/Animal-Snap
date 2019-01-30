@@ -11,9 +11,8 @@
 			<nav class="gnav">
 				<ul class="gnav__menu">
 					<li class="gnav__menu__item"><a href=""><img src="WebContent/profileIcon/default_icon.png" alt="通知"></a></li>
-					<li class="gnav__menu__item"><a href=""><img src="WebContent/profileIcon/default_icon.png" alt="いいね早見表"></a></li>
+					<li class="gnav__menu__item"><a href="mypage"><img src="WebContent/profileIcon/default_icon.png" alt="いいね早見表"></a></li>
 					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/profileIcon/default_icon.png" alt="アイコン"></a></li>
-	
 				</ul>
 			</nav>
 		</header>
