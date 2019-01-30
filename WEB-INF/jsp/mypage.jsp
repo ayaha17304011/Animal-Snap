@@ -29,14 +29,12 @@
 							<img src="WebContent/profileIcon/default_icon.png" class="iconimage">
 							<!--<img src="<c:url value='/WebContent/${data.iconPath}'/>">-->
 						</div>
-
 						<div class="username">
 								<h1>ユーザー名が入るよ</h1>
 								<!--${data.userName}-->
 						</div>
 						<img src="WebContent/sample_image/default_icon.png"  class="profile">
 						<br>
-
 						<div class="userid">
 							<p1>ユーザーIDだよ</p1>
 							<!--${data.userId}-->
@@ -60,7 +58,6 @@
 								<li class="photo"><img src="WebContent/sample_image/dogcat2.jpg"><a href=""></a></li>
 								<li class="photo"><img src="WebContent/sample_image/fefe.jpg"><a href=""></a></li>
 							</ul>
-
 							<!--<img src="<c:url value='/WebContent/${data.imageURL}'/>" alt="Post Image">-->
 						<!-- </div> -->
 					</div>
