@@ -29,22 +29,12 @@
 							<img src="WebContent/profileIcon/default_icon.png" class="iconimage">
 							<!--<img src="<c:url value='/WebContent/${data.iconPath}'/>">-->
 						</div>
-<<<<<<< HEAD
-						
-=======
-
->>>>>>> master
 						<div class="username">
 								<h1>ユーザー名が入るよ</h1>
 								<!--${data.userName}-->
 						</div>
 						<img src="WebContent/sample_image/default_icon.png"  class="profile">
 						<br>
-<<<<<<< HEAD
-										
-=======
-
->>>>>>> master
 						<div class="userid">
 							<p1>ユーザーIDだよ</p1>
 							<!--${data.userId}-->
@@ -68,11 +58,6 @@
 								<li class="photo"><img src="WebContent/sample_image/dogcat2.jpg"><a href=""></a></li>
 								<li class="photo"><img src="WebContent/sample_image/fefe.jpg"><a href=""></a></li>
 							</ul>
-<<<<<<< HEAD
-							
-=======
-
->>>>>>> master
 							<!--<img src="<c:url value='/WebContent/${data.imageURL}'/>" alt="Post Image">-->
 						<!-- </div> -->
 					</div>
@@ -81,8 +66,4 @@
 		</c:forEach>
 		<br><br><br><br>
 	</body>
-<<<<<<< HEAD
-</html>
-=======
 </html> 
->>>>>>> master
