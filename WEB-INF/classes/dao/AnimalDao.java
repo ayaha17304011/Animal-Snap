@@ -1,20 +1,21 @@
 /***********************last update -01/24
-*--name---        -line-
-*SQLUpdate      | 32->51
-*getPostList    | 53->95
-*getPost        | 96->134
-*getlikeList    | 135->169
-*getReplyList   | 170->208
-**getUserInfo   | 209->252
-*like           | 253->290
-*login          | 291->324
-*follow         | 325->363
-*getFollowerlist| 364->396
-*getFolloingList| 397->429
-*search         | 435->477
-*getUserPosts   | 
-*followCheck    | --------
-*likeCheck      | --------
+*--name---          -line-
+*SQLUpdate        | 32->51
+*getPostList      | 53->95
+*getPost          | 96->134
+*getlikeList      | 135->169
+*getReplyList     | 170->208
+**getUserInfo     | 209->252
+*like             | 253->290
+*login            | 291->324
+*follow           | 325->363
+*getFollowerlist  | 364->396
+*getFolloingList  | 397->429
+*search           | 435->477
+*getUserPosts     | 
+*getNextReplyCount| 
+*followCheck      | --------
+*likeCheck        | --------
 ******************************************/
 package dao;
 
@@ -519,5 +520,37 @@ public class AnimalDao{
             }
         }
         return list;
+    }
+    //replyId count
+    public int getNextReplyCount(String pid){
+        Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        int new_count = 0;
+        try{
+            cn = OraConnectionManager.getInstance().getConnection();
+            String sql = "SELECT count(*) WHERE as_reply WHERE postId = " + pid;
+            st = cn.prepareStatement(sql);
+            rs = st.executeQuery();
+            if(rs.next()){
+                new_count = rs.getInt(1) + 1;
+            }else{
+                new_count = 1;
+            }
+        }catch(SQLException e){
+            OraConnectionManager.getInstance().rollback();
+            e.printStackTrace();
+        }finally{
+            try{
+                if(rs != null){
+                    rs.close();
+                }if(st != null){
+                    st.close();
+                }
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        return new_count;
     }
 }
