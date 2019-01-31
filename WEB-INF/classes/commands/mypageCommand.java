@@ -6,7 +6,6 @@ import java.util.List;
 import dao.OraConnectionManager;
 import dao.AnimalDao;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import beans.UserBean;
 
 public class mypageCommand extends AbstractCommand{
@@ -14,8 +13,8 @@ public class mypageCommand extends AbstractCommand{
 		AnimalDao dao = new AnimalDao();
 		RequestContext reqc = getRequestContext();
         HttpServletRequest req =(HttpServletRequest)reqc.getRequest();
-		HttpSession session = req.getSession();
-		String userId = (String)session.getAttribute("userId");
+		String userId = req.getParameter("userId");
+		System.out.println("user="+userId);
 		OraConnectionManager.getInstance().beginTransaction();
 		UserBean ub = dao.getUserInfo(userId);
 		OraConnectionManager.getInstance().closeConnection();

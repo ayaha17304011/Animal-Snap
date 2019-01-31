@@ -12,7 +12,7 @@
 			<nav class="gnav">
 				<ul class="gnav__menu">
 					<li class="gnav__menu__item"><a href=""><img src="WebContent/profileIcon/default_icon.png" alt="いいね早見表" class="navicon"></a></li>
-					<li class="gnav__menu__item"><a href="mypage"><img src="WebContent/profileIcon/default_icon.png" alt="マイページ" class="navicon"></a></li>
+					<li class="gnav__menu__item"><a href="mypage?userId=${sessionScope.userId}"><img src="WebContent/profileIcon/default_icon.png" alt="マイページ" class="navicon"></a></li>
 					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/profileIcon/default_icon.png" alt="投稿画面" class="navicon"></a></li>
 				</ul>
 			</nav>
@@ -32,7 +32,7 @@
 						<div class="icon">
 							<img src="<c:url value='/WebContent/${data.iconImage}'/>" class="iconimage">
 						</div>
-						<div class="username">
+						<div class="username"><span id="uid" style="display:none">${data.userId}</span>
 							<h1>${data.userName}</h1>
 						</div>
 						<br>
@@ -48,7 +48,7 @@
 				</div>
 					<div class="mypost">
 						<div class="postlist"></div>
-						<h1 class="load">click</h1>
+						<h1 class="load">Loading</h1>
 					</div>
 
 					<br><br><br>

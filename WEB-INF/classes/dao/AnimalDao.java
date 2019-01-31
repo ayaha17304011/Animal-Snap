@@ -241,6 +241,7 @@ public class AnimalDao{
                 ub.setPostCount(rs.getString(5));
                 ub.setObserver(rs.getString(6));
                 ub.setFollowing(rs.getString(7));
+                ub.setUserId(uid);
             }
         }catch(SQLException e){
             OraConnectionManager.getInstance().rollback();
@@ -493,7 +494,7 @@ public class AnimalDao{
             String sql = "SELECT postId, ImageURL "+
                          "FROM as_post "+
                          "WHERE userId = ? and state = 1 "+
-                         "ORDER BY timeStamp";
+                         "ORDER BY timeStamp desc";
             st = cn.prepareStatement(sql);
             st.setString(1, userId);
             rs = st.executeQuery();

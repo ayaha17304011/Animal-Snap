@@ -3,7 +3,6 @@ package commands;
 import main.ResponseContext;
 import main.RequestContext;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import dao.OraConnectionManager;
 import dao.AnimalDao;
 import beans.PostBean;
@@ -14,8 +13,7 @@ public class GetUserPostsCommand extends AbstractCommand{
         AnimalDao dao = new AnimalDao();
 		RequestContext reqc = getRequestContext();
         HttpServletRequest req =(HttpServletRequest)reqc.getRequest();
-		HttpSession session = req.getSession();
-		String userId = (String)session.getAttribute("userId");
+		String userId = req.getParameter("userId");
 		System.out.println(userId);
 		OraConnectionManager.getInstance().beginTransaction();
 		List list = dao.getUserPosts(userId);
