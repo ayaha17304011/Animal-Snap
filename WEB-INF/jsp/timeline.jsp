@@ -41,12 +41,12 @@
 				response.sendRedirect("getpostlist");
 			}
 		%>
+		<div id="popup_window">
+			<div class="popup_box">
+			</div>
+		</div>
 		<a href="upload">upload</a><br>
 		<c:forEach var="data" items="${data}">
-			<div id="popup_window">
-				<div class="popup_box">
-				</div>
-			</div>
 				<div class="post">
 
 						<div class="icon">
