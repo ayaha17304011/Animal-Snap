@@ -12,10 +12,10 @@
 *getFollowerlist| 364->396
 *getFolloingList| 397->429
 *search         | 435->477
-*likeCheck      | --------
+*getUserPosts   | 
 *followCheck    | --------
+*likeCheck      | --------
 ******************************************/
-
 package dao;
 
 import java.sql.Connection;
@@ -435,7 +435,7 @@ public class AnimalDao{
         }
         return list;
     }
-     public ArrayList search(String query){
+    public ArrayList search(String query){
         Connection cn = null;
         PreparedStatement st = null;
         ResultSet rs = null;
@@ -477,5 +477,39 @@ public class AnimalDao{
             }
         }
         return list;
+    }
+    //
+    public ArrayList getUserPosts(String userId){
+        Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        ArrayList<> list = new ArrayList<String>();
+        try{
+            String sql = "SELECT postId, ImageURL "+
+                         "FROM as_post "+
+                         "WHERE userId = ? and state = 1 "
+                         "ORDER BY timeStamp";
+            st = cn.prepareStatement(sql);
+            st.setString(1, userId);
+            rs = st.executeQuery();
+            while(rs.next()){
+
+            }
+        }catch(SQLException e){
+            OraConnectionManager.getInstance().rollback();
+            e.printStackTrace();
+        }finally{
+            try{
+                if(rs != null){
+                    rs.close();
+                }if(st != null){
+                    st.close();
+                }
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        return list;
+    }
     }
 }
