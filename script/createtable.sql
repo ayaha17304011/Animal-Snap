@@ -65,8 +65,12 @@ INSERT INTO as_follower VALUES(1,2);
 
 -- as_post
 INSERT INTO as_post VALUES(as_seq_postId.nextval,1,'captiontest','sample_image\dogcat.jpg',default,default);
+<<<<<<< HEAD
 INSERT INTO as_post VALUES(as_seq_postId.nextval,2,'captest2sssss','sample_image\sheep.jpg',default,default);
 
+=======
+-- INSERT INTO as_post VALUES(as_seq_postId.nextval,1,'ƒLƒƒƒvƒVƒ‡ƒ“','sample_image\dogcat.jpg',default,default);
+>>>>>>> 8446aef9ee38a8fc992f1cc7ea618f3454b2fef5
 
 -- as_reply
 INSERT INTO as_reply VALUES(1,1,'replytest',default);
