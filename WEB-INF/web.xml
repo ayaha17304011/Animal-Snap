@@ -1,6 +1,6 @@
 <web-app>
-		<welcome-file-list>
-		<welcome-file>/WEB-INF/jsp/timeline.jsp</welcome-file>
+	<welcome-file-list>
+		<welcome-file>/WEB-INF/jsp/login.jsp</welcome-file>
 	</welcome-file-list>
 	
 	<servlet>
