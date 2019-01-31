@@ -6,6 +6,7 @@ $(function(){
             url: href
         })
         .done(function (response) {
+            console.log(href);
             $("#popup_window").show();
             $("body").css({"overflow":"hidden"});
             $("#popup_window .popup_box").html(response);
@@ -17,5 +18,18 @@ $(function(){
     $(document).on("click", "a.close", function(e){
         $("#popup_window").hide();
         $("body").css({"overflow":"initial"})
+    })
+    $(document).ready(function(){
+        $.ajax({
+            url: "getuserposts"
+        })
+        .done(function (response) {
+            $(".mypost").show();
+            $(".load").hide();
+            $(".mypost .postlist").html(response);
+        })
+        .fail(function (response) {
+        });
+        return false;
     })
 })

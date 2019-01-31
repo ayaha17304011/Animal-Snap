@@ -377,6 +377,7 @@ public class AnimalDao{
         ResultSet rs = null;
         ArrayList<String> list = new ArrayList<String>();
         try{
+            cn = OraConnectionManager.getInstance().getConnection();
             String sql = "SELECT u.iconPath, u.username, f.observerId " +
             "FROM as_follower f INNER JOIN as_user u on(u.userId = f.observerId) "+
             "WHERE f.userid = ?";
@@ -410,6 +411,7 @@ public class AnimalDao{
         ResultSet rs = null;
         ArrayList<String> list = new ArrayList<String>();
         try{
+            cn = OraConnectionManager.getInstance().getConnection();
             String sql = "SELECT u.iconPath, u.username, f.userId "+
                          "FROM as_follower f INNER JOIN as_user u on(u.userId = f.userId) "+
                          "WHERE f.observerId = ?";
@@ -442,6 +444,7 @@ public class AnimalDao{
         ResultSet rs = null;
         ArrayList<String> list = new ArrayList<String>();
         try{
+            cn = OraConnectionManager.getInstance().getConnection();
             // select postid from as_post where regexp_like(caption,'+&query+');
             String sql = "select postid from as_post where regexp_like(caption,'+?+')";
             st = cn.prepareStatement(sql);
@@ -484,8 +487,9 @@ public class AnimalDao{
         Connection cn = null;
         PreparedStatement st = null;
         ResultSet rs = null;
-        ArrayList list = new ArrayList();
+        ArrayList<PostBean> list = new ArrayList<PostBean>();
         try{
+            cn = OraConnectionManager.getInstance().getConnection();
             String sql = "SELECT postId, ImageURL "+
                          "FROM as_post "+
                          "WHERE userId = ? and state = 1 "+
@@ -494,7 +498,10 @@ public class AnimalDao{
             st.setString(1, userId);
             rs = st.executeQuery();
             while(rs.next()){
-
+                PostBean pb = new PostBean();
+                pb.setPostId(rs.getString("postId"));
+                pb.setImageURL(rs.getString("ImageURL"));
+                list.add(pb);
             }
         }catch(SQLException e){
             OraConnectionManager.getInstance().rollback();

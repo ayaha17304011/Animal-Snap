@@ -17,14 +17,18 @@
 				</ul>
 			</nav>
 		</header>
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/mypage.css"/>
-		<!-- <link rel="stylesheet" type="text/css" href="C:/Animal-Snap-master/WebContent/style/mypage.css"/> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="${pageContext.request.contextPath}/WebContent/js/script.js"></script>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/timeline.css"/>
 		<title>あにまる すなっぷ</title>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	</head>
 
 	<body>
 		<br><br><br><br>
+		<div id="popup_window">
+			<div class="popup_box"></div>
+		</div>
 						<div class="icon">
 							<img src="<c:url value='/WebContent/${data.iconImage}'/>" class="iconimage">
 						</div>
@@ -42,17 +46,9 @@
 				<div class="follower">
 						<p2>${data.following}人をフォロー中</p2>
 				</div>
-					<div class="post">
-						<div class="image">
-							<!-- <ul class="photo_ul">
-								<li class="photo"><img src="WebContent/sample_image/dogcat.jpg"><a href=""></a></li>
-								<li class="photo"><img src="WebContent/sample_image/dogcat2.jpg"><a href=""></a></li>
-								<li class="photo"><img src="WebContent/sample_image/fefe.jpg"><a href=""></a></li>
-								<li class="photo"><img src="WebContent/sample_image/dogcat.jpg"><a href=""></a></li>
-								<li class="photo"><img src="WebContent/sample_image/dogcat2.jpg"><a href=""></a></li>
-								<li class="photo"><img src="WebContent/sample_image/fefe.jpg"><a href=""></a></li>
-							</ul> -->
-						</div>
+					<div class="mypost">
+						<div class="postlist"></div>
+						<h1 class="load">click</h1>
 					</div>
 
 					<br><br><br>
