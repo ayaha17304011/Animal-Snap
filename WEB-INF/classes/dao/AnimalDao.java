@@ -302,6 +302,7 @@ public class AnimalDao{
         ResultSet rs = null;
         String result = null;
         try{
+            cn = OraConnectionManager.getInstance().getConnection();
             String sql = "SELECT userId FROM as_user WHERE loginId = ? and password = ?";
             st = cn.prepareStatement(sql);
             st.setString(1, ub.getLoginId());
