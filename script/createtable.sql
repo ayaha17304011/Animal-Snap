@@ -43,7 +43,6 @@ create table as_post (
 );
 
 CREATE TABLE as_reply (
-  -- replyID	number(10),
   userID 	number(10) constraint fk_reply_userId references as_user(userID),
   postID 	number(10) constraint fk_reply_postId references as_post(postID),
   reply 	varchar2(600) not null,
@@ -51,7 +50,6 @@ CREATE TABLE as_reply (
 );
 
 create table as_like (
-  -- likeID number(10) constraint pk_likeId primary key,
   userID number(10) constraint fk_like_userId references as_user(userID),
   postID number(10) constraint fk_like_postId references as_post(postId)
 );
@@ -65,12 +63,6 @@ INSERT INTO as_follower VALUES(1,2);
 
 -- as_post
 INSERT INTO as_post VALUES(as_seq_postId.nextval,1,'captiontest','sample_image\dogcat.jpg',default,default);
-<<<<<<< HEAD
-INSERT INTO as_post VALUES(as_seq_postId.nextval,2,'captest2sssss','sample_image\sheep.jpg',default,default);
-
-=======
--- INSERT INTO as_post VALUES(as_seq_postId.nextval,1,'ƒLƒƒƒvƒVƒ‡ƒ“','sample_image\dogcat.jpg',default,default);
->>>>>>> 8446aef9ee38a8fc992f1cc7ea618f3454b2fef5
 
 -- as_reply
 INSERT INTO as_reply VALUES(1,1,'replytest',default);

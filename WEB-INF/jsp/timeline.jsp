@@ -88,10 +88,10 @@
 								</c:forEach>
 							</div>
 							
-							<form class="replybox">
-								<textarea placeholder="コメントを追加" name="caption" class="replytext" spellcheck="false"></textarea>
+							<form action="reply" method="post" class="replybox">
+								<textarea placeholder="コメントを追加" name="replytext" class="replytext" spellcheck="false"></textarea>
 								<input type="submit" name="submit" value="送信" class="replybuttom">
-								<input type="hidden" value="${sessionScope.loginUser.loginId}">
+								<input type="hidden" value="${data.postId}" name="postId">
 							</form>
 						</div>
 						
