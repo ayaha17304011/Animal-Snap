@@ -1,4 +1,5 @@
 <%@ page pageEncoding="Windows-31J" contentType="text/html;charset=Windows-31J" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -24,46 +25,37 @@
 
 	<body>
 		<br><br><br><br>
-		<c:forEach var="data" items="${data}">
 						<div class="icon">
-							<img src="WebContent/profileIcon/default_icon.png" class="iconimage">
-							<!--<img src="<c:url value='/WebContent/${data.iconPath}'/>">-->
+							<img src="<c:url value='/WebContent/${data.iconImage}'/>" class="iconimage">
 						</div>
 						<div class="username">
-								<h1>ユーザー名が入るよ</h1>
-								<!--${data.userName}-->
+							<h1>${data.userName}</h1>
 						</div>
-						<img src="WebContent/sample_image/default_icon.png"  class="profile">
 						<br>
 						<div class="userid">
-							<p1>ユーザーIDだよ</p1>
-							<!--${data.userId}-->
+							<p1>${data.loginId}</p1>
 					</div>	
 					<div class="follower">
-						<p2>フォロワー</p2>0<p2>人</p2>
-						<!--${data.follower}-->
+						<p2>フォロワー ${data.observer}人</p2>
 				</div>	
 
 				<div class="follower">
-						0<p2>人をフォロー中</p2>
-						<!--${data.following}<p2>人をフォロー中<p2>-->
+						<p2>${data.following}人をフォロー中</p2>
 				</div>
 					<div class="post">
-						<!-- <div class="image"> -->
-							<ul class="photo_ul">
+						<div class="image">
+							<!-- <ul class="photo_ul">
 								<li class="photo"><img src="WebContent/sample_image/dogcat.jpg"><a href=""></a></li>
 								<li class="photo"><img src="WebContent/sample_image/dogcat2.jpg"><a href=""></a></li>
 								<li class="photo"><img src="WebContent/sample_image/fefe.jpg"><a href=""></a></li>
 								<li class="photo"><img src="WebContent/sample_image/dogcat.jpg"><a href=""></a></li>
 								<li class="photo"><img src="WebContent/sample_image/dogcat2.jpg"><a href=""></a></li>
 								<li class="photo"><img src="WebContent/sample_image/fefe.jpg"><a href=""></a></li>
-							</ul>
-							<!--<img src="<c:url value='/WebContent/${data.imageURL}'/>" alt="Post Image">-->
-						<!-- </div> -->
+							</ul> -->
+						</div>
 					</div>
 
 					<br><br><br>
-		</c:forEach>
 		<br><br><br><br>
 	</body>
 </html> 

@@ -225,14 +225,15 @@ public class AnimalDao{
             String sql = "SELECT u.loginid,u.username,u.password,u.iconpath,"+
                           "(SELECT count(*) FROM as_post WHERE userId = u.userId and state = 1) AS POST_COUNT,"+
                           "(SELECT count(*) FROM as_follower WHERE userId = u.userId) AS OBSERVER,"+
-                          "(SELECT count(*) FROM as_follower WHERE observerId = u.userId) AS FOLLOWING "+
+                          "(SELECT count(*) FROM as_follower WHERE observerId = u.userId) AS FOLLOWING,"+
+                          "u.state "+
                           "FROM as_user u " +
                           "WHERE u.userID = " + uid;
             st = cn.prepareStatement(sql);
             rs = st.executeQuery();
 
             rs.next();
-            if(rs.getInt(5)==1){ 
+            if(rs.getInt(8)==1){ 
                 ub.setLoginId(rs.getString(1));
                 ub.setUserName(rs.getString(2));
                 ub.setPassword(rs.getString(3));
@@ -483,11 +484,11 @@ public class AnimalDao{
         Connection cn = null;
         PreparedStatement st = null;
         ResultSet rs = null;
-        ArrayList<> list = new ArrayList<String>();
+        ArrayList list = new ArrayList();
         try{
             String sql = "SELECT postId, ImageURL "+
                          "FROM as_post "+
-                         "WHERE userId = ? and state = 1 "
+                         "WHERE userId = ? and state = 1 "+
                          "ORDER BY timeStamp";
             st = cn.prepareStatement(sql);
             st.setString(1, userId);
@@ -510,6 +511,5 @@ public class AnimalDao{
             }
         }
         return list;
-    }
     }
 }

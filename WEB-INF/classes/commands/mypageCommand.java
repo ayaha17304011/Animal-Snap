@@ -1,9 +1,26 @@
 package commands;
 
 import main.ResponseContext;
+import main.RequestContext;
+import java.util.List;
+import dao.OraConnectionManager;
+import dao.AnimalDao;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import beans.UserBean;
 
 public class mypageCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
+		AnimalDao dao = new AnimalDao();
+		RequestContext reqc = getRequestContext();
+        HttpServletRequest req =(HttpServletRequest)reqc.getRequest();
+		HttpSession session = req.getSession();
+		String userId = (String)session.getAttribute("userId");
+		OraConnectionManager.getInstance().beginTransaction();
+		UserBean ub = dao.getUserInfo(userId);
+		OraConnectionManager.getInstance().closeConnection();
+		resc.setResult(ub);
+		System.out.println(ub.getUserName());
 		resc.setTarget("mypage");
 		return resc;
 	}
