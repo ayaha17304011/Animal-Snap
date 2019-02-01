@@ -12,7 +12,7 @@ import javax.servlet.RequestDispatcher;
 public class FrontServlet extends HttpServlet{
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException{
-		request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("Windows-31J");
 
 		ApplicationController app = new WebApplicationController();
 		
