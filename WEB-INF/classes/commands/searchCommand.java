@@ -18,7 +18,6 @@ public class searchCommand extends AbstractCommand{
 		ArrayList<ArrayList> result = new ArrayList<ArrayList>();
 		RequestContext reqc = getRequestContext();
         HttpServletRequest req =(HttpServletRequest)reqc.getRequest();
-
 		String query = req.getParameter("query");
         System.out.println(query); //“ú–{Œê•¶Žš‰»‚¯
 		OraConnectionManager.getInstance().beginTransaction();

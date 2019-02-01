@@ -8,10 +8,10 @@
 	<body>
 		<c:forEach var="user" items="${data[0]}">
 			<p>${user.loginId}</p>
-			<img src="<c:url value='/WebContent/${user.iconImage}'/>" class="iconimage">
+			<img src="<c:url value='/WebContent/${user.iconImage}'/>" class="iconimage"/><br>
 		</c:forEach>
 		<c:forEach var="post" items="${data[1]}">
-			<img src="<c:url value='/WebContent/${post.imageURL}'/>" class="image">
+			<img src="<c:url value='/WebContent/${post.imageURL}'/>" class="image"/><br>
 		</c:forEach>
 	</body>
 </html>

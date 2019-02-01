@@ -104,11 +104,12 @@
 						</a>
 						</div>
 
-						<!-- iine, comment(reply) -->
+						<!-- like, reply -->
 						<div class="command">
 							<span style="font-size: 2em;">
 								<i class="far fa-heart"></i>
 							</span>
+							<a href="like">Like</a>
 							<span style="font-size: 2em;">
 								<i class="far fa-comment"></i>
 							</span>
