@@ -40,11 +40,12 @@ body{
 }
 /*検索ボタンマウスオーバー時*/
 #sbtn:hover{
-color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/ 
+background-color:#26a0a0;/*検索ボタンマウスオーバー時のフォントカラー*/ 
 }
 
+
 .site-header{
-    background:#aaf7df;
+    background:#abe8d5;
     display: flex;
     
     position: fixed;
@@ -53,12 +54,14 @@ color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/
     height: 10%;
     z-index: 100; 
 }
+
 .site-logo {
 	margin: 1px;
 }
 .site-logo img{
 
     width: 175px;
+
 }
 .logo {
     width: 50px;
@@ -202,8 +205,9 @@ img{
 
 }
 
+
 .captiontext{
-    margin-top: 10%;
+    margin-top: 5%;
     border:solid 1px;
     border-color: #33CCCC;
 	resize: none;
@@ -219,16 +223,41 @@ img{
 
 
 .input_file .preview {
-    background-image: url(../logo/animal-log.png);
+    background-image: url(../logo/notpic.png);
     width: 50%;
     object-fit: cover;
+    background-size: cover;
     height: 50%;
     vertical-align: middle;
-    background: no-repeat;
+    background:no-repeat;
     background-size: contain;
+    display: block;
+    background-position: center center;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+
+
+.testtest{
+}
+
+input.previwpic {
 }
   
 .input_file input[type="file"] {
     opacity: 0;
   }
+  
+  
+  #sbtn2{
+    width: 100px;
+    height: 60px;
+    color: #FFF;
+    cursor: pointer;
+    background-color: #33CCCC;
+    border: none;
+    font-weight: bold;
+    font-size: 27px;
+    margin-bottom: 10%;
+}

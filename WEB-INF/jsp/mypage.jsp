@@ -5,16 +5,16 @@
 <html>
 	<head>
 		<header class="site-header">
-			<h1 class="site-logo"><a href="getpostlist"><img src="WebContent/logo/animal-log.png" alt="ƒƒS" class="logo"></a></h1>
+			<h1 class="site-logo"><a href="getpostlist"><img src="WebContent/logo/animal-log.png" alt="ãƒ­ã‚´" class="logo"></a></h1>
 			<form id="form1" action="" method="get">
-				<input id="sbox" id="s" name="s" type="search" placeholder="ŒŸõ" />
-				<input id="sbtn" type="submit" value="ŒŸõ" />
+				<input id="sbox" id="s" name="s" type="search" placeholder="æ¤œç´¢" />
+				<input id="sbtn" type="submit" value="æ¤œç´¢" />
 			</form>
 			<nav class="gnav">
 				<ul class="gnav__menu">
-					<li class="gnav__menu__item"><a href=""><img src="WebContent/logo/like.png" onmouseover="this.src='WebContent/logo/like2.png'" onmouseout=" this.src='WebContent/logo/like.png'" alt="‚¢‚¢‚Ë‘Œ©•\" class="navicon"></a></li>
-					<li class="gnav__menu__item"><a href="mypage?userId=${sessionScope.userId}"><img src="WebContent/logo/mypage.png" onmouseover="this.src='WebContent/logo/mypage2.png'" onmouseout=" this.src='WebContent/logo/mypage.png'" alt="ƒ}ƒCƒy[ƒW" class="navicon"></a></li>
-					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/logo/post.png" onmouseover="this.src='WebContent/logo/post2.png'" onmouseout=" this.src='WebContent/logo/post.png'" alt="“Še‰æ–Ê" class="navicon"></a></li>
+					<li class="gnav__menu__item"><a href=""><img src="WebContent/logo/like.png" onmouseover="this.src='WebContent/logo/like2.png'" onmouseout=" this.src='WebContent/logo/like.png'" alt="ã„ã„ã­æ—©è¦‹è¡¨" class="navicon"></a></li>
+					<li class="gnav__menu__item"><a href="mypage?userId=${sessionScope.userId}"><img src="WebContent/logo/mypage.png" onmouseover="this.src='WebContent/logo/mypage2.png'" onmouseout=" this.src='WebContent/logo/mypage.png'" alt="ãƒã‚¤ãƒšãƒ¼ã‚¸" class="navicon"></a></li>
+					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/logo/post.png" onmouseover="this.src='WebContent/logo/post2.png'" onmouseout=" this.src='WebContent/logo/post.png'" alt="æŠ•ç¨¿ç”»é¢" class="navicon"></a></li>
 				</ul>
 			</nav>
 		</header>
@@ -22,7 +22,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="${pageContext.request.contextPath}/WebContent/js/script.js"></script>
 
-		<title>‚ ‚É‚Ü‚é ‚·‚È‚Á‚Õ</title>
+		<title>ã‚ã«ã¾ã‚‹ ã™ãªã£ã·</title>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	</head>
 
@@ -40,7 +40,7 @@
 						</div>
 						
 						<form id="followorsetting" action="" method="">
-							<input id="sbtn3" type="submit" value="ƒvƒƒtƒB[ƒ‹‚Ì•ÒW" />
+							<input id="sbtn3" type="submit" value="ãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«ã®ç·¨é›†" />
 						</form>
 						<br>
 						
@@ -48,11 +48,11 @@
 							<p1>${data.loginId}</p1>
 					</div>	
 					<div class="follower">
-						<p2>ƒtƒHƒƒ[ ${data.observer}l</p2>
+						<p2>ãƒ•ã‚©ãƒ­ãƒ¯ãƒ¼ ${data.observer}äºº</p2>
 				</div>	
 
 				<div class="follower">
-						<p2>${data.following}l‚ğƒtƒHƒ[’†</p2>
+						<p2>${data.following}äººã‚’ãƒ•ã‚©ãƒ­ãƒ¼ä¸­</p2>
 				</div>
 					<div class="mypost">post
 						<div class="postlist"></div>
