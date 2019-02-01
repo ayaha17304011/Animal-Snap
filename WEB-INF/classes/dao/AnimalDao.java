@@ -444,31 +444,32 @@ public class AnimalDao{
         Connection cn = null;
         PreparedStatement st = null;
         ResultSet rs = null;
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<ArrayList<String>> list = new ArrayList<ArrayList<String>>();
+        ArrayList<String> post_list = new ArrayList<String>();
+        ArrayList<String> user_list = new ArrayList<String>();
         try{
             cn = OraConnectionManager.getInstance().getConnection();
-            // select postid from as_post where regexp_like(caption,'+&query+');
-            String sql = "select postid from as_post where regexp_like(caption,'+?+')";
+            String sql = "select userid from as_user where regexp_like(username,?)";
             st = cn.prepareStatement(sql);
             st.setString(1, query);
             rs = st.executeQuery();
             int count = 0;
             while(rs.next() && count<10){
-                String postid = rs.getString(1);
-                list.add(postid);
+                String userid = rs.getString(1);
+                user_list.add(userid);
                 count++;
             }
-            sql = "select userid from as_user where regexp_like(username,'+?+')";
+            sql = "select postid from as_post where regexp_like(caption,?)";
             st = cn.prepareStatement(sql);
             st.setString(1, query);
             rs = st.executeQuery();
             count = 0;
             while(rs.next() && count<10){
-                String userid = rs.getString(1);
-                list.add(userid);
+                String postid = rs.getString(1);
+                post_list.add(postid);
                 count++;
             }
-        }catch(SQLException e){
+       }catch(SQLException e){
             OraConnectionManager.getInstance().rollback();
             e.printStackTrace();
         }finally{
@@ -482,6 +483,8 @@ public class AnimalDao{
                 ex.printStackTrace();
             }
         }
+        list.add(user_list);
+        list.add(post_list);
         return list;
     }
     //
