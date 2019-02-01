@@ -76,7 +76,7 @@
 								<i class="far fa-heart"></i>
 							</span>
 							<span style="font-size: 2em;">
-								<i class="far fa-comment"></i>
+								<i class="far fa-comment reply"><span style="display:none;">${data.postId}</span></i>
 							</span>
 						</div>
 
@@ -90,7 +90,7 @@
 								</c:forEach>
 							</div>
 							
-							<form action="reply" method="post" class="replybox">
+							<form class="replybox">
 								<textarea placeholder="ƒRƒƒ“ƒg‚ð’Ç‰Á" name="replytext" class="replytext" spellcheck="false"></textarea>
 								<input type="submit" name="submit" value="‘—M" class="replybuttom">
 								<input type="hidden" value="${data.postId}" name="postId">

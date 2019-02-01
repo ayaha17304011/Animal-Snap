@@ -20,7 +20,7 @@ public class GetUserPostsCommand extends AbstractCommand{
 		OraConnectionManager.getInstance().closeConnection();
 		System.out.println(list);
 		resc.setResult(list);
-		resc.setTarget("userPosts");
+		resc.setTarget("userposts");
 		return resc;
 	}
 }

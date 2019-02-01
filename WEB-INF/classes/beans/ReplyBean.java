@@ -2,6 +2,7 @@ package beans;
 
 public class ReplyBean extends Bean{
 	private String replyId;
+	private String iconPath;
 	private String userId;
 	private String postId;
 	private String reply;
@@ -9,9 +10,12 @@ public class ReplyBean extends Bean{
 	private String userName;
 
 	public ReplyBean() {}
-
+	
 	public void setReplyId(String rid){
 		replyId = rid;
+	}
+	public void setIconPath(String icon){
+		iconPath = icon;
 	}
 	public void setUserId(String uid){
 		userId = uid;
@@ -31,6 +35,9 @@ public class ReplyBean extends Bean{
 
 	public String getReplyId(){
 		return replyId;
+	}
+	public String getIconPath(){
+		return iconPath;
 	}
 	public String getUserId(){
 		return userId;
