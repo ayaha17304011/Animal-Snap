@@ -12,13 +12,13 @@
 			<input id="sbtn" type="submit" value="検索" /></form>
 			<nav class="gnav">
 				<ul class="gnav__menu">
-						<li class="gnav__menu__item"><a href="likelist"><img src="WebContent/profileIcon/default_icon.png" alt="いいね早見表" class="navicon"></a></li>
-						<li class="gnav__menu__item"><a href="mypage"><img src="WebContent/profileIcon/default_icon.png" alt="マイページ" class="navicon"></a></li>
-						<li class="gnav__menu__item"><a href="upload"><img src="WebContent/profileIcon/default_icon.png" alt="投稿画面" class="navicon"></a></li>
+					<li class="gnav__menu__item"><a href=""><img src="WebContent/logo/like.png" onmouseover="this.src='WebContent/logo/like2.png'" onmouseout=" this.src='WebContent/logo/like.png'" alt="いいね早見表" class="navicon"></a></li>
+					<li class="gnav__menu__item"><a href="mypage?userId=${sessionScope.userId}"><img src="WebContent/logo/mypage.png" onmouseover="this.src='WebContent/logo/mypage2.png'" onmouseout=" this.src='WebContent/logo/mypage.png'" alt="マイページ" class="navicon"></a></li>
+					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/logo/post.png" onmouseover="this.src='WebContent/logo/post2.png'" onmouseout=" this.src='WebContent/logo/post.png'" alt="投稿画面" class="navicon"></a></li>
 				</ul>
 			</nav>
 		</header>
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/login.css"/>
+
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/upload.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script>
@@ -32,7 +32,7 @@
 			        var fr = new FileReader();
 			        $('.preview').css('background-image', 'none');
 			        fr.onload = function() {
-			            $('.preview').css('background-image', 'url(' + fr.result + ')');
+			            $('.preview').css({'background-image': 'url(' + fr.result + ')','background': 'no-repeat'});
 			        }
 			        fr.readAsDataURL(file);
 			        $(".preview img").css('opacity', 0);
@@ -47,16 +47,17 @@
 			<div class="input_file">
 				<div class="preview">
 					<input type="file" name="post" accept="video/*,image/*" required id="file_photo">
-					<br><br><br><br>
+					<br>
 				</div>
 				<label for="file_photo" ><img src="WebContent/logo/fileselect.png" alt="ファイルを選択" onmouseover="this.src='WebContent/logo/fileselect_on.png'" onmouseout=" this.src='WebContent/logo/fileselect.png'" /></label><br>
 			</div>
 	
-			<textarea placeholder="コメントを追加(300字以内)" name="caption" class="captiontext" spellcheck="false" maxlength="300">
-			</textarea><br/>
+			<textarea placeholder="コメントを追加(300字以内)" name="caption" class="captiontext" spellcheck="false" maxlength="300"></textarea>
+
+			<br/>
 
 			<input type="hidden" name="userId" value="${sessionScope.userId}"><br>			
-			<input type="submit" name="Upload" id="sbtn">
+			<input type="submit" name="Upload" id="sbtn2">
 		</form>
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
