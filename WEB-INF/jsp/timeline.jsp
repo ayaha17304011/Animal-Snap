@@ -6,8 +6,8 @@
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/timeline.css"/>
 		<header class="site-header">
 			<h1 class="site-logo"><a href=""><img src="WebContent/logo/animal-log.png" alt="ƒƒS"></a></h1>
-			<form id="form1" action="" method="get">
-			<input id="sbox" id="s" name="s" type="search" placeholder="ŒŸõ" />
+			<form id="form1" action="search" method="get">
+			<input id="sbox" id="s" name="query" type="search" placeholder="ŒŸõ" />
 			<input id="sbtn" type="submit" value="ŒŸõ" /></form>
 			<nav class="gnav">
 				<ul class="gnav__menu">
@@ -63,11 +63,12 @@
 		<% if(session.getAttribute("userId") == null){ %>
 
 			<a href="log">ƒƒOƒCƒ“</a>
-			<a href="signup">V‹K“o˜^</a>
+			<a href="log">V‹K“o˜^</a>
 
 		<% } else { %>
 
 			<a href="logout">ƒƒOƒAƒEƒg</a>
+			<a href="upload">upload</a><br>
 
 		<% } %>
 		<%
@@ -79,7 +80,6 @@
 			<div class="popup_box">
 			</div>
 		</div>
-		<a href="upload">upload</a><br>
 		<c:forEach var="data" items="${data}">
 				<div class="post">
 
@@ -88,7 +88,7 @@
 						</div>
 						
 						<div class="username">
-								<a href="mypage?userId=${data.userId}">${data.userName}</a>
+							<a href="mypage?userId=${data.userId}">${data.userName}</a>
 						</div>						
 				
 						<div class="image">
@@ -104,11 +104,12 @@
 						</a>
 						</div>
 
-						<!-- iine, comment(reply) -->
+						<!-- like, reply -->
 						<div class="command">
 							<span style="font-size: 2em;">
 								<i class="far fa-heart"></i>
 							</span>
+							<a href="like">Like</a>
 							<span style="font-size: 2em;">
 								<i class="far fa-comment"></i>
 							</span>

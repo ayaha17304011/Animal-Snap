@@ -9,9 +9,10 @@
 
 	<header class="site-header">
 		<h1 class="site-logo"><a href=""><img src="WebContent/logo/animal-log.png" alt="ƒƒS" class="logo"></a></h1>
-		<form id="form1" action="" method="get">
-		<input id="sbox" id="s" name="s" type="search" placeholder="ŒŸõ" />
-		<input id="sbtn" type="submit" value="ŒŸõ" /></form>
+		<form id="form1" action="search" method="get">
+			<input id="sbox" id="s" name="query" type="search" placeholder="ŒŸõ" />
+			<input id="sbtn" type="submit" value="ŒŸõ" />
+		</form>
 		<nav class="gnav">
 			<ul class="gnav__menu">
 				<li class="gnav__menu__item"></li>
