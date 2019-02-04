@@ -109,11 +109,14 @@
 							<span style="font-size: 2em;">
 								<i class="far fa-heart"></i>
 							</span>
-							<a href="like">Like</a>
 							<span style="font-size: 2em;">
 								<i class="far fa-comment"></i>
 							</span>
-						</div>
+							<form action="like" method="post" class="likebutton">
+								<input type="hidden" value="${data.postId}" name="postId">
+								<input type="submit" name="submit" value="like" class="likebutton">
+							</form>
+					</div>
 
 						<div class="content">
 							<div class="caption">
@@ -126,7 +129,7 @@
 							</div>
 							
 							<form action="reply" method="post" class="replybox">
-								<textarea placeholder="コメントを追加" name="replytext" class="replytext" spellcheck="false"></textarea>
+								<textarea placeholder="コメントを追加" name="replytext" class="replytext" spellcheck="false" maxlength="300"></textarea>
 								<input type="submit" name="submit" value="送信" class="replybuttom">
 								<input type="hidden" value="${data.postId}" name="postId">
 							</form>

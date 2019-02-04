@@ -1,5 +1,7 @@
 package commands;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import main.ResponseContext;
 import main.RequestContext;
 import dao.AnimalDao;
@@ -8,16 +10,18 @@ import beans.LikeBean;
 
 public class LikeCommand extends AbstractCommand{
     public ResponseContext execute(ResponseContext resc){
-        RequestContext reqc = getRequestContext();
         LikeBean lb = new LikeBean();
-        String[] uid = reqc.getParameter("userId");
-        String[] pid = reqc.getParameter("postId");
+		AnimalDao dao = new AnimalDao();
+        RequestContext reqc = getRequestContext();
+
+        HttpServletRequest req =(HttpServletRequest)reqc.getRequest();
+		HttpSession session = req.getSession();
+		String userId = (String)session.getAttribute("userId");
+        String[] pidArr = (String[])reqc.getParameter("postId");
+    	String postId = pidArr[0];
        
-        String userId = uid[0];
-        String postId = pid[0];
         lb.setPostId(postId);
         lb.setUserId(userId);
-		AnimalDao dao = new AnimalDao();
 		dao.like(lb);
 
         resc.setTarget("timeline");

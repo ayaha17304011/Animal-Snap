@@ -14,11 +14,11 @@ public class GetUserPostsCommand extends AbstractCommand{
 		RequestContext reqc = getRequestContext();
         HttpServletRequest req =(HttpServletRequest)reqc.getRequest();
 		String userId = req.getParameter("userId");
-		System.out.println(userId);
+		// System.out.println(userId);
 		OraConnectionManager.getInstance().beginTransaction();
 		List list = dao.getUserPosts(userId);
 		OraConnectionManager.getInstance().closeConnection();
-		System.out.println(list);
+		// System.out.println(list);
 		resc.setResult(list);
 		resc.setTarget("userposts");
 		return resc;

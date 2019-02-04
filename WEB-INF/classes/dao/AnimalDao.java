@@ -181,21 +181,23 @@ public class AnimalDao{
         PreparedStatement st = null;
         ResultSet rs = null;
         ArrayList replyList = new ArrayList();
-        ReplyBean rb = new ReplyBean();
-
         try{
             cn = OraConnectionManager.getInstance().getConnection();
-            String sql = "SELECT u.username,r.reply,r.timestamp "+
-                          "FROM as_reply r LEFT JOIN as_user u "+
-                          "WHERE postID=? order by timestamp";
+            String sql = "SELECT r.userId, u.username, u.iconPath, r.reply, r.timestamp "+
+                          "FROM as_reply r LEFT JOIN as_user u on(u.userId = r.userId) "+
+                          "WHERE r.postID = ? "+
+                          "ORDER BY timestamp desc";
             st = cn.prepareStatement(sql);
             st.setString(1, pb.getPostId());
             rs = st.executeQuery();
 
             while(rs.next()){
-                rb.setUserName(rs.getString(1));
-                rb.setReply(rs.getString(2));
-                rb.setTimestamp(rs.getString(3));
+                ReplyBean rb = new ReplyBean();
+                rb.setUserId(rs.getString(1));
+                rb.setUserName(rs.getString(2));
+                rb.setIconPath(rs.getString(3));
+                rb.setReply(rs.getString(4));
+                rb.setTimestamp(rs.getString(5));
                 replyList.add(rb);
             }
         }catch(SQLException e){
@@ -268,19 +270,18 @@ public class AnimalDao{
         String sql = null;
         try{
             cn = OraConnectionManager.getInstance().getConnection();
-            String select = "select likeId from as_like where userId = ? and postId = ?";
+            String select = "select userId,postId from as_like where userId = ? and postId = ?";
+            String uid = lb.getUserId();
+            String pid = lb.getPostId();
             st = cn.prepareStatement(select);
-            st.setString(1, lb.getUserId());
-            st.setString(2, lb.getPostId());
+            st.setString(1, uid);
+            st.setString(2, pid);
             rs = st.executeQuery();
             if(rs.next()){
-                String likeId = rs.getString("likeId");
-                sql = "delete from as_like where likeId = " + likeId;
+                sql = "delete from as_like where userId = " + uid + " and postId =" + pid;
                 SQLUpdate(sql);
             }else{
-                String uid = lb.getUserId();
-                String pid = lb.getPostId();
-                sql = "insert into as_like(likeid,userid,postid) values(as_seq_likeId.next_val, " + uid + ", " + pid + ")";
+                sql = "insert into as_like(userid,postid) values(" + uid + ", " + pid + ")";
                 SQLUpdate(sql);
             }
         }catch(SQLException e){
@@ -387,7 +388,8 @@ public class AnimalDao{
             st.setString(1, uid);
             rs = st.executeQuery();
             while(rs.next()){
-                String follower = rs.getString(1);
+                String follower = rs.getString(3);
+                System.out.println(follower);
                 list.add(follower);
             }
         }catch(SQLException e){
@@ -532,7 +534,7 @@ public class AnimalDao{
         int new_count = 0;
         try{
             cn = OraConnectionManager.getInstance().getConnection();
-            String sql = "SELECT count(*) WHERE as_reply WHERE postId = " + pid;
+            String sql = "SELECT count(*) FROM as_reply WHERE postId = " + pid;
             st = cn.prepareStatement(sql);
             rs = st.executeQuery();
             if(rs.next()){

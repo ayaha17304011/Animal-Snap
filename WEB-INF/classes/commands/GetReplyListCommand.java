@@ -5,6 +5,7 @@ import main.RequestContext;
 import dao.AnimalDao;
 import dao.OraConnectionManager;
 import beans.PostBean;
+import java.util.List;
 
 public class GetReplyListCommand extends AbstractCommand{
     public ResponseContext execute(ResponseContext resc){
@@ -14,11 +15,11 @@ public class GetReplyListCommand extends AbstractCommand{
         String[] pid = reqc.getParameter("postId");
         pb.setPostId(pid[0]);
         OraConnectionManager.getInstance().beginTransaction();
-        Object result = dao.getReplyList(pb);
+        List result = dao.getReplyList(pb);
         OraConnectionManager.getInstance().closeConnection();
 
         resc.setResult(result);
-        resc.setTarget("postview");
+        resc.setTarget("replylist");
         return resc;
     }
 }

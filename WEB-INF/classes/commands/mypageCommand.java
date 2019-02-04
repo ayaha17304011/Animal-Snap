@@ -14,7 +14,6 @@ public class mypageCommand extends AbstractCommand{
 		RequestContext reqc = getRequestContext();
         HttpServletRequest req =(HttpServletRequest)reqc.getRequest();
 		String userId = req.getParameter("userId");
-		System.out.println("user="+userId);
 		OraConnectionManager.getInstance().beginTransaction();
 		UserBean ub = dao.getUserInfo(userId);
 		OraConnectionManager.getInstance().closeConnection();

@@ -31,35 +31,39 @@
 		<div id="popup_window">
 			<div class="popup_box"></div>
 		</div>
-						<div class="icon">
-							<img src="<c:url value='/WebContent/${data.iconImage}'/>" class="iconimage">
-						</div>
-						<div class="username">
-						<span id="uid" style="display:none">${data.userId}</span>
-							<h1>${data.userName}</h1>
-						</div>
-						
-						<form id="followorsetting" action="" method="">
-							<input id="sbtn3" type="submit" value="プロフィールの編集" />
-						</form>
-						<br>
-						
-						<div class="userid">
-							<p1>${data.loginId}</p1>
-					</div>	
-					<div class="follower">
-						<p2>フォロワー ${data.observer}人</p2>
-				</div>	
 
-				<div class="follower">
-						<p2>${data.following}人をフォロー中</p2>
-				</div>
-					<div class="mypost">post
-						<div class="postlist"></div>
-						<h1 class="load">Loading</h1>
-					</div>
+		<div class="icon">
+			<img src="<c:url value='/WebContent/${data.iconImage}'/>" class="iconimage">
+		</div>
 
-					<br><br><br>
+		<div class="username">
+			<span id="uid" style="display:none">${data.userId}</span>
+			<h1>${data.userName}</h1>
+		</div>
+		
+		<form id="followorsetting" action="" method="">
+			<input id="sbtn3" type="submit" value="プロフィールの編集" />
+		</form>
+		<br>
+						
+		<div class="userid">
+			<p1>${data.loginId}</p1>
+		</div>	
+
+		<div class="follower">
+			<a href="followerlist">フォロワー ${data.observer}人</a>
+		</div>	
+
+		<div class="follower">
+				<p2>${data.following}人をフォロー中</p2>
+		</div>
+
+		<div class="mypost">post
+			<div class="postlist"></div>
+			<h1 class="load">Loading</h1>
+		</div>
+
+		<br><br><br>
 		<br><br><br><br>
 	</body>
 </html> 
