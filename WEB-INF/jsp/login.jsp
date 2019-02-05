@@ -9,19 +9,23 @@
 
 	<header class="site-header">
 		<h1 class="site-logo"><a href=""><img src="WebContent/logo/animal-log.png" alt="ロゴ" class="logo"></a></h1>
-		<form id="form1" action="" method="get">
-		<input id="sbox" id="s" name="s" type="search" placeholder="検索" />
-		<input id="sbtn" type="submit" value="検索" /></form>
+		<form id="form1" action="search" method="get">
+			<input id="sbox" id="s" name="query" type="search" placeholder="検索" />
+			<input id="sbtn" type="submit" value="検索" />
+		</form>
 		<nav class="gnav">
 			<ul class="gnav__menu">
 				<li class="gnav__menu__item"></li>
-				<li class="gnav__menu__item"></a></li>
 				<li class="gnav__menu__item"></li>
 				<li class="gnav__menu__item"></li>
 			
 			</ul>
 		</nav>
 	</header>
+			<link rel="stylesheet" type="text/css" href="{pageContext.request.contextPath}/WebContent/slick-1.8.1/slick/slick.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="{pageContext.request.contextPath}/WebContent/slick-1.8.1/slick/slick-theme.css" media="screen" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="{pageContext.request.contextPath}/WebContent/slick-1.8.1/slick/slick.min.js"></script>
 	
 </head>
 <body>
@@ -30,7 +34,10 @@
 			<h1>あにまる すなっぷ へようこそ</h1>
 	<div class="box">
 		<div class="box1">
-		<img src="<c:url value='WebContent/sample_image/dogcat2.jpg'/>" alt="なんかすごくキュートな動物の画像" width="80%" height="auto">
+			<ul class="slider">
+			     <li><a href="#"><img src="<c:url value='WebContent/sample_image/dogcat2.jpg'/>" alt="なんかすごくキュートな動物の画像" width="80%" height="auto"></a></li>
+			     <li><a href="#"><img src="<c:url value='WebContent/sample_image/bird8.jpg'/>" alt="なんかすごくキュートな動物の画像" width="80%" height="auto"></a></li>
+			</ul>
 		</div>
 		
 		<div class="box2">
