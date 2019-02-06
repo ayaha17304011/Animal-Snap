@@ -11,8 +11,8 @@
 			<input id="sbtn" type="submit" value="検索" /></form>
 			<nav class="gnav">
 				<ul class="gnav__menu">
-					<li class="gnav__menu__item"><a href=""><a href=""><img src="WebContent/logo/like.png" alt="いいね早見表" class="navicon"></a></li>
-					<li class="gnav__menu__item"><a href="mypage?userId=${sessionScope.userId}"><img src="WebContent/logo/mypage.png" alt="マイページ" class="navicon"></a></li>
+					<li class="gnav__menu__item"><a href=""><a href=""><img src="WebContent/logo/like.png" alt="�?�?ね早見表" class="navicon"></a></li>
+					<li class="gnav__menu__item"><a href="mypage?userId=${sessionScope.userId}"><img src="WebContent/logo/mypage.png" alt="マイペ�?�ジ" class="navicon"></a></li>
 					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/logo/post.png" alt="投稿画面" class="navicon"></a></li>
 				</ul>
 			</nav>
@@ -28,23 +28,23 @@
 	<script>
 		$(window)
     	.on('scroll resize', function () {
-        // ウインドウのスクロール量取得
+        // ウインドウのスクロール量取�?
         var windowScrollTop = $(window).scrollTop();
-        // ウインドウの高さ取得
+        // ウインドウの高さ取�?
         var windowInnerHeight = window.innerHeight;
 
         var $video = $('video');
-        // videoがページの最上部からどの位置にあるか取得
+        // videoが�?��?�ジの最上部からどの位置にあるか取�?
         var videoTop = $('video').offset().top;
-        // videoの高さ取得
+        // videoの高さ取�?
         var videoHeight = $('video').innerHeight();
 
-        // videoが停止している、かつvideoが画面内に入ってきた場合、再生処理
+        // videoが停止して�?る、かつvideoが画面�?に入ってきた場合、�?�生処�?
         if ($video[0].paused && (windowScrollTop + windowInnerHeight > videoTop)) {
             $video[0].play();
         }
 
-        // videoが再生中、かつ画面外に出た場合、停止処理
+        // videoが�?�生中、かつ画面外に出た�?�合、停止処�?
         if (!$video[0].paused && ((windowScrollTop + windowInnerHeight < videoTop) || (windowScrollTop > videoTop + videoHeight))) {
             $video[0].pause();
         }
@@ -53,7 +53,7 @@
 
 	</script>
 		
-		<title>あにまる すなっぷ</title>
+		<title>あにま�? すなっぷ</title>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	</head>
 	<body>
@@ -67,7 +67,7 @@
 
 		<% } else { %>
 
-			<a href="logout">ログアウト</a>
+			<a href="logout">ログアウ�?</a>
 			<a href="upload">upload</a><br>
 
 		<% } %>
@@ -110,7 +110,7 @@
 								<i class="far fa-heart"></i>
 							</span>
 							<span style="font-size: 2em;">
-								<i class="far fa-comment"></i>
+								<i class="far fa-comment reply"><span style="display:none;">${data.postId}</span></i>
 							</span>
 							<form action="like" method="post" class="likebutton">
 								<input type="hidden" value="${data.postId}" name="postId">
@@ -130,9 +130,9 @@
 								</c:forEach>
 							</div>
 							
-							<form action="reply" method="post" class="replybox">
-								<textarea placeholder="コメントを追加" name="replytext" class="replytext" spellcheck="false" maxlength="300"></textarea>
-								<input type="submit" name="submit" value="送信" class="replybuttom">
+							<form class="replybox">
+								<textarea placeholder="�R�����g��ǉ�" name="replytext" class="replytext" spellcheck="false" maxlength="300"></textarea>
+								<input type="submit" name="submit" value="���M" class="replybuttom">
 								<input type="hidden" value="${data.postId}" name="postId">
 							</form>
 						</div>
