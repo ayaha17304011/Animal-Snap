@@ -270,19 +270,18 @@ public class AnimalDao{
         String sql = null;
         try{
             cn = OraConnectionManager.getInstance().getConnection();
-            String select = "select likeId from as_like where userId = ? and postId = ?";
+            String select = "select userId,postId from as_like where userId = ? and postId = ?";
+            String uid = lb.getUserId();
+            String pid = lb.getPostId();
             st = cn.prepareStatement(select);
-            st.setString(1, lb.getUserId());
-            st.setString(2, lb.getPostId());
+            st.setString(1, uid);
+            st.setString(2, pid);
             rs = st.executeQuery();
             if(rs.next()){
-                String likeId = rs.getString("likeId");
-                sql = "delete from as_like where likeId = " + likeId;
+                sql = "delete from as_like where userId = " + uid + " and postId =" + pid;
                 SQLUpdate(sql);
             }else{
-                String uid = lb.getUserId();
-                String pid = lb.getPostId();
-                sql = "insert into as_like(likeid,userid,postid) values(as_seq_likeId.next_val, " + uid + ", " + pid + ")";
+                sql = "insert into as_like(userid,postid) values(" + uid + ", " + pid + ")";
                 SQLUpdate(sql);
             }
         }catch(SQLException e){
@@ -389,7 +388,8 @@ public class AnimalDao{
             st.setString(1, uid);
             rs = st.executeQuery();
             while(rs.next()){
-                String follower = rs.getString(1);
+                String follower = rs.getString(3);
+                System.out.println(follower);
                 list.add(follower);
             }
         }catch(SQLException e){
