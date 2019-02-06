@@ -6,13 +6,13 @@
 	<head>
 		<header class="site-header">
 			<h1 class="site-logo"><a href="getpostlist"><img src="WebContent/logo/animal-log.png" alt="ロゴ" class="logo"></a></h1>
-			<form id="form1" action="" method="get">
-				<input id="sbox" id="s" name="s" type="search" placeholder="検索" />
+			<form id="form1" action="search" method="get">
+				<input id="sbox" id="s" name="query" type="search" placeholder="検索" />
 				<input id="sbtn" type="submit" value="検索" />
 			</form>
 			<nav class="gnav">
 				<ul class="gnav__menu">
-					<li class="gnav__menu__item"><a href=""><img src="WebContent/logo/like.png" onmouseover="this.src='WebContent/logo/like2.png'" onmouseout=" this.src='WebContent/logo/like.png'" alt="いいね早見表" class="navicon"></a></li>
+					<li class="gnav__menu__item"><a href="mylike"><img src="WebContent/logo/like.png" onmouseover="this.src='WebContent/logo/like2.png'" onmouseout=" this.src='WebContent/logo/like.png'" alt="いいね早見表" class="navicon"></a></li>
 					<li class="gnav__menu__item"><a href="mypage?userId=${sessionScope.userId}"><img src="WebContent/logo/mypage.png" onmouseover="this.src='WebContent/logo/mypage2.png'" onmouseout=" this.src='WebContent/logo/mypage.png'" alt="マイページ" class="navicon"></a></li>
 					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/logo/post.png" onmouseover="this.src='WebContent/logo/post2.png'" onmouseout=" this.src='WebContent/logo/post.png'" alt="投稿画面" class="navicon"></a></li>
 				</ul>
@@ -41,7 +41,7 @@
 			<h1>${data.userName}</h1>
 		</div>
 		
-		<form id="followorsetting" action="" method="">
+		<form id="editprofile" action="" method="">
 			<input id="sbtn3" type="submit" value="プロフィールの編集" />
 		</form>
 		<br>
@@ -55,7 +55,7 @@
 		</div>	
 
 		<div class="follower">
-				<p2>${data.following}人をフォロー中</p2>
+			<a href="followinglist">${data.following}人をフォロー中</a>
 		</div>
 
 		<div class="mypost">post

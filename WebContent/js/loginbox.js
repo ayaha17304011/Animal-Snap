@@ -48,6 +48,12 @@ $(function() {
                     class: 'nyuuryoku'
                 }),
                 $("<input/>",{
+                    type: 'text',
+                    name: 'username',
+                    placeholder: '表示名',
+                    class: 'nyuuryoku'
+                }),
+                $("<input/>",{
                     type: 'password',
                     name: 'pass',
                     placeholder: 'パスワード',

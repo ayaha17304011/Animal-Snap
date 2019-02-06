@@ -11,7 +11,7 @@
 			<input id="sbtn" type="submit" value="検索" /></form>
 			<nav class="gnav">
 				<ul class="gnav__menu">
-					<li class="gnav__menu__item"><a href=""><a href=""><img src="WebContent/logo/like.png" alt="いいね早見表" class="navicon"></a></li>
+					<li class="gnav__menu__item"><a href="mylike"><img src="WebContent/logo/like.png" alt="いいね早見表" class="navicon"></a></li>
 					<li class="gnav__menu__item"><a href="mypage?userId=${sessionScope.userId}"><img src="WebContent/logo/mypage.png" alt="マイページ" class="navicon"></a></li>
 					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/logo/post.png" alt="投稿画面" class="navicon"></a></li>
 				</ul>
