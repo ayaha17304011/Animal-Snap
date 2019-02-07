@@ -1,9 +1,9 @@
 package commands;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import main.ResponseContext;
 import main.RequestContext;
+import dao.OraConnectionManager;
 import beans.UserBean;
 import dao.AnimalDao;
 import java.util.ArrayList;
@@ -16,17 +16,20 @@ public class GetFollowingListCommand extends AbstractCommand{
         RequestContext reqc = getRequestContext();
         
         HttpServletRequest req =(HttpServletRequest)reqc.getRequest();
-		HttpSession session = req.getSession();
-		String userId = (String)session.getAttribute("userId");
+        String[] userIdArr = (String[])reqc.getParameter("userId");
+        String userId = userIdArr[0];
 
+		OraConnectionManager.getInstance().beginTransaction();
         ArrayList following = dao.getFollowinglist(userId);
-        System.out.println("following userid "+following);
+		OraConnectionManager.getInstance().closeConnection();
 
+		OraConnectionManager.getInstance().beginTransaction();
         for(int i=0; i<following.size(); i++){
             String uid = (String)following.get(i);
             ub = dao.getUserInfo(uid);
             result.add(ub);
         }
+		OraConnectionManager.getInstance().closeConnection();
 
         resc.setResult(result);
         resc.setTarget("followinglist");
