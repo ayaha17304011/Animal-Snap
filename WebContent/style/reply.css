@@ -3,7 +3,35 @@ text-decoration: none;
     font-weight: bold;
     color:black;
     z-index: 1;
+    font-size: 90%;
+
 }
+
+
+p {
+	display: inline;
+    vertical-align: middle;
+    word-break : break-all;
+}
+
+.captionlist{
+    padding: 15px;
+    width: 100%;
+}
+
+.caption{
+	margin: 0px;
+	border: solid 0px;
+    resize: none;
+    width: 76%;
+    height: auto;
+    /* font-size: 140%; */
+    font-size: larger;
+    padding: 0px;
+    display: inline-block;
+    vertical-align: text-top;
+}
+
 
 .slick-prev:before,
 .slick-next:before {
@@ -142,20 +170,21 @@ img{
     margin: 1%;
 }
 
-.replybox{
-	border: solid 0px;
-    border-color: #e4e8e4;
-    border-top-width: 3px;
-    margin: 0px;
+.replylist{
+    padding: 15px;
+    width: 100%;
 }
 
 .replytext{
-	border:solid 0px;
-	resize: none;
-	width: 85%;
-	height:56px;
-	font-size: 140%;
-	padding: 18px;
+    border: solid 0px;
+    resize: none;
+    width: 76%;
+    height: auto;
+    /* font-size: 140%; */
+    font-size: larger;
+    padding: 0px;
+    display: inline-block;
+    vertical-align: text-top;
 }
 
 .replybuttom{
@@ -174,15 +203,16 @@ img{
     height: 7%;
 }
 
-.caption{
-    margin: 2%;
-    word-break : break-all;
-}
+
 
 body{
     width: 100%;
     margin: 0 auto;
     background-color: #fcfffe;
+}
+
+.popup_sub{
+
 }
 
 #popup_window{
@@ -207,40 +237,3 @@ body{
 	margin: 70px auto;
 }
 
-
-.lovelike {
-display: inline-block;
-}
-
-.heart {
-  width: 100px;
-      height: 45px;
-  background: url(../logo/web_heart_animation.png) no-repeat;
-  background-position: 0 0;
-  cursor: pointer;
-}
-.heart:hover {
-  background-position: -2800px 0;
-  -webkit-transition: background 1s steps(28);
-  transition: background 1s steps(28);
-}
-
-.heart:active {
-  background-position: -2800px 0;
-  -webkit-transition: background 1s steps(28);
-  transition: background 1s steps(28);
-}
-
-.hukidashi {
-  width: 100px;
-      height: 45px;
-  background: url(../logo/hukidashi.png) no-repeat;
-  background-position: 0 0;
-  cursor: pointer;
-  display: inline-block;
-}
-.hukidashi:hover {
-  background-position: -2800px 0;
-  -webkit-transition: background 1s steps(28);
-  transition: background 1s steps(28);
-}
