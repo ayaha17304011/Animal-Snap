@@ -12,8 +12,9 @@
 *getFollowerlist  | 364->396
 *getFolloingList  | 397->429
 *search           | 435->477
-*getUserPosts     | 
-*getNextReplyCount| 
+*getUserPosts     | 493~
+*getNextReplyCount| 530~
+*getMyLike        | 561~
 *followCheck      | --------
 *likeCheck        | --------
 ******************************************/
@@ -389,7 +390,6 @@ public class AnimalDao{
             rs = st.executeQuery();
             while(rs.next()){
                 String follower = rs.getString(3);
-                System.out.println(follower);
                 list.add(follower);
             }
         }catch(SQLException e){
@@ -423,7 +423,7 @@ public class AnimalDao{
             st.setString(1, uid);
             rs = st.executeQuery();
             while(rs.next()){
-                String follower = rs.getString(1);
+                String follower = rs.getString(3);
                 list.add(follower);
             }
         }catch(SQLException e){
@@ -557,5 +557,36 @@ public class AnimalDao{
             }
         }
         return new_count;
+    }
+    public ArrayList getMyLike(String uid){
+        Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        ArrayList<String> list = new ArrayList<String>();
+        try{
+            cn = OraConnectionManager.getInstance().getConnection();
+            String sql = "SELECT postid FROM as_like WHERE userid = ?";
+            st = cn.prepareStatement(sql);
+            st.setString(1, uid);
+            rs = st.executeQuery();
+            while(rs.next()){
+                String pid = rs.getString(1);
+                list.add(pid);
+            }
+        }catch(SQLException e){
+            OraConnectionManager.getInstance().rollback();
+            e.printStackTrace();
+        }finally{
+            try{
+                if(rs != null){
+                    rs.close();
+                }if(st != null){
+                    st.close();
+                }
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        return list;
     }
 }
