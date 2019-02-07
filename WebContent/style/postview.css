@@ -210,7 +210,7 @@ img{
 .replybuttom{
 	
     border: solid 0px #33CCCC;
-    padding: 7px 10px;
+    padding: 0px;
     font-size: 1.2em;
     text-transform: uppercase;
     font-weight: bold;
