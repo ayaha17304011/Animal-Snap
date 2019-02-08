@@ -41,7 +41,7 @@
 		</div>
 		
 		<div class="box2">
-			<img src="WebContent/logo/animal-log.png"  / class="titlelogo">
+			<img src="WebContent/logo/animal-log.png" class="titlelogo">
 			<button class="btn1 submitbutton" type="button">ƒƒOƒCƒ“</button>
 			<br>
 			<button class="btn2 submitbutton" type="button">V‹K“o˜^</button>

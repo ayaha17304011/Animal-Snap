@@ -176,6 +176,7 @@ img{
 
 .caption{
     margin: 2%;
+    word-break : break-all;
 }
 
 body{
@@ -204,4 +205,42 @@ body{
 	box-sizing: content-box;
 	overflow: visible;
 	margin: 70px auto;
+}
+
+
+.lovelike {
+display: inline-block;
+}
+
+.heart {
+  width: 100px;
+      height: 45px;
+  background: url(../logo/web_heart_animation.png) no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+}
+.heart:hover {
+  background-position: -2800px 0;
+  -webkit-transition: background 1s steps(28);
+  transition: background 1s steps(28);
+}
+
+.heart:active {
+  background-position: -2800px 0;
+  -webkit-transition: background 1s steps(28);
+  transition: background 1s steps(28);
+}
+
+.hukidashi {
+  width: 100px;
+      height: 45px;
+  background: url(../logo/hukidashi.png) no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+  display: inline-block;
+}
+.hukidashi:hover {
+  background-position: -2800px 0;
+  -webkit-transition: background 1s steps(28);
+  transition: background 1s steps(28);
 }
