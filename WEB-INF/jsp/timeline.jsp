@@ -56,9 +56,7 @@
     .trigger('scroll');
 
 	</script>
-		
 		<title>‚ ‚É‚Ü‚é ‚·‚È‚Á‚Õ</title>
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	</head>
 	<body>
 	
@@ -92,10 +90,11 @@
 						</div>
 						
 						<div class="username">
-							<form name="userpage" action="mypage" method="post">
+							<a href="mypage?userId=${data.userId}">${data.userName}</a>
+							<!-- <form name="userpage" action="mypage" method="post">
 								<a href="javascript:mypage.submit()">${data.userName}</a>
 								<input type="hidden" value="${data.userId}" name="userId"/>
-							</form>
+							</form> -->
 						</div>						
 				
 						<div class="image">
@@ -115,14 +114,10 @@
 						<div class="command">
 							<div class="lovelike">
 								<span style="font-size: 2em;">
-									<a href="like"><div class="heart"></div></a>
+									<a href="like?postId=${data.postId}"><div class="heart"></div></a>
 								</span>
 							</div>	
-								
 							<div class="hukidashi reply"><span style="display:none;">${data.postId}</span></div>
-							
-
-							
 						</div>
 
 						<div class="content">
@@ -135,7 +130,7 @@
 								</c:forEach>
 							</div>
 							
-							<form class="replybox">
+							<form action="reply" method="POST" class="replybox">
 								<textarea placeholder="ƒRƒƒ“ƒg‚ð’Ç‰Á" name="replytext" class="replytext" spellcheck="false"></textarea>
 								<input type="submit" name="submit" value="‘—M" class="replybuttom">
 								<input type="hidden" value="${data.postId}" name="postId">

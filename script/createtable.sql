@@ -23,7 +23,8 @@ CREATE TABLE as_user (
   username	varchar2(30) not null,
   password	varchar2(12) not null,
   iconpath	varchar2(256) not null, 
-	state number(1) default 1 check (state = 0 or state = 1)
+	profile   varchar2(300),
+  state number(1) default 1 check (state = 0 or state = 1)
 );
 
 CREATE TABLE as_follower (
