@@ -7,6 +7,7 @@
 <body>
 	<form action="regist" method="post">
 		user<input type="text" name="loginid"><br>
+		username<input type="username" name="username">
 		pass<input type="password" name="pass">
 		<input type="submit" value="login">
 	</form>

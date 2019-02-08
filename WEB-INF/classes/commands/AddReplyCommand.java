@@ -15,7 +15,7 @@ public class AddReplyCommand extends AbstractCommand{
 		HttpSession session = req.getSession();
 		String userId = (String)session.getAttribute("userId");
         String[] pidArr = (String[])reqc.getParameter("postId");
-    	String[] replyArr = reqc.getParameter("replytext");
+    	String[] replyArr = (String[])reqc.getParameter("replytext");
     	String postId = pidArr[0];
 		String reply = replyArr[0];
 		int count = dao.getNextReplyCount(postId);
