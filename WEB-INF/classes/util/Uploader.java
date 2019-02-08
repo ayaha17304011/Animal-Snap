@@ -1,10 +1,3 @@
-/** 0205
-*file name not fix yet
-*when upload more than 1 img or vid
-*uploading file save as same name insame diractory
-*cause file overwrite  
-**/
-
 package util;
 
 import main.RequestContext;
@@ -20,9 +13,11 @@ import javax.servlet.http.Part;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpSession;
 
 @MultipartConfig(fileSizeThreshold=32768,maxFileSize=5242880,maxRequestSize=27262976)
-public class Upload{
+public class Uploader{
+	//loacl upload
 	public static PostBean uploadFile(RequestContext reqc){
 		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
 
@@ -33,7 +28,10 @@ public class Upload{
 		PostBean post = new PostBean();
 		try{
 			String caption = req.getParameter("caption");
-			String userId = req.getParameter("userId");
+
+			HttpSession session = req.getSession();
+			String userId = (String)session.getAttribute("userId");
+
 			post.setCaption(caption);
 			post.setUserId(userId);
 
@@ -72,6 +70,40 @@ public class Upload{
 		}	catch (ServletException e){
 			e.printStackTrace();
 		}
+		return post;
+	}
+
+	//uploadcare
+	/*** 
+	* single upload
+	***/
+	public static PostBean singleUpload(RequestContext reqc){
+		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
+		PostBean post = new PostBean();
+		//変数を準備する
+		String caption = req.getParameter("caption");
+		String url = req.getParameter("url");
+		String userId = null;
+		try{
+			//userIdはログインnoユーザーID=セッションのユーザーID
+			HttpSession session = req.getSession();
+			userId = (String)session.getAttribute("userId");
+		}catch(IllegalStateException e){//if call on invalidate session
+			e.printStackTrace();
+			// something
+		}
+		//ファイルのurlがない場合例外をthrow
+		if(url.equals("") || url == null){
+			//throw NoFileUploadException();
+		}else{
+			//画像のupload
+			url += "image";
+		}
+		//変数をPostBeanにsetする
+		post.setCaption(caption);
+		post.setUserId(userId);
+		post.setImageURL(url);
+
 		return post;
 	}
 }
