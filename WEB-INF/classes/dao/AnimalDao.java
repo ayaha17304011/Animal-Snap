@@ -226,25 +226,27 @@ public class AnimalDao{
         try{
             cn = OraConnectionManager.getInstance().getConnection();
             // no state
-            String sql = "SELECT u.loginid,u.username,u.password,u.iconpath,"+
+            String sql = "SELECT u.loginid,u.username,u.password,u.iconpath,u.profile,"+
                           "(SELECT count(*) FROM as_post WHERE userId = u.userId and state = 1) AS POST_COUNT,"+
                           "(SELECT count(*) FROM as_follower WHERE userId = u.userId) AS OBSERVER,"+
                           "(SELECT count(*) FROM as_follower WHERE observerId = u.userId) AS FOLLOWING,"+
                           "u.state "+
                           "FROM as_user u " +
                           "WHERE u.userID = " + uid;
+            System.out.println(sql);
             st = cn.prepareStatement(sql);
             rs = st.executeQuery();
 
             rs.next();
-            if(rs.getInt(8)==1){ 
+            if(rs.getInt(9)==1){ 
                 ub.setLoginId(rs.getString(1));
                 ub.setUserName(rs.getString(2));
                 ub.setPassword(rs.getString(3));
                 ub.setIconImage(rs.getString(4));
-                ub.setPostCount(rs.getString(5));
-                ub.setObserver(rs.getString(6));
-                ub.setFollowing(rs.getString(7));
+                ub.setProfile(rs.getString(5));
+                ub.setPostCount(rs.getString(6));
+                ub.setObserver(rs.getString(7));
+                ub.setFollowing(rs.getString(8));
                 ub.setUserId(uid);
             }
         }catch(SQLException e){

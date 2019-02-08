@@ -1,0 +1,1 @@
+ALTER TABLE as_user ADD ( profile varchar2(300) ) ;

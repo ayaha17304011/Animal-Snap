@@ -9,6 +9,7 @@ public class UserBean extends Bean{
 	private String postCount;
 	private String observer;
 	private String following;
+	private String profile;
 
 	public UserBean(){};
 
@@ -36,6 +37,9 @@ public class UserBean extends Bean{
 	public void setFollowing(String fcount){
 		following = fcount;
 	}
+	public void setProfile(String prof){
+		profile = prof;
+	}
 
 	public String getUserId(){
 		return userId;
@@ -60,5 +64,8 @@ public class UserBean extends Bean{
 	}
 	public String getFollowing(){
 		return following;
+	}
+	public String getProfile(){
+		return profile;
 	}
 }

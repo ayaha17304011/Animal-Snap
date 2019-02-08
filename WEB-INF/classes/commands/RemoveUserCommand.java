@@ -7,22 +7,19 @@ import dao.OraConnectionManager;
 
 public class RemoveUserCommand extends AbstractCommand{
     public ResponseContext execute(ResponseContext resc){
-
         AnimalDao dao = new AnimalDao();
-
         RequestContext reqc=getRequestContext();
 
-        String[] userid = reqc.getParameter("userid");
+	      HttpServletRequest req =(HttpServletRequest)reqc.getRequest();
+			  HttpSession session = req.getSession();
+  			String userId = (String)session.getAttribute("userId");
+        String sql  = "UPDATE as_user SET state = 0 WHERE userId = " + userId;
 
-        String sql  = "UPDATE as_user SET state = 0 WHERE userId = " + userid[0];
-
-        
         OraConnectionManager.getInstance().beginTransaction();
         dao.SQLUpdate(sql);
-    	
         OraConnectionManager.getInstance().closeConnection();
 
       resc.setTarget("timeline");
       return resc;
     }
-  }
+}
