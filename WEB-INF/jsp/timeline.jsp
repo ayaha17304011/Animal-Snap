@@ -9,14 +9,14 @@
 		
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/timeline.css"/>
 		<header class="site-header">
-			<h1 class="site-logo"><a href=""><img src="WebContent/logo/animal-log.png" alt="ロゴ"></a></h1>
+			<h1 class="site-logo"><a href="getpostlist"><img src="WebContent/logo/animal-log.png" alt="ロゴ"></a></h1>
 			<form id="form1" action="search" method="get">
 			<input id="sbox" id="s" name="query" type="search" placeholder="検索" />
 			<input id="sbtn" type="submit" value="検索" /></form>
 			<nav class="gnav">
 				<ul class="gnav__menu">
-					<li class="gnav__menu__item"><a href=""><a href=""><img src="WebContent/logo/like.png" alt="いいね早見表" class="navicon"></a></li>
-					<li class="gnav__menu__item"><a href="mypage?userId=${sessionScope.userId}"><img src="WebContent/logo/mypage.png" alt="マイページ" class="navicon"></a></li>
+					<li class="gnav__menu__item"><a href="mylike"><img src="WebContent/logo/like.png" alt="いいね早見表" class="navicon"></a></li>
+					<li class="gnav__menu__item"><form name="mypage" action="mypage" method="post"><a href="javascript:mypage.submit()"><img src="WebContent/logo/mypage.png" onmouseover="this.src='WebContent/logo/mypage2.png'" onmouseout=" this.src='WebContent/logo/mypage.png'" alt="マイページ" class="navicon"></a><input type="hidden" value="${sessionScope.userId}" name="userId"></form></li>
 					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/logo/post.png" alt="投稿画面" class="navicon"></a></li>
 				</ul>
 			</nav>
@@ -92,7 +92,10 @@
 						</div>
 						
 						<div class="username">
-							<a href="mypage?userId=${data.userId}">${data.userName}</a>
+							<form name="userpage" action="mypage" method="post">
+								<a href="javascript:mypage.submit()">${data.userName}</a>
+								<input type="hidden" value="${data.userId}" name="userId"/>
+							</form>
 						</div>						
 				
 						<div class="image">

@@ -13,7 +13,7 @@
 			<nav class="gnav">
 				<ul class="gnav__menu">
 					<li class="gnav__menu__item"><a href="mylike"><img src="WebContent/logo/like.png" onmouseover="this.src='WebContent/logo/like2.png'" onmouseout=" this.src='WebContent/logo/like.png'" alt="いいね早見表" class="navicon"></a></li>
-					<li class="gnav__menu__item"><a href="mypage?userId=${sessionScope.userId}"><img src="WebContent/logo/mypage.png" onmouseover="this.src='WebContent/logo/mypage2.png'" onmouseout=" this.src='WebContent/logo/mypage.png'" alt="マイページ" class="navicon"></a></li>
+					<li class="gnav__menu__item"><form name="mypage" action="mypage" method="post"><a href="javascript:mypage.submit()"><img src="WebContent/logo/mypage.png" onmouseover="this.src='WebContent/logo/mypage2.png'" onmouseout=" this.src='WebContent/logo/mypage.png'" alt="マイページ" class="navicon"></a><input type="hidden" value="${sessionScope.userId}" name="userId"></form></li>
 					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/logo/post.png" onmouseover="this.src='WebContent/logo/post2.png'" onmouseout=" this.src='WebContent/logo/post.png'" alt="投稿画面" class="navicon"></a></li>
 				</ul>
 			</nav>
@@ -41,7 +41,7 @@
 			<h1>${data.userName}</h1>
 		</div>
 		
-		<form id="editprofile" action="" method="">
+		<form id="editprofile" action="editprofile" method="POST">
 			<input id="sbtn3" type="submit" value="プロフィールの編集" />
 		</form>
 		<br>
@@ -51,11 +51,17 @@
 		</div>	
 
 		<div class="follower">
-			<a href="followerlist">フォロワー ${data.observer}人</a>
+			<form name="follower" action="followerlist" method="post">
+				<a href="javascript:follower.submit()">フォロワー ${data.observer}人</a>
+				<input type="hidden" value="${data.userId}" name="userId">
+			</form>
 		</div>	
 
-		<div class="follower">
-			<a href="followinglist">${data.following}人をフォロー中</a>
+		<div class="following">
+			<form name="following" action="followinglist" method="post">
+				<a href="javascript:following.submit()">${data.following}人をフォロー中</a>
+				<input type="hidden" value="${data.userId}" name="userId">
+			</form>
 		</div>
 
 		<div class="mypost">post
