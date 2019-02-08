@@ -20,6 +20,7 @@ body{
     /* padding: 0 10px; */
     border-radius: 2px 0 0 2px;
     /* background: #eee; */	
+    outline: 0;
 }
 
 /*検索ボタン*/
@@ -177,6 +178,7 @@ background-color:#33CCCC;
     padding: 10px;
     border-color: #33CCCC;
     border-width: 3px;
+    margin: 20px;
 }
 
 .image {
@@ -194,3 +196,42 @@ img{
 .wf-roundedmplus1c { 
     font-family: "M PLUS Rounded 1c"; 
 }
+
+
+
+.slider {
+  position   : relative;
+  overflow   : hidden;
+                    /* 画像のサイズに合わせて変更ください */
+  width      : 100%;
+  height     : 120%;
+  margin     : auto;      /* サンプルは中央寄せの背景：白 */
+  background : #fff;
+  
+}
+ 
+ /*=== 画像の設定 ======================================= */
+.slider img {
+  display    : block;
+  position   : absolute;
+/* 画像のサイズを表示エリアに合せる */
+  width      : inherit;
+
+  opacity    : 0;
+  animation  : slideAnime 10s ease infinite;
+}
+ 
+ /*=== スライドのアニメーションを段差で開始する ========= */
+.slider img:nth-of-type(1) { animation-delay: 0s }
+.slider img:nth-of-type(2) { animation-delay: 5s }
+ 
+ /*=== スライドのアニメーション ========================= */
+@keyframes slideAnime{
+   0% { opacity: 0 }
+   25% { opacity: 1 }
+  50% { opacity: 1 }
+  75% { opacity: 0 }
+ 100% { opacity: 0 }
+}
+
+

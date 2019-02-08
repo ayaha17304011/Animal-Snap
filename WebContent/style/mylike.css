@@ -73,16 +73,10 @@ h1 {
 
 .postlist{
 
-      width: 85%;
-
+    margin: 14px;
+    width: 100%;
     flex-wrap: wrap;
-    display: flex;
-    top: 0;
-    margin: auto;
-    bottom: 0;
-    
-    right: 0;
-    left: 0;
+        display: flex;
 
 }
 
@@ -102,12 +96,14 @@ h1 {
     margin: 15px;
     width: 30%;
     /* top: 0; */
-    height: 350px;
+    height: 400px;
     object-fit: cover;
     /* vertical-align: middle; */
     z-index: 10;
+    
   }
- 
+  
+  
 .image {
 background: #000;
  }
@@ -131,7 +127,7 @@ img2 {
 .command {
     margin: 1%;
 }
-span {}
+
 
 .content{
 
@@ -305,6 +301,7 @@ background-color:#26a0a0;
     font-weight: bold;
     font-size: 16px;
 }
-}
+
+
 
 

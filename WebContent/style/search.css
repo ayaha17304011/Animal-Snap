@@ -20,6 +20,8 @@ text-decoration: none;
     /* padding: 0 10px; */
     border-radius: 2px 0 0 2px;
     /* background: #eee; */	
+    outline: 0;
+
 }
 
 .icon{
@@ -73,7 +75,7 @@ h1 {
 
 .postlist{
 
-      width: 85%;
+   width: 85%;
 
     flex-wrap: wrap;
     display: flex;
@@ -99,15 +101,17 @@ h1 {
   }
   img{
 
-    margin: 15px;
+    margin: 12px;
     width: 30%;
     /* top: 0; */
     height: 350px;
     object-fit: cover;
     /* vertical-align: middle; */
     z-index: 10;
+    
   }
- 
+  
+  
 .image {
 background: #000;
  }
@@ -131,7 +135,7 @@ img2 {
 .command {
     margin: 1%;
 }
-span {}
+
 
 .content{
 
@@ -156,6 +160,8 @@ span {}
 	height:56px;
 	font-size: 140%;
 	padding: 18px;
+	outline: 0;
+
 }
 
 .replybuttom{
@@ -305,6 +311,24 @@ background-color:#26a0a0;
     font-weight: bold;
     font-size: 16px;
 }
+
+
+.userlist {
+	width: 85%;
+    flex-wrap: wrap;
+    display: flex;
+    top: 0;
+    margin: auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 
+.user1 {
+	display: inline-block;
+    margin: auto;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
 
