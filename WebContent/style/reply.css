@@ -1,0 +1,239 @@
+a {
+text-decoration: none;
+    font-weight: bold;
+    color:black;
+    z-index: 1;
+    font-size: 90%;
+
+}
+
+
+p {
+	display: inline;
+    vertical-align: middle;
+    word-break : break-all;
+}
+
+.captionlist{
+    padding: 15px;
+    width: 100%;
+}
+
+.caption{
+	margin: 0px;
+	border: solid 0px;
+    resize: none;
+    width: 76%;
+    height: auto;
+    /* font-size: 140%; */
+    font-size: larger;
+    padding: 0px;
+    display: inline-block;
+    vertical-align: text-top;
+}
+
+
+.slick-prev:before,
+.slick-next:before {
+    color: #000;
+}
+/*左右の矢印の位置を変える*/
+.slick-next {
+    right: 20px;
+    z-index: 99;
+}
+.slick-prev {
+     left: 15px;
+    z-index: 100;
+}
+/*スライド数のドットの色を変える*/
+.slick-dots li.slick-active button:before,
+.slick-dots li button:before {
+    color: #fff;
+}
+
+#form1 {
+	margin: 16px;
+}
+
+#sbox{
+/*position: absolute; */
+
+    height: 40px;
+    width: 200px;
+    /* padding: 0 10px; */
+    border-radius: 2px 0 0 2px;
+    /* background: #eee; */	
+}
+
+/*検索ボタン*/
+#sbtn{
+    width: 70px;
+    height: 40px;
+    /* position: absolute; */
+    /* left: 270px; */
+    /* top: 0; */
+    /* border-radius: 0 2px 2px 0; */
+    color: #FFF;
+    cursor: pointer;
+    background-color: #33CCCC;
+    border: none;
+
+    font-weight: bold;
+    font-size: 16px;
+}
+/*検索ボタンマウスオーバー時*/
+#sbtn:hover{
+background-color:#26a0a0;
+}
+
+.site-header{
+    background:#abe8d5;
+    display: flex;
+    
+    position: fixed;
+    justify-content: space-between;
+    width: 100%;
+    height: 10%;
+    z-index: 100; 
+}
+
+.site-logo {
+	margin: 1px;
+}
+.site-logo img{
+    width: auto;
+}
+
+.gnav{
+    padding: 10px;
+}
+
+.gnav__menu{
+    display: flex;
+    margin: auto;
+}
+.gnav__menu__item{
+    margin-left: 1%;
+    width: 5%;
+    list-style: none;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+}
+.gnav__menu__item a{
+    text-decoration: none;
+}
+
+.Post {
+    width: 50%;
+    margin: 0 auto;
+    border: solid;
+    border-color: #e4e8e4;
+    border-width: 3px;
+    margin-top: 5%;
+    background-color: #ffffff;
+}
+
+.icon{
+	/*border: solid; */
+    /* border-color: #33CCCC; */
+    /* border-bottom-width: 3px; */
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+
+.username {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.image {
+    width: 100%;
+    height: 85%;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: middle;
+
+}
+
+.command {
+    margin: 1%;
+}
+
+.replylist{
+    padding: 15px;
+    width: 100%;
+}
+
+.replytext{
+    border: solid 0px;
+    resize: none;
+    width: 76%;
+    height: auto;
+    /* font-size: 140%; */
+    font-size: larger;
+    padding: 0px;
+    display: inline-block;
+    vertical-align: text-top;
+}
+
+.replybuttom{
+	float: right;
+    border: solid 0px #33CCCC;
+    padding: 7px 10px;
+    /* margin: 5%; */
+    /* font-family: Arial, sans-serif; */
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #FFF;
+    cursor: pointer;
+    background-color: #33CCCC;
+    width: 15%;
+    height: 7%;
+}
+
+
+
+body{
+    width: 100%;
+    margin: 0 auto;
+    background-color: #fcfffe;
+}
+
+.popup_sub{
+
+}
+
+#popup_window{
+	background: #000000aa;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow: auto;
+	z-index: 200;
+	display: none;
+	box-sizing: border-box;
+}
+#popup_window .popup_box{
+	border-radius: 5px;
+    background: #fff;
+    max-width: 90%;
+	min-height: 100px;
+	box-sizing: content-box;
+	overflow: visible;
+	margin: 70px auto;
+}
+
