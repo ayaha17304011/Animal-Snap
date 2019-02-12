@@ -42,7 +42,7 @@
 			<h1>${data.userName}</h1>
 		</div>
 		
-		<form id="editprofile" action="editprofile" method="POST">
+		<form id="editprofile" action="toeditprofile" method="POST">
 			<input id="sbtn3" type="submit" value="プロフィールの編集" />
 		</form>
 		<br>
