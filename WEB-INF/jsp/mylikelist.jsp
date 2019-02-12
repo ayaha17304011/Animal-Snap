@@ -25,6 +25,10 @@
 	</head>
 	<body>
 			<br><br><br><br>
+		<div id="popup_window">
+			<div class="popup_box">
+			</div>
+		</div>
 		<div class="mylike">
 		<c:forEach var="data" items="${data}">
 			<img src="<c:url value='/WebContent/${data.imageURL}'/>"class="image"/>

@@ -1,11 +1,11 @@
 <%@ page pageEncoding="Windows-31J" contentType="text/html;charset=Windows-31J" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!DOCTYPE html>
+
 <html>
 	<head>
 		<header class="site-header">
-			<h1 class="site-logo"><a href="getpostlist"><img src="WebContent/logo/animal-log.png" alt="ロゴ" class="logo"></a></h1>
+			<h1 class="site-logo"><a href="getpostlist"><img src="WebContent/logo/animal-log.png" alt="ロゴ"></a></h1>
 			<form id="form1" action="search" method="get">
 				<input id="sbox" id="s" name="query" type="search" placeholder="検索" />
 				<input id="sbtn" type="submit" value="検索" />
@@ -24,6 +24,7 @@
 
 		<title>あにまる すなっぷ</title>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
 	</head>
 
 	<body>
@@ -41,7 +42,7 @@
 			<h1>${data.userName}</h1>
 		</div>
 		
-		<form id="editprofile" action="toeditprofile" method="POST">
+		<form id="editprofile" action="editprofile" method="POST">
 			<input id="sbtn3" type="submit" value="プロフィールの編集" />
 		</form>
 		<br>
@@ -64,11 +65,7 @@
 			</form>
 		</div>
 
-		<div class="userid">
-			<p1>${data.profile}</p1>
-		</div>	
-	
-		<div class="mypost">post
+		<div class="mypost">
 			<div class="postlist"></div>
 			<h1 class="load">Loading</h1>
 		</div>

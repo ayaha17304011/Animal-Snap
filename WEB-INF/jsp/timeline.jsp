@@ -1,6 +1,8 @@
 <%@ page pageEncoding="Windows-31J" contentType="text/html;charset=Windows-31J" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+
 <html>
 	<head>
 	
@@ -11,23 +13,24 @@
 		<header class="site-header">
 			<h1 class="site-logo"><a href="getpostlist"><img src="WebContent/logo/animal-log.png" alt="ロゴ"></a></h1>
 			<form id="form1" action="search" method="get">
-			<input id="sbox" id="s" name="query" type="search" placeholder="検索" />
-			<input id="sbtn" type="submit" value="検索" /></form>
+				<input id="sbox" id="s" name="query" type="search" placeholder="検索" />
+				<input id="sbtn" type="submit" value="検索" />
+			</form>
 			<nav class="gnav">
 				<ul class="gnav__menu">
-					<li class="gnav__menu__item"><a href="mylike"><img src="WebContent/logo/like.png" alt="いいね早見表" class="navicon"></a></li>
+					<li class="gnav__menu__item"><a href="mylike"><img src="WebContent/logo/like.png" onmouseover="this.src='WebContent/logo/like2.png'" onmouseout=" this.src='WebContent/logo/like.png'" alt="いいね早見表" class="navicon"></a></li>
 					<li class="gnav__menu__item"><form name="mypage" action="mypage" method="post"><a href="javascript:mypage.submit()"><img src="WebContent/logo/mypage.png" onmouseover="this.src='WebContent/logo/mypage2.png'" onmouseout=" this.src='WebContent/logo/mypage.png'" alt="マイページ" class="navicon"></a><input type="hidden" value="${sessionScope.userId}" name="userId"></form></li>
-					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/logo/post.png" alt="投稿画面" class="navicon"></a></li>
+					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/logo/post.png" onmouseover="this.src='WebContent/logo/post2.png'" onmouseout=" this.src='WebContent/logo/post.png'" alt="投稿画面" class="navicon"></a></li>
 				</ul>
 			</nav>
 		</header>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="${pageContext.request.contextPath}/WebContent/js/script.js"></script>
-		<link rel="stylesheet" type="text/css" href="slick.css" media="screen" />
-		<link rel="stylesheet" type="text/css" href="slick-theme.css" media="screen" />
+	
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
-		<script src="slick.min.js"></script>
+
+	
 		
 	<script>
 		$(window)
@@ -56,7 +59,9 @@
     .trigger('scroll');
 
 	</script>
+		
 		<title>あにまる すなっぷ</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	</head>
 	<body>
 	
@@ -90,11 +95,10 @@
 						</div>
 						
 						<div class="username">
-							<a href="mypage?userId=${data.userId}">${data.userName}</a>
-							<!-- <form name="userpage" action="mypage" method="post">
+							<form name="userpage" action="mypage" method="post">
 								<a href="javascript:mypage.submit()">${data.userName}</a>
 								<input type="hidden" value="${data.userId}" name="userId"/>
-							</form> -->
+							</form>
 						</div>						
 				
 						<div class="image">
@@ -117,7 +121,11 @@
 									<a href="like?postId=${data.postId}"><div class="heart"></div></a>
 								</span>
 							</div>	
+								
 							<div class="hukidashi reply"><span style="display:none;">${data.postId}</span></div>
+							
+
+							
 						</div>
 
 						<div class="content">
@@ -130,7 +138,7 @@
 								</c:forEach>
 							</div>
 							
-							<form action="reply" method="POST" class="replybox">
+							<form class="replybox">
 								<textarea placeholder="コメントを追加" name="replytext" class="replytext" spellcheck="false"></textarea>
 								<input type="submit" name="submit" value="送信" class="replybuttom">
 								<input type="hidden" value="${data.postId}" name="postId">
