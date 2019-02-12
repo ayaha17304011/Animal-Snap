@@ -591,4 +591,37 @@ public class AnimalDao{
         }
         return list;
     }
+    public boolean ExistUser(String uid){
+        Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        boolean flag = true;
+        try{
+            cn = OraConnectionManager.getInstance().getConnection();
+            String sql = "SELECT state FROM as_user WHERE userid = ?";
+            st = cn.prepareStatement(sql);
+            st.setString(1, uid);
+            rs = st.executeQuery();
+            rs.next();
+            String state = rs.getString(1);
+            System.out.println(state);
+            if(state=="0"){
+                flag = false;
+            }
+        }catch(SQLException e){
+            OraConnectionManager.getInstance().rollback();
+            e.printStackTrace();
+        }finally{
+            try{
+                if(rs != null){
+                    rs.close();
+                }if(st != null){
+                    st.close();
+                }
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        return flag;
+    }
 }
