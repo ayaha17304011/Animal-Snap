@@ -37,12 +37,14 @@
 			<img src="<c:url value='/WebContent/${data.iconImage}'/>" class="iconimage">
 		</div>
 
+		<div class="prof">
+	
 		<div class="username">
 			<span id="uid" style="display:none">${data.userId}</span>
-			<h1>${data.userName}</h1>
+			<h2>${data.userName}</h2>
 		</div>
 		
-		<form id="editprofile" action="editprofile" method="POST">
+		<form id="editprofile" action="toeditprofile" method="POST">
 			<input id="sbtn3" type="submit" value="プロフィールの編集" />
 		</form>
 		<br>
@@ -63,6 +65,12 @@
 				<a href="javascript:following.submit()">${data.following}人をフォロー中</a>
 				<input type="hidden" value="${data.userId}" name="userId">
 			</form>
+		</div>
+		
+		<div class="profile">
+			<p1>12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</p1>
+		</div>
+		
 		</div>
 
 		<div class="mypost">
