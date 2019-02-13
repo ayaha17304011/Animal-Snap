@@ -4,6 +4,8 @@ import main.ResponseContext;
 import main.RequestContext;
 import dao.AnimalDao;
 import dao.OraConnectionManager;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 public class RemoveUserCommand extends AbstractCommand{
     public ResponseContext execute(ResponseContext resc){
@@ -14,6 +16,7 @@ public class RemoveUserCommand extends AbstractCommand{
 			  HttpSession session = req.getSession();
   			String userId = (String)session.getAttribute("userId");
         String sql  = "UPDATE as_user SET state = 0 WHERE userId = " + userId;
+        System.out.println(sql);
 
         OraConnectionManager.getInstance().beginTransaction();
         dao.SQLUpdate(sql);
