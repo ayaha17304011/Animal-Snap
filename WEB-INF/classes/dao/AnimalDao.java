@@ -228,12 +228,12 @@ public class AnimalDao{
             // no state
             String sql = "SELECT u.loginid,u.username,u.password,u.iconpath,u.profile,"+
                           "(SELECT count(*) FROM as_post WHERE userId = u.userId and state = 1) AS POST_COUNT,"+
-                          "(SELECT count(*) FROM as_follower WHERE userId = u.userId) AS OBSERVER,"+
-                          "(SELECT count(*) FROM as_follower WHERE observerId = u.userId) AS FOLLOWING,"+
+                          "(SELECT count(*) FROM as_follower f JOIN as_user au ON(f.observerid = au.userid) WHERE f.userId = u.userId and au.state=1 ) AS OBSERVER,"+
+                          "(SELECT count(*) FROM as_follower f JOIN as_user au ON(f.userid = au.userid) WHERE observerId = u.userId and au.state=1 ) AS FOLLOWING,"+
                           "u.state "+
                           "FROM as_user u " +
                           "WHERE u.userID = " + uid;
-            System.out.println(sql);
+            // System.out.println(sql);
             st = cn.prepareStatement(sql);
             rs = st.executeQuery();
 
@@ -310,7 +310,7 @@ public class AnimalDao{
         String result = null;
         try{
             cn = OraConnectionManager.getInstance().getConnection();
-            String sql = "SELECT userId FROM as_user WHERE loginId = ? and password = ?";
+            String sql = "SELECT userId FROM as_user WHERE loginId = ? and password = ? and state = 1";
             st = cn.prepareStatement(sql);
             st.setString(1, ub.getLoginId());
             st.setString(2, ub.getPassword());
@@ -386,7 +386,7 @@ public class AnimalDao{
             cn = OraConnectionManager.getInstance().getConnection();
             String sql = "SELECT u.iconPath, u.username, f.observerId " +
             "FROM as_follower f INNER JOIN as_user u on(u.userId = f.observerId) "+
-            "WHERE f.userid = ?";
+            "WHERE f.userid = ? and u.state = 1";
             st = cn.prepareStatement(sql);
             st.setString(1, uid);
             rs = st.executeQuery();
@@ -420,7 +420,7 @@ public class AnimalDao{
             cn = OraConnectionManager.getInstance().getConnection();
             String sql = "SELECT u.iconPath, u.username, f.userId "+
                          "FROM as_follower f INNER JOIN as_user u on(u.userId = f.userId) "+
-                         "WHERE f.observerId = ?";
+                         "WHERE f.observerId = ? and u.state = 1";
             st = cn.prepareStatement(sql);
             st.setString(1, uid);
             rs = st.executeQuery();
@@ -567,7 +567,7 @@ public class AnimalDao{
         ArrayList<String> list = new ArrayList<String>();
         try{
             cn = OraConnectionManager.getInstance().getConnection();
-            String sql = "SELECT postid FROM as_like WHERE userid = ?";
+            String sql = "SELECT l.postid FROM as_like l JOIN as_user u ON(l.userid = u.userid) WHERE l.userid = ? and u.state = 1";
             st = cn.prepareStatement(sql);
             st.setString(1, uid);
             rs = st.executeQuery();
@@ -603,9 +603,8 @@ public class AnimalDao{
             st.setString(1, uid);
             rs = st.executeQuery();
             rs.next();
-            String state = rs.getString(1);
-            System.out.println(state);
-            if(state=="0"){
+            int state = Integer.parseInt(rs.getString(1));
+            if(state==0){
                 flag = false;
             }
         }catch(SQLException e){
