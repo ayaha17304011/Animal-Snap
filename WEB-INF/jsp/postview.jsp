@@ -9,7 +9,7 @@
 
 		<div class="post2">
 			
-			<div class="image">
+			<div class="image2">
 				<a href="getpostview?postId=${data.postId}" class="popup">
 					<c:set var="url" value="${data.imageURL}"/>
 					<c:if test="${fn:endsWith(url, '.jpg')}">
@@ -24,12 +24,12 @@
 		</div>
 		<div class="post3">
 			<div class="box1">
-				<div class="icon">
+				<div class="icon2">
 					<img src="<c:url value='/WebContent/${data.iconPath}'/>"><a href=""></a>
 				</div>
 			</div>
 			<div class="box2">	
-				<div class="username">
+				<div class="username2">
 						<a href="">${data.userName}</a>
 				</div>			
 			</div>			
@@ -41,7 +41,7 @@
 										<div class="command">
 							<div class="lovelike">
 								<span style="font-size: 2em;">
-									<a href="like"><div class="heart"></div></a>
+									<a href="like?postId=${data.postId}"><div class="heart"></div></a>
 								</span>
 							</div>	
 								
@@ -63,7 +63,139 @@
 						</c:forEach>
 					</div>
 
-					<form  class="replybox">
+		                
+		                <div class="username2">
+		                    <a href="">ñºëO</a>
+		                </div>        
+		        		
+		        		<div class="reply">
+							<p>Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p></br>
+						</div>
+					</div>
+					
+					<div class="replylist">
+
+		                
+		                <div class="username2">
+		                    <a href="">ñºëO</a>
+		                </div>        
+		        		
+		        		<div class="reply">
+							<p>Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p></br>
+						</div>
+					</div>
+					
+										<div class="replylist">
+
+		                
+		                <div class="username2">
+		                    <a href="">ñºëO</a>
+		                </div>        
+		        		
+		        		<div class="reply">
+							<p>Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p></br>
+						</div>
+					</div>
+					
+					
+					
+										<div class="replylist">
+
+		                
+		                <div class="username2">
+		                    <a href="">ñºëO</a>
+		                </div>        
+		        		
+		        		<div class="reply">
+							<p>Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p></br>
+						</div>
+					</div>
+					
+					
+					
+										<div class="replylist">
+
+		                
+		                <div class="username2">
+		                    <a href="">ñºëO</a>
+		                </div>        
+		        		
+		        		<div class="reply">
+							<p>Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p></br>
+						</div>
+					</div>
+					
+					
+										<div class="replylist">
+
+		                
+		                <div class="username2">
+		                    <a href="">ñºëO</a>
+		                </div>        
+		        		
+		        		<div class="reply">
+							<p>Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p></br>
+						</div>
+					</div>
+					
+					
+					
+										<div class="replylist">
+
+		                
+		                <div class="username2">
+		                    <a href="">ñºëO</a>
+		                </div>        
+		        		
+		        		<div class="reply">
+							<p>Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p></br>
+						</div>
+					</div>
+					
+					
+										<div class="replylist">
+
+		                
+		                <div class="username2">
+		                    <a href="">ñºëO</a>
+		                </div>        
+		        		
+		        		<div class="reply">
+							<p>Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p></br>
+						</div>
+					</div>
+					
+					
+					
+					
+										<div class="replylist">
+
+		                
+		                <div class="username2">
+		                    <a href="">ñºëO</a>
+		                </div>        
+		        		
+		        		<div class="reply">
+							<p>Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p></br>
+						</div>
+					</div>
+					
+										<div class="replylist">
+
+		                
+		                <div class="username2">
+		                    <a href="">ñºëO</a>
+		                </div>        
+		        		
+		        		<div class="reply">
+							<p>Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p></br>
+						</div>
+					</div>
+				
+				
+				
+				
+					<form class="replybox">
 						<textarea placeholder="ÉRÉÅÉìÉgÇí«â¡" name="caption" class="replytext" spellcheck="false"></textarea>
 						<input type="submit" name="submit" value="ëóêM" class="replybuttom">
 						<input type="hidden" value="${sessionScope.loginUser.loginId}">

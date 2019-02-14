@@ -37,20 +37,25 @@ a {
     display: inline-block;
     text-decoration: none;
         font-weight: bold;
+            margin: 0 auto;
+
 }
 
 .profile {
-    position: inherit;
-    width: 40px;
+position: inherit;
+    word-break: break-all;
     margin-bottom: 10px;
-    margin-left: 5px;       
-    height: 40px;
+    margin-left: 5px;
+    width: 500px;
+    /* height: 40px; */
 }
 
 .userid {
     display: inline-block;
     text-decoration: none;
         font-weight: bold;
+        display: inline-block;
+    margin-right: 20;
 }
 
 h1 {
@@ -66,7 +71,7 @@ h1 {
 }
 
 .mypost{
-	width: 100%;
+
 }
 
 .postlist{
@@ -97,7 +102,7 @@ h1 {
   }
   img{
 
-    margin: 15px;
+    margin: 12px;
     width: 30%;
     /* top: 0; */
     height: 350px;
@@ -107,7 +112,6 @@ h1 {
   }
  
 .image {
-background: #000;
  }
  
  .image:hover {
@@ -239,9 +243,7 @@ background-color:#26a0a0;
 
 }
 
-.logo {
-    width: 50px;
-}
+
 .gnav{
     padding: 0px;
     padding-right: 20px;
@@ -298,11 +300,30 @@ background-color:#26a0a0;
     color: #FFF;
     cursor: pointer;
     background-color: #33CCCC;
-    margin-left: 49px;
+    margin-left: 15px;
     border: none;
     font-weight: bold;
     font-size: 16px;
 }
+
+
+.prof{
+display: inline-block;
 }
 
+
+#editprofile {
+display: inline-block;
+}
+
+.follower{
+display: inline-block;
+    margin-right: 20;
+
+}
+
+.following{
+display: inline-block;
+    margin-right: 20;
+}
 

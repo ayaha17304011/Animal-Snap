@@ -1,5 +1,7 @@
 <%@ page pageEncoding="Windows-31J" contentType="text/html;charset=Windows-31J" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <html>
 		<head>
 		<header class="site-header">
@@ -25,9 +27,22 @@
 	</head>
 	<body>
 			<br><br><br><br>
+		<div id="popup_window">
+			<div class="popup_box">
+			</div>
+		</div>
 		<div class="mylike">
 		<c:forEach var="data" items="${data}">
-			<img src="<c:url value='/WebContent/${data.imageURL}'/>"class="image"/>
+				<a href="getpostview?postId=${data.postId}" class="popup">
+						<c:set var="url" value="${data.imageURL}"/>
+						<c:if test="${fn:endsWith(url, '.jpg')}">
+							<img src="<c:url value='/WebContent/${data.imageURL}'/>" alt="Post Image">
+						</c:if>
+						<c:if test="${fn:endsWith(url,'.mp4')}">
+							<video width="100%" height="100%" controls>
+								<source src="<c:url value='/WebContent/${data.imageURL}'/>" type="video/mp4">
+						</c:if>
+					</a>
 		</c:forEach>
 		</div>
 	</body>
