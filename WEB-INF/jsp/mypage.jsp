@@ -73,6 +73,10 @@
 		
 		</div>
 
+		<div class="profile">
+			<p1>${data.profile}</p1>
+		</div>
+
 		<div class="mypost">
 			<div class="postlist"></div>
 			<h1 class="load">Loading</h1>

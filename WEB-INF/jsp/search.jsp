@@ -1,5 +1,7 @@
 <%@ page pageEncoding="Windows-31J" contentType="text/html;charset=Windows-31J" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <html>
 	<head>
 		<header class="site-header">
@@ -24,31 +26,35 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	</head>
 	
-	
 	<body>
-			<br><br><br><br>
-			
-			
-			
-			<div class="userlist">
-				<c:forEach var="user" items="${data[0]}">
-				
-				
-				
-					<div class="user1">
-					<a href="mypage?userId=${user.loginId}">
-					<p>${user.loginId}</p>
-					<img src="<c:url value='/WebContent/${user.iconImage}'/>" class="iconimage"/><br></a>
-					</div>
-					
-				</c:forEach>
-			</div>	
-				
-			<div class="mypost">	
-				<div class="postlist">
-				<c:forEach var="post" items="${data[1]}">
-					<img src="<c:url value='/WebContent/${post.imageURL}'/>" class="image"/><br>
-				</c:forEach></div>
+		<br><br><br><br>
+		<div id="popup_window">
+				<div class="popup_box">
+				</div>
 			</div>
+			<div class="userlist">
+			<c:forEach var="user" items="${data[0]}">
+				<div class="user1">
+					<a href="mypage?userId=${user.userId}">
+				<p>${user.loginId}</p>
+				<img src="<c:url value='/WebContent/${user.iconImage}'/>" class="iconimage"/><br></a>
+				</div>
+			</c:forEach>
+		</div>
+			
+		<div class="postlist">
+			<c:forEach var="post" items="${data[1]}">
+				<a href="getpostview?postId=${post.postId}" class="popup">
+					<c:set var="url" value="${post.imageURL}"/>
+					<c:if test="${fn:endsWith(url, '.jpg')}">
+						<img src="<c:url value='/WebContent/${post.imageURL}'/>" alt="Post Image">
+					</c:if>
+					<c:if test="${fn:endsWith(url,'.mp4')}">
+						<video width="100%" height="100%" controls>
+							<source src="<c:url value='/WebContent/${post.imageURL}'/>" type="video/mp4">
+					</c:if>
+				</a>
+			</c:forEach>
+		</div>
 	</body>
 </html>
