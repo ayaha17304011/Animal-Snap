@@ -1,0 +1,231 @@
+a {
+text-decoration: none;
+    font-weight: bold;
+    color:black;
+
+    
+}
+
+#form1 {
+	margin: 16px;
+}
+
+#sbox{
+/*position: absolute; */
+    /* left: 0; */
+    /* top: 0; */
+    /* outline: 0; */
+    height: 40px;
+    width: 200px;
+    /* padding: 0 10px; */
+    border-radius: 2px 0 0 2px;
+    /* background: #eee; */	
+}
+
+
+.replybuttom{
+	float: right;
+    border: solid 0px #33CCCC;
+    padding: 7px 10px;
+    /* margin: 5%; */
+    /* font-family: Arial, sans-serif; */
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #FFF;
+    cursor: pointer;
+    background-color: #33CCCC;
+    width: 15%;
+    height: 7%;
+
+}
+
+
+body{
+    width: 100%;
+    margin: 0 auto;
+    background-color:  #fcfffe;
+
+}
+
+/*検索ボタン*/
+#sbtn{
+    width: 70px;
+    height: 40px;
+    /* position: absolute; */
+    /* left: 270px; */
+    /* top: 0; */
+    /* border-radius: 0 2px 2px 0; */
+    color: #FFF;
+    cursor: pointer;
+    background-color: #33CCCC;
+    border: none;
+
+    font-weight: bold;
+    font-size: 16px;
+}
+/*検索ボタンマウスオーバー時*/
+#sbtn:hover{
+background-color:#26a0a0;
+}
+
+.site-header{
+    background:#abe8d5;
+    display: flex;
+    
+    position: fixed;
+    justify-content: space-between;
+    width: 100%;
+    height: 10%;
+    z-index: 100; 
+}
+
+.site-logo {
+	margin: 1px;
+}
+.site-logo img{
+
+    width: 175px;
+    position: initial;
+    margin: 0px;
+    height: 100%;
+
+}
+
+
+.gnav{
+    padding: 0px;
+    padding-right: 20px;
+}
+
+.gnav__menu{
+    display: flex;
+    margin: 0px;
+}
+.gnav__menu__item{
+
+    width: 5%;
+    list-style: none;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    
+    display: inline-block;
+    
+
+}
+.gnav__menu__item a{
+    
+    text-decoration: none;
+}
+
+.navicon {
+    position: inherit;
+    margin-left: 1%;
+    width: 5%;
+    list-style: none;
+    padding: 10px;
+    width: 50px;
+        margin: 0px;
+    height: 50px;
+    display: inline-block;
+}
+
+
+
+#followorsetting {
+	display: inline;
+    vertical-align: middle;
+}
+/*マウスオーバー時*/
+#sbtn2:hover {
+	background-color:#26a0a0;
+}
+
+
+#sbtn2 {
+
+    height: 50px;
+    width: 200px;
+    color: #FFF;
+    cursor: pointer;
+    background-color: #33CCCC;
+    margin-left: 15px;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+
+
+.prof{
+display: inline-block;
+}
+
+
+.profilesetting {
+	width: 60%;
+    margin: 0 auto;
+    border: solid;
+    border-color: #e4e8e4;
+    border-width: 3px;
+    margin-top: 1%;
+    margin-bottom:2%;
+    background-color: #ffffff;
+    padding: 5%;
+}
+
+.pro {
+width: 100%;
+    text-align: center;
+}
+
+#textbox {
+    margin: 10px;
+    resize: none;
+    width: 80%;
+    height: 56px;
+    font-size: 120%;
+    padding: 18px;
+    outline: 0;
+}
+
+#proftextbox {
+    margin: 10px;
+    resize: none;
+    width: 80%;
+    height: 150px;
+    font-size: 140%;
+    padding: 18px;
+    outline: 0;
+}
+
+
+#file_icon {
+    display: none;
+}
+
+.input_file .preview {
+    background-image: url(../logo/notpic.png);
+    width: 50%;
+    object-fit: cover;
+    background-size: cover;
+    height: 50%;
+    vertical-align: middle;
+    background:no-repeat;
+    background-size: contain;
+    display: block;
+    background-position: center center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+input.previwpic {
+}
+  
+.input_file input[type="file"] {
+    opacity: 0;
+  }
+  

@@ -5,9 +5,17 @@ text-decoration: none;
     z-index: 1;
 }
 
+.single-item{
+  opacity: 0;
+  transition: opacity .3s linear;
+}
+.single-item.slick-initialized{
+  opacity: 1;
+}
+
 .slick-prev:before,
 .slick-next:before {
-    color: #000;
+
 }
 /*左右の矢印の位置を変える*/
 .slick-next {
@@ -16,7 +24,7 @@ text-decoration: none;
 }
 .slick-prev {
      left: 15px;
-    z-index: 100;
+    z-index: 99;
 }
 /*スライド数のドットの色を変える*/
 .slick-dots li.slick-active button:before,
@@ -38,7 +46,7 @@ text-decoration: none;
 /*検索ボタン*/
 #sbtn{
     width: 70px;
-
+	outline:none;
     height: 40px;
     /* position: absolute; */
     /* left: 270px; */
@@ -171,6 +179,12 @@ img{
     background-color: #33CCCC;
     width: 15%;
     height: 7%;
+    outline:none;
+}
+
+.replybuttom:hover
+background-color:#26a0a0;
+}
 }
 
 .caption{

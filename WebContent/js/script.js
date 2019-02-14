@@ -1,6 +1,6 @@
 $(function(){
     //event
-    $(document).on("click", "a.popup", function(e){
+    $(document).on("dblclick", "span.popup", function(e){
         var href= $(this).attr("href");
         $.ajax({
             url: href
@@ -24,6 +24,11 @@ $(function(){
     $("div.popup_box").click(function(e){
         e.stopPropagation();
     })
+    $(window).ready(function(){
+	    $(".slick-list").click(function(e){
+	        e.stopPropagation();
+	    });
+	 });
     $(document).ready(function(){
         var pageuid = $("#uid").text();
         $.ajax({

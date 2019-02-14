@@ -11,37 +11,27 @@ body{
 }
 
 #sbox{
-/*position: absolute; */
-    /* left: 0; */
-    /* top: 0; */
-    /* outline: 0; */
     height: 40px;
     width: 200px;
-    /* padding: 0 10px; */
     border-radius: 2px 0 0 2px;
-    /* background: #eee; */	
     outline: 0;
 }
 
 /*検索ボタン*/
 #sbtn{
     width: 70px;
+	outline:none;
     height: 40px;
-    /* position: absolute; */
-    /* left: 270px; */
-    /* top: 0; */
-    /* border-radius: 0 2px 2px 0; */
     color: #FFF;
     cursor: pointer;
     background-color: #33CCCC;
     border: none;
-
     font-weight: bold;
     font-size: 16px;
 }
 /*検索ボタンマウスオーバー時*/
 #sbtn:hover{
-color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/ 
+	background-color:#26a0a0;
 }
 
 .site-header{
@@ -54,13 +44,15 @@ color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/
     height: 10%;
     z-index: 100; 
 }
+
 .site-logo {
 	margin: 1px;
 }
-.site-logo img{
 
+.site-logo img{
     width: 175px;
 }
+
 .logo {
     width: 50px;
 }
@@ -75,21 +67,16 @@ color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/
     margin: auto;
     padding: 0px;
 }
-}
+
 .gnav__menu__item{
-
-
     list-style: none;
     padding: 10px;
     width: 50px;
     height: 50px;
     padding: 10px;
     display: inline-block;
-    
-
 }
 .gnav__menu__item a{
-    
     text-decoration: none;
 }
 
@@ -105,16 +92,14 @@ color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/
 }
 
 h1 {
-
 text-align: center;
 }
 
 .titlelogo {
-    width: 75%;
+    width: 100%;
 }
 
 .nyuuryoku {
-
 border:0;
 padding:10px;
 font-size:1.3em;
@@ -126,11 +111,11 @@ box-shadow: 0px 1px rgba(255, 255, 255, 0.5);
 -webkit-border-radius: 3px;
 -moz-border-radius: 3px;
 border-radius: 3px;
-width:300px;
+width:80%;
+outline:none;
 }
 
 .submitbutton {
-
 border:solid 1px #33CCCC;
 padding:15px 30px;
 margin:5%;
@@ -141,7 +126,15 @@ font-weight:bold;
 color:#FFF;
 cursor:pointer;
 background-color:#33CCCC;
+outline:none;
 }
+
+.submitbutton:hover{
+	background-color:#26a0a0;
+	outline:0;
+}
+
+
 
 .gnav__menu{
     display: flex;
@@ -173,8 +166,8 @@ background-color:#33CCCC;
     display: inline-block;
     text-align: center;
     border: solid;
-    width: 35%;
-    height: 400px;
+    width: 30%;
+    height: 420px;
     padding: 35px;
     border-color: #33CCCC;
     border-width: 3px;
@@ -187,25 +180,22 @@ background-color:#33CCCC;
 }
 
 img{
-
     object-fit: cover;
     vertical-align: middle;
-
 }
 
 .wf-roundedmplus1c { 
     font-family: "M PLUS Rounded 1c"; 
 }
 
-
-
 .slider {
   position   : relative;
   overflow   : hidden;
-                    /* 画像のサイズに合わせて変更ください */
+/* 画像のサイズに合わせて変更ください */
   width      : 100%;
   height     : 120%;
-  margin     : auto;      /* サンプルは中央寄せの背景：白 */
+  margin     : auto;      
+/* サンプルは中央寄せの背景：白 */
   background : #fff;
   
 }
@@ -216,7 +206,7 @@ img{
   position   : absolute;
 /* 画像のサイズを表示エリアに合せる */
   width      : inherit;
-
+  height: inherit;
   opacity    : 0;
   animation  : slideAnime 10s ease infinite;
 }
@@ -234,4 +224,6 @@ img{
  100% { opacity: 0 }
 }
 
+#form3{
 
+}
