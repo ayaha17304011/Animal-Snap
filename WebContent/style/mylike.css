@@ -2,8 +2,6 @@ a {
 text-decoration: none;
     font-weight: bold;
     color:black;
-
-    
 }
 
 #form1 {
@@ -11,17 +9,10 @@ text-decoration: none;
 }
 
 #sbox{
-/*position: absolute; */
-    /* left: 0; */
-    /* top: 0; */
-    /* outline: 0; */
     height: 40px;
     width: 200px;
-    /* padding: 0 10px; */
     border-radius: 2px 0 0 2px;
-    /* background: #eee; */	
     outline: 0;
-
 }
 
 .icon{
@@ -54,19 +45,17 @@ text-decoration: none;
 .userid {
     display: inline-block;
     text-decoration: none;
-        font-weight: bold;
+    font-weight: bold;
 }
 
 h1 {
     margin: 0px;
     display:inline-block;
-  vertical-align: middle;
+    vertical-align: middle;
 }
-
 
 .post {
     width: 100%;
-
 }
 
 .mypost{
@@ -74,33 +63,28 @@ h1 {
 }
 
 .mylike{
-
-   width: 85%;
-
+    width: 85%;
     flex-wrap: wrap;
     display: flex;
     top: 0;
     margin: auto;
     bottom: 0;
-    
     right: 0;
     left: 0;
-
 }
 
-  }
-  .photo{
-    position: relative;
-    width: 24%;
+.photo{
+	position: relative;
+	width: 24%;
     margin: 3%;
-  }
-  .photo:before{
+}
+.photo:before{
     content: "";
     display: block;
     padding-top: 100%;
-  }
-  img{
+}
 
+img{
     margin: 12px;
     width: 30%;
     /* top: 0; */
@@ -108,19 +92,16 @@ h1 {
     object-fit: cover;
     /* vertical-align: middle; */
     z-index: 10;
-    
-  }
-  
+}
   
 .image {
 background: #000;
  }
  
- .image:hover {
- 	opacity:0.5;
+.image:hover {
+	opacity:0.5;
  	transition-duration: 0.3s;
-
- }
+}
 
 
 img2 {
@@ -128,14 +109,11 @@ img2 {
     height: 100%;
     object-fit: cover;
     vertical-align: middle;
-    
-
 }
 
 .command {
     margin: 1%;
 }
-
 
 .content{
 
@@ -168,8 +146,6 @@ img2 {
 	float: right;
     border: solid 0px #33CCCC;
     padding: 7px 10px;
-    /* margin: 5%; */
-    /* font-family: Arial, sans-serif; */
     font-size: 1.2em;
     text-transform: uppercase;
     font-weight: bold;
@@ -178,17 +154,16 @@ img2 {
     background-color: #33CCCC;
     width: 15%;
     height: 7%;
-
 }
 
 .caption{
-    margin: 2%;}
+    margin: 2%;
+}
 
 body{
     width: 100%;
     margin: 0 auto;
     background-color:  #fcfffe;
-
 }
 
 p1 {
@@ -207,18 +182,14 @@ p1 {
 #sbtn{
     width: 70px;
     height: 40px;
-    /* position: absolute; */
-    /* left: 270px; */
-    /* top: 0; */
-    /* border-radius: 0 2px 2px 0; */
     color: #FFF;
     cursor: pointer;
     background-color: #33CCCC;
     border: none;
-
     font-weight: bold;
     font-size: 16px;
 }
+
 /*検索ボタンマウスオーバー時*/
 #sbtn:hover{
 background-color:#26a0a0;
@@ -227,7 +198,6 @@ background-color:#26a0a0;
 .site-header{
     background:#abe8d5;
     display: flex;
-    
     position: fixed;
     justify-content: space-between;
     width: 100%;
@@ -260,19 +230,16 @@ background-color:#26a0a0;
     margin: 0px;
 }
 .gnav__menu__item{
-
     width: 5%;
     list-style: none;
     padding: 10px;
     width: 50px;
     height: 50px;
-    
     display: inline-block;
     
 
 }
 .gnav__menu__item a{
-    
     text-decoration: none;
 }
 
@@ -283,25 +250,22 @@ background-color:#26a0a0;
     list-style: none;
     padding: 10px;
     width: 50px;
-        margin: 0px;
+    margin: 0px;
     height: 50px;
     display: inline-block;
 }
-
-
 
 #followorsetting {
 	display: inline;
     vertical-align: middle;
 }
+
 /*マウスオーバー時*/
 #sbtn3:hover {
 	background-color:#26a0a0;
 }
 
-
 #sbtn3 {
-
     height: 50px;
     color: #FFF;
     cursor: pointer;
@@ -311,7 +275,6 @@ background-color:#26a0a0;
     font-weight: bold;
     font-size: 16px;
 }
-
 
 .userlist {
 	width: 85%;

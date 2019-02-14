@@ -11,33 +11,23 @@ body{
 }
 
 #sbox{
-/*position: absolute; */
-    /* left: 0; */
-    /* top: 0; */
-    /* outline: 0; */
     height: 40px;
     width: 200px;
-    /* padding: 0 10px; */
     border-radius: 2px 0 0 2px;
-    /* background: #eee; */	
 }
 
 /*検索ボタン*/
 #sbtn{
     width: 70px;
     height: 40px;
-    /* position: absolute; */
-    /* left: 270px; */
-    /* top: 0; */
-    /* border-radius: 0 2px 2px 0; */
     color: #FFF;
     cursor: pointer;
     background-color: #33CCCC;
     border: none;
-
     font-weight: bold;
     font-size: 16px;
 }
+
 /*検索ボタンマウスオーバー時*/
 #sbtn:hover{
 background-color:#26a0a0;/*検索ボタンマウスオーバー時のフォントカラー*/ 
@@ -47,7 +37,6 @@ background-color:#26a0a0;/*検索ボタンマウスオーバー時のフォントカラー*/
 .site-header{
     background:#abe8d5;
     display: flex;
-    
     position: fixed;
     justify-content: space-between;
     width: 100%;
@@ -77,21 +66,17 @@ background-color:#26a0a0;/*検索ボタンマウスオーバー時のフォントカラー*/
     margin: auto;
     padding: 0px;
 }
-}
+
 .gnav__menu__item{
-
-
     list-style: none;
     padding: 10px;
     width: 50px;
     height: 50px;
     padding: 10px;
     display: inline-block;
-    
-
 }
+
 .gnav__menu__item a{
-    
     text-decoration: none;
 }
 
@@ -107,8 +92,7 @@ background-color:#26a0a0;/*検索ボタンマウスオーバー時のフォントカラー*/
 }
 
 h1 {
-
-text-align: center;
+	text-align: center;
 }
 
 .titlelogo {
@@ -116,33 +100,31 @@ text-align: center;
 }
 
 .nyuuryoku {
-
-border:0;
-padding:10px;
-font-size:1.3em;
-font-family:Arial, sans-serif;
-border:solid 1px #ccc;
--webkit-box-shadow: 0px 1px rgba(255, 255, 255, 0.5);
--moz-box-shadow: 0px 1px rgba(255, 255, 255, 0.5);
-box-shadow: 0px 1px rgba(255, 255, 255, 0.5);
--webkit-border-radius: 3px;
--moz-border-radius: 3px;
-border-radius: 3px;
-width:300px;
+	border:0;
+	padding:10px;
+	font-size:1.3em;
+	font-family:Arial, sans-serif;
+	border:solid 1px #ccc;
+	-webkit-box-shadow: 0px 1px rgba(255, 255, 255, 0.5);
+	-moz-box-shadow: 0px 1px rgba(255, 255, 255, 0.5);
+	box-shadow: 0px 1px rgba(255, 255, 255, 0.5);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	width:300px;
 }
 
 .submitbutton {
-
-border:solid 1px #33CCCC;
-padding:15px 30px;
-margin:5%;
-font-family:Arial, sans-serif;
-font-size:1.2em;
-text-transform:uppercase;
-font-weight:bold;
-color:#FFF;
-cursor:pointer;
-background-color:#33CCCC;
+	border:solid 1px #33CCCC;
+	padding:15px 30px;
+	margin:5%;
+	font-family:Arial, sans-serif;
+	font-size:1.2em;
+	text-transform:uppercase;
+	font-weight:bold;
+	color:#FFF;
+	cursor:pointer;
+	background-color:#33CCCC;
 }
 
 .gnav__menu{
@@ -154,11 +136,9 @@ background-color:#33CCCC;
     width: 50px;
     padding: 10px;
     list-style: none;
-    
-
 }
+
 .gnav__menu__item a{
-    
     text-decoration: none;
 }
 
@@ -188,10 +168,8 @@ background-color:#33CCCC;
 }
 
 img{
-
     object-fit: cover;
     vertical-align: middle;
-
 }
 
 .file_post {
@@ -201,8 +179,6 @@ img{
 
 #file_photo {
     display: none;
-   
-
 }
 
 
@@ -217,11 +193,6 @@ img{
 	padding: 18px;
 	outline: 0;
 }
-
-
-
-
-
 
 .input_file .preview {
     background-image: url(../logo/notpic.png);
@@ -238,8 +209,6 @@ img{
     margin-right: auto;
 }
 
-
-
 .testtest{
 }
 
@@ -248,10 +217,10 @@ input.previwpic {
   
 .input_file input[type="file"] {
     opacity: 0;
-  }
+}
   
   
-  #sbtn2{
+#sbtn2{
     width: 100px;
     height: 60px;
     color: #FFF;

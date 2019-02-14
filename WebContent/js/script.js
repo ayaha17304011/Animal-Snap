@@ -24,11 +24,11 @@ $(function(){
     $("div.popup_box").click(function(e){
         e.stopPropagation();
     })
-    $(window).ready(function(){
-	    $(".slick-list").click(function(e){
+	
+	$("button").dblclick(function(e){
 	        e.stopPropagation();
-	    });
-	 });
+	});
+
     $(document).ready(function(){
         var pageuid = $("#uid").text();
         $.ajax({

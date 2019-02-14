@@ -29,7 +29,7 @@
 	<div class="profilesetting">
 	<form action="editprofile" method="POST" enctype="multipart/form-data">
 
-	    <p><input type="file" name="icon" accept="image/*" id="file_icon" >	<label for="file_icon" ><img src="WebContent/logo/fileselect.png" alt="ファイルを選択" onmouseover="this.src='WebContent/logo/fileselect_on.png'" onmouseout=" this.src='WebContent/logo/fileselect.png'" /></label></p>
+	    <p><input type="file" name="icon" accept="image/*" id="file_icon" ><label for="file_icon" ><img src="WebContent/logo/fileselect.png" alt="ファイルを選択" onmouseover="this.src='WebContent/logo/fileselect_on.png'" onmouseout=" this.src='WebContent/logo/fileselect.png'" style="display:none;" /></label></p>
         <p><input type="text" name="loginid" placeholder="ログインID" id="textbox"></p>
         <p><input type="text" name="username" placeholder="ユーザー名" id="textbox"></p>
         <p><input type="password" name="pass1" placeholder="新しいパスワード" id="textbox"><br>
