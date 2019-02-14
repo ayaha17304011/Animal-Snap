@@ -1,6 +1,6 @@
 $(function(){
     //event
-    $(document).on("click", "a.popup", function(e){
+    $(document).on("dblclick", "span.popup", function(e){
         var href= $(this).attr("href");
         $.ajax({
             url: href
@@ -15,13 +15,13 @@ $(function(){
         });
         return false;
     });
-    $(document).on("click", "a.close", function(e){
-        closepopup();
-    });
     $("div.popup_box").parent().click(function(e){
 		closepopup();
     });
     $("div.popup_box").click(function(e){
+        e.stopPropagation();
+    });
+    $("button").dblclick(function(e){
         e.stopPropagation();
     });
     $(document).ready(function(){
