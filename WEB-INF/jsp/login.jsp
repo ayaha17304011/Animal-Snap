@@ -3,8 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
+
+<meta name="viewport" content="width=device-width">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://lopan.jp/css-animation">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/login.css"/>
+
+		
 	<title>あにまる すなっぷ</title>
 
 	<header class="site-header">
@@ -22,10 +29,12 @@
 			</ul>
 		</nav>
 	</header>
-			<link rel="stylesheet" type="text/css" href="{pageContext.request.contextPath}/WebContent/slick-1.8.1/slick/slick.css" media="screen" />
-		<link rel="stylesheet" type="text/css" href="{pageContext.request.contextPath}/WebContent/slick-1.8.1/slick/slick-theme.css" media="screen" />
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="{pageContext.request.contextPath}/WebContent/slick-1.8.1/slick/slick.min.js"></script>
+
+		<script>
+			$(function(){
+			  $(".slider").slick();
+			});
+		</script>
 	
 </head>
 <body>
@@ -34,19 +43,24 @@
 			<h1>あにまる すなっぷ へようこそ</h1>
 	<div class="box">
 		<div class="box1">
-			<ul class="slider">
-			     <li><a href="#"><img src="<c:url value='WebContent/sample_image/dogcat2.jpg'/>" alt="なんかすごくキュートな動物の画像" width="80%" height="auto"></a></li>
-			     <li><a href="#"><img src="<c:url value='WebContent/sample_image/bird8.jpg'/>" alt="なんかすごくキュートな動物の画像" width="80%" height="auto"></a></li>
-			</ul>
-		</div>
+			<div class="slider">
+			     <img src="<c:url value='WebContent/sample_image/dogcat2.jpg'/>" alt="なんかすごくキュートな動物の画像" width="80%" height="auto">
+			     <img src="<c:url value='WebContent/sample_image/bird8.jpg'/>" alt="なんかすごくキュートな動物の画像" width="80%" height="auto">
+			</div>
 		
+		</div>	
+		
+	
 		<div class="box2">
-			<img src="WebContent/logo/animal-log.png" class="titlelogo">
+			<img src="WebContent/logo/animal-log.png"  / class="titlelogo">
 			<button class="btn1 submitbutton" type="button">ログイン</button>
 			<br>
 			<button class="btn2 submitbutton" type="button">新規登録</button>
 		</div>
 	</div>
+	
+	
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

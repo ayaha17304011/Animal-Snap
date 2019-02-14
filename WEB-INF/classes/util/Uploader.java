@@ -95,9 +95,6 @@ public class Uploader{
 		//ファイルのurlがない場合例外をthrow
 		if(url.equals("") || url == null){
 			//throw NoFileUploadException();
-		}else{
-			//画像のupload
-			url += "image";
 		}
 		//変数をPostBeanにsetする
 		post.setCaption(caption);

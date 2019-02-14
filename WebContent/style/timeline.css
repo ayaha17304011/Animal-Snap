@@ -29,18 +29,16 @@ text-decoration: none;
 }
 
 #sbox{
-/*position: absolute; */
-
     height: 40px;
     width: 200px;
-    /* padding: 0 10px; */
     border-radius: 2px 0 0 2px;
-    /* background: #eee; */	
+    outline: 0;
 }
 
 /*åüçıÉ{É^Éì*/
 #sbtn{
     width: 70px;
+
     height: 40px;
     /* position: absolute; */
     /* left: 270px; */
@@ -156,6 +154,7 @@ img{
 	height:56px;
 	font-size: 140%;
 	padding: 18px;
+	outline: 0;
 }
 
 .replybuttom{

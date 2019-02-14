@@ -16,6 +16,7 @@ public class mypageCommand extends AbstractCommand{
 		String userId = req.getParameter("userId");
 		OraConnectionManager.getInstance().beginTransaction();
 		UserBean ub = dao.getUserInfo(userId);
+		System.out.println(ub.getProfile());
 		OraConnectionManager.getInstance().closeConnection();
 		resc.setResult(ub);
 		resc.setTarget("mypage");

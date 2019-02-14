@@ -1,9 +1,7 @@
 a {
-text-decoration: none;
+    text-decoration: none;
     font-weight: bold;
     color:black;
-
-    
 }
 
 #form1 {
@@ -73,9 +71,16 @@ h1 {
 
 .postlist{
 
-    margin: 14px;
-    width: 100%;
+      width: 85%;
+
     flex-wrap: wrap;
+    display: flex;
+    top: 0;
+    margin: auto;
+    bottom: 0;
+    
+    right: 0;
+    left: 0;
 
 }
 
@@ -95,17 +100,22 @@ h1 {
     margin: 15px;
     width: 30%;
     /* top: 0; */
-    height: 400px;
+    height: 350px;
     object-fit: cover;
     /* vertical-align: middle; */
     z-index: 10;
   }
-/*.post {
-    width: 50%;
-    height: 85%;
-    object-fit: cover;
-    vertical-align: middle;
-}*/
+ 
+.image {
+background: #000;
+ }
+ 
+ .image:hover {
+ 	opacity:0.5;
+ 	transition-duration: 0.3s;
+
+ }
+
 
 img2 {
     width: 100%;
@@ -272,7 +282,7 @@ background-color:#26a0a0;
 
 
 
-#editprofile {
+#followorsetting {
 	display: inline;
     vertical-align: middle;
 }

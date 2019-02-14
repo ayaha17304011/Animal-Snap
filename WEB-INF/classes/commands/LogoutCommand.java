@@ -11,7 +11,7 @@ public class LogoutCommand extends AbstractCommand{
     RequestContext reqc=getRequestContext();
   	HttpServletRequest req =(HttpServletRequest)reqc.getRequest();
   	HttpSession session = req.getSession();
-  	session.invalidate();
+  	session.removeAttribute("userId");
     resc.setTarget("login");
     return resc;
   }
