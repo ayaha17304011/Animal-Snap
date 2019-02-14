@@ -17,12 +17,13 @@ public class RemoveUserCommand extends AbstractCommand{
   			String userId = (String)session.getAttribute("userId");
         String sql  = "UPDATE as_user SET state = 0 WHERE userId = " + userId;
         System.out.println(sql);
+        //投稿も全部removePost、いいねとフォローもリプライもdeleteする
 
         OraConnectionManager.getInstance().beginTransaction();
         dao.SQLUpdate(sql);
         OraConnectionManager.getInstance().closeConnection();
 
-      resc.setTarget("timeline");
+      resc.setTarget("login");
       return resc;
     }
 }
