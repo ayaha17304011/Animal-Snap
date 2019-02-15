@@ -30,8 +30,8 @@ $(function() {
                     value: 'êVãKìoò^',
                     class: 'submitbutton'
                 })
-            ),
-        )
+            )
+        );
     });
     $(".btn2").on("click",function(){
         $(".box2").empty();
@@ -70,7 +70,7 @@ $(function() {
                     value: 'ÉçÉOÉCÉì',
                     class: 'submitbutton'
                 })
-            ),
-        )
+            )
+        );
     });
 });

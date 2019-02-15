@@ -64,147 +64,16 @@
 					<div class="caption">
 						<a href="">${data.userName}</a><span style="margin-right: 1em;"></span>${data.caption}
 					</div>
-					<div class="reply">
-						<c:forEach var="replies" items="${post}">
-							<a> reply.username</a> <span style="margin-right: 1em;"></span>  ${post.reply}
-						</c:forEach>
-					</div>
-					
-					
-					<div class="replylist">
-
-		                
-		                <div class="username2">
-		                    <a href="">ñºëO</a>
-		                </div>        
-		        		
-		        		<div class="reply">
-							<p>Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p></br>
-						</div>
-					</div>
-					
-					<div class="replylist">
-
-		                
-		                <div class="username2">
-		                    <a href="">ñºëO</a>
-		                </div>        
-		        		
-		        		<div class="reply">
-							<p>Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p></br>
-						</div>
-					</div>
-					
-										<div class="replylist">
-
-		                
-		                <div class="username2">
-		                    <a href="">ñºëO</a>
-		                </div>        
-		        		
-		        		<div class="reply">
-							<p>Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p></br>
-						</div>
-					</div>
-					
-					
-					
-										<div class="replylist">
-
-		                
-		                <div class="username2">
-		                    <a href="">ñºëO</a>
-		                </div>        
-		        		
-		        		<div class="reply">
-							<p>Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p></br>
-						</div>
-					</div>
-					
-					
-					
-										<div class="replylist">
-
-		                
-		                <div class="username2">
-		                    <a href="">ñºëO</a>
-		                </div>        
-		        		
-		        		<div class="reply">
-							<p>Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p></br>
-						</div>
-					</div>
-					
-					
-										<div class="replylist">
-
-		                
-		                <div class="username2">
-		                    <a href="">ñºëO</a>
-		                </div>        
-		        		
-		        		<div class="reply">
-							<p>Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p></br>
-						</div>
-					</div>
-					
-					
-					
-										<div class="replylist">
-
-		                
-		                <div class="username2">
-		                    <a href="">ñºëO</a>
-		                </div>        
-		        		
-		        		<div class="reply">
-							<p>Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p></br>
-						</div>
-					</div>
-					
-					
-										<div class="replylist">
-
-		                
-		                <div class="username2">
-		                    <a href="">ñºëO</a>
-		                </div>        
-		        		
-		        		<div class="reply">
-							<p>Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p></br>
-						</div>
-					</div>
-					
-					
-					
-					
-										<div class="replylist">
-
-		                
-		                <div class="username2">
-		                    <a href="">ñºëO</a>
-		                </div>        
-		        		
-		        		<div class="reply">
-							<p>Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p></br>
-						</div>
-					</div>
-					
-										<div class="replylist">
-
-		                
-		                <div class="username2">
-		                    <a href="">ñºëO</a>
-		                </div>        
-		        		
-		        		<div class="reply">
-							<p>Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p></br>
-						</div>
-					</div>
-				
-				
-				
-				
+		                    <p style="margin-left:10px"><strong>ñºëO</strong> Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p>
+		                    <p style="margin-left:10px"><strong>ñºëO</strong> Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p>
+		                    <p style="margin-left:10px"><strong>ñºëO</strong> Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p>
+		                    <p style="margin-left:10px"><strong>ñºëO</strong> Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p>
+		                    <p style="margin-left:10px"><strong>ñºëO</strong> Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p>
+		                    <p style="margin-left:10px"><strong>ñºëO</strong> Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p>
+		                    <p style="margin-left:10px"><strong>ñºëO</strong> Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p>
+		                    <p style="margin-left:10px"><strong>ñºëO</strong> Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p>
+		                    <p style="margin-left:10px"><strong>ñºëO</strong> Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p>  
+		                    <p style="margin-left:10px"><strong>ñºëO</strong> Ç©ÇÌÇ¢Ç¢ÇÀÅ`</p>
 					<form class="replybox">
 						<textarea placeholder="ÉRÉÅÉìÉgÇí«â¡" name="caption" class="replytext" spellcheck="false"></textarea>
 						<input type="submit" name="submit" value="ëóêM" class="replybuttom">

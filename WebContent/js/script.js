@@ -15,20 +15,15 @@ $(function(){
         });
         return false;
     });
-    $(document).on("click", "a.close", function(e){
-        closepopup();
-    })
     $("div.popup_box").parent().click(function(e){
 		closepopup();
     });
     $("div.popup_box").click(function(e){
         e.stopPropagation();
-    })
-    $(window).ready(function(){
-	    $(".slick-list").click(function(e){
-	        e.stopPropagation();
-	    });
-	 });
+    });
+    $("button").dblclick(function(e){
+        e.stopPropagation();
+    });
     $(document).ready(function(){
         var pageuid = $("#uid").text();
         $.ajax({
@@ -42,14 +37,14 @@ $(function(){
         .fail(function (response) {
         });
         return false;
-    })
+    });
     //reply
     $(document).on("click",".reply", function(e){
         var pid = $(this).find('span').text();
         console.log("pid="+pid);
         getReply(pid);
         return false;
-    })
+    });
     $(document).on("submit", ".replybox", function(e){
         var pid = $(this).find("input[name='postId']").val();
         var text = $(this).find("textarea").val();
@@ -63,7 +58,7 @@ $(function(){
             }
         }
         return false;
-    })
+    });
     //event
     //function
     function reply(pid, text) {
@@ -80,7 +75,7 @@ $(function(){
         })
         .fail(function (response) {
             alert("fail");
-        })
+        });
     }
     function getReply(pid){
         $.ajax({
@@ -95,13 +90,13 @@ $(function(){
             $("#popup_window .popup_box").html(response);
         })
         .fail(function (response) {
-            alert("error")
-        })
+            alert("error");
+        });
     }
     function closepopup() {
         $("#popup_window").hide();
-        $("body").css({"overflow":"initial"})
+        $("body").css({"overflow":"initial"});
         $("#popup_window .popup_box").empty();
     }
     //function
-})
+});

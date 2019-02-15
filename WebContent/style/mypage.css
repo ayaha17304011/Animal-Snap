@@ -1,9 +1,7 @@
 a {
-text-decoration: none;
+    text-decoration: none;
     font-weight: bold;
     color:black;
-
-    
 }
 
 #form1 {
@@ -114,7 +112,6 @@ h1 {
   }
  
 .image {
-
  }
  
  .image:hover {
