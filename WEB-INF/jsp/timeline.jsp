@@ -117,21 +117,18 @@
 				
 					<div class="image">
 						<span href="getpostview?postId=${data.postId}" class="popup">
-							<c:set var="url" value="${data.imageURL}"/>
-							<c:if test="${fn:endsWith(url, '.jpg')}">
-								<ul class="single-item">
-									<li><img src="<c:url value='/WebContent/${data.imageURL}'/>" alt="Post Image"></li>
-								</ul>
-							</c:if>
-								
-							<c:if test="${fn:endsWith(url,'.mp4')}">
-								<ul class="single-item">
-									<li>
+							<div>
+								<c:set var="url" value="${data.imageURL}"/>
+								<c:if test="${fn:endsWith(url, '.jpg')}">
+									<img src="<c:url value='/WebContent/${data.imageURL}'/>" alt="Post Image">
+								</c:if>
+									
+								<c:if test="${fn:endsWith(url,'.mp4')}">
 										<video width="100%" height="100%" controls>
-										<source src="<c:url value='/WebContent/${data.imageURL}'/>" type="video/mp4">
-									</li>									
-								</ul>
-							</c:if>
+											<source src="<c:url value='/WebContent/${data.imageURL}'/>" type="video/mp4">
+										</video>									
+								</c:if>
+							</div>
 						</span>
 					</div>
 
