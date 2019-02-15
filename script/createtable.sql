@@ -57,19 +57,19 @@ create table as_like (
 );
 
 -- as_user
-INSERT INTO as_user VALUES(as_seq_userId.nextval,'test01','testmen','test','sample_image\default_icon.png','プロフィール',default);
-INSERT INTO as_user VALUES(as_seq_userId.nextval,'test02','testmen','test','sample_image\default_icon.png','',default);
+INSERT INTO as_user VALUES(as_seq_userId.nextval,'test01','testmen1','test','sample_image\default_icon.png','プロフィール',default);
+INSERT INTO as_user VALUES(as_seq_userId.nextval,'test02','testmen2','test','sample_image\default_icon.png','',default);
 
 -- as_follower
 INSERT INTO as_follower VALUES(1,2);
 
 -- as_post
-INSERT INTO as_post VALUES(as_seq_postId.nextval,1,'captiontest','sample_image\dogcat.jpg',default,default);
+-- INSERT INTO as_post VALUES(as_seq_postId.nextval,1,'captiontest','sample_image\dogcat.jpg',default,default);
 
 -- as_reply
-INSERT INTO as_reply VALUES(1,1,'replytest',default);
+-- INSERT INTO as_reply VALUES(1,1,'replytest',default);
 
 --as_like
-INSERT INTO as_like VALUES(1,1);
+-- INSERT INTO as_like VALUES(1,1);
 
 commit;
