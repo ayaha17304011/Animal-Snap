@@ -38,8 +38,7 @@ public class searchCommand extends AbstractCommand{
 			System.out.println("postId"+postId);
 			PostBean pb = new PostBean();
 			pb.setPostId(postId);
-			ArrayList post = dao.getPost(pb);
-			pb = (PostBean)post.get(0);
+			pb = dao.getPost(pb);
 			post_result.add(pb);
 		}
 

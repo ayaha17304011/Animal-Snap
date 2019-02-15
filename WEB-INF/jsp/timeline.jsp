@@ -92,9 +92,9 @@
 						</form>
 					</div>				
 					<div class="image">
-						<span href="getpostview?postId=${data.postId}" class="popup">
+							<span href="getpostview?postId=${data.postId}" class="popup">
 						<div class="single-item">
-							<c:set var="url" value="${data.imageURL}"/>
+								<c:set var="url" value="${data.imageURL}"/>
 							<c:if test="${fn:endsWith(url, 'image')}">
 									<img src="<c:url value='WebContent/sample_image/dogcat2.jpg'/>" alt="なんかすごくキュートな動物の画像" width="80%" height="auto">
 				     				<img src="<c:url value='WebContent/sample_image/bird8.jpg'/>" alt="なんかすごくキュートな動物の画像" width="80%" height="auto">

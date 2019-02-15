@@ -103,7 +103,7 @@ public class AnimalDao{
         return postList;
     }
     //GetPostView
-    public ArrayList getPost(PostBean pb){
+    public PostBean getPost(PostBean pb){
         PreparedStatement st = null;
         Connection cn = null;
         ResultSet rs = null;
@@ -129,19 +129,6 @@ public class AnimalDao{
             pb.setTimestamp(rs.getString(7));
             pb.setLikeCount(rs.getString(8));
             pb.setReplyCount(rs.getString(9));
-            result.add(pb);
-
-            String sql2 = "SELECT u.username, r.reply FROM as_reply r JOIN as_user u ON (r.userid = u.userid) WHERE r.postId = ?";
-            st = cn.prepareStatement(sql2);
-            st.setString(1, pb.getPostId());
-            rs = st.executeQuery();
-            while(rs.next()){
-                ReplyBean rb = new ReplyBean();
-                rb.setUserName(rs.getString(1));
-                rb.setReply(rs.getString(2));
-                replyList.add(rb);
-            }
-            result.add(replyList);
 
         }catch (SQLException e) {
     			OraConnectionManager.getInstance().rollback();
@@ -157,7 +144,7 @@ public class AnimalDao{
                 ex.printStackTrace();
             }
         }
-        return result;
+        return pb;
     }
   //getLikeList
   public ArrayList getLikeList(LikeBean lb){
@@ -169,7 +156,7 @@ public class AnimalDao{
             cn = OraConnectionManager.getInstance().getConnection();
             String sql = "SELECT u.username, u.iconpath "+
                          "FROM as_like l LEFT JOIN as_user u on (u.userId = l.userId) "+ 
-                         "WHERE postID = ?";
+                         "WHERE l.postID = ? and u.state = 1";
             st = cn.prepareStatement(sql);
             st.setString(1, lb.getPostId());
             rs = st.executeQuery();
@@ -586,7 +573,9 @@ public class AnimalDao{
         ArrayList<String> list = new ArrayList<String>();
         try{
             cn = OraConnectionManager.getInstance().getConnection();
-            String sql = "SELECT l.postid FROM as_like l JOIN as_user u ON(l.userid = u.userid) WHERE l.userid = ? and u.state = 1";
+            String sql = "SELECT l.postid "+
+                         "FROM as_like l JOIN as_user u ON(l.userid = u.userid) "+
+                         "WHERE l.userid = ? and u.state = 1";
             st = cn.prepareStatement(sql);
             st.setString(1, uid);
             rs = st.executeQuery();
