@@ -11,6 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick-theme.css" media="screen" />
 		<script src="${pageContext.request.contextPath}/WebContent/slick/slick.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/timeline.css"/>
+		<script src="${pageContext.request.contextPath}/WebContent/js/script.js"></script>
 		<header class="site-header">
 			<h1 class="site-logo"><a href="getpostlist"><img src="WebContent/logo/animal-log.png" alt="ロゴ"></a></h1>
 			<form id="form1" action="search" method="get">
@@ -28,30 +29,6 @@
 		
 	<script>
 		$(function(){
-			$(window)
-				.on('scroll resize', function () {
-				// ウインドウのスクロール量取得
-				var windowScrollTop = $(window).scrollTop();
-				// ウインドウの高さ取得
-				var windowInnerHeight = window.innerHeight;
-
-				var $video = $('video');
-				// videoがページの最上部からどの位置にあるか取得
-				var videoTop = $('video').offset().top;
-				// videoの高さ取得
-				var videoHeight = $('video').innerHeight();
-
-				// videoが停止している、かつvideoが画面内に入ってきた場合、再生処理
-				if ($video[0].paused && (windowScrollTop + windowInnerHeight > videoTop)) {
-					$video[0].play();
-				}
-
-				// videoが再生中、かつ画面外に出た場合、停止処理
-				if (!$video[0].paused && ((windowScrollTop + windowInnerHeight < videoTop) || (windowScrollTop > videoTop + videoHeight))) {
-					$video[0].pause();
-				}
-			})
-			.trigger('scroll');
 			$(".single-item").slick();
 		})
 	</script>
@@ -94,17 +71,33 @@
 					<div class="image">
 						<span href="getpostview?postId=${data.postId}" class="popup">
 						<div class="single-item">
-							<c:set var="url" value="${data.imageURL}"/>
-							<c:if test="${fn:endsWith(url, 'image')}">
-									<img src="<c:url value='WebContent/sample_image/dogcat2.jpg'/>" alt="なんかすごくキュートな動物の画像" width="80%" height="auto">
-				     				<img src="<c:url value='WebContent/sample_image/bird8.jpg'/>" alt="なんかすごくキュートな動物の画像" width="80%" height="auto">
-									<img src="${data.imageURL}" alt="Post Image">
-							</c:if>
-							<c:if test="${fn:endsWith(url,'video')}">
-										<video width="100%" height="100%" controls>
-										<source src="${data.imageURL}" type="video/mp4">
+						<c:set var="url" value="${data.imageURL}"/>
+						<c:set var="file" value="${fn:split(url, ',')}"/>
+						<c:choose>
+							<c:when test="${fn:length(file) > 1}">
+								<c:forEach var="i" items="${file}">
+									<c:if test="${fn:endsWith(i, 'image')}">
+										<img src="${i}">
+									</c:if>
+									<c:if test="${fn:endsWith(i,'video')}">
+										<video width="100%" height="100%" autoplay loop>
+											<source src="${i}" type="video/mp4">
 										</video>								
-							</c:if></div>
+									</c:if>
+								</c:forEach>
+							</c:when>
+							<c:otherwise>
+								<c:if test="${fn:endsWith(file[0], 'image')}">
+									<img src="${data.imageURL}">
+								</c:if>
+								<c:if test="${fn:endsWith(file[0],'video')}">
+									<video width="100%" height="100%" autoplay loop>
+										<source src="${data.imageURL}" type="video/mp4">
+									</video>								
+								</c:if>
+							</c:otherwise>
+						</c:choose>
+						</div>
 						</span>
 					</div>
 
@@ -137,6 +130,6 @@
 					</div>
 				</div>
 			<br><br><br>
-			</c:forEach>
+		</c:forEach>
 	</body>
 </html>
