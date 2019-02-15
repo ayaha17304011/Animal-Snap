@@ -4,14 +4,16 @@ import main.RequestContext;
 import main.ResponseContext;
 import dao.OraConnectionManager;
 import dao.AnimalDao;
-import util.Upload;
+import util.Uploader;
 import beans.PostBean;
 
 public class AddPostCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
 		RequestContext reqc = getRequestContext();
-		PostBean pb = Upload.uploadFile(reqc);
+
+		PostBean pb = Uploader.singleUpload(reqc);
 		System.out.println(pb.getUserId());
+
 		String userId = pb.getUserId();
 		String caption = pb.getCaption();
 		String imageURL = pb.getImageURL();

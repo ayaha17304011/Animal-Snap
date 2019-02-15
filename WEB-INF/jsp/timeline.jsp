@@ -5,89 +5,75 @@
 
 <html>
 	<head>
-		<link rel="stylesheet" rel="preload" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick-theme.css" media="screen" />
-		<link rel="stylesheet" rel="preload" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick.css" media="screen" />
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
 		<link rel="stylesheet" type="text/css" href=" https://use.fontawesome.com/releases/v5.0.13/css/all.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick-theme.css" media="screen" />
 		<script src="${pageContext.request.contextPath}/WebContent/slick/slick.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/timeline.css"/>
 		
 		<header class="site-header">
 			<h1 class="site-logo">
 				<a href="getpostlist">
-					<img src="WebContent/logo/animal-log.png" alt="ƒƒS">
+					<img src="WebContent/logo/animal-log.png" alt="ãƒ­ã‚´">
 				</a>
 			</h1>
 			
 			<form id="form1" action="search" method="get">
-				<input id="sbox" id="s" name="query" type="search" placeholder="ŒŸõ" />
-				<input id="sbtn" type="submit" value="ŒŸõ" />
+				<input id="sbox" id="s" name="query" type="search" placeholder="æ¤œç´¢" />
+				<input id="sbtn" type="submit" value="æ¤œç´¢" />
 			</form>
 			
 			<nav class="gnav">
 				<ul class="gnav__menu">
-					<li class="gnav__menu__item"><a href="mylike"><img src="WebContent/logo/like.png" onmouseover="this.src='WebContent/logo/like2.png'" onmouseout=" this.src='WebContent/logo/like.png'" alt="‚¢‚¢‚Ë‘Œ©•\" class="navicon"></a></li>
-					<li class="gnav__menu__item"><form name="mypage" action="mypage" method="post"><a href="javascript:mypage.submit()"><img src="WebContent/logo/mypage.png" onmouseover="this.src='WebContent/logo/mypage2.png'" onmouseout=" this.src='WebContent/logo/mypage.png'" alt="ƒ}ƒCƒy[ƒW" class="navicon"></a><input type="hidden" value="${sessionScope.userId}" name="userId"></form></li>
-					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/logo/post.png" onmouseover="this.src='WebContent/logo/post2.png'" onmouseout=" this.src='WebContent/logo/post.png'" alt="“Še‰æ–Ê" class="navicon"></a></li>
+					<li class="gnav__menu__item"><a href="mylike"><img src="WebContent/logo/like.png" onmouseover="this.src='WebContent/logo/like2.png'" onmouseout=" this.src='WebContent/logo/like.png'" alt="ã„ã„ã­æ—©è¦‹è¡¨" class="navicon"></a></li>
+					<li class="gnav__menu__item"><form name="mypage" action="mypage" method="post"><a href="javascript:mypage.submit()"><img src="WebContent/logo/mypage.png" onmouseover="this.src='WebContent/logo/mypage2.png'" onmouseout=" this.src='WebContent/logo/mypage.png'" alt="ãƒã‚¤ãƒšãƒ¼ã‚¸" class="navicon"></a><input type="hidden" value="${sessionScope.userId}" name="userId"></form></li>
+					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/logo/post.png" onmouseover="this.src='WebContent/logo/post2.png'" onmouseout=" this.src='WebContent/logo/post.png'" alt="æŠ•ç¨¿ç”»é¢" class="navicon"></a></li>
 				</ul>
 			</nav>
 		</header>
 		
-		<script src="${pageContext.request.contextPath}/WebContent/js/script.js"></script>
-	
-
 	<script>
 		$(function(){
 			$(window)
-	    	.on('scroll resize', function () {
-	        // ƒEƒCƒ“ƒhƒE‚ÌƒXƒNƒ[ƒ‹—Êæ“¾
-	        var windowScrollTop = $(window).scrollTop();
-	        // ƒEƒCƒ“ƒhƒE‚Ì‚‚³æ“¾
-	        var windowInnerHeight = window.innerHeight;
+				.on('scroll resize', function () {
+				// ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«é‡å–å¾—
+				var windowScrollTop = $(window).scrollTop();
+				// ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®é«˜ã•å–å¾—
+				var windowInnerHeight = window.innerHeight;
 
-	        var $video = $('video');
-	        // video‚ªƒy[ƒW‚ÌÅã•”‚©‚ç‚Ç‚ÌˆÊ’u‚É‚ ‚é‚©æ“¾
-	        var videoTop = $('video').offset().top;
-	        // video‚Ì‚‚³æ“¾
-	        var videoHeight = $('video').innerHeight();
+				var $video = $('video');
+				// videoãŒãƒšãƒ¼ã‚¸ã®æœ€ä¸Šéƒ¨ã‹ã‚‰ã©ã®ä½ç½®ã«ã‚ã‚‹ã‹å–å¾—
+				var videoTop = $('video').offset().top;
+				// videoã®é«˜ã•å–å¾—
+				var videoHeight = $('video').innerHeight();
 
-	        // video‚ª’â~‚µ‚Ä‚¢‚éA‚©‚Âvideo‚ª‰æ–Ê“à‚É“ü‚Á‚Ä‚«‚½ê‡AÄ¶ˆ—
-	        if ($video[0].paused && (windowScrollTop + windowInnerHeight > videoTop)) {
-	            $video[0].play();
-	        }
+				// videoãŒåœæ­¢ã—ã¦ã„ã‚‹ã€ã‹ã¤videoãŒç”»é¢å†…ã«å…¥ã£ã¦ããŸå ´åˆã€å†ç”Ÿå‡¦ç†
+				if ($video[0].paused && (windowScrollTop + windowInnerHeight > videoTop)) {
+					$video[0].play();
+				}
 
-	        // video‚ªÄ¶’†A‚©‚Â‰æ–ÊŠO‚Éo‚½ê‡A’â~ˆ—
-	        if (!$video[0].paused && ((windowScrollTop + windowInnerHeight < videoTop) || (windowScrollTop > videoTop + videoHeight))) {
-	            $video[0].pause();
-	        }
-    	})
-		.trigger('scroll');
-
-		$('.single-item').slick();
-		
-		});
-
+				// videoãŒå†ç”Ÿä¸­ã€ã‹ã¤ç”»é¢å¤–ã«å‡ºãŸå ´åˆã€åœæ­¢å‡¦ç†
+				if (!$video[0].paused && ((windowScrollTop + windowInnerHeight < videoTop) || (windowScrollTop > videoTop + videoHeight))) {
+					$video[0].pause();
+				}
+			})
+			.trigger('scroll');
+			$(".single-item").slick();
+		})
 	</script>
 		
-		<title>‚ ‚É‚Ü‚é ‚·‚È‚Á‚Õ</title>
+		<title>ã‚ã«ã¾ã‚‹ ã™ãªã£ã·</title>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	
 	</head>
-	
-	
 	<body>
+	<br/><br/><br/><br/>
+		<% if(session.getAttribute("userId") == null){ 
+			response.sendRedirect("log");
+		} else { %>
 
-		<br/><br/><br/><br/>
-		
-		<% if(session.getAttribute("userId") == null){ %>
-
-			<a href="log">ƒƒOƒCƒ“</a>
-			<a href="log">V‹K“o˜^</a>
-
-		<% } else { %>
-
-			<a href="logout">ƒƒOƒAƒEƒg</a>
+			<a href="logout">ãƒ­ã‚°ã‚¢ã‚¦ãƒˆ</a>
 
 
 		<% } %>
@@ -100,29 +86,18 @@
 			<div class="popup_box">
 			</div>
 		</div>
-		
-		<c:forEach var="data" items="${data}">
-				<div class="post">
-
-					<div class="icon">
-						<img src="<c:url value='/WebContent/${data.iconPath}'/>"><a href=""></a>
-					</div>
-					
-					<div class="username">
-						<form name="userpage" action="mypage" method="post">
-							<a href="javascript:mypage.submit()">${data.userName}</a>
-							<input type="hidden" value="${data.userId}" name="userId"/>
-						</form>
-					</div>						
+		<div class="post">
+			<div class="image">
 				
+
 					<div class="image">
 						<span href="getpostview?postId=${data.postId}" class="popup">
 						<div class="single-item">
 							<c:set var="url" value="${data.imageURL}"/>
 							<c:if test="${fn:endsWith(url, '.jpg')}">
 								
-									<img src="<c:url value='WebContent/sample_image/dogcat2.jpg'/>" alt="‚È‚ñ‚©‚·‚²‚­ƒLƒ…[ƒg‚È“®•¨‚Ì‰æ‘œ" width="80%" height="auto">
-				     				<img src="<c:url value='WebContent/sample_image/bird8.jpg'/>" alt="‚È‚ñ‚©‚·‚²‚­ƒLƒ…[ƒg‚È“®•¨‚Ì‰æ‘œ" width="80%" height="auto">
+									<img src="<c:url value='WebContent/sample_image/dogcat2.jpg'/>" alt="ãªã‚“ã‹ã™ã”ãã‚­ãƒ¥ãƒ¼ãƒˆãªå‹•ç‰©ã®ç”»åƒ" width="80%" height="auto">
+				     				<img src="<c:url value='WebContent/sample_image/bird8.jpg'/>" alt="ãªã‚“ã‹ã™ã”ãã‚­ãƒ¥ãƒ¼ãƒˆãªå‹•ç‰©ã®ç”»åƒ" width="80%" height="auto">
 									<img src="<c:url value='/WebContent/${data.imageURL}'/>" alt="Post Image">
 								
 							</c:if>
@@ -161,13 +136,14 @@
 						</div>
 							
 						<form class="replybox">
-							<textarea placeholder="ƒRƒƒ“ƒg‚ğ’Ç‰Á" name="replytext" class="replytext" spellcheck="false"></textarea>
-							<input type="submit" name="submit" value="‘—M" class="replybuttom">
+							<textarea placeholder="ã‚³ãƒ¡ãƒ³ãƒˆã‚’è¿½åŠ " name="replytext" class="replytext" spellcheck="false"></textarea>
+							<input type="submit" name="submit" value="é€ä¿¡" class="replybuttom">
 							<input type="hidden" value="${data.postId}" name="postId">
 						</form>
 					</div>
 				</div>
 			<br><br><br>
 		</c:forEach>
+
 	</body>
 </html>

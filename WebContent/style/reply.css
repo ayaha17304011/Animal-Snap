@@ -1,3 +1,4 @@
+
 a {
 text-decoration: none;
     font-weight: bold;
@@ -34,7 +35,7 @@ p {
     color: #000;
 }
 
-/*¶‰E‚Ì–îˆó‚ÌˆÊ’u‚ğ•Ï‚¦‚é*/
+/*å·¦å³ã®çŸ¢å°ã®ä½ç½®ã‚’å¤‰ãˆã‚‹*/
 .slick-next {
     right: 20px;
     z-index: 99;
@@ -45,7 +46,7 @@ p {
     z-index: 100;
 }
 
-/*ƒXƒ‰ƒCƒh”‚Ìƒhƒbƒg‚ÌF‚ğ•Ï‚¦‚é*/
+/*ã‚¹ãƒ©ã‚¤ãƒ‰æ•°ã®ãƒ‰ãƒƒãƒˆã®è‰²ã‚’å¤‰ãˆã‚‹*/
 .slick-dots li.slick-active button:before,
 .slick-dots li button:before {
     color: #fff;
@@ -61,7 +62,7 @@ p {
     border-radius: 2px 0 0 2px;
 }
 
-/*ŒŸõƒ{ƒ^ƒ“*/
+/*æ¤œç´¢ãƒœã‚¿ãƒ³*/
 #sbtn{
     width: 70px;
     height: 40px;
@@ -73,7 +74,7 @@ p {
     font-size: 16px;
 }
 
-/*ŒŸõƒ{ƒ^ƒ“ƒ}ƒEƒXƒI[ƒo[*/
+/*æ¤œç´¢ãƒœã‚¿ãƒ³ãƒã‚¦ã‚¹ã‚ªãƒ¼ãƒãƒ¼æ™‚*/
 #sbtn:hover{
 	background-color:#26a0a0;
 }

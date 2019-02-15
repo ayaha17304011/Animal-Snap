@@ -23,7 +23,7 @@ public class mypageCommand extends AbstractCommand{
 			System.out.println("íœ‚³‚ê‚½ƒ†[ƒU[‚Å‚·");
 		}
 		OraConnectionManager.getInstance().closeConnection();
-		System.out.println("Exsict User : "+flag);
+		System.out.println("Exist User : "+flag);
 		resc.setResult(ub);
 		resc.setTarget("mypage");
 		return resc;

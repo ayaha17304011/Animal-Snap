@@ -1,5 +1,5 @@
 a {
-text-decoration: none;
+    text-decoration: none;
     font-weight: bold;
     color:black;
 }
@@ -98,7 +98,6 @@ img{
 }
  
 .image {
-
  }
  
 .image:hover {

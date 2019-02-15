@@ -1,3 +1,4 @@
+
 a {
 text-decoration: none;
     font-weight: bold;
@@ -178,7 +179,7 @@ p1 {
 
 
 
-/*ŒŸõƒ{ƒ^ƒ“*/
+/*æ¤œç´¢ãƒœã‚¿ãƒ³*/
 #sbtn{
     width: 70px;
     height: 40px;
@@ -190,7 +191,7 @@ p1 {
     font-size: 16px;
 }
 
-/*ŒŸõƒ{ƒ^ƒ“ƒ}ƒEƒXƒI[ƒo[*/
+/*æ¤œç´¢ãƒœã‚¿ãƒ³ãƒã‚¦ã‚¹ã‚ªãƒ¼ãƒãƒ¼æ™‚*/
 #sbtn:hover{
 background-color:#26a0a0;
 }
@@ -260,7 +261,7 @@ background-color:#26a0a0;
     vertical-align: middle;
 }
 
-/*ƒ}ƒEƒXƒI[ƒo[*/
+/*ãƒã‚¦ã‚¹ã‚ªãƒ¼ãƒãƒ¼æ™‚*/
 #sbtn3:hover {
 	background-color:#26a0a0;
 }

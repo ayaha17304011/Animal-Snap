@@ -9,7 +9,7 @@ $('#file_photo').change(
         $('.preview').css('background-image', 'none');
         fr.onload = function() {
             $('.preview').css('background-image', 'url(' + fr.result + ')');
-        }
+        };
         fr.readAsDataURL(file);
         $(".preview img").css('opacity', 0);
     }

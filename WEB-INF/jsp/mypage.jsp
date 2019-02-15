@@ -39,43 +39,42 @@
 
 		<div class="prof">
 	
-		<div class="username">
-			<span id="uid" style="display:none">${data.userId}</span>
-			<h2>${data.userName}</h2>
-		</div>
-		
-		<form id="editprofile" action="toeditprofile" method="POST">
-			<input id="sbtn3" type="submit" value="プロフィールの編集" />
-		</form>
-		<br>
-						
-		<div class="userid">
-			<p1>${data.loginId}</p1>
-		</div>	
+			<div class="username">
+				<span id="uid" style="display:none">${data.userId}</span>
+				<h2>${data.userName}</h2>
+			</div>
 
-		<div class="follower">
-			<form name="follower" action="followerlist" method="post">
-				<a href="javascript:follower.submit()">フォロワー ${data.observer}人</a>
+			<form id="editprofile" action="toeditprofile" method="POST">
+				<input id="sbtn3" type="submit" value="プロフィールの編集" />
+			</form>
+
+			<form id="follow" action="follow" method="POST">
+				<input id="sbtn3" type="submit" value="フォローする" />
 				<input type="hidden" value="${data.userId}" name="userId">
 			</form>
-		</div>	
 
-		<div class="following">
-			<form name="following" action="followinglist" method="post">
-				<a href="javascript:following.submit()">${data.following}人をフォロー中</a>
-				<input type="hidden" value="${data.userId}" name="userId">
-			</form>
-		</div>
-		
-		<div class="profile">
-			<p1>12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</p1>
-		</div>
-		
-		</div>
+			<div class="userid">
+				<p1>${data.loginId}</p1>
+			</div>	
 
-		<div class="profile">
-			<p1>${data.profile}</p1>
-		</div>
+			<div class="follower">
+				<form name="follower" action="followerlist" method="post">
+					<a href="javascript:follower.submit()">フォロワー ${data.observer}人</a>
+					<input type="hidden" value="${data.userId}" name="userId">
+				</form>
+			</div>	
+
+			<div class="following">
+				<form name="following" action="followinglist" method="post">
+					<a href="javascript:following.submit()">${data.following}人をフォロー中</a>
+					<input type="hidden" value="${data.userId}" name="userId">
+				</form>
+			</div>
+
+			<div class="profile">
+				<p1>${data.profile}</p1>
+			</div>
+		</div> <!-- end of prof -->
 
 		<div class="mypost">
 			<div class="postlist"></div>

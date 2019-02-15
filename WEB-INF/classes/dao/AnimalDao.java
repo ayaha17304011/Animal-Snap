@@ -67,7 +67,7 @@ public class AnimalDao{
                          "(SELECT count(*) FROM as_reply WHERE postId = p.postId) AS reply_count "+
                          "FROM as_user u RIGHT JOIN as_post p on(u.userId = p.userId) "+
                          "LEFT JOIN as_follower f on(u.userID = f.userId) "+
-                         "WHERE u.userId = ? or f.observerId = ? "+
+                         "WHERE u.userId = ? or f.observerId = ? and p.state = 1"+
                          "ORDER BY p.timestamp desc";
             st = cn.prepareStatement(sql);
             st.setString(1, uid);
@@ -103,44 +103,62 @@ public class AnimalDao{
         return postList;
     }
     //GetPostView
-    public PostBean getPost(PostBean pb){
-    PreparedStatement st = null;
-    Connection cn = null;
-    ResultSet rs = null;
-    try{
-        cn = OraConnectionManager.getInstance().getConnection();
-        String sql = "SELECT p.postID,u.username,u.IconPath,p.caption,p.imageURL,p.timestamp,"+
-                      "(SELECT count(*) FROM as_like WHERE postId = p.postId) AS like_count,"+
-                      "(SELECT count(*) FROM as_reply WHERE postId = p.postId) AS reply_count "+
-                      "FROM as_post p LEFT JOIN as_user u on(p.userId = u.userId) WHERE p.postId = ?";
-        st = cn.prepareStatement(sql);
-        st.setString(1, pb.getPostId());
-        rs = st.executeQuery();
-        rs.next();
-        pb.setPostId(rs.getString(1));
-        pb.setUserName(rs.getString(2));
-        pb.setIconPath(rs.getString(3));
-        pb.setCaption(rs.getString(4));
-        pb.setImageURL(rs.getString(5));
-        pb.setTimestamp(rs.getString(6));
-        pb.setLikeCount(rs.getString(7));
-        pb.setReplyCount(rs.getString(8));
-    }catch (SQLException e) {
-			OraConnectionManager.getInstance().rollback();
-            e.printStackTrace();
-    }finally{
+    public ArrayList getPost(PostBean pb){
+        PreparedStatement st = null;
+        Connection cn = null;
+        ResultSet rs = null;
+        ArrayList result = new ArrayList();
+        ArrayList replyList = new ArrayList();
+
         try{
-            if(rs != null){
-                rs.close();
-            }if(st != null){
-                st.close();
+            cn = OraConnectionManager.getInstance().getConnection();
+            String sql = "SELECT u.userID,p.postID,u.username,u.IconPath,p.caption,p.imageURL,p.timestamp,"+
+                          "(SELECT count(*) FROM as_like WHERE postId = p.postId) AS like_count,"+
+                          "(SELECT count(*) FROM as_reply WHERE postId = p.postId) AS reply_count "+
+                          "FROM as_post p LEFT JOIN as_user u on(p.userId = u.userId) WHERE p.postId = ?";
+            st = cn.prepareStatement(sql);
+            st.setString(1, pb.getPostId());
+            rs = st.executeQuery();
+            rs.next();
+            pb.setUserId(rs.getString(1));
+            pb.setPostId(rs.getString(2));
+            pb.setUserName(rs.getString(3));
+            pb.setIconPath(rs.getString(4));
+            pb.setCaption(rs.getString(5));
+            pb.setImageURL(rs.getString(6));
+            pb.setTimestamp(rs.getString(7));
+            pb.setLikeCount(rs.getString(8));
+            pb.setReplyCount(rs.getString(9));
+            result.add(pb);
+
+            String sql2 = "SELECT u.username, r.reply FROM as_reply r JOIN as_user u ON (r.userid = u.userid) WHERE r.postId = ?";
+            st = cn.prepareStatement(sql2);
+            st.setString(1, pb.getPostId());
+            rs = st.executeQuery();
+            while(rs.next()){
+                ReplyBean rb = new ReplyBean();
+                rb.setUserName(rs.getString(1));
+                rb.setReply(rs.getString(2));
+                replyList.add(rb);
             }
-        }catch(SQLException ex){
-            ex.printStackTrace();
+            result.add(replyList);
+
+        }catch (SQLException e) {
+    			OraConnectionManager.getInstance().rollback();
+                e.printStackTrace();
+        }finally{
+            try{
+                if(rs != null){
+                    rs.close();
+                }if(st != null){
+                    st.close();
+                }
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
         }
+        return result;
     }
-    return pb;
-  }
   //getLikeList
   public ArrayList getLikeList(LikeBean lb){
         Connection cn = null;
@@ -453,9 +471,10 @@ public class AnimalDao{
         ArrayList<String> user_list = new ArrayList<String>();
         try{
             cn = OraConnectionManager.getInstance().getConnection();
-            String sql = "select userid from as_user where regexp_like(username,?)";
+            String sql = "select userid from as_user where (regexp_like(username,?) or regexp_like(loginid,?)) and state = 1";
             st = cn.prepareStatement(sql);
             st.setString(1, query);
+            st.setString(2, query);
             rs = st.executeQuery();
             int count = 0;
             while(rs.next() && count<10){
@@ -463,7 +482,7 @@ public class AnimalDao{
                 user_list.add(userid);
                 count++;
             }
-            sql = "select postid from as_post where regexp_like(caption,?)";
+            sql = "select postid from as_post where regexp_like(caption,?) and state = 1";
             st = cn.prepareStatement(sql);
             st.setString(1, query);
             rs = st.executeQuery();
