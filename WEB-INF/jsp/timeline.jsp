@@ -86,7 +86,7 @@
 		<div class="post">
 			<div class="image">
 				<span href="getpostview?postId=1" class="popup">
-					<div class=single-item>
+					<div class="single-item">
 						<img src="<c:url value='/WebContent/sample_image/’¹/bird.jpg'/>">
 						<img src="<c:url value='/WebContent/sample_image/’¹/bird2.jpg'/>">
 						<img src="<c:url value='/WebContent/sample_image/’¹/bird3.jpg'/>">
