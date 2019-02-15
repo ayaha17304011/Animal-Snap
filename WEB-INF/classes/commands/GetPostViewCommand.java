@@ -6,10 +6,13 @@ import dao.OraConnectionManager;
 import dao.AnimalDao;
 import beans.UserBean;
 import beans.PostBean;
+import java.util.ArrayList;
 
 public class GetPostViewCommand extends AbstractCommand{
     public ResponseContext execute(ResponseContext resc){
+        ArrayList result = new ArrayList();
 		RequestContext reqc = getRequestContext();
+
         String[] pidArr = (String[])reqc.getParameter("postId");
         String pid = pidArr[0];
 
@@ -17,10 +20,10 @@ public class GetPostViewCommand extends AbstractCommand{
         PostBean pb = new PostBean();
         pb.setPostId(pid);
         OraConnectionManager.getInstance().beginTransaction();
-        pb = dao.getPost(pb);
+        result = dao.getPost(pb);
         OraConnectionManager.getInstance().closeConnection();
 
-        resc.setResult(pb);
+        resc.setResult(result);
         resc.setTarget("postview");
         return resc;
     }
