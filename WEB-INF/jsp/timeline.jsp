@@ -68,11 +68,6 @@
 	
 	</head>
 	<body>
-
-	<div class="single-item">
-		<img src="<c:url value='WebContent/sample_image/dogcat2.jpg'/>" alt="なんかすごくキュートな動物の画像" width="80%" height="auto">
-		<img src="<c:url value='WebContent/sample_image/bird8.jpg'/>" alt="なんかすごくキュートな動物の画像" width="80%" height="auto">
-	</div>
 	<br/><br/><br/><br/>
 		<% if(session.getAttribute("userId") == null){ 
 			response.sendRedirect("log");
@@ -93,18 +88,7 @@
 		</div>
 		<div class="post">
 			<div class="image">
-				<span href="getpostview?postId=1" class="popup">
-					<div class="single-item">
-						<img src="<c:url value='/WebContent/sample_image/鳥/bird.jpg'/>">
-						<img src="<c:url value='/WebContent/sample_image/鳥/bird2.jpg'/>">
-						<img src="<c:url value='/WebContent/sample_image/鳥/bird3.jpg'/>">
-						<img src="<c:url value='/WebContent/sample_image/鳥/bird5.jpg'/>">
-						<video width="100%" height="100%" controls>
-							<source src="<c:url value='/WebContent/videos/user_2019_02_05_14_03_21.mp4'/>" type="video/mp4">
-						</video>
-												
-					</div>
-				</span>
+				
 			</div>
 			<!-- like, reply -->
 			<div class="command">
