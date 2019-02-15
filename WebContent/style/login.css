@@ -1,11 +1,10 @@
-
 body{
     width: 100%;
     margin: 0 auto;
     padding: 0;
     background-color: #fcfffe;
-
 }
+
 #form1 {
 	margin: 16px;
 }
@@ -29,6 +28,7 @@ body{
     font-weight: bold;
     font-size: 16px;
 }
+
 /*検索ボタンマウスオーバー時*/
 #sbtn:hover{
 	background-color:#26a0a0;
@@ -37,7 +37,6 @@ body{
 .site-header{
     background:#abe8d5;
     display: flex;
-    
     position: fixed;
     justify-content: space-between;
     width: 100%;
@@ -76,6 +75,7 @@ body{
     padding: 10px;
     display: inline-block;
 }
+
 .gnav__menu__item a{
     text-decoration: none;
 }
@@ -134,8 +134,6 @@ outline:none;
 	outline:0;
 }
 
-
-
 .gnav__menu{
     display: flex;
     margin: auto;
@@ -145,11 +143,9 @@ outline:none;
     width: 50px;
     padding: 10px;
     list-style: none;
-    
-
 }
+
 .gnav__menu__item a{
-    
     text-decoration: none;
 }
 
@@ -157,6 +153,7 @@ outline:none;
     display: flex;
     justify-content: center;
 }
+
 .box1 {
     display: inline-block;      /* インラインブロック要素にする */
     width: 30%;
@@ -197,7 +194,6 @@ img{
   margin     : auto;      
 /* サンプルは中央寄せの背景：白 */
   background : #fff;
-  
 }
  
  /*=== 画像の設定 ======================================= */

@@ -20,10 +20,12 @@ $(function(){
     });
     $("div.popup_box").click(function(e){
         e.stopPropagation();
+
     });
     $("button").dblclick(function(e){
         e.stopPropagation();
     });
+
     $(document).ready(function(){
         var pageuid = $("#uid").text();
         $.ajax({

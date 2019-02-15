@@ -1,12 +1,11 @@
+
 a {
 text-decoration: none;
     font-weight: bold;
     color:black;
     z-index: 1;
     font-size: 90%;
-
 }
-
 
 p {
 	display: inline;
@@ -25,28 +24,29 @@ p {
     resize: none;
     width: 76%;
     height: auto;
-    /* font-size: 140%; */
     font-size: larger;
     padding: 0px;
     display: inline-block;
     vertical-align: text-top;
 }
 
-
 .slick-prev:before,
 .slick-next:before {
     color: #000;
 }
-/*¶‰E‚Ì–îˆó‚ÌˆÊ’u‚ğ•Ï‚¦‚é*/
+
+/*å·¦å³ã®çŸ¢å°ã®ä½ç½®ã‚’å¤‰ãˆã‚‹*/
 .slick-next {
     right: 20px;
     z-index: 99;
 }
+
 .slick-prev {
      left: 15px;
     z-index: 100;
 }
-/*ƒXƒ‰ƒCƒh”‚Ìƒhƒbƒg‚ÌF‚ğ•Ï‚¦‚é*/
+
+/*ã‚¹ãƒ©ã‚¤ãƒ‰æ•°ã®ãƒ‰ãƒƒãƒˆã®è‰²ã‚’å¤‰ãˆã‚‹*/
 .slick-dots li.slick-active button:before,
 .slick-dots li button:before {
     color: #fff;
@@ -57,40 +57,31 @@ p {
 }
 
 #sbox{
-/*position: absolute; */
-
     height: 40px;
     width: 200px;
-    /* padding: 0 10px; */
     border-radius: 2px 0 0 2px;
-    /* background: #eee; */	
 }
 
-/*ŒŸõƒ{ƒ^ƒ“*/
+/*æ¤œç´¢ãƒœã‚¿ãƒ³*/
 #sbtn{
     width: 70px;
     height: 40px;
-    /* position: absolute; */
-    /* left: 270px; */
-    /* top: 0; */
-    /* border-radius: 0 2px 2px 0; */
     color: #FFF;
     cursor: pointer;
     background-color: #33CCCC;
     border: none;
-
     font-weight: bold;
     font-size: 16px;
 }
-/*ŒŸõƒ{ƒ^ƒ“ƒ}ƒEƒXƒI[ƒo[*/
+
+/*æ¤œç´¢ãƒœã‚¿ãƒ³ãƒã‚¦ã‚¹ã‚ªãƒ¼ãƒãƒ¼æ™‚*/
 #sbtn:hover{
-background-color:#26a0a0;
+	background-color:#26a0a0;
 }
 
 .site-header{
     background:#abe8d5;
     display: flex;
-    
     position: fixed;
     justify-content: space-between;
     width: 100%;
@@ -101,6 +92,7 @@ background-color:#26a0a0;
 .site-logo {
 	margin: 1px;
 }
+
 .site-logo img{
     width: auto;
 }
@@ -113,6 +105,7 @@ background-color:#26a0a0;
     display: flex;
     margin: auto;
 }
+
 .gnav__menu__item{
     margin-left: 1%;
     width: 5%;
@@ -122,6 +115,7 @@ background-color:#26a0a0;
     height: 50px;
     display: inline-block;
 }
+
 .gnav__menu__item a{
     text-decoration: none;
 }
@@ -137,9 +131,6 @@ background-color:#26a0a0;
 }
 
 .icon{
-	/*border: solid; */
-    /* border-color: #33CCCC; */
-    /* border-bottom-width: 3px; */
     padding: 10px;
     width: 40px;
     height: 40px;
@@ -181,7 +172,6 @@ img{
     resize: none;
     width: 76%;
     height: auto;
-    /* font-size: 140%; */
     font-size: larger;
     padding: 0px;
     display: inline-block;
@@ -192,8 +182,6 @@ img{
 	float: right;
     border: solid 0px #33CCCC;
     padding: 7px 10px;
-    /* margin: 5%; */
-    /* font-family: Arial, sans-serif; */
     font-size: 1.2em;
     text-transform: uppercase;
     font-weight: bold;

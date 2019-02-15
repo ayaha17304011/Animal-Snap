@@ -9,23 +9,27 @@ text-decoration: none;
   opacity: 0;
   transition: opacity .3s linear;
 }
+
+
 .single-item.slick-initialized{
   opacity: 1;
 }
 
 .slick-prev:before,
 .slick-next:before {
-
 }
+
 /*左右の矢印の位置を変える*/
 .slick-next {
     right: 20px;
     z-index: 99;
 }
+
 .slick-prev {
      left: 15px;
     z-index: 99;
 }
+
 /*スライド数のドットの色を変える*/
 .slick-dots li.slick-active button:before,
 .slick-dots li button:before {
@@ -48,15 +52,10 @@ text-decoration: none;
     width: 70px;
 	outline:none;
     height: 40px;
-    /* position: absolute; */
-    /* left: 270px; */
-    /* top: 0; */
-    /* border-radius: 0 2px 2px 0; */
     color: #FFF;
     cursor: pointer;
     background-color: #33CCCC;
     border: none;
-
     font-weight: bold;
     font-size: 16px;
 }
@@ -68,7 +67,6 @@ background-color:#26a0a0;
 .site-header{
     background:#abe8d5;
     display: flex;
-    
     position: fixed;
     justify-content: space-between;
     width: 100%;
@@ -91,6 +89,7 @@ background-color:#26a0a0;
     display: flex;
     margin: auto;
 }
+
 .gnav__menu__item{
     margin-left: 1%;
     width: 5%;
@@ -100,6 +99,7 @@ background-color:#26a0a0;
     height: 50px;
     display: inline-block;
 }
+
 .gnav__menu__item a{
     text-decoration: none;
 }
@@ -130,7 +130,6 @@ background-color:#26a0a0;
     font-weight: bold;
 }
 
-
 .image {
     width: 100%;
     height: 85%;
@@ -141,7 +140,6 @@ img{
     height: 100%;
     object-fit: cover;
     vertical-align: middle;
-
 }
 
 .command {
@@ -210,6 +208,7 @@ body{
 	display: none;
 	box-sizing: border-box;
 }
+
 #popup_window .popup_box{
 	border-radius: 5px;
     background: #fff;
@@ -222,38 +221,40 @@ body{
 
 
 .lovelike {
-display: inline-block;
+	display: inline-block;
 }
 
 .heart {
-  width: 100px;
-      height: 45px;
-  background: url(../logo/web_heart_animation.png) no-repeat;
-  background-position: 0 0;
-  cursor: pointer;
+	width: 100px;
+	height: 45px;
+	background: url(../logo/web_heart_animation.png) no-repeat;
+	background-position: 0 0;
+	cursor: pointer;
 }
+
 .heart:hover {
-  background-position: -2800px 0;
-  -webkit-transition: background 1s steps(28);
-  transition: background 1s steps(28);
+	background-position: -2800px 0;
+	-webkit-transition: background 1s steps(28);
+	transition: background 1s steps(28);
 }
 
 .heart:active {
-  background-position: -2800px 0;
-  -webkit-transition: background 1s steps(28);
-  transition: background 1s steps(28);
+	background-position: -2800px 0;
+	-webkit-transition: background 1s steps(28);
+	transition: background 1s steps(28);
 }
 
 .hukidashi {
-  width: 100px;
-      height: 45px;
-  background: url(../logo/hukidashi.png) no-repeat;
-  background-position: 0 0;
-  cursor: pointer;
-  display: inline-block;
+	width: 100px;
+	height: 45px;
+	background: url(../logo/hukidashi.png) no-repeat;
+	background-position: 0 0;
+	cursor: pointer;
+	display: inline-block;
 }
+
 .hukidashi:hover {
-  background-position: -2800px 0;
-  -webkit-transition: background 1s steps(28);
-  transition: background 1s steps(28);
+	background-position: -2800px 0;
+	-webkit-transition: background 1s steps(28);
+	transition: background 1s steps(28);
 }
