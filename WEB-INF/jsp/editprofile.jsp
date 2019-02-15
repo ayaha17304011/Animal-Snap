@@ -2,16 +2,16 @@
 <html>
 	<head>
 		<header class="site-header">
-			<h1 class="site-logo"><a href="getpostlist"><img src="WebContent/logo/animal-log.png" alt="ÉçÉS"></a></h1>
+			<h1 class="site-logo"><a href="getpostlist"><img src="WebContent/logo/animal-log.png" alt="„É≠„Ç¥"></a></h1>
 			<form id="form1" action="search" method="get">
-				<input id="sbox" id="s" name="query" type="search" placeholder="åüçı" />
-				<input id="sbtn" type="submit" value="åüçı" />
+				<input id="sbox" id="s" name="query" type="search" placeholder="Ê§úÁ¥¢" />
+				<input id="sbtn" type="submit" value="Ê§úÁ¥¢" />
 			</form>
 			<nav class="gnav">
 				<ul class="gnav__menu">
-					<li class="gnav__menu__item"><a href="mylike"><img src="WebContent/logo/like.png" onmouseover="this.src='WebContent/logo/like2.png'" onmouseout=" this.src='WebContent/logo/like.png'" alt="Ç¢Ç¢ÇÀëÅå©ï\" class="navicon"></a></li>
-					<li class="gnav__menu__item"><form name="mypage" action="mypage" method="post"><a href="javascript:mypage.submit()"><img src="WebContent/logo/mypage.png" onmouseover="this.src='WebContent/logo/mypage2.png'" onmouseout=" this.src='WebContent/logo/mypage.png'" alt="É}ÉCÉyÅ[ÉW" class="navicon"></a><input type="hidden" value="${sessionScope.userId}" name="userId"></form></li>
-					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/logo/post.png" onmouseover="this.src='WebContent/logo/post2.png'" onmouseout=" this.src='WebContent/logo/post.png'" alt="ìäçeâÊñ " class="navicon"></a></li>
+					<li class="gnav__menu__item"><a href="mylike"><img src="WebContent/logo/like.png" onmouseover="this.src='WebContent/logo/like2.png'" onmouseout=" this.src='WebContent/logo/like.png'" alt="„ÅÑ„ÅÑ„Å≠Êó©Ë¶ãË°®" class="navicon"></a></li>
+					<li class="gnav__menu__item"><form name="mypage" action="mypage" method="post"><a href="javascript:mypage.submit()"><img src="WebContent/logo/mypage.png" onmouseover="this.src='WebContent/logo/mypage2.png'" onmouseout=" this.src='WebContent/logo/mypage.png'" alt="„Éû„Ç§„Éö„Éº„Ç∏" class="navicon"></a><input type="hidden" value="${sessionScope.userId}" name="userId"></form></li>
+					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/logo/post.png" onmouseover="this.src='WebContent/logo/post2.png'" onmouseout=" this.src='WebContent/logo/post.png'" alt="ÊäïÁ®øÁîªÈù¢" class="navicon"></a></li>
 				</ul>
 			</nav>
 		</header>
@@ -19,7 +19,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="${pageContext.request.contextPath}/WebContent/js/script.js"></script>
 
-		<title>Ç†Ç…Ç‹ÇÈ Ç∑Ç»Ç¡Ç’</title>
+		<title>„ÅÇ„Å´„Åæ„Çã „Åô„Å™„Å£„Å∑</title>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
 	</head>
@@ -35,12 +35,12 @@
         <p><input type="password" name="pass1" placeholder="êVÇµÇ¢ÉpÉXÉèÅ[Éh" id="textbox"><br>
             <input type="password" name="pass2" placeholder="ämîFÇÃÇΩÇﬂêVÇµÇ¢ÉpÉXÉèÅ[ÉhÇì¸óÕÇµÇƒÇ≠ÇæÇ≥Ç¢" id="textbox"></p>
 
-		<p><textarea placeholder="ÉvÉçÉtÉBÅ[Éãï∂(300éöà»ì‡)" name="profile" class="profile" maxlength="300" spellcheck="false"  id="proftextbox"></textarea></p>
-		<input type="submit" name="edit" value="ïœçX" id="sbtn2">
+		<p><textarea placeholder="„Éó„É≠„Éï„Ç£„Éº„É´Êñá(300Â≠ó‰ª•ÂÜÖ)" name="profile" class="profile" maxlength="300" spellcheck="false"  id="proftextbox"></textarea></p>
+		<input type="submit" name="edit" value="Â§âÊõ¥" id="sbtn2">
     </form>
     <br>
     <form action="removeuser">
-		<input type="submit" name="removeuser" value="ÉAÉJÉEÉìÉgÇçÌèúÇ∑ÇÈ" id="sbtn2">
+		<input type="submit" name="removeuser" value="„Ç¢„Ç´„Ç¶„É≥„Éà„ÇíÂâäÈô§„Åô„Çã" id="sbtn2">
     </form>
     
     </div>
