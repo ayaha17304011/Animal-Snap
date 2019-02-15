@@ -2,7 +2,7 @@ $(function() {
     $(".btn1").on("click",function(){
         $(".box2").empty();
         $(".box2").append(
-            $("<h1/>").text("ÉçÉOÉCÉì"),
+            $("<h2/>").text("ÉçÉOÉCÉì"),
             $("<form/>",{
                 action: 'login',
                 method: 'post'
@@ -30,13 +30,13 @@ $(function() {
                     value: 'êVãKìoò^',
                     class: 'submitbutton'
                 })
-            ),
-        )
+            )
+        );
     });
     $(".btn2").on("click",function(){
         $(".box2").empty();
         $(".box2").append(
-            $("<h1/>").text("êVãKìoò^"),
+            $("<h2/>").text("êVãKìoò^"),
             $("<form/>",{
                 action: 'regist',
                 method: 'post'
@@ -70,7 +70,7 @@ $(function() {
                     value: 'ÉçÉOÉCÉì',
                     class: 'submitbutton'
                 })
-            ),
-        )
+            )
+        );
     });
 });

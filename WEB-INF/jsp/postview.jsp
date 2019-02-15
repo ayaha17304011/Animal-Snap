@@ -1,6 +1,18 @@
 <%@ page pageEncoding="Windows-31J" contentType="text/html;charset=Windows-31J" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<head>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick-theme.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick.css" media="screen" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="${pageContext.request.contextPath}/WebContent/slick/slick.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/postview.css"/>
+		
+</head>
+
+
+<body>
+	<div class="popup_sub">
 
 <html>
 	<head>

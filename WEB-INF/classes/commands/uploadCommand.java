@@ -4,7 +4,7 @@ import main.ResponseContext;
 
 public class uploadCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
-		resc.setTarget("uploadtest");
+		resc.setTarget("uploadwidget");
 		return resc;
 	}
 }

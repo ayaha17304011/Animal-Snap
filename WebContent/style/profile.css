@@ -20,149 +20,8 @@ text-decoration: none;
     /* padding: 0 10px; */
     border-radius: 2px 0 0 2px;
     /* background: #eee; */	
-    outline: 0;
-
 }
 
-.icon{
-    width: 252.366px;
-    height: 160px;
-    margin-left: 18%;
-    display: inline-block;
-}
-
-.iconimage {
-    position: inherit;
-    width: 150px;
-    height: 150px;
-}
-
-.username {
-    display: inline-block;
-    text-decoration: none;
-        font-weight: bold;
-}
-
-.profile {
-    position: inherit;
-    width: 40px;
-    margin-bottom: 10px;
-    margin-left: 5px;       
-    height: 40px;
-}
-
-.userid {
-    display: inline-block;
-    text-decoration: none;
-        font-weight: bold;
-}
-
-h1 {
-    margin: 0px;
-    display:inline-block;
-  vertical-align: middle;
-}
-
-
-.post {
-    width: 100%;
-
-}
-
-.mypost{
-	width: 100%;
-}
-
-.mylike{
-
-   width: 85%;
-
-    flex-wrap: wrap;
-    display: flex;
-    top: 0;
-    margin: auto;
-    bottom: 0;
-    
-    right: 0;
-    left: 0;
-
-}
-
-  }
-  .photo{
-    position: relative;
-    width: 24%;
-    margin: 3%;
-  }
-  .photo:before{
-    content: "";
-    display: block;
-    padding-top: 100%;
-  }
-  img{
-
-    margin: 12px;
-    width: 30%;
-    /* top: 0; */
-    height: 350px;
-    object-fit: cover;
-    /* vertical-align: middle; */
-    z-index: 10;
-    
-  }
-  
-  
-.image {
-background: #000;
- }
- 
- .image:hover {
- 	opacity:0.5;
- 	transition-duration: 0.3s;
-
- }
-
-
-img2 {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    vertical-align: middle;
-    
-
-}
-
-.command {
-    margin: 1%;
-}
-
-
-.content{
-
-}
-
-.reply{
-
-}
-
-.replybox{
-	border: solid 0px;
-    border-color: #e4e8e4;
-    border-top-width: 3px;
-    margin: 0px;
-
-}
-
-.replytext{
-	border:solid 0px;
-	resize: none;
-	width: 85%;
-	height:56px;
-	font-size: 140%;
-	padding: 18px;
-	outline: 0;
-
-}
 
 .replybuttom{
 	float: right;
@@ -181,8 +40,6 @@ img2 {
 
 }
 
-.caption{
-    margin: 2%;}
 
 body{
     width: 100%;
@@ -190,18 +47,6 @@ body{
     background-color:  #fcfffe;
 
 }
-
-p1 {
-	
-}
-
-
-
-
-
-
-
-
 
 /*検索ボタン*/
 #sbtn{
@@ -247,9 +92,7 @@ background-color:#26a0a0;
 
 }
 
-.logo {
-    width: 50px;
-}
+
 .gnav{
     padding: 0px;
     padding-right: 20px;
@@ -295,41 +138,94 @@ background-color:#26a0a0;
     vertical-align: middle;
 }
 /*マウスオーバー時*/
-#sbtn3:hover {
+#sbtn2:hover {
 	background-color:#26a0a0;
 }
 
 
-#sbtn3 {
+#sbtn2 {
 
     height: 50px;
+    width: 200px;
     color: #FFF;
     cursor: pointer;
     background-color: #33CCCC;
-    margin-left: 49px;
+    margin-left: 15px;
     border: none;
     font-weight: bold;
     font-size: 16px;
 }
 
 
-.userlist {
-	width: 85%;
-    flex-wrap: wrap;
-    display: flex;
-    top: 0;
-    margin: auto;
-    bottom: 0;
-    right: 0;
-    left: 0;
+
+
+.prof{
+display: inline-block;
 }
 
-.user1 {
-	display: inline-block;
-    margin: auto;
+
+.profilesetting {
+	width: 60%;
+    margin: 0 auto;
+    border: solid;
+    border-color: #e4e8e4;
+    border-width: 3px;
+    margin-top: 1%;
+    margin-bottom:2%;
+    background-color: #ffffff;
+    padding: 5%;
+}
+
+.pro {
+width: 100%;
     text-align: center;
-    font-weight: bold;
-    color: black;
+}
+
+#textbox {
+    margin: 10px;
+    resize: none;
+    width: 80%;
+    height: 56px;
+    font-size: 120%;
+    padding: 18px;
+    outline: 0;
+}
+
+#proftextbox {
+    margin: 10px;
+    resize: none;
+    width: 80%;
+    height: 150px;
+    font-size: 140%;
+    padding: 18px;
+    outline: 0;
 }
 
 
+#file_icon {
+    display: none;
+}
+
+.input_file .preview {
+    background-image: url(../logo/notpic.png);
+    width: 50%;
+    object-fit: cover;
+    background-size: cover;
+    height: 50%;
+    vertical-align: middle;
+    background:no-repeat;
+    background-size: contain;
+    display: block;
+    background-position: center center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+input.previwpic {
+}
+  
+.input_file input[type="file"] {
+    opacity: 0;
+  }
+  
