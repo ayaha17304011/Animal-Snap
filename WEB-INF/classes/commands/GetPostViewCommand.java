@@ -6,6 +6,7 @@ import dao.OraConnectionManager;
 import dao.AnimalDao;
 import beans.UserBean;
 import beans.PostBean;
+import java.util.List;
 import java.util.ArrayList;
 
 public class GetPostViewCommand extends AbstractCommand{
@@ -20,8 +21,12 @@ public class GetPostViewCommand extends AbstractCommand{
         PostBean pb = new PostBean();
         pb.setPostId(pid);
         OraConnectionManager.getInstance().beginTransaction();
-        result = dao.getPost(pb);
+        List replyList = dao.getReplyList(pb);
+        pb = dao.getPost(pb);
         OraConnectionManager.getInstance().closeConnection();
+
+        result.add(pb);
+        result.add(replyList);
 
         resc.setResult(result);
         resc.setTarget("postview");

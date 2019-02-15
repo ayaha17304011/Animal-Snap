@@ -45,7 +45,7 @@
 					</div>			
 				</div>
 				<div class="box3">
-					<!-- iine, comment(reply) -->
+					<!-- like, reply, removepost -->
 					<div class="command">
 						<div class="lovelike">
 							<span style="font-size: 2em;">
@@ -55,6 +55,9 @@
 						</div>
 						<div class="hukidashi reply">
 							<a>${data[0].replyCount}</a>
+						</div>
+						<div class="removePost">
+							<a href="removepost?postId=${data[0].postId}">‚±‚Ì“Še‚ğíœ‚·‚é</a>
 						</div>
 					</div>
 				</div>

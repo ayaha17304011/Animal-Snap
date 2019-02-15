@@ -1,7 +1,6 @@
 <%@ page pageEncoding="Windows-31J" contentType="text/html;charset=Windows-31J" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
 <html>
 	<head>
 		<header class="site-header">
@@ -43,15 +42,21 @@
 				<span id="uid" style="display:none">${data.userId}</span>
 				<h2>${data.userName}</h2>
 			</div>
-
-			<form id="editprofile" action="toeditprofile" method="POST">
-				<input id="sbtn3" type="submit" value="プロフィールの編集" />
-			</form>
-
-			<form id="follow" action="follow" method="POST">
-				<input id="sbtn3" type="submit" value="フォローする" />
-				<input type="hidden" value="${data.userId}" name="userId">
-			</form>
+			<c:set var="s" value="${sessionScope.userId}" scope="page"/>
+			<c:set var="r" value="${data.userId}" scope="page"/>
+			<c:choose>
+				<c:when test="${s.equals(r)}">
+					<form id="editprofile" action="toeditprofile" method="POST">
+						<input id="sbtn3" type="submit" value="プロフィールの編集" />
+					</form>
+				</c:when>
+				<c:otherwise>
+					<form id="follow" action="follow" method="POST">
+						<input id="sbtn3" type="submit" value="フォローする" />
+						<input type="hidden" value="${data.userId}" name="userId">
+					</form>
+				</c:otherwise>
+		</c:choose>
 
 			<div class="userid">
 				<p1>${data.loginId}</p1>
