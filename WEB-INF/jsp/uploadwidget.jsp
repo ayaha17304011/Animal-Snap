@@ -7,16 +7,6 @@
         <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.min.js"></script>
         <script src="https://ucarecdn.com/libs/widget-tab-effects/1.x/uploadcare.tab-effects.min.js"></script>
         <title>‚ ‚É‚Ü‚é ‚·‚È‚Á‚Õ</title>
-        <style>
-            #Postpreview {
-                margin: 0 auto;
-                border: solid;
-                border-color: #e4e8e4;
-                border-width: 3px;
-                margin-top: 5%;
-                background-color: #ffffff;
-            }
-        </style>
     </head>
     <body>
         <div class="container mt-4 pre-upload">
