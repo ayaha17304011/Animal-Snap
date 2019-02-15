@@ -69,7 +69,7 @@
 						</form>
 					</div>				
 					<div class="image">
-						<span href="getpostview?postId=${data.postId}" class="popup">
+							<span href="getpostview?postId=${data.postId}" class="popup">
 						<div class="single-item">
 						<c:set var="url" value="${data.imageURL}"/>
 						<c:set var="file" value="${fn:split(url, ',')}"/>
