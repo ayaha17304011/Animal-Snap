@@ -67,10 +67,10 @@
 .slick-next:before
 {
     font-family: 'slick';
-    font-size: 20px;
+    font-size: 30px;
     line-height: 1;
 
-    opacity: .75;
+    opacity: 0.6;
     color: white;
 
     -webkit-font-smoothing: antialiased;
@@ -88,11 +88,11 @@
 }
 .slick-prev:before
 {
-    content: '‚Ü?';
+    content: 'Å©';
 }
 [dir='rtl'] .slick-prev:before
 {
-    content: '‚Ü?';
+    content: 'Å®';
 }
 
 .slick-next
@@ -106,11 +106,11 @@
 }
 .slick-next:before
 {
-    content: '‚Ü?';
+    content: 'Å®';
 }
 [dir='rtl'] .slick-next:before
 {
-    content: '‚Ü?';
+    content: 'Å©';
 }
 
 /* Dots */
@@ -188,7 +188,7 @@
     width: 20px;
     height: 20px;
 
-    content: '‚Ä¢';
+    content: '?';
     text-align: center;
 
     opacity: .25;
