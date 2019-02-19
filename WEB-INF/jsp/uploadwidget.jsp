@@ -4,33 +4,82 @@
 
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href=" https://use.fontawesome.com/releases/v5.0.13/css/all.css"/>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick-theme.css" media="screen" />
 		<script src="${pageContext.request.contextPath}/WebContent/slick/slick.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/timeline.css"/>
-		<header class="site-header">
-			<h1 class="site-logo"><a href="getpostlist"><img src="WebContent/logo/animal-log.png" alt="ロゴ"></a></h1>
-			<form id="form1" action="search" method="get">
-				<input id="sbox" id="s" name="query" type="search" placeholder="検索" />
-				<input id="sbtn" type="submit" value="検索" />
-			</form>
-			<nav class="gnav">
-				<ul class="gnav__menu">
-					<li class="gnav__menu__item"><a href="mylike"><img src="WebContent/logo/like.png" onmouseover="this.src='WebContent/logo/like2.png'" onmouseout=" this.src='WebContent/logo/like.png'" alt="いいね早見表" class="navicon"></a></li>
-					<li class="gnav__menu__item"><form name="mypage" action="mypage" method="post"><a href="javascript:mypage.submit()"><img src="WebContent/logo/mypage.png" onmouseover="this.src='WebContent/logo/mypage2.png'" onmouseout=" this.src='WebContent/logo/mypage.png'" alt="マイページ" class="navicon"></a><input type="hidden" value="${sessionScope.userId}" name="userId"></form></li>
-					<li class="gnav__menu__item"><a href="upload"><img src="WebContent/logo/post.png" onmouseover="this.src='WebContent/logo/post2.png'" onmouseout=" this.src='WebContent/logo/post.png'" alt="投稿画面" class="navicon"></a></li>
-				</ul>
-			</nav>
-		</header>
-		
-		
 		<title>あにまる すなっぷ</title>
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	</head>
     <body>
-    <br><br><br><br>
+    <!-- navbar -->
+		<nav class="navbar navbar-expand-md navbar-light bg-animal sticky-top p-0 m-0 md-3">
+            <a class="navbar-brand text-white" href="getpostlist">
+                <img src="WebContent/logo/animal-log.png" alt="logo" height="75px">
+            </a>
+            <button class="navbar-toggler bg-info"
+                type="button"
+                data-toggle="collapse"
+                data-target="#CollapseContent"
+                aria-controls="CollapseContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+                Menu
+            </button>
+            <div class="collapse navbar-collapse" id="CollapseContent">
+                <form class="form-inline m-md-auto" action="search" method="get">
+                    <input
+                        class="form-control mr-2 w-50"
+                        name="query"
+                        type="search"
+                        placeholder="検索"
+                        aria-label="Search"
+                    >
+                    <button class="btn btn-outline-primary px-4 my-2 mx-sm-0" type="submit">検索</button>
+                </form>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-disabled="true">
+                            <img
+                                src="WebContent/logo/post2.png"
+                                alt="投稿画面"
+                                height="50px"
+                            >
+                            <h3 class="d-inline d-md-none">投稿画面</h3>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mylike">
+                            <img 
+                                src="WebContent/logo/like.png"
+                                data-alt-src='WebContent/logo/like2.png'
+                                alt="いいね早見表"
+                                height="50px"
+                            >
+                            <h3 class="d-inline d-md-none">いいね早見表</h3>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <form name="mypage" action="mypage" method="post">
+                            <a class="nav-link" href="javascript:mypage.submit()">
+                                <img 
+                                    src="WebContent/logo/mypage.png" 
+                                    data-alt-src='WebContent/logo/mypage2.png'
+                                    alt="マイページ"
+                                    height="50px"
+                                >
+                                <h3 class="d-inline d-md-none">マイページ</h3>
+                                <input type="hidden" value="${sessionScope.userId}" name="userId">
+                            </a>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </nav>
         <div class="container mt-4 pre-upload">
             <div class="mb-4 mt-2">
             <input type="hidden" role="uploadcare-uploader" id="uploadedImage"
@@ -41,22 +90,21 @@
                  />
             </div>
 
-            <div id="postpreview" style="display: none; width: 600px;">
-                <div class="image">
-					<div class="single-item">
-												
-					</div>
-			</div>
+            <div class="post mx-auto" style="display: none;">
+                <div class="body">
+					<div class="single-item"></div>
+			    </div>
                 
-                <div class="foot">
+                <div class="bottom">
                 <%-- caption submit button --%>
-                    <form method="post" action="post">
+                    <form class="form-inline" method="post" action="post">
                         <input type="hidden" name="url" />
                         <textarea placeholder="コメントを追加(300字以内)"
                             name="caption"
-                            class="captiontext"
-                            maxlength="300"></textarea>
-                            <button type="submit" class="btn btn-info">Submit</button>
+                            class="captiontext rounded"
+                            maxlength="300"
+                        ></textarea>
+                        <button type="submit" class="btn btn-outline-primary px-3 py-3 mx-auto">Submit</button>
                     </form>
                 </div>
             </div>
@@ -64,7 +112,6 @@
 
 
         <script src="${pageContext.request.contextPath}/WebContent/js/script.js"></script>	
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
         <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.min.js"></script>
         <script src="https://ucarecdn.com/libs/widget-tab-effects/1.x/uploadcare.tab-effects.min.js"></script>
         <script src="${pageContext.request.contextPath}/WebContent/js/uploadwidget.js"></script>

@@ -10,22 +10,7 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/login.css"/>
 
-		<title>Ç†Ç…Ç‹ÇÈ Ç∑Ç»Ç¡Ç’</title>
-
-		<header class="site-header">
-			<h1 class="site-logo"><a href=""><img src="WebContent/logo/animal-log.png" alt="ÉçÉS" class="logo"></a></h1>
-			<form id="form1" action="search" method="get">
-				<input id="sbox" id="s" name="query" type="search" placeholder="åüçı" />
-				<input id="sbtn" type="submit" value="åüçı" />
-			</form>
-			<nav class="gnav">
-				<ul class="gnav__menu">
-					<li class="gnav__menu__item"></li>
-					<li class="gnav__menu__item"></li>
-					<li class="gnav__menu__item"></li>
-				</ul>
-			</nav>
-		</header>
+		<title>Ç†Ç…Ç‹ÇÈ Ç∑Ç»Ç¡Ç’ ÇÊÇ§Ç±Çª</title>
 		
 	</head>
 	<body>
@@ -38,10 +23,9 @@
 				     <img src="<c:url value='WebContent/sample_image/bird8.jpg'/>" alt="Ç»ÇÒÇ©Ç∑Ç≤Ç≠ÉLÉÖÅ[ÉgÇ»ìÆï®ÇÃâÊëú" width="80%" height="auto">
 				</div>
 			</div>	
-			
 			<div class="box2">
-				
-				<img src="WebContent/logo/animal-log.png"  / class="titlelogo">
+
+				<img src="WebContent/logo/animal-log.png" class="titlelogo">
 				<button class="btn1 submitbutton" type="button">ÉçÉOÉCÉì</button><br>
 				<button class="btn2 submitbutton" type="button">êVãKìoò^</button>
 			</div>

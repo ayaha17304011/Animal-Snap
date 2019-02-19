@@ -65,23 +65,25 @@ function preview(fileLength){
         console.log("ok");
         var image = sessionStorage.getItem("0");
         if(image.endsWith("image")){
-            $(".image .single-item").append("<img src='"+ image +"'>");
+            $(".body .single-item").append("<img src='"+ image +"'>");
         }else if(image.endsWith("video")){
-            $(".image .single-item").append("<video width='100%' height='100%' controls><source src='" + image + "'></video>");
+            $(".body .single-item").append("<video controls><source src='" + image + "'></video>");
         }
     }else if(fileLength > 1){
         console.log(">1");
         for(var i = 0; i < fileLength; i++){
             var images =sessionStorage.getItem(i);
             if(images.endsWith("image")){
-                $(".image .single-item").append("<img src='"+ images +"'>");
+                $(".body .single-item").append("<img src='"+ images +"'>");
             }else if(images.endsWith("video")){
-                $(".image .single-item").append("<video width='100%' height='100%' controls><source src='" + images + "'></video>");
+                $(".body .single-item").append("<video controls><source src='" + images + "'></video>");
             }
         }
     }
-    $(".single-item").slick();
-    $("#postpreview").show();
+    $(".single-item").slick({
+        adaptiveHeight: true
+    });
+    $(".post").show();
 }
 
 function fileTypeCheck(fileInfo){

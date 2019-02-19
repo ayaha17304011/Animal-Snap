@@ -101,4 +101,14 @@ $(function(){
         $("#popup_window .popup_box").empty();
     }
     //function
+
+
+    //effect
+    var sourceSwap = function () {
+        var $this = $(this).children("img");
+        var newSource = $this.data('alt-src');
+        $this.data('alt-src', $this.attr('src'));
+        $this.attr('src', newSource);
+    };
+    $("a.nav-link").hover(sourceSwap,sourceSwap);
 });

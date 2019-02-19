@@ -38,6 +38,7 @@ public class LoginCommand extends AbstractCommand{
 
         if(loginflag){
             HttpSession session = req.getSession();
+            session.setMaxInactiveInterval(-1);
             session.setAttribute("userId", result);
             resc.setTarget("timeline");
         }else{
