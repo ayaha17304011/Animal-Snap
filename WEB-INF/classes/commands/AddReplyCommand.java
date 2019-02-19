@@ -19,7 +19,6 @@ public class AddReplyCommand extends AbstractCommand{
     	String postId = pidArr[0];
 		String reply = replyArr[0];
 		String sql = "insert into as_reply(userId, postId, reply, timestamp) values("+userId+","+postId+",'"+reply+"',default)";
-        System.out.println(sql);
 		OraConnectionManager.getInstance().beginTransaction();
 		dao.SQLUpdate(sql);
         OraConnectionManager.getInstance().closeConnection();

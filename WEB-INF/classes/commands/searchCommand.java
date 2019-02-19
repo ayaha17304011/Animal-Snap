@@ -27,7 +27,6 @@ public class searchCommand extends AbstractCommand{
 		ArrayList<String> user_list = list.get(0);
 		for(int i=0; i<user_list.size(); i++){
 			String userId = user_list.get(i);
-			System.out.println("userId:"+userId);
 			UserBean ub = dao.getUserInfo(userId);
 			user_result.add(ub);
 		}
@@ -35,7 +34,6 @@ public class searchCommand extends AbstractCommand{
 		ArrayList<String> post_list = list.get(1);
 		for(int i=0; i<post_list.size(); i++){
 			String postId = post_list.get(i);
-			System.out.println("postId"+postId);
 			PostBean pb = new PostBean();
 			pb.setPostId(postId);
 			pb = dao.getPost(pb);
