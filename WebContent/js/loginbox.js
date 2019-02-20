@@ -11,23 +11,19 @@ $(function() {
                     type: 'text',
                     name: 'loginid',
                     placeholder: 'ユーザーID',
-                    class: 'nyuuryoku'
+                    class: 'nyuuryoku',
+                    required:true
                 }),
                 $("<input/>",{
                     type: 'password',
                     name: 'pass',
                     placeholder: 'パスワード',
-                    class: 'nyuuryoku'
+                    class: 'nyuuryoku',
+                    required:true
                 }),
                 $("<input/>",{
                     type: 'submit',
                     value: 'ログイン',
-                    class: 'submitbutton'
-                }),
-                $("<input/>",{
-                    type: 'submit',
-                    name:'btn2',
-                    value: '新規登録',
                     class: 'submitbutton'
                 })
             )
@@ -45,29 +41,26 @@ $(function() {
                     type: 'text',
                     name: 'loginid',
                     placeholder: 'ユーザーID',
-                    class: 'nyuuryoku'
+                    class: 'nyuuryoku',
+                    required:true
                 }),
                 $("<input/>",{
                     type: 'text',
                     name: 'username',
                     placeholder: '表示名',
-                    class: 'nyuuryoku'
+                    class: 'nyuuryoku',
+                    required:true
                 }),
                 $("<input/>",{
                     type: 'password',
                     name: 'pass',
                     placeholder: 'パスワード',
-                    class: 'nyuuryoku'
+                    class: 'nyuuryoku',
+                    required:true
                 }),
                 $("<input/>",{
                     type: 'submit',
                     value: '新規登録',
-                    class: 'submitbutton'
-                }),
-                $("<input/>",{
-                    type: 'submit',
-                    name:'btn1',
-                    value: 'ログイン',
                     class: 'submitbutton'
                 })
             )

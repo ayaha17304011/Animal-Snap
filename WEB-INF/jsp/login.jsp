@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 	<head>
-
 		<meta name="viewport" content="width=device-width">
 		<meta name="robots" content="noindex,nofollow">
 		<link rel="canonical" href="https://lopan.jp/css-animation">
@@ -11,10 +10,29 @@
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/login.css"/>
 
 		<title>Ç†Ç…Ç‹ÇÈ Ç∑Ç»Ç¡Ç’ ÇÊÇ§Ç±Çª</title>
-		
+		<style>
+			.bg-animal{
+				background-color: #abe8d5;
+			}
+		</style>
 	</head>
 	<body>
-		<br><br><br><br>
+		<!-- navbar -->
+		<nav class="navbar navbar-expand-md navbar-light bg-animal sticky-top p-0 mt-0 mx-0 mb-5">
+			<a class="navbar-brand text-white" href="getpostlist">
+				<img src="WebContent/logo/animal-log.png" alt="logo" height="75px">
+			</a>
+			<form class="form-inline m-md-auto w-50" action="search" method="get">
+				<input
+					class="form-control mr-2 w-75"
+					name="query"
+					type="search"
+					placeholder="åüçı"
+					aria-label="Search"
+				>
+				<button class="btn btn-outline-primary px-4 my-2 mx-sm-0" type="submit">åüçı</button>
+			</form>
+		</nav>
 		<h1>Ç†Ç…Ç‹ÇÈ Ç∑Ç»Ç¡Ç’ Ç÷ÇÊÇ§Ç±Çª</h1>
 		<div class="box">
 			<div class="box1">
@@ -24,7 +42,6 @@
 				</div>
 			</div>	
 			<div class="box2">
-
 				<img src="WebContent/logo/animal-log.png" class="titlelogo">
 				<button class="btn1 submitbutton" type="button">ÉçÉOÉCÉì</button><br>
 				<button class="btn2 submitbutton" type="button">êVãKìoò^</button>
@@ -32,7 +49,9 @@
 		</div>
 		
 		
-
+	<% if(request.getAttribute("data")!=null){ %>
+	<script>alert("${data}")</script>
+	<% } %>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

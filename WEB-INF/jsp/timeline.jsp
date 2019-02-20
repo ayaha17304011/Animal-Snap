@@ -26,7 +26,7 @@
 				<div class="popup_box"></div>
 			</div>
 		<!-- navbar -->
-		<nav class="navbar navbar-expand-md navbar-light bg-animal p-0 mt-0 mx-0 mb-5">
+		<nav class="navbar navbar-expand-md navbar-light bg-animal sticky-top p-0 mt-0 mx-0 mb-5">
 			<a class="navbar-brand text-white" href="getpostlist">
 				<img src="WebContent/logo/animal-log.png" alt="logo" height="75px">
 			</a>
@@ -93,9 +93,6 @@
 			</div>
 		</nav>
 		<%
-			if(session.getAttribute("userId") == null){ 
-				response.sendRedirect("log");
-			}
 			if(request.getAttribute("data") == null){
 				response.sendRedirect("getpostlist");
 			}

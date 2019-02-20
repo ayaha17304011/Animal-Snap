@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick-theme.css" media="screen" />
-		<script src="${pageContext.request.contextPath}/WebContent/slick/slick.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/timeline.css"/>
 		<title>‚ ‚É‚Ü‚é ‚·‚È‚Á‚Õ</title>
 	</head>
@@ -90,9 +89,11 @@
                  />
             </div>
 
-            <div class="post mx-auto" style="display: none;">
-                <div class="body">
-					<div class="single-item"></div>
+            <div class="post preview mx-auto" style="display: none;">
+                <div class="body" style="background-color: #393234">
+                    <span>
+                        <figure class="single-item"></figure>
+                    </span>
 			    </div>
                 
                 <div class="bottom">
@@ -111,9 +112,9 @@
         </div>
 
 
-        <script src="${pageContext.request.contextPath}/WebContent/js/script.js"></script>	
         <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.min.js"></script>
         <script src="https://ucarecdn.com/libs/widget-tab-effects/1.x/uploadcare.tab-effects.min.js"></script>
+        <script src="${pageContext.request.contextPath}/WebContent/slick/slick.min.js"></script>
         <script src="${pageContext.request.contextPath}/WebContent/js/uploadwidget.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
