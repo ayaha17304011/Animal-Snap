@@ -76,9 +76,9 @@ public class EditProfileCommand extends AbstractCommand{
 			String s = " where userid = " + userId;
 			sql += s;
 
-			// OraConnectionManager.getInstance().beginTransaction();
-			// dao.SQLUpdate(sql);
-			// OraConnectionManager.getInstance().closeConnection();
+			OraConnectionManager.getInstance().beginTransaction();
+			dao.SQLUpdate(sql);
+			OraConnectionManager.getInstance().closeConnection();
 		}
 		
 		resc.setTarget("timeline");

@@ -55,18 +55,18 @@
 		</div>
 		<div class="bottom">
 			<div class="command">
-				<a href="#" style="font-size: 2em;">
+				<a href="like" style="font-size: 2em;">
 					<div class="heart"></div>
 				</a>
 				<a href="#">100</a>
 				<div class="removePost">
-					<a href="#">‚±‚Ì“Še‚ğíœ‚·‚é</a>
+					<a href="removepost">‚±‚Ì“Še‚ğíœ‚·‚é</a>
 				</div>
 			</div>
 			<div class="replylist">
 				<c:if test="${data[0].caption} != ''">
 					<div class="caption">
-						<strong><a href="">${data.userName}</a></strong><span class="cm">${data.caption}</span>
+						<strong><a href="mypage?userId=${data.userId}">${data.userName}</a></strong><span class="cm">${data.caption}</span>
 					</div>
 				</c:if>
 				<c:forEach var="replies" items="${data[1]}">
