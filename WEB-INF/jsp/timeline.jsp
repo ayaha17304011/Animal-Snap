@@ -155,11 +155,9 @@
 					</div>
 
 					<div class="replylist">
-						<c:if test="${data.caption} != ''">
-							<div class="caption">
-								<strong><a href="">${data.userName}</a></strong><span class="cm">${data.caption}</span>
-							</div>
-						</c:if>
+						<div class="caption">
+							<strong><a href="mypage?userId=${data.userId}">${data.userName}</a></strong><span class="cm">${data.caption}</span>
+						</div>
 						<c:forEach var="replies" items="${post}">
 							<div class="reply">
 								<strong><a>${replies.username}</a></strong><span class="cm">${replies.reply}</span>
