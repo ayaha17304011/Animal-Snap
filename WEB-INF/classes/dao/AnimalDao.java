@@ -63,11 +63,11 @@ public class AnimalDao{
 
             cn = OraConnectionManager.getInstance().getConnection();
             String sql = "SELECT distinct p.postID, u.username, u.IconPath, p.caption, p.imageURL, p.timestamp, u.userId,"+
-                         "(SELECT count(*) FROM as_like WHERE postId = p.postId) AS like_count,"+
+                         "(SELECT count(*) FROM as_like WHERE postId = p.postId) AS like_count, "+
                          "(SELECT count(*) FROM as_reply WHERE postId = p.postId) AS reply_count "+
-                         "FROM as_user u RIGHT JOIN as_post p on(u.userId = p.userId) "+
+                         "FROM as_user u LEFT JOIN as_post p on(u.userId = p.userId) "+
                          "LEFT JOIN as_follower f on(u.userID = f.userId) "+
-                         "WHERE u.userId = ? or f.observerId = ? and p.state = 1"+
+                         "WHERE (u.userId = ? or f.observerId = ?) and p.state = 1 "+
                          "ORDER BY p.timestamp desc";
             st = cn.prepareStatement(sql);
             st.setString(1, uid);
@@ -574,8 +574,8 @@ public class AnimalDao{
         try{
             cn = OraConnectionManager.getInstance().getConnection();
             String sql = "SELECT l.postid "+
-                         "FROM as_like l JOIN as_user u ON(l.userid = u.userid) "+
-                         "WHERE l.userid = ? and u.state = 1";
+                         "FROM as_like l JOIN as_post p ON(l.postid = p.postid) "+
+                         "WHERE l.userid = ? and p.state = 1";
             st = cn.prepareStatement(sql);
             st.setString(1, uid);
             rs = st.executeQuery();
