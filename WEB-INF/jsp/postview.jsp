@@ -55,26 +55,26 @@
 		</div>
 		<div class="bottom">
 			<div class="command">
-				<a href="like" style="font-size: 2em;">
-					<div class="heart"></div>
-				</a>
-				<a href="#">100</a>
+					<div class="lovelike">
+							<span style="font-size: 2em;">
+								<a href="like?postId=${data[0].postId}"><div class="heart"></div></a>
+							</span>
+							<a>${data[0].likeCount}</a>
+					</div>
 				<div class="removePost">
-					<a href="removepost">この投稿を削除する</a>
+					<a href="removepost?postId=${data[0].postId}">この投稿を削除する</a>
 				</div>
 			</div>
 			<div class="replylist">
-				<c:if test="${data[0].caption} != ''">
-					<div class="caption">
-						<strong><a href="mypage?userId=${data.userId}">${data.userName}</a></strong><span class="cm">${data.caption}</span>
-					</div>
-				</c:if>
+				<div class="caption">
+					<strong><a>${data[0].userName}</a></strong><span class="cm">${data[0].caption}</span>
+				</div>
 				<c:forEach var="replies" items="${data[1]}">
 					<div>
 						<strong><a href="#">${replies.userName}</a></strong><span class="cm">${replies.reply}</span>
 					</div>
 				</c:forEach>
-				<div>
+				<!-- <div>
 					<strong><a href="#">B1</a></strong><span class="cm">reply 1</span>
 				</div>
 				<div>
@@ -83,7 +83,7 @@
 				<div>
 					<strong><a href="#">User1</a></strong><span class="cm">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
 				</div>
-			</div>
+			</div> -->
 			<form class="replybox">
 				<textarea placeholder="コメントを追加" name="caption" spellcheck="false"></textarea>
 				<button type="submit" class="replybuttom">コメント</button>
