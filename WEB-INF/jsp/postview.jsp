@@ -5,7 +5,7 @@
 		<div class="top">
 			<form name="userpage" action="mypage" method="post">
 				<a href="javascript:mypage.submit()">
-					<img class="icon rounded-circle mx-2 my-2" src="${data[0].iconPath}">
+					<img class="icon rounded-circle mx-2 my-2" src="<c:url value='/WebContent/${data[0].iconPath}'/>">
 					${data[0].userName}
 				</a>
 				<input type="hidden" value="${data[0].userId}" name="userId"/>
