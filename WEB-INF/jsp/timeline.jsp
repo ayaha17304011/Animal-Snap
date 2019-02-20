@@ -6,12 +6,10 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" href=" https://use.fontawesome.com/releases/v5.0.13/css/all.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick-theme.css" media="screen" />
 		<script src="${pageContext.request.contextPath}/WebContent/slick/slick.min.js"></script>
-
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/timeline.css"/>
 		<script src="${pageContext.request.contextPath}/WebContent/js/script.js"></script>
 		<script>
@@ -21,12 +19,14 @@
 				});
 			})
 		</script>
-		
 		<title>あにまる すなっぷ</title>
 	</head>
 	<body>
+			<div id="popup_window">
+				<div class="popup_box"></div>
+			</div>
 		<!-- navbar -->
-		<nav class="navbar navbar-expand-md navbar-light bg-animal sticky-top p-0 mt-0 mx-0 mb-5">
+		<nav class="navbar navbar-expand-md navbar-light bg-animal p-0 mt-0 mx-0 mb-5">
 			<a class="navbar-brand text-white" href="getpostlist">
 				<img src="WebContent/logo/animal-log.png" alt="logo" height="75px">
 			</a>
@@ -100,85 +100,79 @@
 				response.sendRedirect("getpostlist");
 			}
 		%>
-		<div id="popup_window">
-			<div class="popup_box">
-			</div>
-		</div>
 		<c:forEach var="data" items="${data}">
-				<div class="post">
-					<div class="top">
-						<form name="userpage" action="mypage" method="post">
-							<a href="javascript:mypage.submit()">
-								<img class="icon rounded-circle mx-2 my-2" src="<c:url value='/WebContent/${data.iconPath}'/>">
-								${data.userName}
-							</a>
-							<input type="hidden" value="${data.userId}" name="userId"/>
-						</form>
-					</div>				
-					<div class="body">
-						<span href="getpostview?postId=${data.postId}" class="popup">
-							<div class="single-item">
-								<c:set var="url" value="${data.imageURL}"/>
-								<c:set var="file" value="${fn:split(url, ',')}"/>
-								<c:choose>
-									<c:when test="${fn:length(file) > 1}">
-										<c:forEach var="i" items="${file}">
-											<c:if test="${fn:endsWith(i, 'image')}">
-												<img src="${i}">
-											</c:if>
-											<c:if test="${fn:endsWith(i,'video')}">
-												<video muted>
-													<source src="${i}" type="video/mp4">
-												</video>								
-											</c:if>
-										</c:forEach>
-									</c:when>
-									<c:otherwise>
-										<c:if test="${fn:endsWith(file[0], 'image')}">
-											<img src="${data.imageURL}">
+			<div class="post">
+				<div class="top">
+					<form name="userpage" action="mypage" method="post">
+						<a href="javascript:mypage.submit()">
+							<img class="icon rounded-circle mx-2 my-2" src="<c:url value='/WebContent/${data.iconPath}'/>">
+							${data.userName}
+						</a>
+						<input type="hidden" value="${data.userId}" name="userId"/>
+					</form>
+				</div>				
+				<div class="body">
+					<span href="getpostview?postId=${data.postId}" class="popup">
+						<figure class="single-item">
+							<c:set var="url" value="${data.imageURL}"/>
+							<c:set var="file" value="${fn:split(url, ',')}"/>
+							<c:choose>
+								<c:when test="${fn:length(file) > 1}">
+									<c:forEach var="i" items="${file}">
+										<c:if test="${fn:endsWith(i, 'image')}">
+											<img src="${i}">
 										</c:if>
-										<c:if test="${fn:endsWith(file[0],'video')}">
+										<c:if test="${fn:endsWith(i,'video')}">
 											<video muted>
-												<source src="${data.imageURL}" type="video/mp4">
+												<source src="${i}" type="video/mp4">
 											</video>								
 										</c:if>
-									</c:otherwise>
-								</c:choose>
-							</div>
-						</span>
-					</div>
+									</c:forEach>
+								</c:when>
+								<c:otherwise>
+									<c:if test="${fn:endsWith(file[0], 'image')}">
+										<img src="${data.imageURL}">
+									</c:if>
+									<c:if test="${fn:endsWith(file[0],'video')}">
+										<video muted>
+											<source src="${data.imageURL}" type="video/mp4">
+										</video>								
+									</c:if>
+								</c:otherwise>
+							</c:choose>
+						</figure>
+					</span>
+				</div>
 
-					<!-- like, reply -->
+				<!-- like, reply -->
+				<div class="bottom">
 					<div class="command">
-						<div class="lovelike">
-							<span style="font-size: 2em;">
-								<a href="like?postId=${data.postId}"><div class="heart"></div></a>
-							</span>
-						</div>	
+						<span style="font-size: 2em;">
+							<a href="like?postId=${data.postId}"><div class="heart"></div></a>
+						</span>
 								
 						<div class="hukidashi reply"><span style="display:none;">${data.postId}</span></div>
 					</div>
 
-					<div class="content">
+					<div class="replylist">
 						<c:if test="${data.caption} != ''">
 							<div class="caption">
-								<a href="">${data.userName}</a><span style="margin-right: 1em;"></span>${data.caption}
+								<strong><a href="">${data.userName}</a></strong><span class="cm">${data.caption}</span>
 							</div>
 						</c:if>
-						<div class="reply">
-							<c:forEach var="replies" items="${post}">
-								<a> reply.username</a> <span style="margin-right: 1em;"></span>  ${post.reply}
-							</c:forEach>
-						</div>
-							
-						<form class="replybox">
-							<textarea placeholder="コメントを追加" name="replytext" class="replytext" spellcheck="false"></textarea>
-							<input type="submit" name="submit" value="送信" class="replybuttom">
-							<input type="hidden" value="${data.postId}" name="postId">
-						</form>
-					</div>
+						<c:forEach var="replies" items="${post}">
+							<div class="reply">
+								<strong><a>${replies.username}</a></strong><span class="cm">${replies.reply}</span>
+							</div>
+						</c:forEach>
+					</div>	
+					<form class="replybox">
+						<textarea placeholder="コメントを追加" name="caption" spellcheck="false"></textarea>
+						<button type="submit" class="replybuttom">コメント</button>
+						<input type="hidden" value="${data.postId}" name="postId">
+					</form>
 				</div>
-			<br><br><br>
+			</div>
 		</c:forEach>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>

@@ -25,20 +25,19 @@ div.post{
     max-width: 606px;
     border: 3px solid #e4e8e4;
 }
+/* link style */
 div.post a{
     text-decoration: none;
     color:black;
 }
- /* post top */
- div.post > div.top{
-    border-bottom: 2px solid #e4e8e4;
-    display: block;
-    margin: 0;
-    padding: 0;
-}
 div.post > div.top a{
     font-size: 1.5em;
     font-weight: bold;
+}
+ /* post top */
+div.post > div.top{
+    border-bottom: 2px solid #e4e8e4;
+    display: block;
 }
 div.post > div.top img.icon{
     width: 40px;
@@ -53,88 +52,115 @@ div.post > div.body{
     overflow: hidden;
 }
 div.post > div.body img{
-    object-fit: cover;
     width: 100%;
     height: auto;
     vertical-align: middle;
 }
 div.post > div.body video{
-    object-fit: cover;
     width: 100%;
     height: auto;
     vertical-align: middle;
 }
+
+/* Single Post View */
+#popup_window .popup_box{
+    background: #fff;
+    max-width: 1006px;
+    min-height: 100px;
+	overflow: visible;
+    margin: 70px auto;
+}
+#popup_window .post{
+    margin: 0 auto 60px;
+    max-width: 1006px;
+    border: 3px solid #e4e8e4;
+    position: relative;
+}
+#popup_window .post > .body{
+    margin: 0 auto;
+    text-align: center;
+    height: auto;
+    height: 600px;
+    max-width: 600px;
+    overflow: hidden;
+    background-color: #393234;
+}
+#popup_window div.post > div.body img{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 100%;
+    height: auto;
+}
+#popup_window  div.post > div.body video{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 100%;
+    height: auto;
+}
+/* 100% for vertical image */
+.slick-list{
+    height: 100%;
+}
+.slick-track{
+    position: relative;
+    height: 100%;
+}
+/* img and video wrap div for vertical center image */
+#popup_window div.post .imgwrap{
+    height: 100%;
+    position: relative;
+}
 /*******************************/
 
-/* slick style */
-.single-item{
-  opacity: 0;
-  transition: opacity .3s linear;
-}
+/* like + comment icon layout */
 
-
-.single-item.slick-initialized{
-  opacity: 1;
-}
-
-/*左右の矢印の位置を変える*/
-.slick-next {
-    right: 20px;
-    z-index: 99;
-}
-
-.slick-prev {
-     left: 15px;
-    z-index: 99;
-}
-
-/*スライド数のドットの色を変える*/
-.slick-dots li.slick-active button:before,
-.slick-dots li button:before {
-    color: #fff;
-}
-
-/****************************************/
-/* like + comment icon animation */
-.command {
-    margin: 0;
+div.bottom{
     border-top: 2px solid #e4e8e4;
 }
-.lovelike {
-	display: inline-block;
+div.bottom > .command{
+    margin: 3px 12px;
+    height: 45px;
+    position: relative;
+}
+div.bottom > .command .heart, div.bottom > .command .hukidashi{
+    display: inline-block;
+}
+div.bottom > .command > a , div.removePost{
+    display: inline-block;
+    vertical-align: middle;
+}
+div.command > div.removePost{
+    position: absolute;
+    right: 10px;
+    top:10px;
+}
+div.command > div.removePost :hover{
+    color: red;
 }
 
+/* logo animation */
 .heart {
-	width: 100px;
-	height: 45px;
+	width: 40px;
+	height: 40px;
 	background: url(../logo/web_heart_animation.png) no-repeat;
-	background-position: 0 0;
-	cursor: pointer;
+	background-position: -30px -5px;
+    cursor: pointer;
 }
-
-.heart:hover {
-	background-position: -2800px 0;
-	-webkit-transition: background 1s steps(28);
-	transition: background 1s steps(28);
-}
-
-.heart:active {
-	background-position: -2800px 0;
-	-webkit-transition: background 1s steps(28);
-	transition: background 1s steps(28);
-}
-
 .hukidashi {
-	width: 100px;
-	height: 45px;
+	width: 40px;
+	height: 40px;
 	background: url(../logo/hukidashi.png) no-repeat;
-	background-position: 0 0;
+	background-position: -30px -5px;
 	cursor: pointer;
-	display: inline-block;
 }
-
-.hukidashi:hover {
-	background-position: -2800px 0;
+.heart:hover, .hukidashi:hover {
+	background-position: -2830px -5px;
 	-webkit-transition: background 1s steps(28);
 	transition: background 1s steps(28);
 }
@@ -142,28 +168,37 @@ div.post > div.body video{
 /****************************************************/
 
 /****reply and caption****************/
+div.replylist {
+    margin: 5px 12px;
+    word-wrap: break-word;
+    overflow: auto;
+}
+div.replylist .cm {
+    margin-left: 5px;
+}
+/* reply box form */
 .replybox{
 	border: solid 0px;
     border-color: #e4e8e4;
-    border-top-width: 3px;
+    border-top-width: 2px;
     margin: 0px;
 }
-
-.replytext{
-	border:solid 0px;
-	resize: none;
-	width: 85%;
-	height:56px;
-	font-size: 140%;
-	padding: 10px;
+.replybox > textarea[name=caption]{
+    border:solid 0px;
+    resize: none;
+    width: 80%;
+    height:56px;
+    vertical-align: middle;
+    font-size: 1.45em;
+    padding: 10px;
     outline: 0;
     overflow: auto;
 }
 
 .replybuttom{
-	float: right;
+    float: right;
     border: solid 0px #33CCCC;
-    padding: 7px 10px;
+    padding: 7px 5px;
     /* margin: 5%; */
     /* font-family: Arial, sans-serif; */
     font-size: 1.2em;
@@ -172,21 +207,52 @@ div.post > div.body video{
     color: #FFF;
     cursor: pointer;
     background-color: #33CCCC;
-    width: 15%;
-    height: 7%;
+    width: 20%;
+    height: 56px;
     outline:none;
 }
-
 .replybuttom:hover{
     background-color: #26a0a0;
 }
-
-.caption{
-    margin: 2%;
-    word-break : break-all;
-}
 /**************************************************/
-
+/* postview extended display */
+#popup_window .ext .top{
+    position: absolute;
+    right: 24px;
+    top:0;
+    width: 353px;
+    height: 56px;
+    padding: 6px 10px;
+}
+#popup_window .ext .top > form{
+    position: relative;
+    bottom: 6px;
+}
+#popup_window .ext .body{
+    margin-right: 400px;
+}
+#popup_window .ext .bottom{
+    position: absolute;
+    top: 56px;
+    right: 24px;
+    padding: 0 12px;
+    border: none;
+    width: 365px;
+    height: 544px;
+}
+#popup_window .ext .bottom > .replylist{
+    width: 365px;
+    min-height: 428px;
+}
+#popup_window .ext .bottom > .replybox{
+    position: relative;
+    width: 385px;
+    right: 8px;
+}
+#popup_window .ext .bottom .replybuttom{
+    font-size: 1em;
+}
+/*************************************/
 /* popupwindow style */
 #popup_window{
 	background: #000000aa;
@@ -199,16 +265,6 @@ div.post > div.body video{
 	z-index: 200;
 	display: none;
 	box-sizing: border-box;
-}
-
-#popup_window .popup_box{
-	border-radius: 5px;
-    background: #fff;
-    max-width: 90%;
-	min-height: 100px;
-	box-sizing: content-box;
-	overflow: visible;
-	margin: 70px auto;
 }
 
 /* upload preview bottom (caption from) */
@@ -225,3 +281,34 @@ div.post > div.body video{
     outline: 0;
     overflow: auto;
 }
+
+/* slick style */
+.single-item{
+    opacity: 0;
+    transition: opacity .3s linear;
+  }
+  
+  
+  .single-item.slick-initialized{
+    opacity: 1;
+    margin: 0;
+  }
+  
+  /*左右の矢印の位置を変える*/
+  .slick-next {
+      right: 20px;
+      z-index: 99;
+  }
+  
+  .slick-prev {
+       left: 15px;
+      z-index: 99;
+  }
+  
+  /*スライド数のドットの色を変える*/
+  .slick-dots li.slick-active button:before,
+  .slick-dots li button:before {
+      color: #fff;
+  }
+  
+  /****************************************/
