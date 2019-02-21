@@ -42,7 +42,7 @@
 				Menu
 			</button>
 			<div class="collapse navbar-collapse" id="CollapseContent">
-				<form class="form-inline m-md-auto" action="search" method="get">
+				<form class="form-inline m-md-auto" action="search" method="post">
 					<input
 						class="form-control mr-2 w-50"
 						name="query"
@@ -107,7 +107,8 @@
 						</a>
 						<input type="hidden" value="${data.userId}" name="userId"/>
 					</form>
-				</div>				
+				<a>${data.timestamp}</a>
+			</div>				
 				<div class="body">
 					<span href="getpostview?postId=${data.postId}" class="popup">
 						<figure class="single-item">
@@ -146,9 +147,11 @@
 					<div class="command">
 						<span style="font-size: 2em;">
 							<a href="like?postId=${data.postId}"><div class="heart"></div></a>
+							<a>${data.likeCount}</a>
 						</span>
 								
 						<div class="hukidashi reply"><span style="display:none;">${data.postId}</span></div>
+						<a>${data.replyCount}</a>
 					</div>
 
 					<div class="replylist">
