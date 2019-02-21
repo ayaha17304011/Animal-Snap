@@ -1,0 +1,28 @@
+/**************************************/
+/********** Navbar Style *******/
+nav.bg-animal{
+    background-color: #abe8d5;
+    z-index: 100;
+}
+nav + a > img{
+    height: 75px;
+}
+
+form.form-inline.m-md-auto.w-50{
+	display: inline-block;
+    text-align: center;
+}
+
+.btn-outline-primary {
+	color: white;
+	border-style:none;
+	background-color: #33CCCC;
+}
+
+.btn-outline-primary:hover {
+	color: white;
+	border-style:none;
+	background-color: #26a0a0;
+}
+
+/*******************************/
