@@ -8,6 +8,7 @@
 		<link rel="canonical" href="https://lopan.jp/css-animation">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/login.css"/>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/nav.css"/>
 
 		<title>あにまる すなっぷ ようこそ</title>
 		<style>
@@ -24,7 +25,7 @@
 			</a>
 			<form class="form-inline m-md-auto w-50" action="search" method="get">
 				<input
-					class="form-control mr-2 w-75"
+					class="form-control mr-2"
 					name="query"
 					type="search"
 					placeholder="検索"
@@ -32,17 +33,21 @@
 				>
 				<button class="btn btn-outline-primary px-4 my-2 mx-sm-0" type="submit">検索</button>
 			</form>
+			<div class="none">
+			</div>
+			
 		</nav>
-		<h1>あにまる すなっぷ へようこそ</h1>
+		
+		<h1>あにまる すなっぷ へようこそ！</h1>
 		<div class="box">
 			<div class="box1">
 				<div class="slider">
-				     <img src="<c:url value='WebContent/sample_image/dogcat2.jpg'/>" alt="なんかすごくキュートな動物の画像" width="80%" height="auto">
-				     <img src="<c:url value='WebContent/sample_image/bird8.jpg'/>" alt="なんかすごくキュートな動物の画像" width="80%" height="auto">
+				     <img src="<c:url value='WebContent/logo/top1.png'/>" alt="なんかすごくキュートな動物の画像" >
+				     <img src="<c:url value='WebContent/logo/top2.png'/>" alt="なんかすごくキュートな動物の画像" >
 				</div>
 			</div>	
 			<div class="box2">
-				<img src="WebContent/logo/animal-log.png" class="titlelogo">
+				<img src="WebContent/logo/animal-log2.png" class="titlelogo">
 				<button class="btn1 submitbutton" type="button">ログイン</button><br>
 				<button class="btn2 submitbutton" type="button">新規登録</button>
 			</div>
