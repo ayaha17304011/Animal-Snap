@@ -667,4 +667,74 @@ public class AnimalDao{
         }
         return flag;
     }
+    public boolean likeCheck(LikeBean lb){
+        Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        boolean flag = false;
+        try{
+            cn = OraConnectionManager.getInstance().getConnection();
+            String sql = "select userId from as_like where userId = ? and postId = ?";
+            st = cn.prepareStatement(sql);
+            st.setString(1, lb.getUserId());
+            st.setString(2, lb.getPostId());
+            rs = st.executeQuery();
+            rs.next();
+            String liked = rs.getString(1);
+            if(liked == null){
+                flag = false;
+            }else{
+                flag = true;
+            }
+        }catch(SQLException e){
+            OraConnectionManager.getInstance().rollback();
+            return flag;
+        }finally{
+            try{
+                if(rs != null){
+                    rs.close();
+                }if(st != null){
+                    st.close();
+                }
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        return flag;
+    }
+    public boolean followCheck(FollowBean fb){
+        Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        boolean flag = false;
+        try{
+            cn = OraConnectionManager.getInstance().getConnection();
+            String sql = "select userId from as_follower where userId = ? and observerId = ?";
+            st = cn.prepareStatement(sql);
+            st.setString(1, fb.getUserId());
+            st.setString(2, fb.getObserverId());
+            rs = st.executeQuery();
+            rs.next();
+            String following = rs.getString(1);
+            if(following == null){
+                flag = false;
+            }else{
+                flag = true;
+            }
+        }catch(SQLException e){
+            OraConnectionManager.getInstance().rollback();
+            return flag;
+        }finally{
+            try{
+                if(rs != null){
+                    rs.close();
+                }if(st != null){
+                    st.close();
+                }
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        return flag;
+    }
 }
