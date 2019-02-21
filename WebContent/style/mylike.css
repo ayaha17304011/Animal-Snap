@@ -8,3 +8,27 @@
     right: 0;
     left: 0;
 }
+
+ 
+.image {
+background: #000;
+    margin: 12px;
+    width: 30%;
+    height: 350px;
+    object-fit: cover;
+    z-index: 10;
+}
+ 
+.image:hover {
+ 	opacity:0.5;
+ 	transition-duration: 0.3s;
+ }
+ 
+ 
+img{
+
+}
+
+a.popup {
+	display: contents;
+}
