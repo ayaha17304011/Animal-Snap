@@ -50,6 +50,7 @@
 								src="WebContent/logo/post.png"
 								data-alt-src='WebContent/logo/post2.png'
 								alt="ìäçeâÊñ "
+								margin: 1px;
 								height="50px"
 							>
 							<h3 class="d-inline d-md-none">ìäçeâÊñ </h3>
@@ -90,11 +91,11 @@
 				<span href="getpostview?postId=${data.postId}" class="popup">
 					<c:set var="url" value="${data.imageURL}"/>
 					<c:if test="${fn:endsWith(url, 'image')}">
-						<img src="${data.imageURL}" alt="Post Image">
+						<img src="${data.imageURL}" alt="Post Image" class="image"/>
 					</c:if>
 					<c:if test="${fn:endsWith(url,'video')}">
 						<video width="100%" height="100%" controls>
-						<source src="${data.imageURL}" type="video/mp4">
+						<source src="${data.imageURL}" type="video/mp4" class="image"/>
 					</c:if>
 				</span>
 			</c:forEach>

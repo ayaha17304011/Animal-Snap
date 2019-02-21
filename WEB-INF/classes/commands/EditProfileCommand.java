@@ -66,7 +66,7 @@ public class EditProfileCommand extends AbstractCommand{
 				if(loginid_empty==false || username_empty==false || pass1_empty==false || profile_empty==false){
 					sql+=",";
 				}
-				String s = " profile = '"+profile+"'";
+				String s = " iconpath = '"+icon+"'";
 				sql += s;
 			}
 
