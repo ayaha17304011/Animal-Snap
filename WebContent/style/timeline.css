@@ -177,7 +177,7 @@ div.replylist .cm {
     border-top-width: 2px;
     margin: 0px;
 }
-.replybox > textarea[name=caption]{
+.replybox > textarea[name=replytext]{
     border:solid 0px;
     resize: none;
     width: 80%;

@@ -4,6 +4,7 @@
 
 <html>
 	<head>
+		<meta charset="Windows-31J">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -42,7 +43,7 @@
 				Menu
 			</button>
 			<div class="collapse navbar-collapse" id="CollapseContent">
-				<form class="form-inline m-md-auto" action="search" method="get">
+				<form class="form-inline m-md-auto" action="search" method="post">
 					<input
 						class="form-control mr-2 w-50"
 						name="query"
@@ -100,19 +101,17 @@
 		<c:forEach var="data" items="${data}">
 			<div class="post">
 				<div class="top">
-					<form name="userpage" action="mypage" method="post">
-						<a href="javascript:mypage.submit()">
-							<img class="icon rounded-circle mx-2 my-2" src="${data.iconPath}">
-							${data.userName}
-						</a>
-						<input type="hidden" value="${data.userId}" name="userId"/>
-					</form>
+					<a href="mypage?userId=${data.userId}">
+						<img class="icon rounded-circle mx-2 my-2" src="${data.iconPath}">
+						${data.userName}
+					</a>
+					<input type="hidden" value="${data.userId}" name="userId"/>
 				</div>				
 				<div class="body">
 					<span href="getpostview?postId=${data.postId}" class="popup">
 						<figure class="single-item">
 							<c:set var="url" value="${data.imageURL}"/>
-							<c:set var="file" value="${fn:split(url, ',')}"/>
+							<c:set var="file" value="${fn:split(url, '|')}"/>
 							<c:choose>
 								<c:when test="${fn:length(file) > 1}">
 									<c:forEach var="i" items="${file}">
@@ -162,7 +161,7 @@
 						</c:forEach>
 					</div>	
 					<form class="replybox">
-						<textarea placeholder="コメントを追加" name="caption" spellcheck="false"></textarea>
+						<textarea placeholder="コメントを追加" name="replytext" spellcheck="false"></textarea>
 						<button type="submit" class="replybuttom">コメント</button>
 						<input type="hidden" value="${data.postId}" name="postId">
 					</form>

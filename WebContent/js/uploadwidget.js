@@ -48,8 +48,9 @@ function getFilesGroup(url){
                     }
                     //set url in sessionStorage for preview image
                     sessionStorage.setItem(i,url);
-                    fullurl += "," + url;
+                    fullurl += "|" + url;
                 });
+                console.log(fullurl.substring(1));
                 $("input[name=url]").val(fullurl.substring(1));
                 preview(sessionStorage.length);
             });

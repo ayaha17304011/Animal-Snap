@@ -13,6 +13,11 @@ public class FrontServlet extends HttpServlet{
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException{
 		request.setCharacterEncoding("Windows-31J");
+		doPost(request,response);
+	}
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+	throws ServletException, IOException{
+		request.setCharacterEncoding("Windows-31J");
 
 		ApplicationController app = new WebApplicationController();
 		
@@ -21,10 +26,5 @@ public class FrontServlet extends HttpServlet{
 
 		resc.setResponse(response);
 		app.handleResponse(reqc, resc);
-		
-	}
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-	throws ServletException, IOException{
-		doGet(request, response);
 	}
 }

@@ -7,8 +7,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">		
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/mylike.css"/>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick-theme.css" media="screen" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/WebContent/js/script.js"></script>
+	<script src="${pageContext.request.contextPath}/WebContent/slick/slick.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/timeline.css"/>
 	<title>‚ ‚É‚Ü‚é ‚·‚È‚Á‚Õ</title>
 	</head>
@@ -84,7 +87,7 @@
 		</div>
 		<div class="mylike">
 			<c:forEach var="data" items="${data}">
-				<a href="getpostview?postId=${data.postId}" class="popup">
+				<span href="getpostview?postId=${data.postId}" class="popup">
 					<c:set var="url" value="${data.imageURL}"/>
 					<c:if test="${fn:endsWith(url, 'image')}">
 						<img src="${data.imageURL}" alt="Post Image">
@@ -93,8 +96,10 @@
 						<video width="100%" height="100%" controls>
 						<source src="${data.imageURL}" type="video/mp4">
 					</c:if>
-				</a>
+				</span>
 			</c:forEach>
 		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 	</body>
 </html>

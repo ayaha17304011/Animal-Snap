@@ -5,7 +5,7 @@
 		<div class="top">
 			<form name="userpage" action="mypage" method="post">
 				<a href="javascript:mypage.submit()">
-					<img class="icon rounded-circle mx-2 my-2" src="<c:url value='/WebContent/${data[0].iconPath}'/>">
+					<img class="icon rounded-circle mx-2 my-2" src="${data[0].iconPath}">
 					${data[0].userName}
 				</a>
 				<input type="hidden" value="${data[0].userId}" name="userId"/>
@@ -14,7 +14,7 @@
 		<div class="body">
 			<figure class="single-item">
 				<c:set var="url" value="${data[0].imageURL}"/>
-				<c:set var="file" value="${fn:split(url, ',')}"/>
+				<c:set var="file" value="${fn:split(url, '|')}"/>
 				<c:choose>
 					<c:when test="${fn:length(file) > 1}">
 						<c:forEach var="i" items="${file}">
@@ -82,10 +82,10 @@
 				</div>
 				<div>
 					<strong><a href="#">User1</a></strong><span class="cm">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
-				</div>
-			</div> -->
-			<form class="replybox">
-				<textarea placeholder="コメントを追加" name="caption" spellcheck="false"></textarea>
+				</div> -->
+			</div>
+			<form class="replybox" action="reply" method="post">
+				<textarea placeholder="コメントを追加" name="replytext" spellcheck="false"></textarea>
 				<button type="submit" class="replybuttom">コメント</button>
 				<input type="hidden" value="${data[0].postId}" name="postId">
 			</form>

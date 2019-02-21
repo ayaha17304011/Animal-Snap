@@ -6,7 +6,7 @@
     <c:forEach var="data" items="${data}">
             <span href="getpostview?postId=${data.postId}" class="popup">
 				<c:set var="url" value="${data.imageURL}"/>
-				<c:set var="file" value="${fn:split(url, ',')}"/>
+				<c:set var="file" value="${fn:split(url, '|')}"/>
 				<c:choose>
 					<c:when test="${fn:length(file) > 1}">
 						<c:if test="${fn:endsWith(file[0], 'image')}">

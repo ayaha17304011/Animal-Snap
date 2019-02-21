@@ -91,9 +91,7 @@
 
             <div class="post preview mx-auto" style="display: none;">
                 <div class="body" style="background-color: #393234">
-                    <span>
-                        <figure class="single-item"></figure>
-                    </span>
+                    <figure class="single-item"></figure>
 			    </div>
                 
                 <div class="bottom">

@@ -16,8 +16,11 @@ public class AddReplyCommand extends AbstractCommand{
 		String userId = (String)session.getAttribute("userId");
         String[] pidArr = (String[])reqc.getParameter("postId");
     	String[] replyArr = (String[])reqc.getParameter("replytext");
+		System.out.println(pidArr[0]);
+		System.out.println(replyArr[0]);
     	String postId = pidArr[0];
 		String reply = replyArr[0];
+		System.out.println(reply);
 		String sql = "insert into as_reply(userId, postId, reply, timestamp) values("+userId+","+postId+",'"+reply+"',default)";
 		OraConnectionManager.getInstance().beginTransaction();
 		dao.SQLUpdate(sql);

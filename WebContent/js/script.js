@@ -47,9 +47,10 @@ $(function(){
         getReply(pid);
         return false;
     });
-    $(document).on("submit", ".replybox", function(e){
+    /* $(document).on("submit", ".replybox", function(e){
         var pid = $(this).find("input[name='postId']").val();
         var text = $(this).find("textarea").val();
+        console.log(text);
         if(text != ""){
             var c = confirm("reply confirm");
             if(c == true){
@@ -60,13 +61,16 @@ $(function(){
             }
         }
         return false;
-    });
+    }); */
     //event
     //function
-    function reply(pid, text) {
+    /* function reply(pid, text) {
+        console.log("pid = "+ pid +"text = "+ text);
         $.ajax({
             url: "reply",
             type: "POST",
+            dataType : "text",
+            contentType: "application/json; charset=Windows-31J",
             data: {
                 "postId" : pid,
                 "replytext" : text
@@ -78,7 +82,7 @@ $(function(){
         .fail(function (response) {
             alert("fail");
         });
-    }
+    } */
     function getReply(pid){
         $.ajax({
             url: "replylist",
