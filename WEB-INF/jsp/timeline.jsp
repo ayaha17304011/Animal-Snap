@@ -4,13 +4,15 @@
 
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/timeline.css"/>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/nav.css"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick-theme.css" media="screen" />
 		<script src="${pageContext.request.contextPath}/WebContent/slick/slick.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/timeline.css"/>
+
 		<script src="${pageContext.request.contextPath}/WebContent/js/script.js"></script>
 		<script>
 			$(function(){
@@ -42,9 +44,9 @@
 				Menu
 			</button>
 			<div class="collapse navbar-collapse" id="CollapseContent">
-				<form class="form-inline m-md-auto" action="search" method="post">
+				<form class="form-inline m-md-auto" action="search" method="get">
 					<input
-						class="form-control mr-2 w-50"
+						class="form-control mr-2"
 						name="query"
 						type="search"
 						placeholder="ŒŸõ"
@@ -100,15 +102,15 @@
 		<c:forEach var="data" items="${data}">
 			<div class="post">
 				<div class="top">
-					<form name="userpage" action="mypage" method="post">
+					<form  class="userplace" name="userpage" action="mypage" method="post">
 						<a href="javascript:mypage.submit()">
 							<img class="icon rounded-circle mx-2 my-2" src="${data.iconPath}">
 							${data.userName}
 						</a>
 						<input type="hidden" value="${data.userId}" name="userId"/>
 					</form>
-				<a>${data.timestamp}</a>
-			</div>				
+				<a id="day">${data.timestamp}</a>
+			</div>				 
 				<div class="body">
 					<span href="getpostview?postId=${data.postId}" class="popup">
 						<figure class="single-item">
@@ -147,11 +149,12 @@
 					<div class="command">
 						<span style="font-size: 2em;">
 							<a href="like?postId=${data.postId}"><div class="heart"></div></a>
-							<a>${data.likeCount}</a>
+							<a id="count">${data.likeCount}</a>
 						</span>
-								
+						<span style="font-size: 2em;">		
 						<div class="hukidashi reply"><span style="display:none;">${data.postId}</span></div>
-						<a>${data.replyCount}</a>
+						<a id="count">${data.replyCount}</a>
+						</span>
 					</div>
 
 					<div class="replylist">
