@@ -13,6 +13,7 @@ form{
 /********** Navbar Style *******/
 nav.bg-animal{
     background-color: #abe8d5;
+    z-index: 100;
 }
 nav + a > img{
     height: 75px;
@@ -85,24 +86,17 @@ div.post > div.body video{
     overflow: hidden;
     background-color: #393234;
 }
-#popup_window div.post > div.body img{
+#popup_window div.post > div.body img, #popup_window  div.post > div.body video, .preview img, .preview video{
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     margin: auto;
     width: 100%;
-    height: auto;
+    max-height: 600px;
+    object-fit: contain;
 }
-#popup_window  div.post > div.body video{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    width: 100%;
-    height: auto;
-}
+
 /* 100% for vertical image */
 .slick-list{
     height: 100%;
@@ -112,7 +106,7 @@ div.post > div.body video{
     height: 100%;
 }
 /* img and video wrap div for vertical center image */
-#popup_window div.post .imgwrap{
+div.post .imgwrap{
     height: 100%;
     position: relative;
 }
@@ -286,29 +280,121 @@ div.replylist .cm {
 .single-item{
     opacity: 0;
     transition: opacity .3s linear;
-  }
-  
-  
-  .single-item.slick-initialized{
+}
+
+
+.single-item.slick-initialized{
     opacity: 1;
     margin: 0;
-  }
-  
-  /*左右の矢印の位置を変える*/
-  .slick-next {
-      right: 20px;
-      z-index: 99;
-  }
-  
-  .slick-prev {
-       left: 15px;
-      z-index: 99;
-  }
-  
-  /*スライド数のドットの色を変える*/
-  .slick-dots li.slick-active button:before,
-  .slick-dots li button:before {
-      color: #fff;
-  }
-  
-  /****************************************/
+}
+
+/*左右の矢印の位置を変える*/
+.slick-next {
+    right: 20px;
+    z-index: 99;
+}
+
+.slick-prev {
+    left: 15px;
+    z-index: 99;
+}
+
+/*スライド数のドットの色を変える*/
+.slick-dots li.slick-active button:before,
+.slick-dots li button:before {
+    color: #fff;
+}
+
+/****************************************/
+
+/* mypage style v1 */
+.prof{
+	display: inline-block;
+}
+div.icon{
+    width: 252.366px;
+    height: 160px;
+    margin-left: 18%;
+    display: inline-block;
+}
+
+img.iconimage {
+    position: inherit;
+    width: 150px;
+    height: 150px;
+}
+div.username {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 auto;
+}
+div.profile {
+	position: inherit;
+    word-break: break-all;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    width: 500px;
+}
+div.userid {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 20;
+}
+.mypost h1 {
+    margin: 0px;
+    display:inline-block;
+    vertical-align: middle;
+}
+.postlist{
+    width: 85%;
+    margin: auto;
+}
+
+/* userpost */
+.userpost{
+    display: inline-block;
+    max-width: 350px; 
+    max-height: 350px;
+    margin: 12px;
+    overflow: hidden;
+}
+.mypost img, .mypost video{
+    width: 100%;
+    object-fit: cover;
+    z-index: 10;
+}
+
+/* button */
+#sbtn3 {
+    height: 50px;
+    color: #FFF;
+    cursor: pointer;
+    background-color: #33CCCC;
+    margin-left: 49px;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+#sbtn2:hover, #sbtn3:hover {
+	background-color:#26a0a0;
+}
+
+
+#sbtn2 {
+    height: 50px;
+    width: 200px;
+    color: #FFF;
+    cursor: pointer;
+    background-color: #33CCCC;
+    margin-left: 15px;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+/* span popup pointer */
+span.popup{
+    cursor: pointer;
+}

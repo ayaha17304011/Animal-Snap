@@ -19,16 +19,20 @@ public class EditProfileCommand extends AbstractCommand{
         String[] pass1Arr = (String[])reqc.getParameter("pass1");
         String[] pass2Arr = (String[])reqc.getParameter("pass2");
         String[] profileArr = (String[])reqc.getParameter("profile");
+		String[] iconArr = (String[])reqc.getParameter("icon");
 		String loginid = loginidArr[0];
 		String username = usernameArr[0];
 		String pass1 = pass1Arr[0];
 		String pass2 = pass2Arr[0];
 		String profile = profileArr[0];
+		String icon = iconArr[0];
+		System.out.println(icon);
 
 		boolean loginid_empty = loginid.isEmpty();
 		boolean username_empty = username.isEmpty();
 		boolean pass1_empty = pass1.isEmpty();
 		boolean profile_empty = profile.isEmpty();
+		boolean icon_empty = icon.isEmpty();
 		
 		if(loginid_empty==false || username_empty==false || pass1_empty==false || profile_empty==false){
 			String sql = "update as_user set";
@@ -58,14 +62,19 @@ public class EditProfileCommand extends AbstractCommand{
 				String s = " profile = '"+profile+"'";
 				sql += s;
 			}
+			if(icon_empty==false){
+				if(loginid_empty==false || username_empty==false || pass1_empty==false || profile_empty==false){
+					sql+=",";
+				}
+				String s = " iconpath = '"+icon+"'";
+				sql += s;
+			}
 
 	        HttpServletRequest req =(HttpServletRequest)reqc.getRequest();
 			HttpSession session = req.getSession();
 			String userId = (String)session.getAttribute("userId");
 			String s = " where userid = " + userId;
 			sql += s;
-
-			System.out.println(sql);
 
 			OraConnectionManager.getInstance().beginTransaction();
 			dao.SQLUpdate(sql);

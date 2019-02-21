@@ -29,8 +29,8 @@ public class LoginCommand extends AbstractCommand{
         ub.setPassword(pass);
         OraConnectionManager.getInstance().beginTransaction();
         result = dao.Login(ub);
-
-        if(result != null){
+        boolean hasQueryString = req.getQueryString() != null;
+        if(result != null && !hasQueryString){
             loginflag = true;
         }else{
             System.out.println("パスワードもしくはIDが違います");
@@ -43,7 +43,7 @@ public class LoginCommand extends AbstractCommand{
             resc.setTarget("timeline");
         }else{
             resc.setTarget("login");
-            // resc.setResult("パスワードもしくはIDが違います");
+            resc.setResult("パスワードもしくはIDが違います");
             // throw new exp.SystemException("パスワードもしくはIDが違います", new RuntimeException());
         }
         return resc;

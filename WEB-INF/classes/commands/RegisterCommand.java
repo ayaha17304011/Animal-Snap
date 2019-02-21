@@ -23,15 +23,20 @@ public class RegisterCommand extends AbstractCommand{
         ub.setPassword(password[0]);
         
         String sql = "INSERT into as_user(userid,loginid,password,username,iconpath,state) "+
-        "values (as_seq_userId.nextval,'"+ ub.getLoginId() +"','" + ub.getPassword() + "','"+ ub.getUserName() +"','sample_image/default_icon.png',1) ";
+        "values (as_seq_userId.nextval,'"+ ub.getLoginId() +"','" + ub.getPassword() + "','"+ ub.getUserName() +"','https://ucarecdn.com/94ec68b7-e60f-48c3-bac0-e15f2cbe2ed5/default_icon.png',1) ";
 
         OraConnectionManager.getInstance().beginTransaction();
-        dao.SQLUpdate(sql);
-        String result = dao.Login(ub);
+        if(!dao.isExist(ub.getLoginId())){
+            dao.SQLUpdate(sql);
+            String result = dao.Login(ub);
+            HttpSession session = req.getSession();
+            session.setAttribute("userId", result);
+            resc.setTarget("timeline");//オススメページ
+        }else{
+            resc.setTarget("login");
+            resc.setResult("Login ID already used");
+        }
         OraConnectionManager.getInstance().closeConnection();
-        HttpSession session = req.getSession();
-        session.setAttribute("userId", result);
-        resc.setTarget("timeline");//オススメページ //SQLExceptionの場合はページ遷移しない
         return resc;
     }
 }

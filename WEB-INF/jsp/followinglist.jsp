@@ -3,13 +3,16 @@
 <html>
 	<head>
 		<title>‚ ‚É‚Ü‚é ‚·‚È‚Á‚Õ</title>
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/user.css"/>
 	</head>
 	<body>
 		<c:forEach var="data" items="${data}">
-			<p>${data.loginId}</p>
-			<p>${data.userName}</p>
-			<img src="<c:url value='/WebContent/${data.iconImage}'/>" class="iconimage">
+			<div class="user">
+				<a href="mypage?userId=${data.userId}"></a>
+				<p>${data.loginId}</p>
+				<p>${data.userName}</p>
+				<img src="<c:url value='/WebContent/${data.iconImage}'/>" class="iconimage">
+			</div>
 		</c:forEach>
 	</body>
 </html>

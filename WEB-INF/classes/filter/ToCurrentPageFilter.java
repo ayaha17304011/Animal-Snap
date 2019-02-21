@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.RequestDispatcher;
 
-public class LoginFilter implements Filter {
+public class ToCurrentPageFilter implements Filter {
     public void init(FilterConfig fConfig) throws ServletException{}
 
     public void destroy(){}
@@ -22,22 +22,16 @@ public class LoginFilter implements Filter {
     throws IOException, ServletException{
         HttpServletRequest hreq = (HttpServletRequest)req;
         HttpServletResponse hres = (HttpServletResponse)res;
-        HttpSession session = hreq.getSession(false);
-        System.out.println("do filter loginC");
-        boolean loggedin = false;
-        
-        if(session != null){
-            loggedin = session.getAttribute("userId") != null;
+        String servletPath = (String)hreq.getAttribute("target");
+        System.out.println("dofilter TCP");
+        System.out.println(servletPath);
+        System.out.println((String)hreq.getAttribute("target"));
+        if(servletPath!=null){
+            System.out.println("tcp jump");
+            hreq.getRequestDispatcher(servletPath).forward(hreq, hres);
         }
-        
-        if(loggedin){
+        else{
             chain.doFilter(hreq, hres);
-        }else{
-            String servletPath = hreq.getServletPath();
-            System.out.println(servletPath);            
-            hreq.setAttribute("target",servletPath);
-            System.out.println((String)hreq.getAttribute("target"));
-            hreq.getRequestDispatcher("/log").forward(hreq, hres);
         }
     }
 }

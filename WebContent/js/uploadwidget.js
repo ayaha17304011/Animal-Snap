@@ -74,15 +74,13 @@ function preview(fileLength){
         for(var i = 0; i < fileLength; i++){
             var images =sessionStorage.getItem(i);
             if(images.endsWith("image")){
-                $(".body .single-item").append("<img src='"+ images +"'>");
+                $(".body .single-item").append($("<div/>", {class:"imgwrap"}).append("<img src='"+ images +"'>"));
             }else if(images.endsWith("video")){
                 $(".body .single-item").append("<video controls><source src='" + images + "'></video>");
             }
         }
     }
-    $(".single-item").slick({
-        adaptiveHeight: true
-    });
+    $(".single-item").slick();
     $(".post").show();
 }
 

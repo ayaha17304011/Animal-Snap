@@ -26,7 +26,7 @@
 				<div class="popup_box"></div>
 			</div>
 		<!-- navbar -->
-		<nav class="navbar navbar-expand-md navbar-light bg-animal p-0 mt-0 mx-0 mb-5">
+		<nav class="navbar navbar-expand-md navbar-light bg-animal sticky-top p-0 mt-0 mx-0 mb-5">
 			<a class="navbar-brand text-white" href="getpostlist">
 				<img src="WebContent/logo/animal-log.png" alt="logo" height="75px">
 			</a>
@@ -42,7 +42,7 @@
 				Menu
 			</button>
 			<div class="collapse navbar-collapse" id="CollapseContent">
-				<form class="form-inline m-md-auto" action="search" method="get">
+				<form class="form-inline m-md-auto" action="search" method="post">
 					<input
 						class="form-control mr-2 w-50"
 						name="query"
@@ -93,9 +93,6 @@
 			</div>
 		</nav>
 		<%
-			if(session.getAttribute("userId") == null){ 
-				response.sendRedirect("log");
-			}
 			if(request.getAttribute("data") == null){
 				response.sendRedirect("getpostlist");
 			}
@@ -105,12 +102,13 @@
 				<div class="top">
 					<form name="userpage" action="mypage" method="post">
 						<a href="javascript:mypage.submit()">
-							<img class="icon rounded-circle mx-2 my-2" src="<c:url value='/WebContent/${data.iconPath}'/>">
+							<img class="icon rounded-circle mx-2 my-2" src="${data.iconPath}">
 							${data.userName}
 						</a>
 						<input type="hidden" value="${data.userId}" name="userId"/>
 					</form>
-				</div>				
+				<a>${data.timestamp}</a>
+			</div>				
 				<div class="body">
 					<span href="getpostview?postId=${data.postId}" class="popup">
 						<figure class="single-item">
@@ -149,17 +147,17 @@
 					<div class="command">
 						<span style="font-size: 2em;">
 							<a href="like?postId=${data.postId}"><div class="heart"></div></a>
+							<a>${data.likeCount}</a>
 						</span>
 								
 						<div class="hukidashi reply"><span style="display:none;">${data.postId}</span></div>
+						<a>${data.replyCount}</a>
 					</div>
 
 					<div class="replylist">
-						<c:if test="${data.caption} != ''">
-							<div class="caption">
-								<strong><a href="">${data.userName}</a></strong><span class="cm">${data.caption}</span>
-							</div>
-						</c:if>
+						<div class="caption">
+							<strong><a href="mypage?userId=${data.userId}">${data.userName}</a></strong><span class="cm">${data.caption}</span>
+						</div>
 						<c:forEach var="replies" items="${post}">
 							<div class="reply">
 								<strong><a>${replies.username}</a></strong><span class="cm">${replies.reply}</span>
