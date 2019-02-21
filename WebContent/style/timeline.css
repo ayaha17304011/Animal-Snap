@@ -7,6 +7,7 @@ body{
 form{
     margin: 0;
     padding: 0;
+
 }
 
 /**************************************/
@@ -397,4 +398,28 @@ div.userid {
 /* span popup pointer */
 span.popup{
     cursor: pointer;
+}
+
+form.userplace {
+    display: inline-block;
+}
+
+
+a#day {
+	font-size: 100%;
+    font-weight: lighter;
+    color: #696969;
+    display: inline-block;
+    float: right;
+    margin: 16;
+}
+
+span {
+    display: inline-flex;
+}
+
+
+a#count {
+    font-size: x-large;
+    color: #696969;
 }
