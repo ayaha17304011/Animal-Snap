@@ -85,7 +85,7 @@
 		</div>
 		<div class="mylike">
 			<c:forEach var="data" items="${data}">
-				<a href="getpostview?postId=${data.postId}" class="popup">
+				<span href="getpostview?postId=${data.postId}" class="popup">
 					<c:set var="url" value="${data.imageURL}"/>
 					<c:if test="${fn:endsWith(url, 'image')}">
 						<img src="${data.imageURL}" alt="Post Image" class="image"/>
@@ -94,7 +94,7 @@
 						<video width="100%" height="100%" controls>
 						<source src="${data.imageURL}" type="video/mp4" class="image"/>
 					</c:if>
-				</a>
+				</span>
 			</c:forEach>
 		</div>
 	</body>
