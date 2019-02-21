@@ -38,7 +38,7 @@ create table as_post (
 	postID    number(10) constraint pk_postID primary key,
 	userID    number(10) constraint fk_Post_userID references as_user(userID),
 	caption   varchar2(600),
-	imageURL  varchar2(256) not null,
+	imageURL  varchar2(800) not null,
 	timestamp date default sysdate,
 	state number(1) default 1 check (state = 0 or state = 1)
 );

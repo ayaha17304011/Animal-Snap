@@ -3,13 +3,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <div class="post ext">
 		<div class="top">
-			<form name="userpage" action="mypage" method="post">
-				<a href="javascript:mypage.submit()">
-					<img class="icon rounded-circle mx-2 my-2" src="<c:url value='/WebContent/${data[0].iconPath}'/>">
-					${data[0].userName}
-				</a>
-				<input type="hidden" value="${data[0].userId}" name="userId"/>
-			</form>
+			<img class="icon rounded-circle mx-2 my-2" src="${data[0].iconPath}">
+			<a href="mypage?userId=${data[0].userId}">${data[0].userName}</a>
+			<a>${data[0].timestamp}</a>
 		</div>
 		<div class="body">
 			<figure class="single-item">

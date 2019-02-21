@@ -99,6 +99,9 @@
 					<form id="editprofile" action="toeditprofile" method="POST">
 						<input id="sbtn3" type="submit" value="プロフィールの編集" />
 					</form>
+					<form id="logout" action="logout" method="POST">
+						<input id="sbtn3" type="submit" value="ログアウト" />
+					</form>
 				</c:when>
 				<c:otherwise>
 					<form id="follow" action="follow" method="POST">
