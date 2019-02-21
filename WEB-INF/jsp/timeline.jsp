@@ -146,7 +146,7 @@
 				<div class="bottom">
 					<div class="command">
 						<span style="font-size: 2em;">
-							<a href="likecheck?postId=${data.postId}"><div class="heart"></div></a>
+							<a href="like?postId=${data.postId}"><div class="heart"></div></a>
 							<a>${data.likeCount}</a>
 						</span>
 								
