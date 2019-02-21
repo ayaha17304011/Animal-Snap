@@ -414,7 +414,7 @@ a#day {
     margin: 16;
 }
 
-span {
+.command span {
     display: inline-flex;
 }
 
