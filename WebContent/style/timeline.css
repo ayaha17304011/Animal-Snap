@@ -178,7 +178,7 @@ div.replylist .cm {
     border-top-width: 2px;
     margin: 0px;
 }
-.replybox > textarea[name=caption]{
+.replybox > textarea[name=replytext]{
     border:solid 0px;
     resize: none;
     width: 80%;
@@ -409,7 +409,6 @@ a#day {
 	font-size: 100%;
     font-weight: lighter;
     color: #696969;
-    display: inline-block;
     float: right;
     margin: 16;
 }
