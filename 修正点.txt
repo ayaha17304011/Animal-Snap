@@ -1,11 +1,12 @@
 重要度高い
 ・投稿削除したときのnullpointer
-・投稿時間を表示→DBも修正to_char(sysdate,'yyyy/mm/dd hh24:mi:ss')
+・投稿時間を表示→DBも修正to_char(sysdate,'yyyy/mm/dd hh24:mi')
 ・LIKE/FOLLOWのチェックメソッド → 結果によって表示を変える（チェックがtrue/falseでdivの表示を切り分ける）
 ・likelist.jspの表示をmypageと同じくする
 ・検索クエリが日本語文字化け(getParameterのときなのかsql文でなのかtomcatで文字化けしてるのか検証)
 ・LIKE/COMMENTの数を表示する
 ・DBのimageURLのバイト数を増やす(10件上げた場合も入れられるように)
+・imageURLのバイト数を超えてしまい投稿失敗したときにメッセージを表示する
 ・ログアウトボタンをマイページに付ける
 ・投稿のuserNameのリンクを貼りなおす
 ・multipleのときlikelistで表示されない

@@ -103,15 +103,10 @@
 		<c:forEach var="data" items="${data}">
 			<div class="post">
 				<div class="top">
-					<form  class="userplace" name="userpage" action="mypage" method="post">
-						<a href="javascript:mypage.submit()">
-							<img class="icon rounded-circle mx-2 my-2" src="${data.iconPath}">
-							${data.userName}
-						</a>
-						<input type="hidden" value="${data.userId}" name="userId"/>
-					</form>
-				<a id="day">${data.timestamp}</a>
-			</div>				 
+					<img class="icon rounded-circle mx-2 my-2" src="${data.iconPath}">
+					<a href="mypage?userId=${data.userId}">${data.userName}</a>
+				<a>${data.timestamp}</a>
+			</div>				
 				<div class="body">
 					<span href="getpostview?postId=${data.postId}" class="popup">
 						<figure class="single-item">

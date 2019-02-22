@@ -90,7 +90,7 @@
 			<c:forEach var="user" items="${data[0]}">
 				<div class="user1">
 					<a href="mypage?userId=${user.userId}">
-				<p>${user.loginId}</p>
+				<p>${user.userName}</p>
 				<img src="<c:url value='/WebContent/${user.iconImage}'/>" class="iconimage"/><br></a>
 				</div>
 			</c:forEach>

@@ -62,13 +62,14 @@ public class AnimalDao{
         try{
 
             cn = OraConnectionManager.getInstance().getConnection();
-            String sql = "SELECT distinct p.postID, u.username, u.IconPath, p.caption, p.imageURL, p.timestamp, u.userId,"+
+            String sql = "SELECT distinct p.postID, u.username, u.IconPath, p.caption, p.imageURL, to_char(p.timestamp,'yyyy/mm/dd hh24:mi') as timestamp, u.userId,"+
                          "(SELECT count(*) FROM as_like WHERE postId = p.postId) AS like_count, "+
                          "(SELECT count(*) FROM as_reply WHERE postId = p.postId) AS reply_count "+
                          "FROM as_user u LEFT JOIN as_post p on(u.userId = p.userId) "+
                          "LEFT JOIN as_follower f on(u.userID = f.userId) "+
                          "WHERE (u.userId = ? or f.observerId = ?) and p.state = 1 "+
-                         "ORDER BY p.timestamp desc";
+                         "ORDER BY timestamp desc";
+            System.out.println(sql);
             st = cn.prepareStatement(sql);
             st.setString(1, uid);
             st.setString(2, uid);
@@ -81,6 +82,7 @@ public class AnimalDao{
                 pb.setCaption(rs.getString(4));
                 pb.setImageURL(rs.getString(5));
                 pb.setTimestamp(rs.getString(6));
+                System.out.println("timestamp in dao: " + rs.getString(6));
                 pb.setUserId(rs.getString(7));
                 pb.setLikeCount(rs.getString(8));
                 pb.setReplyCount(rs.getString(9));
@@ -112,7 +114,7 @@ public class AnimalDao{
 
         try{
             cn = OraConnectionManager.getInstance().getConnection();
-            String sql = "SELECT u.userID,p.postID,u.username,u.IconPath,p.caption,p.imageURL,p.timestamp,"+
+            String sql = "SELECT u.userID,p.postID,u.username,u.IconPath,p.caption,p.imageURL, to_char(p.timestamp,'yyyy/mm/dd hh24:mi') as timestamp,"+
                           "(SELECT count(*) FROM as_like WHERE postId = p.postId) AS like_count,"+
                           "(SELECT count(*) FROM as_reply WHERE postId = p.postId) AS reply_count "+
                           "FROM as_post p LEFT JOIN as_user u on(p.userId = u.userId) WHERE p.postId = ?";
