@@ -26,7 +26,6 @@ public class EditProfileCommand extends AbstractCommand{
 		String pass2 = pass2Arr[0];
 		String profile = profileArr[0];
 		String icon = iconArr[0];
-		System.out.println(icon);
 
 		boolean loginid_empty = loginid.isEmpty();
 		boolean username_empty = username.isEmpty();
@@ -34,12 +33,17 @@ public class EditProfileCommand extends AbstractCommand{
 		boolean profile_empty = profile.isEmpty();
 		boolean icon_empty = icon.isEmpty();
 		
-		if(loginid_empty==false || username_empty==false || pass1_empty==false || profile_empty==false){
+		if(loginid_empty==false || username_empty==false || pass1_empty==false || profile_empty==false || icon_empty==false){
 			String sql = "update as_user set";
 
-			if(loginid_empty==false){//selectしてかぶってないかチェック
-				String s = " loginid = '"+loginid+"'";
-				sql += s;
+			if(loginid_empty==false){
+				boolean isExist = dao.isExist(loginid);
+				if(isExist==true){
+					System.out.println("このログインIDはすでに使われています");
+				}else{
+					String s = " loginid = '"+loginid+"'";
+					sql += s;
+				}
 			}
 			if(username_empty==false){
 				if(loginid_empty==false){

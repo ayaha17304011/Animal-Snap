@@ -51,15 +51,21 @@
 		</div>
 		<div class="bottom">
 			<div class="command">
-					<div class="lovelike">
-							<span style="font-size: 2em;">
-								<a href="like?postId=${data[0].postId}"><div class="heart"></div></a>
-							</span>
-							<a>${data[0].likeCount}</a>
-					</div>
-				<div class="removePost">
-					<a href="removepost?postId=${data[0].postId}">‚±‚Ì“Še‚ğíœ‚·‚é</a>
+				<div class="lovelike">
+					<span style="font-size: 2em;">
+						<a href="like?postId=${data[0].postId}"><div class="heart"></div></a>
+					</span>
+					<a>${data[0].likeCount}</a>
 				</div>
+				<c:set var="s" value="${sessionScope.userId}" scope="page"/>
+				<c:set var="r" value="${data[0].userId}" scope="page"/>
+				<c:choose>
+					<c:when test="${s.equals(r)}">
+						<div class="removePost">
+							<a href="removepost?postId=${data[0].postId}">‚±‚Ì“Še‚ğíœ‚·‚é</a>
+						</div>
+					</c:when>
+				</c:choose>
 			</div>
 			<div class="replylist">
 				<div class="caption">
@@ -70,15 +76,6 @@
 						<strong><a href="#">${replies.userName}</a></strong><span class="cm">${replies.reply}</span>
 					</div>
 				</c:forEach>
-				<!-- <div>
-					<strong><a href="#">B1</a></strong><span class="cm">reply 1</span>
-				</div>
-				<div>
-					<strong><a href="#">B2</a></strong><span class="cm">reply 2</span>
-				</div>
-				<div>
-					<strong><a href="#">User1</a></strong><span class="cm">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
-				</div> -->
 			</div>
 			<form class="replybox" action="reply" method="post">
 				<textarea placeholder="ƒRƒƒ“ƒg‚ğ’Ç‰Á" name="replytext" spellcheck="false"></textarea>

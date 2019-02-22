@@ -83,7 +83,7 @@
 		</div>
 
 		<div class="icon">
-			<img src="${data.iconImage}" class="iconimage">
+			<img src="${data.iconImage}" class="icon rounded-circle mx-2 my-2">
 		</div>
 
 		<div class="prof">
