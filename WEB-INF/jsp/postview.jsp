@@ -5,7 +5,7 @@
 		<div class="top">
 			<img class="icon rounded-circle mx-2 my-2" src="${data[0].iconPath}">
 			<a href="mypage?userId=${data[0].userId}">${data[0].userName}</a>
-			<a>${data[0].timestamp}</a>
+			<a id="day">${data[0].timestamp}</a>
 		</div>
 		<div class="body">
 			<figure class="single-item">
