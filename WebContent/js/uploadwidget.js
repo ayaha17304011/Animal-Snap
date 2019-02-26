@@ -1,5 +1,5 @@
 // global variable
-UPLOADCARE_PUBLIC_KEY = '287d0ba7369170ef5b54';
+UPLOADCARE_PUBLIC_KEY = 'ff85e12f115ff930ded0';
 UPLOADCARE_TABS = 'file';
 UPLOADCARE_LOCALE = "ja";
 UPLOADCARE_EFFECTS = ['crop','rotate','blur', 'sharp', 'grayscale','invert','mirror'];
