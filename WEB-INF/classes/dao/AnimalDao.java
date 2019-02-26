@@ -82,7 +82,6 @@ public class AnimalDao{
                 pb.setCaption(rs.getString(4));
                 pb.setImageURL(rs.getString(5));
                 pb.setTimestamp(rs.getString(6));
-                System.out.println("timestamp in dao: " + rs.getString(6));
                 pb.setUserId(rs.getString(7));
                 pb.setLikeCount(rs.getString(8));
                 pb.setReplyCount(rs.getString(9));

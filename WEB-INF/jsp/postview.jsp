@@ -60,6 +60,15 @@
 				<div class="removePost">
 					<a href="removepost?postId=${data[0].postId}">‚±‚Ì“Še‚ðíœ‚·‚é</a>
 				</div>
+				<c:set var="s" value="${sessionScope.userId}" scope="page"/>
+				<c:set var="r" value="${data[0].userId}" scope="page"/>
+				<c:choose>
+					<c:when test="${s.equals(r)}">
+						<div class="removePost">
+							<a href="removepost?postId=${data[0].postId}">‚±‚Ì“Še‚ðíœ‚·‚é</a>
+						</div>
+					</c:when>
+				</c:choose>
 			</div>
 			<div class="replylist">
 				<div class="caption">

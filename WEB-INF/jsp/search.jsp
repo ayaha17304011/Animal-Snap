@@ -91,7 +91,7 @@
 				<div class="user1">
 					<a href="mypage?userId=${user.userId}">
 				<p>${user.userName}</p>
-				<img src="<c:url value='/WebContent/${user.iconImage}'/>" class="iconimage"/><br></a>
+				<img src="${user.iconImage}" class="iconimage"/><br></a>
 				</div>
 			</c:forEach>
 		</div>
@@ -99,13 +99,14 @@
 		<div class="postlist">
 			<c:forEach var="post" items="${data[1]}">
 				<a href="getpostview?postId=${post.postId}" class="popup">
+						${post.imageURL}
 					<c:set var="url" value="${post.imageURL}"/>
 					<c:if test="${fn:endsWith(url, '.jpg')}">
-						<img src="<c:url value='/WebContent/${post.imageURL}'/>" alt="Post Image">
+						<img src="${post.imageURL}" alt="Post Image" class="image">
 					</c:if>
 					<c:if test="${fn:endsWith(url,'.mp4')}">
 						<video width="100%" height="100%" controls>
-							<source src="<c:url value='/WebContent/${post.imageURL}'/>" type="video/mp4">
+							<source src="${post.imageURL}" type="video/mp4">
 					</c:if>
 				</a>
 			</c:forEach>

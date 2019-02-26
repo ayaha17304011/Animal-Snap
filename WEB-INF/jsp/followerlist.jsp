@@ -11,7 +11,7 @@
 				<a href="mypage?userId=${data.userId}"></a>
 				<p>${data.loginId}</p>
 				<p>${data.userName}</p>
-				<img src="<c:url value='/WebContent/${data.iconImage}'/>" class="iconimage">
+				<img src="${data.iconImage}" class="iconimage">
 			</div>
 		</c:forEach>
 	</body>
