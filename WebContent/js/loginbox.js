@@ -1,8 +1,9 @@
 $(function() {
     $(".btn1").on("click",function(){
-        $(".box2").empty();
-        $(".box2").append(
-            $("<h2/>").text("ÉçÉOÉCÉì"),
+        $(".box3").removeClass("d-none");
+        $(".box2").addClass("d-none");
+        $(".form").append(
+            $("<h2/>").text("ÉçÉNÉCÉì"),
             $("<form/>",{
                 action: 'login',
                 method: 'post'
@@ -30,8 +31,9 @@ $(function() {
         );
     });
     $(".btn2").on("click",function(){
-        $(".box2").empty();
-        $(".box2").append(
+        $(".box3").removeClass("d-none");
+        $(".box2").addClass("d-none");
+        $(".form").append(
             $("<h2/>").text("êVãKìoò^"),
             $("<form/>",{
                 action: 'regist',
@@ -65,5 +67,10 @@ $(function() {
                 })
             )
         );
+    });
+    $(".back").click(function(){
+        $(".form").empty();
+        $(".box2").removeClass("d-none");
+        $(".box3").addClass("d-none");
     });
 });

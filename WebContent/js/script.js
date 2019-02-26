@@ -10,10 +10,25 @@ $(function(){
             $("#popup_window").show();
             $("body").css({"overflow":"hidden"});
             $("#popup_window .popup_box").html(response);
+            var pid = $("#popup_window .replybox").find("input[name='postId']").val();
+            getReply(pid);
         })
         .fail(function (response) {
         });
         return false;
+    });
+    $(".heart").click(function(){
+        var pid = $(this).closest(".post").attr("id");
+        like(pid);
+        var heart = $(this);
+        var cnt;
+        if(heart.attr('class') == "heart outline"){
+            heart.removeClass("outline");
+            heart.addClass("red");
+        }else if(heart.attr('class') == "heart red"){
+            heart.removeClass("red");
+            heart.addClass("outline");
+        }
     });
     $("div.popup_box").parent().click(function(e){
 		closepopup();
@@ -41,13 +56,15 @@ $(function(){
         return false;
     });
     //reply
-    $(document).on("click",".reply", function(e){
+    $(document).on("click",".showreply", function(e){
         var pid = $(this).find('span').text();
         console.log("pid="+pid);
         getReply(pid);
+        $("#"+pid+" .replies").toggle();
+        
         return false;
     });
-    /* $(document).on("submit", ".replybox", function(e){
+    $(document).on("submit", ".replybox", function(e){
         var pid = $(this).find("input[name='postId']").val();
         var text = $(this).find("textarea").val();
         console.log(text);
@@ -55,34 +72,34 @@ $(function(){
             var c = confirm("reply confirm");
             if(c == true){
                 reply(pid, text);
+                getReply(pid);
                 $(this).find("textarea").val("");
             }else{
                 alert("reply reject");
             }
         }
         return false;
-    }); */
+    });
     //event
     //function
-    /* function reply(pid, text) {
+    function reply(pid, text) {
         console.log("pid = "+ pid +"text = "+ text);
         $.ajax({
             url: "reply",
             type: "POST",
-            dataType : "text",
-            contentType: "application/json; charset=Windows-31J",
+            dataType: "text",
             data: {
                 "postId" : pid,
                 "replytext" : text
             }
         })
         .done(function (response) {
-            alert("done");
+            getReply(pid);
         })
         .fail(function (response) {
             alert("fail");
         });
-    } */
+    }
     function getReply(pid){
         $.ajax({
             url: "replylist",
@@ -91,9 +108,7 @@ $(function(){
             }
         })
         .done(function (response) {
-            $("#popup_window").show();
-            $("body").css({"overflow":"hidden"});
-            $("#popup_window .popup_box").html(response);
+            $("#"+ pid +" .replies").html(response);
         })
         .fail(function (response) {
             alert("error");
@@ -103,6 +118,14 @@ $(function(){
         $("#popup_window").hide();
         $("body").css({"overflow":"initial"});
         $("#popup_window .popup_box").empty();
+    }
+    function like(pid){
+        $.ajax({
+            url: "like",
+            data:{
+                "postId": pid
+            }
+        });
     }
     //function
 
@@ -116,3 +139,24 @@ $(function(){
     };
     $("a.nav-link").hover(sourceSwap,sourceSwap);
 });
+function likecheck(pid){
+    $.ajax({
+        url:"likecheck",
+        data: {
+            "postId": pid
+        }
+    })
+    .done(function(res) {
+        console.log("likecheck done");
+        if(res.match(/true/)){
+            console.log("t");
+            $("#"+ pid +" span.like > .heart").addClass("red");
+		}else if(res.match(/false/)){
+            console.log("f");
+            $("#"+ pid +" span.like > .heart").addClass("outline");
+        }
+    })
+    .fail(function(res){
+        console.log("likecheck fail");
+    });
+}

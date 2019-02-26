@@ -1,7 +1,7 @@
-<%@ page pageEncoding="Windows-31J" contentType="text/html;charset=Windows-31J" %>
+<%@ page pageEncoding="Windows-31J" contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<div class="post ext">
+<div class="post ext" id="${data[0].postId}">
 		<div class="top">
 			<img class="icon rounded-circle mx-2 my-2" src="${data[0].iconPath}">
 			<a href="mypage?userId=${data[0].userId}">${data[0].userName}</a>
@@ -51,11 +51,14 @@
 		</div>
 		<div class="bottom">
 			<div class="command">
-				<div class="lovelike">
-					<span style="font-size: 2em;">
-						<a href="like?postId=${data[0].postId}"><div class="heart"></div></a>
-					</span>
-					<a>${data[0].likeCount}</a>
+					<div class="lovelike">
+							<span style="font-size: 2em;">
+								<a href="like?postId=${data[0].postId}"><div class="heart outline"></div></a>
+							</span>
+							<a>${data[0].likeCount}</a>
+					</div>
+				<div class="removePost">
+					<a href="removepost?postId=${data[0].postId}">この投稿を削除する</a>
 				</div>
 				<c:set var="s" value="${sessionScope.userId}" scope="page"/>
 				<c:set var="r" value="${data[0].userId}" scope="page"/>
@@ -71,15 +74,13 @@
 				<div class="caption">
 					<strong><a>${data[0].userName}</a></strong><span class="cm">${data[0].caption}</span>
 				</div>
-				<c:forEach var="replies" items="${data[1]}">
-					<div>
-						<strong><a href="#">${replies.userName}</a></strong><span class="cm">${replies.reply}</span>
-					</div>
-				</c:forEach>
+				<div class="replies">
+					<!--  -->
+				</div>
 			</div>
-			<form class="replybox" action="reply" method="post">
+			<form class="replybox">
 				<textarea placeholder="コメントを追加" name="replytext" spellcheck="false"></textarea>
-				<button type="submit" class="replybuttom">コメント</button>
+				<input type="submit" class="replybuttom" value="コメント">
 				<input type="hidden" value="${data[0].postId}" name="postId">
 			</form>
 		</div> <!-- end of bottom -->

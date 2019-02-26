@@ -11,15 +11,6 @@ form{
 }
 
 /**************************************/
-/********** Navbar Style *******/
-nav.bg-animal{
-    background-color: #abe8d5;
-    z-index: 100;
-}
-nav + a > img{
-    height: 75px;
-}
-/*******************************/
 /*********** Post Style ********/
 /* post layout */
 div.post{
@@ -140,11 +131,18 @@ div.command > div.removePost :hover{
 }
 
 /* logo animation */
-.heart {
+.heart.outline{
 	width: 40px;
 	height: 40px;
 	background: url(../logo/web_heart_animation.png) no-repeat;
 	background-position: -30px -5px;
+    cursor: pointer;
+}
+.heart.red{
+    width: 40px;
+	height: 40px;
+	background: url(../logo/web_heart_animation.png) no-repeat;
+	background-position: -2830px -5px;
     cursor: pointer;
 }
 .hukidashi {
@@ -154,10 +152,15 @@ div.command > div.removePost :hover{
 	background-position: -30px -5px;
 	cursor: pointer;
 }
-.heart:hover, .hukidashi:hover {
+.heart.outline:active, .hukidashi:hover {
 	background-position: -2830px -5px;
-	-webkit-transition: background 1s steps(28);
-	transition: background 1s steps(28);
+	-webkit-transition: background 0.5s steps(28);
+	transition: background 0.5s steps(28);
+}
+.heart.red:active{
+	background-position: -30px -5px;
+	-webkit-transition: background 0.5s steps(28);
+	transition: background 0.5s steps(28);
 }
 
 /****************************************************/
@@ -278,15 +281,10 @@ div.replylist .cm {
 }
 
 /* slick style */
-.single-item{
-    opacity: 0;
-    transition: opacity .3s linear;
-}
-
-
 .single-item.slick-initialized{
     opacity: 1;
     margin: 0;
+    transition: opacity .3s linear;
 }
 
 /*ç∂âEÇÃñÓàÛÇÃà íuÇïœÇ¶ÇÈ*/
@@ -350,20 +348,29 @@ div.userid {
     vertical-align: middle;
 }
 .postlist{
-    width: 85%;
+    width: 90%;
     margin: auto;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(200px,350px));
+    grid-template-rows: 1fr;
+    text-align: center;
 }
+
 
 /* userpost */
 .userpost{
+    text-align: center;
     display: inline-block;
-    max-width: 350px; 
+    width: 350px;
     max-height: 350px;
     margin: 12px;
+    background-color: #393234;
     overflow: hidden;
 }
 .mypost img, .mypost video{
     width: 100%;
+    height: 350px;
     object-fit: cover;
     z-index: 10;
 }

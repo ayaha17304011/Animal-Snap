@@ -1,11 +1,10 @@
-<%@ page pageEncoding="Windows-31J" contentType="text/html;charset=Windows-31J" %>
+<%@ page pageEncoding="Windows-31J" contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <html>
 	<head>
 		<meta charset="Windows-31J">
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/timeline.css"/>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/nav.css"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -13,7 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick-theme.css" media="screen" />
 		<script src="${pageContext.request.contextPath}/WebContent/slick/slick.min.js"></script>
-
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/timeline.css"/>
 		<script src="${pageContext.request.contextPath}/WebContent/js/script.js"></script>
 		<script>
 			$(function(){
@@ -25,12 +24,12 @@
 		<title>あにまる すなっぷ</title>
 	</head>
 	<body>
-			<div id="popup_window">
-				<div class="popup_box"></div>
-			</div>
+		<div id="popup_window">
+			<div class="popup_box"></div>
+		</div>
 		<!-- navbar -->
 		<nav class="navbar navbar-expand-md navbar-light bg-animal sticky-top p-0 mt-0 mx-0 mb-5">
-			<a class="navbar-brand text-white" href="getpostlist">
+			<a class="navbar-brand" href="getpostlist">
 				<img src="WebContent/logo/animal-log.png" alt="logo" height="75px">
 			</a>
 			<button class="navbar-toggler bg-info"
@@ -101,7 +100,7 @@
 			}
 		%>
 		<c:forEach var="data" items="${data}">
-			<div class="post">
+			<div class="post" id="${data.postId}">
 				<div class="top">
 					<a href="mypage?userId=${data.userId}">
 						<img class="icon rounded-circle mx-2 my-2" src="${data.iconPath}">
@@ -123,7 +122,7 @@
 										<c:if test="${fn:endsWith(i,'video')}">
 											<video muted>
 												<source src="${i}" type="video/mp4">
-											</video>								
+											</video>
 										</c:if>
 									</c:forEach>
 								</c:when>
@@ -134,7 +133,7 @@
 									<c:if test="${fn:endsWith(file[0],'video')}">
 										<video muted>
 											<source src="${data.imageURL}" type="video/mp4">
-										</video>								
+										</video>
 									</c:if>
 								</c:otherwise>
 							</c:choose>
@@ -145,12 +144,16 @@
 				<!-- like, reply -->
 				<div class="bottom">
 					<div class="command">
-						<span style="font-size: 2em;">
-							<a href="like?postId=${data.postId}"><div class="heart"></div></a>
+						<span class="like" style="font-size: 2em;">
+								<!-- href="like?postId=${data.postId}" -->
+							<div class="heart"></div>
+							<script>
+								likecheck("${data.postId}");
+							</script>
 							<a id="count">${data.likeCount}</a>
 						</span>
 						<span style="font-size: 2em;">		
-						<div class="hukidashi reply"><span style="display:none;">${data.postId}</span></div>
+						<div class="hukidashi showreply"><span style="display:none;">${data.postId}</span></div>
 						<a id="count">${data.replyCount}</a>
 						</span>
 					</div>
@@ -159,11 +162,9 @@
 						<div class="caption">
 							<strong><a href="mypage?userId=${data.userId}">${data.userName}</a></strong><span class="cm">${data.caption}</span>
 						</div>
-						<c:forEach var="replies" items="${post}">
-							<div class="reply">
-								<strong><a>${replies.username}</a></strong><span class="cm">${replies.reply}</span>
-							</div>
-						</c:forEach>
+						<div class="replies" style="display:none;">
+							<!--  -->
+						</div>
 					</div>	
 					<form class="replybox">
 						<textarea placeholder="コメントを追加" name="replytext" spellcheck="false"></textarea>
