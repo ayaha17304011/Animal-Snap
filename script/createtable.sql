@@ -57,8 +57,8 @@ create table as_like (
 );
 
 -- as_user
-INSERT INTO as_user VALUES(as_seq_userId.nextval,'test01','testmen1','test','sample_image\default_icon.png','プロフィール',default);
-INSERT INTO as_user VALUES(as_seq_userId.nextval,'test02','testmen2','test','sample_image\default_icon.png','',default);
+INSERT INTO as_user VALUES(as_seq_userId.nextval,'test01','testmen1','test','https://ucarecdn.com/94ec68b7-e60f-48c3-bac0-e15f2cbe2ed5/default_icon.png','プロフィール',default);
+INSERT INTO as_user VALUES(as_seq_userId.nextval,'test02','testmen2','test','https://ucarecdn.com/94ec68b7-e60f-48c3-bac0-e15f2cbe2ed5/default_icon.png','',default);
 
 -- as_follower
 INSERT INTO as_follower VALUES(1,2);

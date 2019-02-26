@@ -2,7 +2,7 @@
 .slick-slider
 {
     position: relative;
-	padding: 0;
+
     display: block;
     box-sizing: border-box;
 
@@ -78,7 +78,7 @@
 {
     display: none;
     float: left;
-    outline: none;
+
     height: 100%;
     min-height: 1px;
 }

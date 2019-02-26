@@ -1,8 +1,7 @@
-<%@ page pageEncoding="Windows-31J" contentType="text/html;charset=Windows-31J" %>
+<%@ page pageEncoding="Windows-31J" contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <body>
-<div class="userposts">
     <c:forEach var="data" items="${data}">
             <span href="getpostview?postId=${data.postId}" class="popup">
 				<c:set var="url" value="${data.imageURL}"/>
@@ -39,5 +38,4 @@
 				</c:choose>
             </span>
     </c:forEach>
-</div>
 </body>
