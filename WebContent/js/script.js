@@ -61,6 +61,7 @@ $(function(){
         console.log("pid="+pid);
         getReply(pid);
         $("#"+pid+" .replies").toggle();
+        
         return false;
     });
     $(document).on("submit", ".replybox", function(e){
