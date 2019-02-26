@@ -5,6 +5,7 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/profile.css"/>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/timeline.css"/>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/nav.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="${pageContext.request.contextPath}/WebContent/js/script.js"></script>
 		<title>あにまる すなっぷ</title>
@@ -92,13 +93,16 @@
 
 					</div>
 				</div>
-						<input type="hidden" name="icon" id="icon">
-					<p><input type="text" name="loginid" placeholder="ログインID" id="textbox"></p>
-					<p><input type="text" name="username" placeholder="ユーザー名" id="textbox"></p>
-					<p><input type="password" name="pass1" placeholder="新しいパスワード" id="textbox"><br>
-						<input type="password" name="pass2" placeholder="確認のため新しいパスワードを入力してください" id="textbox"></p>
-					<p><textarea placeholder="プロフィール文(300文字以内)" name="profile" class="profile" maxlength="300" spellcheck="false"  id="proftextbox"></textarea></p>
+				<input type="hidden" name="icon" id="icon">
+				<p><input type="text" name="loginid" placeholder="ログインID" id="textbox"></p>
+				<p><input type="text" name="username" placeholder="ユーザー名" id="textbox"></p>
+				<p><input type="password" name="pass1" placeholder="新しいパスワード" id="textbox"><br>
+					<input type="password" name="pass2" placeholder="確認のため新しいパスワードを入力してください" id="textbox"></p>
+				<p><textarea placeholder="プロフィール文(300文字以内)" name="profile" class="profile" maxlength="300" spellcheck="false"  id="proftextbox"></textarea></p>
 				<input type="submit" name="edit" value="変更" id="sbtn2">
+			</form>
+			<form action="mypage?userId=${sessionScope.userId}" method="POST">
+				<input type="submit" name="edit" value="戻る" id="sbtn2">
 			</form>
 			<br><br>
 			<form action="removeuser">
@@ -113,3 +117,4 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 	</div>
 </body>
+</html>

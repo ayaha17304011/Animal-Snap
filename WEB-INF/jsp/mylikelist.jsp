@@ -95,24 +95,22 @@
 					<c:set var="file" value="${fn:split(url, '|')}"/>
 					<c:choose>
 						<c:when test="${fn:length(file) > 1}">
-							<c:forEach var="i" items="${file}">
-								<c:if test="${fn:endsWith(i, 'image')}">
-									<img src="${i}">
-								</c:if>
-								<c:if test="${fn:endsWith(i,'video')}">
-									<video muted>
-										<source src="${i}" type="video/mp4">
-									</video>								
-								</c:if>
-							</c:forEach>
-						</c:when>
-						<c:otherwise>
 							<c:if test="${fn:endsWith(file[0], 'image')}">
-								<img src="${data.imageURL}">
+								<img src="${file[0]}" class="image">
 							</c:if>
 							<c:if test="${fn:endsWith(file[0],'video')}">
 								<video muted>
-									<source src="${data.imageURL}" type="video/mp4">
+									<source src="${file[0]}" type="video/mp4" class="image">
+								</video>								
+							</c:if>
+						</c:when>
+						<c:otherwise>
+							<c:if test="${fn:endsWith(file[0], 'image')}">
+								<img src="${data.imageURL}" class="image">
+							</c:if>
+							<c:if test="${fn:endsWith(file[0],'video')}">
+								<video muted>
+									<source src="${data.imageURL}" type="video/mp4" class="image">
 								</video>								
 							</c:if>
 						</c:otherwise>
