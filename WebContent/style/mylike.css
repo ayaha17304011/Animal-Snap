@@ -22,11 +22,6 @@ background: #000;
 .image:hover {
  	opacity:0.5;
  	transition-duration: 0.3s;
- }
- 
- 
-img{
-
 }
 
 span.popup {

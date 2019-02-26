@@ -1,7 +1,7 @@
-<%@ page pageEncoding="Windows-31J" contentType="text/html;charset=Windows-31J" %>
+<%@ page pageEncoding="Windows-31J" contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<div class="post ext">
+<div class="post ext" id="${data[0].postId}">
 		<div class="top">
 			<img class="icon rounded-circle mx-2 my-2" src="${data[0].iconPath}">
 			<a href="mypage?userId=${data[0].userId}">${data[0].userName}</a>
@@ -53,7 +53,7 @@
 			<div class="command">
 					<div class="lovelike">
 							<span style="font-size: 2em;">
-								<a href="like?postId=${data[0].postId}"><div class="heart"></div></a>
+								<a href="like?postId=${data[0].postId}"><div class="heart outline"></div></a>
 							</span>
 							<a>${data[0].likeCount}</a>
 					</div>
@@ -65,24 +65,13 @@
 				<div class="caption">
 					<strong><a>${data[0].userName}</a></strong><span class="cm">${data[0].caption}</span>
 				</div>
-				<c:forEach var="replies" items="${data[1]}">
-					<div>
-						<strong><a href="#">${replies.userName}</a></strong><span class="cm">${replies.reply}</span>
-					</div>
-				</c:forEach>
-				<!-- <div>
-					<strong><a href="#">B1</a></strong><span class="cm">reply 1</span>
+				<div class="replies">
+					<!--  -->
 				</div>
-				<div>
-					<strong><a href="#">B2</a></strong><span class="cm">reply 2</span>
-				</div>
-				<div>
-					<strong><a href="#">User1</a></strong><span class="cm">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
-				</div> -->
 			</div>
-			<form class="replybox" action="reply" method="post">
+			<form class="replybox">
 				<textarea placeholder="コメントを追加" name="replytext" spellcheck="false"></textarea>
-				<button type="submit" class="replybuttom">コメント</button>
+				<input type="submit" class="replybuttom" value="コメント">
 				<input type="hidden" value="${data[0].postId}" name="postId">
 			</form>
 		</div> <!-- end of bottom -->

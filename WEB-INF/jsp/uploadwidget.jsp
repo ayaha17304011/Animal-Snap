@@ -1,4 +1,4 @@
-<%@ page pageEncoding="Windows-31J" contentType="text/html;charset=Windows-31J" %>
+<%@ page pageEncoding="Windows-31J" contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
@@ -11,13 +11,12 @@
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick-theme.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/timeline.css"/>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/nav.css"/>
-
 		<title>‚ ‚É‚Ü‚é ‚·‚È‚Á‚Õ</title>
 	</head>
     <body>
 		<!-- navbar -->
 		<nav class="navbar navbar-expand-md navbar-light bg-animal sticky-top p-0 mt-0 mx-0 mb-5">
-			<a class="navbar-brand text-white" href="getpostlist">
+			<a class="navbar-brand" href="getpostlist">
 				<img src="WebContent/logo/animal-log.png" alt="logo" height="75px">
 			</a>
 			<button class="navbar-toggler bg-info"
@@ -44,10 +43,9 @@
 				</form>
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a class="nav-link" href="upload">
+						<a class="nav-link active">
 							<img
-								src="WebContent/logo/post.png"
-								data-alt-src='WebContent/logo/post2.png'
+								src="WebContent/logo/post2.png"
 								alt="“Še‰æ–Ê"
 								height="50px"
 							>
@@ -123,6 +121,7 @@
         <script src="${pageContext.request.contextPath}/WebContent/slick/slick.min.js"></script>
         <script src="${pageContext.request.contextPath}/WebContent/js/uploadwidget.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+		<script src="${pageContext.request.contextPath}/WebContent/js/script.js"></script>
     </body>
 </html>

@@ -1,4 +1,4 @@
-<%@ page pageEncoding="Windows-31J" contentType="text/html;charset=Windows-31J" %>
+<%@ page pageEncoding="Windows-31J" contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
@@ -13,12 +13,14 @@
 	<script src="${pageContext.request.contextPath}/WebContent/js/script.js"></script>
 	<script src="${pageContext.request.contextPath}/WebContent/slick/slick.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/timeline.css"/>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/nav.css"/>
+
 	<title>‚ ‚É‚Ü‚é ‚·‚È‚Á‚Õ</title>
 	</head>
 	<body>
 		<!-- navbar -->
 		<nav class="navbar navbar-expand-md navbar-light bg-animal sticky-top p-0 mt-0 mx-0 mb-5">
-			<a class="navbar-brand text-white" href="getpostlist">
+			<a class="navbar-brand" href="getpostlist">
 				<img src="WebContent/logo/animal-log.png" alt="logo" height="75px">
 			</a>
 			<button class="navbar-toggler bg-info"
@@ -35,7 +37,7 @@
 			<div class="collapse navbar-collapse" id="CollapseContent">
 				<form class="form-inline m-md-auto" action="search" method="get">
 					<input
-						class="form-control mr-2 w-50"
+						class="form-control mr-2"
 						name="query"
 						type="search"
 						placeholder="ŒŸõ"

@@ -62,13 +62,13 @@ public class AnimalDao{
         try{
 
             cn = OraConnectionManager.getInstance().getConnection();
-            String sql = "SELECT distinct p.postID, u.username, u.IconPath, p.caption, p.imageURL, to_char(p.timestamp,'yyyy/mm/dd hh24:mi') as timestamp, u.userId,"+
+            String sql = "SELECT * from (select distinct p.postID, u.username, u.IconPath, p.caption, p.imageURL, to_char(p.timestamp,'yyyy/mm/dd hh24:mi') as timestamp, u.userId,"+
                          "(SELECT count(*) FROM as_like WHERE postId = p.postId) AS like_count, "+
                          "(SELECT count(*) FROM as_reply WHERE postId = p.postId) AS reply_count "+
                          "FROM as_user u LEFT JOIN as_post p on(u.userId = p.userId) "+
                          "LEFT JOIN as_follower f on(u.userID = f.userId) "+
                          "WHERE (u.userId = ? or f.observerId = ?) and p.state = 1 "+
-                         "ORDER BY timestamp desc";
+                         "ORDER BY timestamp desc) where rownum < 6";
             System.out.println(sql);
             st = cn.prepareStatement(sql);
             st.setString(1, uid);
@@ -644,14 +644,10 @@ public class AnimalDao{
             st = cn.prepareStatement(sql);
             st.setString(1, id);
             rs = st.executeQuery();
-            rs.next();
-            String state = rs.getString(1);
-            if(state == null){
-                flag = false;
-                System.out.println("state is null");
-            }else{
+            if(rs.next()){
                 flag = true;
-                System.out.println("state is not null");
+            }else{
+                flag = false;
             }
         }catch(SQLException e){
             OraConnectionManager.getInstance().rollback();
@@ -681,12 +677,10 @@ public class AnimalDao{
             st.setString(1, lb.getUserId());
             st.setString(2, lb.getPostId());
             rs = st.executeQuery();
-            rs.next();
-            String liked = rs.getString(1);
-            if(liked == null){
-                flag = false;
-            }else{
+            if(rs.next()){
                 flag = true;
+            }else{
+                flag = false;
             }
         }catch(SQLException e){
             OraConnectionManager.getInstance().rollback();
@@ -716,12 +710,10 @@ public class AnimalDao{
             st.setString(1, fb.getUserId());
             st.setString(2, fb.getObserverId());
             rs = st.executeQuery();
-            rs.next();
-            String following = rs.getString(1);
-            if(following == null){
-                flag = false;
-            }else{
+            if(rs.next()){
                 flag = true;
+            }else{
+                flag = false;
             }
         }catch(SQLException e){
             OraConnectionManager.getInstance().rollback();

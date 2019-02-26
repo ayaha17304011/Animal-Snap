@@ -14,6 +14,7 @@ public class LikeCheckCommand extends AbstractCommand{
 		AnimalDao dao = new AnimalDao();
         RequestContext reqc = getRequestContext();
         boolean liked = false;
+        final String[] heart = {"outline", "filled"};
 
         HttpServletRequest req =(HttpServletRequest)reqc.getRequest();
 		HttpSession session = req.getSession();
@@ -23,10 +24,12 @@ public class LikeCheckCommand extends AbstractCommand{
        
         lb.setPostId(postId);
         lb.setUserId(userId);
+        OraConnectionManager.getInstance().beginTransaction();
 		liked = dao.likeCheck(lb);
+        OraConnectionManager.getInstance().closeConnection();
+        resc.setResult(liked);
         System.out.println("liked: "+liked);
-
-        resc.setTarget("timeline");
+        resc.setTarget("likecheck");
         return resc;
     }
 }

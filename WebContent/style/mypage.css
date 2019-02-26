@@ -61,10 +61,6 @@ h1 {
     width: 100%;
 }
 
-.mypost{
-
-}
-
 .postlist{
     width: 85%;
     flex-wrap: wrap;
@@ -97,9 +93,6 @@ img{
     z-index: 10;
 }
  
-.image {
- }
- 
 .image:hover {
  	opacity:0.5;
  	transition-duration: 0.3s;
@@ -116,16 +109,6 @@ img2 {
 
 .command {
     margin: 1%;
-}
-
-span {}
-
-.content{
-
-}
-
-.reply{
-
 }
 
 .replybox{
@@ -166,10 +149,6 @@ body{
     width: 100%;
     margin: 0 auto;
     background-color:  #fcfffe;
-}
-
-p1 {
-	
 }
 
 /*åüçıÉ{É^Éì*/
