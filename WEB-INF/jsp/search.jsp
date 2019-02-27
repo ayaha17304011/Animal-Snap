@@ -7,11 +7,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">	
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/search.css"/>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/nav.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="${pageContext.request.contextPath}/WebContent/js/script.js"></script>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/timeline.css"/>	
 		<title>‚ ‚É‚Ü‚é ‚·‚È‚Á‚Õ</title>
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	</head>
 	
 	<body>
@@ -32,9 +32,9 @@
 				Menu
 			</button>
 			<div class="collapse navbar-collapse" id="CollapseContent">
-				<form class="form-inline m-md-auto" action="search" method="get">
+				<form class="form-inline m-md-auto w-50" action="search" method="get">
 					<input
-						class="form-control mr-2 w-50"
+						class="form-control mr-2"
 						name="query"
 						type="search"
 						placeholder="ŒŸõ"
@@ -91,7 +91,7 @@
 				<div class="user1">
 					<a href="mypage?userId=${user.userId}">
 				<p>${user.userName}</p>
-				<img src="${user.iconImage}" class="iconimage"/><br></a>
+				<img src="${user.iconImage}" class="icon rounded-circle mx-2 my-2"/><br></a>
 				</div>
 			</c:forEach>
 		</div>
@@ -99,7 +99,6 @@
 		<div class="postlist">
 			<c:forEach var="post" items="${data[1]}">
 				<a href="getpostview?postId=${post.postId}" class="popup">
-						${post.imageURL}
 					<c:set var="url" value="${post.imageURL}"/>
 					<c:if test="${fn:endsWith(url, '.jpg')}">
 						<img src="${post.imageURL}" alt="Post Image" class="image">

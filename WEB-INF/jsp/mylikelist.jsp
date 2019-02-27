@@ -92,13 +92,29 @@
 			<c:forEach var="data" items="${data}">
 				<span href="getpostview?postId=${data.postId}" class="popup">
 					<c:set var="url" value="${data.imageURL}"/>
-					<c:if test="${fn:endsWith(url, 'image')}">
-						<img src="${data.imageURL}" alt="Post Image" class="image"/>
-					</c:if>
-					<c:if test="${fn:endsWith(url,'video')}">
-						<video width="100%" height="100%" controls>
-						<source src="${data.imageURL}" type="video/mp4" class="image"/>
-					</c:if>
+					<c:set var="file" value="${fn:split(url, '|')}"/>
+					<c:choose>
+						<c:when test="${fn:length(file) > 1}">
+							<c:if test="${fn:endsWith(file[0], 'image')}">
+								<img src="${file[0]}" class="image">
+							</c:if>
+							<c:if test="${fn:endsWith(file[0],'video')}">
+								<video muted>
+									<source src="${file[0]}" type="video/mp4" class="image">
+								</video>								
+							</c:if>
+						</c:when>
+						<c:otherwise>
+							<c:if test="${fn:endsWith(file[0], 'image')}">
+								<img src="${data.imageURL}" class="image">
+							</c:if>
+							<c:if test="${fn:endsWith(file[0],'video')}">
+								<video muted>
+									<source src="${data.imageURL}" type="video/mp4" class="image">
+								</video>								
+							</c:if>
+						</c:otherwise>
+					</c:choose>
 				</span>
 			</c:forEach>
 		</div>

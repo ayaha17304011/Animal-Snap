@@ -66,7 +66,7 @@
 							</a>
 						</li>
 						<li class="nav-item">
-								<a class="nav-link" href="mypage">
+								<a class="nav-link" href="mypage?userId=${sessionScope.userId}">
 									<img 
 										src="WebContent/logo/mypage.png" 
 										data-alt-src='WebContent/logo/mypage2.png'
