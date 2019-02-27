@@ -1,6 +1,6 @@
 $(function(){
     //event
-    $(document).on("dblclick", "span.popup", function(e){
+    $(document).on("click", "span.popup", function(e){
         var href= $(this).attr("href");
         $.ajax({
             url: href
@@ -17,11 +17,38 @@ $(function(){
         });
         return false;
     });
+    $(document).on("click", ".following", function(){
+        var uid = $("#uid").text();
+        $.ajax({
+            url:"followinglist",
+            data:{
+                "userId":uid
+            }
+        })
+        .done(function(res){
+            $("#popup_window").show();
+            $("body").css({"overflow":"hidden"});
+            $("#popup_window .popup_box").html(res);
+        });
+    });
+    $(document).on("click", ".follower", function(){
+        var uid = $("#uid").text();
+        $.ajax({
+            url:"followerlist",
+            data:{
+                "userId":uid
+            }
+        })
+        .done(function(res){
+            $("#popup_window").show();
+            $("body").css({"overflow":"hidden"});
+            $("#popup_window .popup_box").html(res);
+        });
+    });
     $(".heart").click(function(){
         var pid = $(this).closest(".post").attr("id");
         like(pid);
         var heart = $(this);
-        var cnt;
         if(heart.attr('class') == "heart outline"){
             heart.removeClass("outline");
             heart.addClass("red");
@@ -37,9 +64,6 @@ $(function(){
         e.stopPropagation();
 
     });
-    $("button").dblclick(function(e){
-        e.stopPropagation();
-    });
 
     $(document).ready(function(){
         var pageuid = $("#uid").text();
@@ -52,6 +76,10 @@ $(function(){
             $(".mypost .postlist").html(response);
         })
         .fail(function (response) {
+        });
+
+        $(".slick-arrow").click(function(ev){
+            ev.stopPropagation();
         });
         return false;
     });
@@ -125,6 +153,21 @@ $(function(){
             data:{
                 "postId": pid
             }
+        });
+    }
+    function getPostView(pid){
+        $.ajax({
+            url:"getpostview",
+            data:{
+                "postId":pid
+            }
+        }).done(function (response) {
+            $("#popup_window").show();
+            $("body").css({"overflow":"hidden"});
+            $("#popup_window .popup_box").html(response);
+            getReply(pid);
+        })
+        .fail(function (response) {
         });
     }
     //function

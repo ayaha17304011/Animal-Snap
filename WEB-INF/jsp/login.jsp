@@ -58,7 +58,10 @@
 		
 		
 	<% if(request.getAttribute("data")!=null){ %>
-	<script>alert("${data}")</script>
+	<script>
+		alert("${data}");
+		window.location.href = "http://localhost:8080/animal/";
+	</script>
 	<% } %>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

@@ -85,7 +85,7 @@
 		</div>
 
 		<div class="icon">
-			<img src="${data.iconImage}" class="icon rounded-circle mx-2 my-2">
+			<img src="${data.iconImage}" class="iconimage">
 		</div>
 
 		<div class="prof">
@@ -118,17 +118,11 @@
 			</div>	
 
 			<div class="follower">
-				<form name="follower" action="followerlist" method="post">
-					<a href="javascript:follower.submit()">フォロワー ${data.observer}人</a>
-					<input type="hidden" value="${data.userId}" name="userId">
-				</form>
+				<a href="#">フォロワー ${data.observer}人</a>
 			</div>	
 
 			<div class="following">
-				<form name="following" action="followinglist" method="post">
-					<a href="javascript:following.submit()">${data.following}人をフォロー中</a>
-					<input type="hidden" value="${data.userId}" name="userId">
-				</form>
+				<a href="#">${data.following}人をフォロー中</a>
 			</div>
 
 			<div class="profile">
