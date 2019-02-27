@@ -100,16 +100,31 @@
 			<c:forEach var="post" items="${data[1]}">
 				<a href="getpostview?postId=${post.postId}" class="popup">
 					<c:set var="url" value="${post.imageURL}"/>
-					<c:if test="${fn:endsWith(url, '.jpg')}">
-						<img src="${post.imageURL}" alt="Post Image" class="image">
-					</c:if>
-					<c:if test="${fn:endsWith(url,'.mp4')}">
-						<video width="100%" height="100%" controls>
-							<source src="${post.imageURL}" type="video/mp4">
-					</c:if>
-				</a>
+					<c:set var="file" value="${fn:split(url, '|')}"/>
+					<c:choose>
+						<c:when test="${fn:length(file) > 1}">
+							<c:if test="${fn:endsWith(file[0], 'image')}">
+								<img src="${file[0]}" class="image">
+							</c:if>
+							<c:if test="${fn:endsWith(file[0],'video')}">
+								<video muted>
+									<source src="${file[0]}" type="video/mp4" class="image">
+								</video>								
+							</c:if>
+						</c:when>
+						<c:otherwise>
+							<c:if test="${fn:endsWith(file[0], 'image')}">
+								<img src="${post.imageURL}" class="image">
+							</c:if>
+							<c:if test="${fn:endsWith(file[0],'video')}">
+								<video muted>
+									<source src="${post.imageURL}" type="video/mp4" class="image">
+								</video>								
+							</c:if>
+						</c:otherwise>
+					</c:choose>
+				</span>
 			</c:forEach>
-		</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 	</body>
