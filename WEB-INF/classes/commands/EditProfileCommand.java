@@ -7,9 +7,10 @@ import main.RequestContext;
 import dao.AnimalDao;
 import dao.OraConnectionManager;
 import java.util.ArrayList;
+import ex.*;
 
 public class EditProfileCommand extends AbstractCommand{
-	public ResponseContext execute(ResponseContext resc){                                                                                                                                                             
+	public ResponseContext execute(ResponseContext resc) throws ApplicationException{                                                                                                                                                             
         ArrayList<String> result = new ArrayList<String>();
         AnimalDao dao = new AnimalDao();
         RequestContext reqc = getRequestContext();

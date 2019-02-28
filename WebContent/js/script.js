@@ -45,6 +45,28 @@ $(function(){
             $("#popup_window .popup_box").html(res);
         });
     });
+    $(document).on("click", "#follow button", function(){
+        var uid = $("#follow").find("input[name=userId]").val();
+        var targetBtn = $(this).text();
+        console.log(targetBtn);
+        $.ajax({
+            url:"follow",
+            type:"POST",
+            data:{
+                "userId": uid
+            }
+        })
+        .done(function(res){
+            if(targetBtn == "フォローする"){
+                $("#follow button").text("フォロー中");
+            }else if(targetBtn == "フォロー中"){
+                $("#follow button").text("フォローする");
+            }
+        })
+        .fail(function(res){
+
+        });
+    });
     $(".heart").click(function(){
         var pid = $(this).closest(".post").attr("id");
         like(pid);
@@ -201,5 +223,23 @@ function likecheck(pid){
     })
     .fail(function(res){
         console.log("likecheck fail");
+    });
+}
+function followcheck(uid){
+    $.ajax({
+        url:"followcheck",
+        data: {
+            "userId": uid
+        }
+    })
+    .done(function(res) {
+        if(res.match(/true/)){
+            $("#follow").find("button").text("フォロー中");
+		}else if(res.match(/false/)){
+            $("#follow").find("button").text("フォローする");
+        }
+    })
+    .fail(function(res){
+
     });
 }

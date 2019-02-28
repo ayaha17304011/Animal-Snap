@@ -6,9 +6,10 @@ import dao.OraConnectionManager;
 import dao.AnimalDao;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import ex.*;
 
 public class AddReplyCommand extends AbstractCommand{
-	public ResponseContext execute(ResponseContext resc){
+	public ResponseContext execute(ResponseContext resc) throws ApplicationException{
         AnimalDao dao = new AnimalDao();
 		RequestContext reqc = getRequestContext();
         HttpServletRequest req =(HttpServletRequest)reqc.getRequest();

@@ -7,9 +7,10 @@ import main.RequestContext;
 import dao.AnimalDao;
 import dao.OraConnectionManager;
 import beans.LikeBean;
+import ex.*;
 
 public class LikeCommand extends AbstractCommand{
-    public ResponseContext execute(ResponseContext resc){
+    public ResponseContext execute(ResponseContext resc) throws ApplicationException{
         LikeBean lb = new LikeBean();
 		AnimalDao dao = new AnimalDao();
         RequestContext reqc = getRequestContext();

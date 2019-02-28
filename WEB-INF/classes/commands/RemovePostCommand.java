@@ -6,9 +6,10 @@ import main.ResponseContext;
 import main.RequestContext;
 import dao.OraConnectionManager;
 import dao.AnimalDao;
+import ex.*;
 
 public class RemovePostCommand extends AbstractCommand{
-  public ResponseContext execute(ResponseContext resc){
+  public ResponseContext execute(ResponseContext resc) throws ApplicationException{
     RequestContext reqc = getRequestContext();
     AnimalDao dao = new AnimalDao();
 

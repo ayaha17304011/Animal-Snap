@@ -7,9 +7,10 @@ import main.RequestContext;
 import beans.PostBean;
 import dao.AnimalDao;
 import java.util.ArrayList;
+import ex.*;
 
 public class GetMyLikeCommand extends AbstractCommand{
-    public ResponseContext execute(ResponseContext resc){
+    public ResponseContext execute(ResponseContext resc) throws ApplicationException{
         ArrayList<PostBean> result = new ArrayList<PostBean>();
         AnimalDao dao = new AnimalDao();
         RequestContext reqc = getRequestContext();

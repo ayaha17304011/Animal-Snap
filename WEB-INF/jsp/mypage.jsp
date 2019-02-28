@@ -3,6 +3,7 @@
 
 <html>
 	<head>
+		<meta charset="Windows-31J">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick.css" media="screen" />
@@ -11,7 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/nav.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="${pageContext.request.contextPath}/WebContent/slick/slick.min.js"></script>
-		<script src="${pageContext.request.contextPath}/WebContent/js/script.js"></script>
+		<script src="${pageContext.request.contextPath}/WebContent/js/script.js" charset="Windows-31J"></script>
 		<title>あにまる すなっぷ</title>
 	</head>
 	<body>
@@ -106,10 +107,13 @@
 					</form>
 				</c:when>
 				<c:otherwise>
-					<form id="follow" action="follow" method="POST">
-						<input id="sbtn3" type="submit" value="フォローする" />
+					<div id="follow">
+						<button id="sbtn3" type="button">フォローする</button>
 						<input type="hidden" value="${data.userId}" name="userId">
-					</form>
+					</div>
+					<script>
+						followcheck("${data.userId}");
+					</script>
 				</c:otherwise>
 			</c:choose>
 

@@ -365,6 +365,7 @@ div.userid {
     margin: 12px;
     background-color: #393234;
     overflow: hidden;
+    position: relative;
 }
 .mypost img, .mypost video{
     width: 100%;
@@ -372,6 +373,15 @@ div.userid {
     object-fit: cover;
     z-index: 10;
 }
+/* picture-multiple-icon */
+.mini-icon{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 1.8em;
+    color: #fff;
+}
+
 
 /* button */
 #sbtn3 {
@@ -451,3 +461,4 @@ button.prev{
     left: -40px;
     top: 41%;
 }
+

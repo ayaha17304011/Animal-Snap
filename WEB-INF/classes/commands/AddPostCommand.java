@@ -6,9 +6,10 @@ import dao.OraConnectionManager;
 import dao.AnimalDao;
 import util.Uploader;
 import beans.PostBean;
+import ex.*;
 
 public class AddPostCommand extends AbstractCommand{
-	public ResponseContext execute(ResponseContext resc){
+	public ResponseContext execute(ResponseContext resc) throws ApplicationException{
 		RequestContext reqc = getRequestContext();
 
 		PostBean pb = Uploader.singleUpload(reqc);

@@ -7,9 +7,10 @@ import dao.OraConnectionManager;
 import dao.AnimalDao;
 import beans.PostBean;
 import java.util.List;
+import ex.*;
 
 public class GetUserPostsCommand extends AbstractCommand{
-    public ResponseContext execute(ResponseContext resc){
+    public ResponseContext execute(ResponseContext resc) throws ApplicationException{
         AnimalDao dao = new AnimalDao();
 		RequestContext reqc = getRequestContext();
         HttpServletRequest req =(HttpServletRequest)reqc.getRequest();
