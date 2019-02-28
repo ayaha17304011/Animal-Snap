@@ -96,17 +96,17 @@
 				<input type="hidden" name="icon" id="icon">
 				<p><input type="text" name="loginid" placeholder="ログインID" id="textbox"></p>
 				<p><input type="text" name="username" placeholder="ユーザー名" id="textbox"></p>
-				<p><input type="password" name="pass1" placeholder="新しいパスワード" id="textbox"><br>
+				<p><input type="password" name="pass1" placeholder="新しいパスワード"id="textbox"><br>
 					<input type="password" name="pass2" placeholder="確認のため新しいパスワードを入力してください" id="textbox"></p>
 				<p><textarea placeholder="プロフィール文(300文字以内)" name="profile" class="profile" maxlength="300" spellcheck="false"  id="proftextbox"></textarea></p>
-				<input type="submit" name="edit" value="変更" id="sbtn2">
+				<input type="submit" name="edit" value="変更" id="sbtn4">
 			</form>
 			<form action="mypage?userId=${sessionScope.userId}" method="POST">
-				<input type="submit" name="edit" value="戻る" id="sbtn2">
+				<input type="submit" name="edit" value="戻る" id="sbtn5">
 			</form>
 			<br><br>
 			<form action="removeuser">
-			<input type="submit" name="removeuser" value="アカウントを削除する">
+			<input type="submit" name="removeuser" value="アカウントを削除する" id="sbtn6">
 			</form>
 
 		<script src="${pageContext.request.contextPath}/WebContent/js/script.js"></script>	
