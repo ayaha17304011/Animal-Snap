@@ -377,8 +377,6 @@ div.userid {
     font-size: 1.8em;
     color: #fff;
 }
-
-
 /* button */
 #sbtn3 {
     height: 50px;
@@ -437,24 +435,3 @@ a#count {
     text-align: center;
     padding: 0;
 }
-
-/* new slick arrow */
-button.arrow{
-    width: 35px;
-    height: 35px;
-    background-color: #251504;
-    border: 2px solid #F4B630;
-    border-radius: 50%;
-}
-
-button.next{
-    position: absolute;
-    right: -40px;
-    top: 41%;
-}
-button.prev{
-    position: absolute;
-    left: -40px;
-    top: 41%;
-}
-
