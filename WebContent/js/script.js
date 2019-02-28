@@ -48,6 +48,7 @@ $(function(){
     $(document).on("click", "#follow button", function(){
         var uid = $("#follow").find("input[name=userId]").val();
         var targetBtn = $(this).text();
+        var counter = parseInt($(".followercount").text());
         console.log(targetBtn);
         $.ajax({
             url:"follow",
@@ -59,8 +60,10 @@ $(function(){
         .done(function(res){
             if(targetBtn == "フォローする"){
                 $("#follow button").text("フォロー中");
+                $(".followercount").text(counter + 1);
             }else if(targetBtn == "フォロー中"){
                 $("#follow button").text("フォローする");
+                $(".followercount").text(counter - 1);
             }
         })
         .fail(function(res){
@@ -69,14 +72,17 @@ $(function(){
     });
     $(".heart").click(function(){
         var pid = $(this).closest(".post").attr("id");
+        var counter = parseInt($(this).siblings(".likecount").text());
         like(pid);
         var heart = $(this);
         if(heart.attr('class') == "heart outline"){
             heart.removeClass("outline");
             heart.addClass("red");
+            $(this).siblings(".likecount").text(counter+1);
         }else if(heart.attr('class') == "heart red"){
             heart.removeClass("red");
             heart.addClass("outline");
+            $(this).siblings(".likecount").text(counter-1);
         }
     });
     $("div.popup_box").parent().click(function(e){

@@ -108,7 +108,7 @@
 				</c:when>
 				<c:otherwise>
 					<div id="follow">
-						<button id="sbtn3" type="button">フォローする</button>
+						<button id="sbtn3" type="button"></button>
 						<input type="hidden" value="${data.userId}" name="userId">
 					</div>
 					<script>
@@ -122,7 +122,7 @@
 			</div>	
 
 			<div class="follower">
-				<a href="#">フォロワー ${data.observer}人</a>
+				<a href="#">フォロワー <span class="followercount">${data.observer}</span>人</a>
 			</div>	
 
 			<div class="following">

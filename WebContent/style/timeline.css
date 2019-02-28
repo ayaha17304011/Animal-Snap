@@ -127,18 +127,19 @@ div.command > div.removePost :hover{
 
 /* logo animation */
 .heart.outline{
-	width: 40px;
-	height: 40px;
-	background: url(../logo/web_heart_animation.png) no-repeat;
-	background-position: -30px -5px;
+    width: 40px;
+    height: 40px;
+    background: url(../logo/web_heart_animation.png) no-repeat;
+    background-position: -30px -5px;
     cursor: pointer;
 }
 .heart.red{
     width: 40px;
-	height: 40px;
-	background: url(../logo/web_heart_animation.png) no-repeat;
-	background-position: -2830px -5px;
+    height: 40px;
+    background: url(../logo/web_heart_animation.png) no-repeat;
+    background-position: -2830px -5px;
     cursor: pointer;
+    transition: background .5s steps(28);
 }
 .hukidashi {
 	width: 40px;
@@ -147,13 +148,8 @@ div.command > div.removePost :hover{
 	background-position: -30px -5px;
 	cursor: pointer;
 }
-.heart.outline:active, .hukidashi:hover {
+.hukidashi:hover {
 	background-position: -2830px -5px;
-	-webkit-transition: background 0.5s steps(28);
-	transition: background 0.5s steps(28);
-}
-.heart.red:active{
-	background-position: -30px -5px;
 	-webkit-transition: background 0.5s steps(28);
 	transition: background 0.5s steps(28);
 }
