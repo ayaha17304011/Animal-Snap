@@ -471,12 +471,15 @@ public class AnimalDao{
                 count++;
             }
             sql = "select postid from as_post where regexp_like(caption,?) and state = 1";
+            System.out.println(sql);
             st = cn.prepareStatement(sql);
             st.setString(1, query);
             rs = st.executeQuery();
+            System.out.println("rs: "+rs);
             count = 0;
             while(rs.next() && count<10){
                 String postid = rs.getString(1);
+                System.out.println("postid: "+postid);
                 post_list.add(postid);
                 count++;
             }
@@ -731,4 +734,52 @@ public class AnimalDao{
         }
         return flag;
     }
-}
+    // public ArrayList recommend(){
+    //     Connection cn = null;
+    //     PreparedStatement st = null;
+    //     ResultSet rs = null;
+    //     ArrayList<ArrayList<String>> list = new ArrayList<ArrayList<String>>();
+    //     ArrayList<String> post_list = new ArrayList<String>();
+    //     ArrayList<String> user_list = new ArrayList<String>();
+    //     try{
+    //         cn = OraConnectionManager.getInstance().getConnection();
+    //         String sql = "select userid from as_user where (regexp_like(username,?) or regexp_like(loginid,?)) and state = 1";
+    //         st = cn.prepareStatement(sql);
+    //         st.setString(1, query);
+    //         st.setString(2, query);
+    //         rs = st.executeQuery();
+    //         int count = 0;
+    //         while(rs.next() && count<10){
+    //             String userid = rs.getString(1);
+    //             user_list.add(userid);
+    //             count++;
+    //         }
+    //         sql = "select postid from as_post where regexp_like(caption,?) and state = 1";
+    //         st = cn.prepareStatement(sql);
+    //         st.setString(1, query);
+    //         rs = st.executeQuery();
+    //         count = 0;
+    //         while(rs.next() && count<10){
+    //             String postid = rs.getString(1);
+    //             post_list.add(postid);
+    //             count++;
+    //         }
+    //    }catch(SQLException e){
+    //         OraConnectionManager.getInstance().rollback();
+    //         e.printStackTrace();
+    //     }finally{
+    //         try{
+    //             if(rs != null){
+    //                 rs.close();
+    //             }if(st != null){
+    //                 st.close();
+    //             }
+    //         }catch(SQLException ex){
+    //             ex.printStackTrace();
+    //         }
+    //     }
+    //     list.add(user_list);
+    //     list.add(post_list);
+    //     return list;
+    // }
+ }

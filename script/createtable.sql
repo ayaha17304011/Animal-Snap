@@ -44,7 +44,6 @@ create table as_post (
 );
 
 CREATE TABLE as_reply (
-  replyID	number(10),
   userID 	number(10) constraint fk_reply_userId references as_user(userID),
   postID 	number(10) constraint fk_reply_postId references as_post(postID),
   reply 	varchar2(600) not null,
