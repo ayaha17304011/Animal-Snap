@@ -1,26 +1,22 @@
 package commands;
 
 import main.ResponseContext;
-import main.RequestContext;
 import java.util.List;
 import java.util.ArrayList;
 import dao.OraConnectionManager;
 import dao.AnimalDao;
-import javax.servlet.http.HttpServletRequest;
 import beans.UserBean;
 import beans.PostBean;
 
-public class searchCommand extends AbstractCommand{
+public class recommendCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
 		AnimalDao dao = new AnimalDao();
 		ArrayList<UserBean> user_result = new ArrayList<UserBean>();
 		ArrayList<PostBean> post_result = new ArrayList<PostBean>();
 		ArrayList<ArrayList> result = new ArrayList<ArrayList>();
-		RequestContext reqc = getRequestContext();
-        HttpServletRequest req =(HttpServletRequest)reqc.getRequest();
-		String query = req.getParameter("query");
+
 		OraConnectionManager.getInstance().beginTransaction();
-		ArrayList<ArrayList<String>> list = dao.search(query);
+		ArrayList<ArrayList<String>> list = dao.recommend();
 		OraConnectionManager.getInstance().closeConnection();
 
 		ArrayList<String> user_list = list.get(0);
@@ -42,7 +38,7 @@ public class searchCommand extends AbstractCommand{
 		result.add(user_result);
 		result.add(post_result);
 		resc.setResult(result);
-		resc.setTarget("search");
+		resc.setTarget("recommend");
 		return resc;
 	}
 }
