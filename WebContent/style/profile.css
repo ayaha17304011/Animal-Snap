@@ -8,6 +8,7 @@
     margin-bottom:2%;
     background-color: #ffffff;
     padding: 5%;
+    border-radius: 20px;
 }
 
 .pro {
@@ -33,4 +34,57 @@
     font-size: 140%;
     padding: 18px;
     outline: 0;
+    margin-bottom: 35px;
+}
+
+
+#sbtn4:hover, #sbtn5:hover {
+	background-color:#26a0a0;
+}
+
+
+#sbtn4 {
+    height: 50px;
+    width: 25%;
+    color: #FFF;
+    cursor: pointer;
+    background-color: #33CCCC;
+	margin-right: 60px;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    float: right;
+}
+
+#sbtn5 {
+    height: 50px;
+    width: 25%;
+    color: #FFF;
+    cursor: pointer;
+    background-color: #33CCCC;
+    margin-left: 60px;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    float: left;
+}
+
+
+
+#sbtn6:hover {
+	background-color:#8fc6b5;
+}
+
+
+#sbtn6 {
+    height: 50px;
+    width: 200px;
+    margin-top: 40px;
+    color: #FFF;
+    cursor: pointer;
+    background-color: #abe8d5;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+
 }
