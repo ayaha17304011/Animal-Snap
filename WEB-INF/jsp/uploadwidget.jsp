@@ -106,13 +106,13 @@
                         <input type="hidden" name="url" />
                         <textarea placeholder="ÉRÉÅÉìÉgÇí«â¡(300éöà»ì‡)"
                             name="caption"
-                            class="captiontext rounded"
+                            class="captiontext rounded width-75"
                             maxlength="300"
                         ></textarea>
-                        <button type="submit" class="btn btn-outline-primary px-3 py-3 mx-auto">ìäçe</button>
+						<button type="submit" class="btn btn-outline-primary px-3 py-3">ìäçe</button>
+						<button type="button" class="btn btn-outline-primary px-3 py-3"" onclick="window.history.back()">ñﬂÇÈ</button>						
                     </form>
 				</div>
-				<button type="button" onclick="window.history.back()">back</button>
 			</div>
         </div>
 

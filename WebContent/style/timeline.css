@@ -342,15 +342,14 @@ div.userid {
     vertical-align: middle;
 }
 .postlist{
-    width: 90%;
+    width: 85%;
     margin: auto;
     display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(auto-fill, 350px);
+    grid-template-columns: repeat(auto-fill, minmax(200px,380px));
     grid-template-rows: 1fr;
     text-align: center;
+    grid-gap: 0;
 }
-
 
 /* userpost */
 .userpost{
@@ -426,7 +425,6 @@ a#day {
     display: inline-flex;
 }
 
-
 a#count {
     font-size: x-large;
     color: #696969;
@@ -435,3 +433,21 @@ a#count {
     text-align: center;
     padding: 0;
 }
+/* multiple image post icon */
+.mini-icon{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 1.8em;
+    color: #fff;
+}
+.smallpost{
+    text-align: center;
+    width: 350px;
+    max-height: 350px;
+    margin: 12px;
+    background-color: #393234;
+    overflow: hidden;
+    position: relative;
+}
+

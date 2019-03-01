@@ -14,7 +14,7 @@
 	<script src="${pageContext.request.contextPath}/WebContent/slick/slick.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/timeline.css"/>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/nav.css"/>
-
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<title>‚ ‚É‚Ü‚é ‚·‚È‚Á‚Õ</title>
 	</head>
 	<body>
@@ -90,32 +90,36 @@
 		</div>
 		<div class="mylike">
 			<c:forEach var="data" items="${data}">
-				<span href="getpostview?postId=${data.postId}" class="popup">
-					<c:set var="url" value="${data.imageURL}"/>
-					<c:set var="file" value="${fn:split(url, '|')}"/>
-					<c:choose>
-						<c:when test="${fn:length(file) > 1}">
-							<c:if test="${fn:endsWith(file[0], 'image')}">
-								<img src="${file[0]}" class="image">
-							</c:if>
-							<c:if test="${fn:endsWith(file[0],'video')}">
-								<video muted>
-									<source src="${file[0]}" type="video/mp4" class="image">
-								</video>								
-							</c:if>
-						</c:when>
-						<c:otherwise>
-							<c:if test="${fn:endsWith(file[0], 'image')}">
-								<img src="${data.imageURL}" class="image">
-							</c:if>
-							<c:if test="${fn:endsWith(file[0],'video')}">
-								<video muted>
-									<source src="${data.imageURL}" type="video/mp4" class="image">
-								</video>								
-							</c:if>
-						</c:otherwise>
-					</c:choose>
-				</span>
+				<div class="smallpost">
+					<span href="getpostview?postId=${data.postId}" class="popup">
+						<c:set var="url" value="${data.imageURL}"/>
+						<c:set var="file" value="${fn:split(url, '|')}"/>
+						<c:choose>
+							<c:when test="${fn:length(file) > 1}">
+								<div class="mini-icon far fa-images"></div>
+								<c:if test="${fn:endsWith(file[0], 'image')}">
+									<img src="${file[0]}" class="image">
+								</c:if>
+								<c:if test="${fn:endsWith(file[0],'video')}">
+									<video muted>
+										<source src="${file[0]}" type="video/mp4" class="image">
+									</video>								
+								</c:if>
+							</c:when>
+							<c:otherwise>
+								<c:if test="${fn:endsWith(file[0], 'image')}">
+									<img src="${data.imageURL}" class="image">
+								</c:if>
+								<c:if test="${fn:endsWith(file[0],'video')}">
+									<div class="mini-icon fas fa-video"></div>
+									<video muted>
+										<source src="${data.imageURL}" type="video/mp4" class="image">
+									</video>								
+								</c:if>
+							</c:otherwise>
+						</c:choose>
+					</span>
+				</div>
 			</c:forEach>
 		</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>

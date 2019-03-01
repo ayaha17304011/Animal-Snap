@@ -51,12 +51,13 @@
 		</div>
 		<div class="bottom">
 			<div class="command">
-				<div class="lovelike">
-					<span style="font-size: 2em;">
-						<a href="like?postId=${data[0].postId}"><div class="heart outline"></div></a>
-					</span>
-					<a>${data[0].likeCount}</a>
-			</div>
+				<span class="like" style="font-size: 2em;">
+					<div class="heart"></div>
+					<script>
+						likecheck("${data[0].postId}");
+					</script>
+					<a id="count" class="likecount">${data[0].likeCount}</a>
+				</span>
 				<c:set var="s" value="${sessionScope.userId}" scope="page"/>
 				<c:set var="r" value="${data[0].userId}" scope="page"/>
 				<c:choose>
@@ -69,7 +70,7 @@
 			</div>
 			<div class="replylist">
 				<div class="caption">
-					<strong><a>${data[0].userName}</a></strong><span class="cm">${data[0].caption}</span>
+					<strong><a href="mypage?userId=${data[0].userId}">${data[0].userName}</a></strong><span class="cm">${data[0].caption}</span>
 				</div>
 				<div class="replies">
 					<!--  -->
@@ -82,6 +83,7 @@
 			</form>
 		</div> <!-- end of bottom -->
 	</div> <!-- end of post -->
+	<script src="${pageContext.request.contextPath}/WebContent/js/script.js"></script>
 	<script>
 		$(function(){
 			$(document).ready(function(){

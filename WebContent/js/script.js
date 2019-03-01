@@ -60,6 +60,7 @@ $(function(){
             }
         })
         .done(function(res){
+            followcheck(uid);
             if(targetBtn == "フォローする"){
                 $("#follow button").text("フォロー中");
                 $(".followercount").text(counter + 1);
@@ -73,6 +74,7 @@ $(function(){
         });
     });
     $(".heart").click(function(){
+        console.log("like");
         var pid = $(this).closest(".post").attr("id");
         var counter = parseInt($(this).siblings(".likecount").text());
         like(pid);
@@ -242,11 +244,7 @@ function followcheck(uid){
         }
     })
     .done(function(res) {
-        if(res.match(/true/)){
-            $("#follow").find("button").text("フォロー中");
-		}else if(res.match(/false/)){
-            $("#follow").find("button").text("フォローする");
-        }
+       $("#follow span").html(res);
     })
     .fail(function(res){
 

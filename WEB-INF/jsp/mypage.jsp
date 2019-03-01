@@ -108,7 +108,7 @@
 				</c:when>
 				<c:otherwise>
 					<div id="follow">
-						<button id="sbtn3" type="button"></button>
+						<span></span>
 						<input type="hidden" value="${data.userId}" name="userId">
 					</div>
 					<script>

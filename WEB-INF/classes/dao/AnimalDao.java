@@ -68,7 +68,7 @@ public class AnimalDao{
                          "FROM as_user u LEFT JOIN as_post p on(u.userId = p.userId) "+
                          "LEFT JOIN as_follower f on(u.userID = f.userId) "+
                          "WHERE (u.userId = ? or f.observerId = ?) and p.state = 1 "+
-                         "ORDER BY timestamp desc) where rownum < 6";
+                         "ORDER BY timestamp desc)";
             // System.out.println(sql);
             st = cn.prepareStatement(sql);
             st.setString(1, uid);

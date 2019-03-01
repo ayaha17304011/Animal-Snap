@@ -385,7 +385,7 @@ div.userid {
     margin: auto;
     display: grid;
     grid-gap: 35px;
-    grid-template-columns: repeat(auto-fill, 350px);
+    grid-template-columns: repeat(auto-fill, 365px);
     grid-template-rows: 1fr;
     text-align: center;
 }
