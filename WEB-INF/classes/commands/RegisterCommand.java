@@ -32,10 +32,10 @@ public class RegisterCommand extends AbstractCommand{
             String result = dao.Login(ub);
             HttpSession session = req.getSession();
             session.setAttribute("userId", result);
-            resc.setTarget("timeline");//オススメページ
+            resc.setTarget("timeline");
         }else{
             resc.setTarget("login");
-            resc.setResult("Login ID already used");
+            resc.setResult("すでに使われているログインIDです");
         }
         OraConnectionManager.getInstance().closeConnection();
         return resc;

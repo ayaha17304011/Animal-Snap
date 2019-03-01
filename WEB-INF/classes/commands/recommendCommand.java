@@ -38,7 +38,7 @@ public class recommendCommand extends AbstractCommand{
 		result.add(user_result);
 		result.add(post_result);
 		resc.setResult(result);
-		resc.setTarget("recommend");
+		resc.setTarget("search");
 		return resc;
 	}
 }

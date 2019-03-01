@@ -56,14 +56,25 @@
 						</a>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link" href="recommend">
+							<img 
+								src="WebContent/logo/recommend1.png"
+								data-alt-src='WebContent/logo/recommend2.png'
+								alt="レコメンド"
+								height="50px"
+							>
+							<h3 class="d-inline d-md-none"></h3>
+						</a>
+					</li>
+					<li class="nav-item">
 						<a class="nav-link" href="mylike">
 							<img 
 								src="WebContent/logo/like.png"
 								data-alt-src='WebContent/logo/like2.png'
-								alt="いいね早見表"
+								alt="コレクション"
 								height="50px"
 							>
-							<h3 class="d-inline d-md-none">いいね早見表</h3>
+							<h3 class="d-inline d-md-none">コレクション</h3>
 						</a>
 					</li>
 					<li class="nav-item">
@@ -96,40 +107,46 @@
 				</div>
 			</c:forEach>
 		</div>
-			
 		<div class="postlist">
-			<c:forEach var="post" items="${data[1]}">
-				<div class="smallpost">
-					<span href="getpostview?postId=${post.postId}" class="popup">
-						<c:set var="url" value="${post.imageURL}"/>
-						<c:set var="file" value="${fn:split(url, '|')}"/>
-						<c:choose>
-							<c:when test="${fn:length(file) > 1}">
-								<div class="mini-icon far fa-images"></div>
-								<c:if test="${fn:endsWith(file[0], 'image')}">
-									<img src="${file[0]}" class="image">
-								</c:if>
-								<c:if test="${fn:endsWith(file[0],'video')}">
-									<video muted>
-										<source src="${file[0]}" type="video/mp4" class="image">
-									</video>								
-								</c:if>
-							</c:when>
-							<c:otherwise>
-								<c:if test="${fn:endsWith(file[0], 'image')}">
-									<img src="${post.imageURL}" class="image">
-								</c:if>
-								<c:if test="${fn:endsWith(file[0],'video')}">
-									<div class="mini-icon fas fa-video"></div>
-									<video muted>
-										<source src="${post.imageURL}" type="video/mp4" class="image">
-									</video>								
-								</c:if>
-							</c:otherwise>
-						</c:choose>
-					</span>
-				</div>
-			</c:forEach>
+			<c:choose>
+				<c:when test="${data==[[],[]]}">
+					<p></p>
+					<p>検索結果はありません</p>
+				</c:when>
+				<c:otherwise>
+					<c:forEach var="post" items="${data[1]}">
+						<div class="smallpost">
+							<span href="getpostview?postId=${post.postId}" class="popup">
+								<c:set var="url" value="${post.imageURL}"/>
+								<c:set var="file" value="${fn:split(url, '|')}"/>
+								<c:choose>
+									<c:when test="${fn:length(file) > 1}">
+										<c:if test="${fn:endsWith(file[0], 'image')}">
+											<img src="${file[0]}" class="image">
+										</c:if>
+										<c:if test="${fn:endsWith(file[0],'video')}">
+											<video muted>
+												<source src="${file[0]}" type="video/mp4" class="image">
+											</video>								
+										</c:if>
+									</c:when>
+									<c:otherwise>
+										<c:if test="${fn:endsWith(file[0], 'image')}">
+											<img src="${post.imageURL}" class="image">
+										</c:if>
+										<c:if test="${fn:endsWith(file[0],'video')}">
+											<video muted>
+												<source src="${post.imageURL}" type="video/mp4" class="image">
+											</video>								
+										</c:if>
+									</c:otherwise>
+								</c:choose>
+							</span>
+						</div>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
+		</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 	</body>
