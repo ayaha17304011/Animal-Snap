@@ -69,7 +69,7 @@ public class AnimalDao{
                          "LEFT JOIN as_follower f on(u.userID = f.userId) "+
                          "WHERE (u.userId = ? or f.observerId = ?) and p.state = 1 "+
                          "ORDER BY timestamp desc) where rownum < 6";
-            System.out.println(sql);
+            // System.out.println(sql);
             st = cn.prepareStatement(sql);
             st.setString(1, uid);
             st.setString(2, uid);
@@ -459,29 +459,32 @@ public class AnimalDao{
         ArrayList<String> user_list = new ArrayList<String>();
         try{
             cn = OraConnectionManager.getInstance().getConnection();
-            String sql = "select userid from as_user where (regexp_like(username,?) or regexp_like(loginid,?)) and state = 1";
+            // (SELECT count(*) FROM as_follower WHERE f.userId = u.userid and au.state=1) as follower_count
+            String sql = "select userid, (SELECT count(*) FROM as_follower WHERE userId = u.userid and u.state=1) as follower_count "+
+                         "from as_user u where (regexp_like(username,?) or regexp_like(loginid,?)) and state = 1 "+
+                         "order by follower_count desc";
             st = cn.prepareStatement(sql);
             st.setString(1, query);
             st.setString(2, query);
             rs = st.executeQuery();
-            int count = 0;
-            while(rs.next() && count<10){
+            // int count = 0;
+            while(rs.next()){// && count<10){
                 String userid = rs.getString(1);
                 user_list.add(userid);
-                count++;
+                // count++;
             }
-            sql = "select postid from as_post where regexp_like(caption,?) and state = 1";
-            System.out.println(sql);
+            // (SELECT count(*) FROM as_like WHERE postId = p.postId) AS like_count
+            sql = "select p.postid, (SELECT count(*) FROM as_like WHERE postId = p.postId) AS like_count "+
+                  "from as_post p where regexp_like(caption,?) and state = 1 "+
+                  "order by like_count desc";
             st = cn.prepareStatement(sql);
             st.setString(1, query);
             rs = st.executeQuery();
-            System.out.println("rs: "+rs);
-            count = 0;
-            while(rs.next() && count<10){
+            // count = 0;
+            while(rs.next()){// && count<10){
                 String postid = rs.getString(1);
-                System.out.println("postid: "+postid);
                 post_list.add(postid);
-                count++;
+                // count++;
             }
        }catch(SQLException e){
             OraConnectionManager.getInstance().rollback();
@@ -734,52 +737,53 @@ public class AnimalDao{
         }
         return flag;
     }
-    // public ArrayList recommend(){
-    //     Connection cn = null;
-    //     PreparedStatement st = null;
-    //     ResultSet rs = null;
-    //     ArrayList<ArrayList<String>> list = new ArrayList<ArrayList<String>>();
-    //     ArrayList<String> post_list = new ArrayList<String>();
-    //     ArrayList<String> user_list = new ArrayList<String>();
-    //     try{
-    //         cn = OraConnectionManager.getInstance().getConnection();
-    //         String sql = "select userid from as_user where (regexp_like(username,?) or regexp_like(loginid,?)) and state = 1";
-    //         st = cn.prepareStatement(sql);
-    //         st.setString(1, query);
-    //         st.setString(2, query);
-    //         rs = st.executeQuery();
-    //         int count = 0;
-    //         while(rs.next() && count<10){
-    //             String userid = rs.getString(1);
-    //             user_list.add(userid);
-    //             count++;
-    //         }
-    //         sql = "select postid from as_post where regexp_like(caption,?) and state = 1";
-    //         st = cn.prepareStatement(sql);
-    //         st.setString(1, query);
-    //         rs = st.executeQuery();
-    //         count = 0;
-    //         while(rs.next() && count<10){
-    //             String postid = rs.getString(1);
-    //             post_list.add(postid);
-    //             count++;
-    //         }
-    //    }catch(SQLException e){
-    //         OraConnectionManager.getInstance().rollback();
-    //         e.printStackTrace();
-    //     }finally{
-    //         try{
-    //             if(rs != null){
-    //                 rs.close();
-    //             }if(st != null){
-    //                 st.close();
-    //             }
-    //         }catch(SQLException ex){
-    //             ex.printStackTrace();
-    //         }
-    //     }
-    //     list.add(user_list);
-    //     list.add(post_list);
-    //     return list;
-    // }
- }
+    public ArrayList recommend(){
+        Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        ArrayList<ArrayList<String>> list = new ArrayList<ArrayList<String>>();
+        ArrayList<String> post_list = new ArrayList<String>();
+        ArrayList<String> user_list = new ArrayList<String>();
+        try{
+            cn = OraConnectionManager.getInstance().getConnection();
+            String sql = "select u.userid, u.username, (SELECT count(*) FROM as_follower WHERE userId = u.userid and u.state=1) as follower_count "+
+                         "from as_user u where u.state = 1 "+
+                         "order by follower_count desc";
+            st = cn.prepareStatement(sql);
+            rs = st.executeQuery();
+            int count = 0;
+            while(rs.next() && count<10){
+                String userid = rs.getString(1);
+                user_list.add(userid);
+                count++;
+            }
+            sql = "select p.postid, (SELECT count(*) FROM as_like WHERE postId = p.postId) AS like_count "+
+                  "from as_post p where p.state = 1 "+
+                  "order by like_count desc";
+            st = cn.prepareStatement(sql);
+            rs = st.executeQuery();
+            count = 0;
+            while(rs.next() && count<10){
+                String postid = rs.getString(1);
+                post_list.add(postid);
+                count++;
+            }
+       }catch(SQLException e){
+            OraConnectionManager.getInstance().rollback();
+            e.printStackTrace();
+        }finally{
+            try{
+                if(rs != null){
+                    rs.close();
+                }if(st != null){
+                    st.close();
+                }
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        list.add(user_list);
+        list.add(post_list);
+        return list;
+    }
+}

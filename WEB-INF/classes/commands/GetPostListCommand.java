@@ -21,7 +21,8 @@ public class GetPostListCommand extends AbstractCommand{
 		OraConnectionManager.getInstance().beginTransaction();
 		List result = dao.getPostList(uid);
 		OraConnectionManager.getInstance().closeConnection();
-		System.out.println(result);
+		System.out.println("getpostlist result: "+result);
+
 		resc.setResult(result);
 		resc.setTarget("timeline");
 		return resc;
