@@ -53,14 +53,25 @@
 						</a>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link" href="recommend">
+							<img 
+								src="WebContent/logo/recommend1.png"
+								data-alt-src='WebContent/logo/recommend2.png'
+								alt="レコメンド"
+								height="50px"
+							>
+							<h3 class="d-inline d-md-none"></h3>
+						</a>
+					</li>
+					<li class="nav-item">
 						<a class="nav-link" href="mylike">
 							<img 
 								src="WebContent/logo/like.png"
 								data-alt-src='WebContent/logo/like2.png'
-								alt="いいね早見表"
+								alt="コレクション"
 								height="50px"
 							>
-							<h3 class="d-inline d-md-none">いいね早見表</h3>
+							<h3 class="d-inline d-md-none">コレクション</h3>
 						</a>
 					</li>
 					<li class="nav-item">

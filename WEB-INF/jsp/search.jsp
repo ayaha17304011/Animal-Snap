@@ -55,14 +55,25 @@
 						</a>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link" href="recommend">
+							<img 
+								src="WebContent/logo/recommend1.png"
+								data-alt-src='WebContent/logo/recommend2.png'
+								alt="レコメンド"
+								height="50px"
+							>
+							<h3 class="d-inline d-md-none"></h3>
+						</a>
+					</li>
+					<li class="nav-item">
 						<a class="nav-link" href="mylike">
 							<img 
 								src="WebContent/logo/like.png"
 								data-alt-src='WebContent/logo/like2.png'
-								alt="いいね早見表"
+								alt="コレクション"
 								height="50px"
 							>
-							<h3 class="d-inline d-md-none">いいね早見表</h3>
+							<h3 class="d-inline d-md-none">コレクション</h3>
 						</a>
 					</li>
 					<li class="nav-item">
@@ -97,8 +108,15 @@
 		</div>
 			
 		<div class="postlist">
-			<c:forEach var="post" items="${data[1]}">
-				<a href="getpostview?postId=${post.postId}" class="popup">
+				
+		<c:choose>
+			<c:when test="${data==[[],[]]}">
+				<p></p>
+				<p>検索結果はありません</p>
+			</c:when>
+			<c:otherwise>
+					<c:forEach var="post" items="${data[1]}">
+				<span href="getpostview?postId=${post.postId}" class="popup">
 					<c:set var="url" value="${post.imageURL}"/>
 					<c:set var="file" value="${fn:split(url, '|')}"/>
 					<c:choose>
@@ -125,6 +143,8 @@
 					</c:choose>
 				</span>
 			</c:forEach>
+		</c:otherwise>
+		</c:choose>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 	</body>
