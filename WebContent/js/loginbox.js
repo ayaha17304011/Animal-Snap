@@ -50,6 +50,7 @@ $(function() {
                     class: 'nyuuryoku',
                     required:true,
                     pattern: '[0-9A-Za-z]+$',
+                    maxlength : '30',
                     title : '数字かアルファベットで入力してください'
                 }),
                 $("<input/>",{
@@ -57,7 +58,7 @@ $(function() {
                     name: 'username',
                     placeholder: 'ユーザー名',
                     class: 'nyuuryoku',
-
+					pattern: '.*\S+.*',
                     maxlength : '15',
                     title : '15文字以内で入力してください',
                     required:true
@@ -68,7 +69,7 @@ $(function() {
                     placeholder: 'パスワード',
                     class: 'nyuuryoku',
                     required:true,
-                    pattern: '[0-9A-Za-z]+$',
+                    maxlength : '12',
                     title : '数字かアルファベットで入力してください'
                 }),
                 $("<input/>",{
