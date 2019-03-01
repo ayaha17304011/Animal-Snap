@@ -26,6 +26,7 @@ $(function(){
             }
         })
         .done(function(res){
+            $(".popup_box").addClass("follow_box");
             $("#popup_window").show();
             $("body").css({"overflow":"hidden"});
             $("#popup_window .popup_box").html(res);
@@ -40,6 +41,7 @@ $(function(){
             }
         })
         .done(function(res){
+            $(".popup_box").addClass("follow_box");
             $("#popup_window").show();
             $("body").css({"overflow":"hidden"});
             $("#popup_window .popup_box").html(res);
@@ -174,6 +176,7 @@ $(function(){
         $("#popup_window").hide();
         $("body").css({"overflow":"initial"});
         $("#popup_window .popup_box").empty();
+        $(".popup_box").removeClass("follow_box");
     }
     function like(pid){
         $.ajax({
@@ -183,7 +186,7 @@ $(function(){
             }
         });
     }
-    function getPostView(pid){
+    /* function getPostView(pid){
         $.ajax({
             url:"getpostview",
             data:{
@@ -197,7 +200,7 @@ $(function(){
         })
         .fail(function (response) {
         });
-    }
+    } */
     //function
 
 
