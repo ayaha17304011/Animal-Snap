@@ -21,7 +21,7 @@
 		<!-- navbar -->
 		<nav class="navbar navbar-expand-md navbar-light bg-animal sticky-top p-0 mt-0 mx-0 mb-5">
 			<a class="navbar-brand" href="getpostlist">
-				<img src="WebContent/logo/animal-log.png" alt="logo" height="75px">
+				<img src="WebContent/logo/animal-log.png" alt="logo" height="75px" title="タイムライン">
 			</a>
 			<button class="navbar-toggler bg-info"
 				type="button"
@@ -52,7 +52,7 @@
 								src="WebContent/logo/post.png"
 								data-alt-src='WebContent/logo/post2.png'
 								alt="投稿画面"
-								margin: 1px;
+								title="投稿する"
 								height="50px"
 							>
 							<h3 class="d-inline d-md-none">投稿画面</h3>
@@ -64,19 +64,22 @@
 								src="WebContent/logo/recommend1.png"
 								data-alt-src='WebContent/logo/recommend2.png'
 								alt="レコメンド"
+								title="おすすめ"
 								height="50px"
 							>
-							<h3 class="d-inline d-md-none">おすすめ</h3>
+							<h3 class="d-inline d-md-none"></h3>
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active">
+						<a class="nav-link" href="mylike">
 							<img 
-								src="WebContent/logo/like2.png"
+								src="WebContent/logo/like.png"
+								data-alt-src='WebContent/logo/like2.png'
 								alt="コレクション"
+								title="いいねした投稿"
 								height="50px"
 							>
-							<h3 class="d-inline d-md-none">いいねした投稿</h3>
+							<h3 class="d-inline d-md-none">コレクション</h3>
 						</a>
 					</li>
 					<li class="nav-item">
@@ -86,6 +89,7 @@
 									src="WebContent/logo/mypage.png" 
 									data-alt-src='WebContent/logo/mypage2.png'
 									alt="マイページ"
+									title="マイページ"
 									height="50px"
 								>
 								<h3 class="d-inline d-md-none">マイページ</h3>

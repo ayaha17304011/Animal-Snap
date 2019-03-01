@@ -1,6 +1,7 @@
 <%@ page pageEncoding="Windows-31J" contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page import="java.util.Date, java.util.ArrayList, java.util.Locale, java.text.DateFormat, java.text.SimpleDateFormat, beans.PostBean" %>
 
 <html>
 	<head>
@@ -30,7 +31,7 @@
 		<!-- navbar -->
 		<nav class="navbar navbar-expand-md navbar-light bg-animal sticky-top p-0 mt-0 mx-0 mb-5">
 			<a class="navbar-brand" href="getpostlist">
-				<img src="WebContent/logo/animal-log.png" alt="logo" height="75px">
+				<img src="WebContent/logo/animal-log.png" alt="logo" height="75px" title="タイムライン">
 			</a>
 			<button class="navbar-toggler bg-info"
 				type="button"
@@ -55,60 +56,71 @@
 					<button class="btn btn-outline-primary px-4 my-2 mx-sm-0" type="submit">検索</button>
 				</form>
 				<ul class="navbar-nav">
-					<li class="nav-item">
-						<a class="nav-link" href="upload">
-							<img
-								src="WebContent/logo/post.png"
-								data-alt-src='WebContent/logo/post2.png'
-								alt="投稿画面"
-								height="50px"
-							>
-							<h3 class="d-inline d-md-none">投稿画面</h3>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="recommend">
-							<img 
-								src="WebContent/logo/recommend1.png"
-								data-alt-src='WebContent/logo/recommend2.png'
-								alt="レコメンド"
-								height="50px"
-							>
-							<h3 class="d-inline d-md-none">おすすめ</h3>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="mylike">
-							<img 
-								src="WebContent/logo/like.png"
-								data-alt-src='WebContent/logo/like2.png'
-								alt="コレクション"
-								height="50px"
-							>
-							<h3 class="d-inline d-md-none">いいねした投稿</h3>
-						</a>
-					</li>
-					<li class="nav-item">
-						<form name="mypage" action="mypage" method="post">
-							<a class="nav-link" href="javascript:mypage.submit()">
-								<img 
-									src="WebContent/logo/mypage.png" 
-									data-alt-src='WebContent/logo/mypage2.png'
-									alt="マイページ"
+						<li class="nav-item">
+							<a class="nav-link" href="upload">
+								<img
+									src="WebContent/logo/post.png"
+									data-alt-src='WebContent/logo/post2.png'
+									alt="投稿画面"
+									title="投稿する"
 									height="50px"
 								>
-								<h3 class="d-inline d-md-none">マイページ</h3>
-								<input type="hidden" value="${sessionScope.userId}" name="userId">
+								<h3 class="d-inline d-md-none">投稿画面</h3>
 							</a>
-						</form>
-					</li>
-				</ul>
-			</div>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="recommend">
+								<img 
+									src="WebContent/logo/recommend1.png"
+									data-alt-src='WebContent/logo/recommend2.png'
+									alt="レコメンド"
+									title="おすすめ"
+									height="50px"
+								>
+								<h3 class="d-inline d-md-none"></h3>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="mylike">
+								<img 
+									src="WebContent/logo/like.png"
+									data-alt-src='WebContent/logo/like2.png'
+									alt="コレクション"
+									title="いいねした投稿"
+									height="50px"
+								>
+								<h3 class="d-inline d-md-none">コレクション</h3>
+							</a>
+						</li>
+						<li class="nav-item">
+							<form name="mypage" action="mypage" method="post">
+								<a class="nav-link" href="javascript:mypage.submit()">
+									<img 
+										src="WebContent/logo/mypage.png" 
+										data-alt-src='WebContent/logo/mypage2.png'
+										alt="マイページ"
+										title="マイページ"
+										height="50px"
+									>
+									<h3 class="d-inline d-md-none">マイページ</h3>
+									<input type="hidden" value="${sessionScope.userId}" name="userId">
+								</a>
+							</form>
+						</li>
+					</ul>
+				</div>
 		</nav>
 		<%
 			if(request.getAttribute("data") == null){
 				response.sendRedirect("getpostlist");
 			}
+		%>
+		<% 
+			Date date = new Date();
+			String nowStr = DateFormat.getInstance().format(date);
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+			Date now = sdf.parse(nowStr);
+			request.setAttribute("now", now);
 		%>
 		<c:forEach var="data" items="${data}">
 			<div class="post" id="${data.postId}">
