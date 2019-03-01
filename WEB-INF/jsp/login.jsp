@@ -24,19 +24,6 @@
 			<a class="navbar-brand" href="getpostlist">
 				<img src="WebContent/logo/animal-log.png" alt="logo" height="75px">
 			</a>
-			<form class="form-inline m-md-auto w-50" action="search" method="get">
-				<input
-					class="form-control mr-md-2 mx-0"
-					name="query"
-					type="search"
-					placeholder="åüçı"
-					aria-label="Search"
-				>
-				<button class="btn btn-outline-primary px-4 my-2 mx-sm-0" type="submit">åüçı</button>
-			</form>
-			<div class="none d-none d-md-block">
-			</div>
-			
 		</nav>
 		
 		<h1>Ç†Ç…Ç‹ÇÈ Ç∑Ç»Ç¡Ç’ Ç÷ÇÊÇ§Ç±ÇªÅI</h1>
@@ -60,7 +47,7 @@
 	<% if(request.getAttribute("data")!=null){ %>
 	<script>
 		alert("${data}");
-		window.location.href = "http://localhost:8080/animal/";
+		window.location.href = "http://localhost:8080${pageContext.request.contextPath}/";
 	</script>
 	<% } %>
 
