@@ -68,7 +68,7 @@
 							<img 
 								src="WebContent/logo/like.png"
 								data-alt-src='WebContent/logo/like2.png'
-								alt="コレクション"
+								alt="いいね早見表"
 								height="50px"
 							>
 							<h3 class="d-inline d-md-none">いいねした投稿</h3>
@@ -117,13 +117,15 @@
                         <input type="hidden" name="url" />
                         <textarea placeholder="コメントを追加(300字以内)"
                             name="caption"
-                            class="captiontext rounded width-75"
+                            class="captiontext rounded"
                             maxlength="300"
                         ></textarea>
-						<button type="submit" class="btn btn-outline-primary px-3 py-3">投稿</button>
-						<button type="button" class="btn btn-outline-primary px-3 py-3"" onclick="window.history.back()">戻る</button>						
+                        
+                    	<button type="button" class="backbtn btn btn-outline-primary px-3 py-3 mx-auto" onclick="window.history.back()">戻る</button>
+                        <button type="submit" class="toukou btn btn-outline-primary px-3 py-3 mx-auto">投稿</button>
                     </form>
 				</div>
+				
 			</div>
         </div>
 

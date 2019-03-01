@@ -263,8 +263,8 @@ div.replylist .cm {
 .captiontext{
     border-top: 1px solid #e4e8e4;
 	resize: none;
-	width: 85%;
-	height:60px;
+	width: 100%;
+	height: 120;
 	font-size: 140%;
 	padding: 10px;
     outline: 0;
@@ -342,14 +342,15 @@ div.userid {
     vertical-align: middle;
 }
 .postlist{
-    width: 85%;
+    width: 90%;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px,380px));
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, 350px);
     grid-template-rows: 1fr;
     text-align: center;
-    grid-gap: 0;
 }
+
 
 /* userpost */
 .userpost{
@@ -425,6 +426,7 @@ a#day {
     display: inline-flex;
 }
 
+
 a#count {
     font-size: x-large;
     color: #696969;
@@ -433,21 +435,16 @@ a#count {
     text-align: center;
     padding: 0;
 }
-/* multiple image post icon */
-.mini-icon{
-    position: absolute;
-    right: 5px;
-    top: 5px;
-    font-size: 1.8em;
-    color: #fff;
+
+
+button.backbtn.btn.btn-outline-primary.px-3.py-3.mx-auto:hover {
+   background: #ed8e00;
 }
-.smallpost{
-    text-align: center;
-    width: 350px;
-    max-height: 350px;
-    margin: 12px;
-    background-color: #393234;
-    overflow: hidden;
-    position: relative;
+button.backbtn.btn.btn-outline-primary.px-3.py-3.mx-auto {
+    background: orange;
+    width:50%;
 }
 
+button.toukou.btn.btn-outline-primary.px-3.py-3.mx-auto {
+    width:50%;
+}
