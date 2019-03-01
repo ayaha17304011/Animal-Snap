@@ -24,7 +24,7 @@ div.post a{
     color:black;
 }
 div.post > div.top a{
-    font-size: 1.5em;
+    font-size: 16px;
     font-weight: bold;
 }
  /* post top */
@@ -541,6 +541,13 @@ p#folloname {
 	display: none;
 	box-sizing: border-box;
 }
-p{
-	display:inline-block;
+p {
+    display: inline-block;
+    font-size: 20;
+    font-weight: bold;
+}
+
+
+div#follow {
+    display: inline-block;
 }
