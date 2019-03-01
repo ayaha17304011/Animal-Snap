@@ -1,244 +1,404 @@
-a {
+/********* Page Layout Style ***********/
+body{
+    margin: 0;
+    padding: 0;
+    background-color: fcfffe;
+}
+form{
+    margin: 0;
+    padding: 0;
+
+}
+
+/**************************************/
+/*********** Post Style ********/
+/* post layout */
+div.post{
+    margin: 0 auto 60px;
+    max-width: 606px;
+    border: 3px solid #e4e8e4;
+}
+/* link style */
+div.post a{
     text-decoration: none;
-    font-weight: bold;
     color:black;
 }
-
-#form1 {
-	margin: 16px;
-}
-
-#sbox{
-    height: 40px;
-    width: 200px;
-    border-radius: 2px 0 0 2px;
-}
-
-.icon{
-    width: 252.366px;
-    height: 160px;
-    margin-left: 18%;
-    display: inline-block;
-}
-
-.iconimage {
-    position: inherit;
-    width: 150px;
-    height: 150px;
-}
-
-.username {
-    display: inline-block;
-    text-decoration: none;
+div.post > div.top a{
+    font-size: 1.5em;
     font-weight: bold;
-    margin: 0 auto;
 }
-
-.profile {
-	position: inherit;
-    word-break: break-all;
-    margin-bottom: 10px;
-    margin-left: 5px;
-    width: 500px;
-}
-
-.userid {
-    display: inline-block;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    margin-right: 20;
-}
-
-h1 {
-    margin: 0px;
-    display:inline-block;
-    vertical-align: middle;
-}
-
-
-.post {
-    width: 100%;
-}
-
-.postlist{
-    width: 85%;
-    flex-wrap: wrap;
-    display: flex;
-    top: 0;
-    margin: auto;
-    bottom: 0;
-    right: 0;
-    left: 0;
-}
-
-
-.photo{
-    position: relative;
-    width: 24%;
-    margin: 3%;
-}
-
-.photo:before{
-    content: "";
+ /* post top */
+div.post > div.top{
+    border-bottom: 2px solid #e4e8e4;
     display: block;
-    padding-top: 100%;
 }
-  
-img{
-    margin: 12px;
-    width: 30%;
-    height: 350px;
-    object-fit: cover;
-    z-index: 10;
+div.post > div.top img.icon{
+    width: 40px;
+    height: auto;
 }
- 
-.image:hover {
- 	opacity:0.5;
- 	transition-duration: 0.3s;
-
- }
-
-
-img2 {
+/* post body */
+div.post > div.body{
+    text-align: center;
+    max-height: 800px;
+    height: auto;
+    min-height: 300px;
+    overflow: hidden;
+}
+div.post > div.body img{
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    vertical-align: middle;
+}
+div.post > div.body video{
+    width: 100%;
+    height: auto;
     vertical-align: middle;
 }
 
-.command {
-    margin: 1%;
+/* Single Post View */
+#popup_window .popup_box{
+    background: #fff;
+    max-width: 1006px;
+    min-height: 100px;
+	overflow: visible;
+    margin: 70px auto;
+}
+#popup_window .post{
+    margin: 0 auto 60px;
+    max-width: 1006px;
+    border: 3px solid #e4e8e4;
+    position: relative;
+}
+#popup_window .post > .body{
+    margin: 0 auto;
+    text-align: center;
+    height: auto;
+    height: 600px;
+    max-width: 600px;
+    overflow: hidden;
+    background-color: #393234;
+}
+#popup_window div.post > div.body img, #popup_window  div.post > div.body video, .preview img, .preview video{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 100%;
+    max-height: 600px;
+    object-fit: contain;
 }
 
+/* 100% for vertical image */
+.slick-list{
+    height: 100%;
+}
+.slick-track{
+    position: relative;
+    height: 100%;
+}
+/* img and video wrap div for vertical center image */
+div.post .imgwrap{
+    height: 100%;
+    position: relative;
+}
+/*******************************/
+
+/* like + comment icon layout */
+
+div.bottom{
+    border-top: 2px solid #e4e8e4;
+}
+div.bottom > .command{
+    margin: 3px 12px;
+    height: 45px;
+    position: relative;
+}
+div.bottom > .command .heart, div.bottom > .command .hukidashi{
+    display: inline-block;
+}
+div.bottom > .command > a , div.removePost{
+    display: inline-block;
+    vertical-align: middle;
+}
+div.command > div.removePost{
+    position: absolute;
+    right: 10px;
+    top:10px;
+}
+div.command > div.removePost :hover{
+    color: red;
+}
+
+/* logo animation */
+.heart.outline{
+	width: 40px;
+	height: 40px;
+	background: url(../logo/web_heart_animation.png) no-repeat;
+	background-position: -30px -5px;
+    cursor: pointer;
+}
+.heart.red{
+    width: 40px;
+	height: 40px;
+	background: url(../logo/web_heart_animation.png) no-repeat;
+	background-position: -2830px -5px;
+    cursor: pointer;
+    transition: background .5s steps(28);
+}
+.hukidashi {
+	width: 40px;
+	height: 40px;
+	background: url(../logo/hukidashi.png) no-repeat;
+	background-position: -30px -5px;
+	cursor: pointer;
+}
+.hukidashi:hover {
+	background-position: -2830px -5px;
+	-webkit-transition: background 0.5s steps(28);
+	transition: background 0.5s steps(28);
+}
+
+/****************************************************/
+
+/****reply and caption****************/
+div.replylist {
+    margin: 5px 12px;
+    word-wrap: break-word;
+    overflow: auto;
+}
+div.replylist .cm {
+    margin-left: 5px;
+}
+/* reply box form */
 .replybox{
 	border: solid 0px;
     border-color: #e4e8e4;
-    border-top-width: 3px;
+    border-top-width: 2px;
     margin: 0px;
 }
-
-.replytext{
-	border:solid 0px;
-	resize: none;
-	width: 85%;
-	height:56px;
-	font-size: 140%;
-	padding: 18px;
+.replybox > textarea[name=replytext]{
+    border:solid 0px;
+    resize: none;
+    width: 80%;
+    height:56px;
+    vertical-align: middle;
+    font-size: 1.45em;
+    padding: 10px;
+    outline: 0;
+    overflow: auto;
 }
 
 .replybuttom{
-	float: right;
+    float: right;
     border: solid 0px #33CCCC;
-    padding: 7px 10px;
+    padding: 7px 5px;
+    /* margin: 5%; */
+    /* font-family: Arial, sans-serif; */
     font-size: 1.2em;
     text-transform: uppercase;
     font-weight: bold;
     color: #FFF;
     cursor: pointer;
     background-color: #33CCCC;
-    width: 15%;
-    height: 7%;
+    width: 20%;
+    height: 56px;
+    outline:none;
+}
+.replybuttom:hover{
+    background-color: #26a0a0;
+}
+/**************************************************/
+/* postview extended display */
+#popup_window .ext .top{
+    position: absolute;
+    right: 24px;
+    top:0;
+    width: 353px;
+    height: 56px;
+    padding: 6px 10px;
+}
+#popup_window .ext .top > form{
+    position: relative;
+    bottom: 6px;
+}
+#popup_window .ext .body{
+    margin-right: 400px;
+}
+#popup_window .ext .bottom{
+    position: absolute;
+    top: 56px;
+    right: 24px;
+    padding: 0 12px;
+    border: none;
+    width: 365px;
+    height: 544px;
+}
+#popup_window .ext .bottom > .replylist{
+    width: 365px;
+    min-height: 428px;
+}
+#popup_window .ext .bottom > .replybox{
+    position: relative;
+    width: 385px;
+    right: 8px;
+}
+#popup_window .ext .bottom .replybuttom{
+    font-size: 1em;
+}
+/*************************************/
+/* popupwindow style */
+#popup_window{
+	background: #000000aa;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow: auto;
+	z-index: 200;
+	display: none;
+	box-sizing: border-box;
 }
 
-.caption{
-    margin: 2%;
+/* upload preview bottom (caption from) */
+.bottom{
+    border-top: 2px solid #e4e4e4;
+}
+.captiontext{
+    border-top: 1px solid #e4e8e4;
+	resize: none;
+	width: 85%;
+	height:60px;
+	font-size: 140%;
+	padding: 10px;
+    outline: 0;
+    overflow: auto;
 }
 
-body{
-    width: 100%;
+/* slick style */
+.single-item.slick-initialized{
+    opacity: 1;
+    margin: 0;
+    transition: opacity .3s linear;
+}
+
+/*左右の矢印の位置を変える*/
+.slick-next {
+    right: 20px;
+    z-index: 99;
+}
+
+.slick-prev {
+    left: 15px;
+    z-index: 99;
+}
+
+/*スライド数のドットの色を変える*/
+.slick-dots li.slick-active button:before,
+.slick-dots li button:before {
+    color: #fff;
+}
+
+/****************************************/
+
+/* mypage style v1 */
+.prof{
+	display: inline-block;
+}
+div.icon{
+    width: 252.366px;
+    height: 160px;
+    margin-left: 18%;
+    display: inline-block;
+}
+
+img.iconimage {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+}
+div.username {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
     margin: 0 auto;
-    background-color:  #fcfffe;
+}
+div.profile {
+    position: inherit;
+    word-break: break-all;
+    margin-bottom: 40px;
+    width: 500px;
+    margin-top: 20px;
+}
+div.userid {
+    text-decoration: none;
+    font-weight: bold;
+
+    margin-right: 20;
 }
 
-/*検索ボタン*/
-#sbtn{
-    width: 70px;
-    height: 40px;
+
+.mypost h1 {
+    margin: 0px;
+    display:inline-block;
+    vertical-align: middle;
+}
+.postlist{
+    width: 85%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px,380px));
+    grid-template-rows: 1fr;
+    text-align: center;
+}
+
+
+/* userpost */
+.userpost{
+    text-align: center;
+    display: inline-block;
+    width: 350px;
+    max-height: 350px;
+    margin: 12px;
+    background-color: #393234;
+    overflow: hidden;
+    position: relative;
+}
+.mypost img, .mypost video{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    z-index: 10;
+}
+/* picture-multiple-icon */
+.mini-icon{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 1.8em;
+    color: #fff;
+}
+
+/* button */
+#sbtn3 {
+    height: 50px;
     color: #FFF;
     cursor: pointer;
     background-color: #33CCCC;
+    margin-left: 49px;
     border: none;
     font-weight: bold;
     font-size: 16px;
 }
-
-/*検索ボタンマウスオーバー時*/
-#sbtn:hover{
-background-color:#26a0a0;
-}
-
-.site-header{
-    background:#abe8d5;
-    display: flex;
-    position: fixed;
-    justify-content: space-between;
-    width: 100%;
-    height: 10%;
-    z-index: 100; 
-}
-
-.site-logo {
-	margin: 1px;
-}
-
-.site-logo img{
-    width: 175px;
-    position: initial;
-    margin: 0px;
-    height: 100%;
-}
-
-
-.gnav{
-    padding: 0px;
-    padding-right: 20px;
-}
-
-.gnav__menu{
-    display: flex;
-    margin: 0px;
-}
-.gnav__menu__item{
-    width: 5%;
-    list-style: none;
-    padding: 10px;
-    width: 50px;
-    height: 50px;
-    display: inline-block;
-}
-
-.gnav__menu__item a{
-    text-decoration: none;
-}
-
-.navicon {
-    position: inherit;
-    margin-left: 1%;
-    width: 5%;
-    list-style: none;
-    padding: 10px;
-    width: 50px;
-    margin: 0px;
-    height: 50px;
-    display: inline-block;
-}
-
-
-
-#followorsetting {
-	display: inline;
-    vertical-align: middle;
-}
-
-/*マウスオーバー時*/
-#sbtn3:hover {
+#sbtn2:hover, #sbtn3:hover {
 	background-color:#26a0a0;
 }
 
 
-#sbtn3 {
+#sbtn2 {
     height: 50px;
+    width: 200px;
     color: #FFF;
     cursor: pointer;
     background-color: #33CCCC;
@@ -247,24 +407,130 @@ background-color:#26a0a0;
     font-weight: bold;
     font-size: 16px;
 }
+/* span popup pointer */
+span.popup{
+    cursor: pointer;
+}
 
-
-.prof{
-	display: inline-block;
+form.userplace {
+    display: inline-block;
 }
 
 
-#editprofile {
-	display: inline-block;
+a#day {
+	font-size: 100%;
+    font-weight: lighter;
+    color: #696969;
+    float: right;
+    margin: 16;
 }
 
-.follower{
-	display: inline-block;
-    margin-right: 20;
+.command span {
+    display: inline-flex;
 }
 
-.following{
-	display: inline-block;
-    margin-right: 20;
+
+a#count {
+    font-size: x-large;
+    color: #696969;
 }
 
+
+
+.mb-4.mt-2 {
+    text-align: center;
+    padding: 0;
+}
+
+form#editprofile {
+    display: inline-block;
+}
+
+form#logout {
+    display: inline-block;
+}
+
+
+.follower {
+    display: inline-block;
+    margin-right: 16px;
+}
+
+.following {
+    display: inline-block;
+    margin-right: 16px;
+}
+
+
+a {
+	cursor: pointer;
+}
+
+
+/*
+img.icon.rounded-circle.mx-2.my-2{
+	float : left;
+	width : 25%; 
+}
+
+p#folloname {
+    display: inline-block;
+    margin: 50px;
+}
+*/
+
+
+
+#popup_window2 .ext .top{
+    position: absolute;
+    right: 24px;
+    top:0;
+    width: 353px;
+    height: 56px;
+    padding: 6px 10px;
+}
+#popup_window2 .ext .top > form{
+    position: relative;
+    bottom: 6px;
+}
+#popup_window2 .ext .body{
+    margin-right: 400px;
+}
+#popup_window2 .ext .bottom{
+    position: absolute;
+    top: 56px;
+    right: 24px;
+    padding: 0 12px;
+    border: none;
+    width: 365px;
+    height: 544px;
+}
+#popup_window2 .ext .bottom > .replylist{
+    width: 365px;
+    min-height: 428px;
+}
+#popup_window2 .ext .bottom > .replybox{
+    position: relative;
+    width: 385px;
+    right: 8px;
+}
+#popup_window2 .ext .bottom .replybuttom{
+    font-size: 1em;
+}
+/*************************************/
+/* popupwindow style */
+#popup_window2{
+	background: #000000aa;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow: auto;
+	z-index: 200;
+	display: none;
+	box-sizing: border-box;
+}
+p{
+	display:inline-block;
+}

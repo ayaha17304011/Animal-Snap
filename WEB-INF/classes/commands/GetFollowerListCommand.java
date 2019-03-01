@@ -7,9 +7,10 @@ import dao.OraConnectionManager;
 import dao.AnimalDao;
 import beans.UserBean;
 import java.util.ArrayList;
+import ex.*;
 
 public class GetFollowerListCommand extends AbstractCommand{
-    public ResponseContext execute(ResponseContext resc){
+    public ResponseContext execute(ResponseContext resc) throws ApplicationException{
         ArrayList<UserBean> result = new ArrayList<UserBean>();
         UserBean ub = new UserBean();
         AnimalDao dao = new AnimalDao();

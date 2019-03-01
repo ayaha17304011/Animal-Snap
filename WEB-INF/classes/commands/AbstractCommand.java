@@ -5,6 +5,7 @@ import main.ResponseContext;
 
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
+import ex.ApplicationException;
 
 public abstract class AbstractCommand {
 	private RequestContext request;
@@ -15,5 +16,5 @@ public abstract class AbstractCommand {
 	public RequestContext getRequestContext(){
 		return request;
 	}
-	public abstract ResponseContext execute(ResponseContext resc);
+	public abstract ResponseContext execute(ResponseContext resc) throws ApplicationException;
 }

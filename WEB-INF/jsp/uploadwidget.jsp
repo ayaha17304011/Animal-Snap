@@ -111,8 +111,9 @@
                         ></textarea>
                         <button type="submit" class="btn btn-outline-primary px-3 py-3 mx-auto">ìäçe</button>
                     </form>
-                </div>
-            </div>
+				</div>
+				<button type="button" onclick="window.history.back()">back</button>
+			</div>
         </div>
 
 

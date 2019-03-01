@@ -9,9 +9,10 @@ import dao.AnimalDao;
 import javax.servlet.http.HttpServletRequest;
 import beans.UserBean;
 import beans.PostBean;
+import ex.*;
 
 public class searchCommand extends AbstractCommand{
-	public ResponseContext execute(ResponseContext resc){
+	public ResponseContext execute(ResponseContext resc) throws ApplicationException{
 		AnimalDao dao = new AnimalDao();
 		ArrayList<UserBean> user_result = new ArrayList<UserBean>();
 		ArrayList<PostBean> post_result = new ArrayList<PostBean>();

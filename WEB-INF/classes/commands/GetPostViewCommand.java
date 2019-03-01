@@ -8,9 +8,10 @@ import beans.UserBean;
 import beans.PostBean;
 import java.util.List;
 import java.util.ArrayList;
+import ex.*;
 
 public class GetPostViewCommand extends AbstractCommand{
-    public ResponseContext execute(ResponseContext resc){
+    public ResponseContext execute(ResponseContext resc) throws ApplicationException{
         ArrayList result = new ArrayList();
 		RequestContext reqc = getRequestContext();
 

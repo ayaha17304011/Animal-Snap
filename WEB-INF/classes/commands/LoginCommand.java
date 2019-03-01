@@ -9,9 +9,10 @@ import main.RequestContext;
 import main.ResponseContext;
 import dao.AnimalDao;
 import beans.UserBean;
+import ex.*;
 
 public class LoginCommand extends AbstractCommand{
-    public ResponseContext execute(ResponseContext resc){
+    public ResponseContext execute(ResponseContext resc) throws ApplicationException{
         RequestContext reqc = getRequestContext();
         HttpServletRequest req =(HttpServletRequest)reqc.getRequest();
 

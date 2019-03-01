@@ -27,7 +27,7 @@ import java.sql.SQLException;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import ex.*;
 import beans.*;
 
 public class AnimalDao{
@@ -606,7 +606,7 @@ public class AnimalDao{
         }
         return list;
     }
-    public boolean ExistUser(String uid){
+    public boolean ExistUser(String uid) throws NoUserException{
         Connection cn = null;
         PreparedStatement st = null;
         ResultSet rs = null;
@@ -620,7 +620,7 @@ public class AnimalDao{
             rs.next();
             int state = Integer.parseInt(rs.getString(1));
             if(state==0){
-                flag = false;
+                throw new NoUserException("çÌèúÇ≥ÇÍÇΩÉÜÅ[ÉUÅ[Ç≈Ç∑");
             }
         }catch(SQLException e){
             OraConnectionManager.getInstance().rollback();
@@ -714,6 +714,8 @@ public class AnimalDao{
             st = cn.prepareStatement(sql);
             st.setString(1, fb.getUserId());
             st.setString(2, fb.getObserverId());
+            System.out.println(fb.getUserId());
+            System.out.println(fb.getObserverId());
             rs = st.executeQuery();
             if(rs.next()){
                 flag = true;
@@ -722,7 +724,6 @@ public class AnimalDao{
             }
         }catch(SQLException e){
             OraConnectionManager.getInstance().rollback();
-            return flag;
         }finally{
             try{
                 if(rs != null){

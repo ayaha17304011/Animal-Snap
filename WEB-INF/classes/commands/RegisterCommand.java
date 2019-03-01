@@ -7,9 +7,10 @@ import main.RequestContext;
 import dao.AnimalDao;
 import dao.OraConnectionManager;
 import beans.UserBean;
+import ex.*;
 
 public class RegisterCommand extends AbstractCommand{
-    public ResponseContext execute(ResponseContext resc){
+    public ResponseContext execute(ResponseContext resc) throws ApplicationException{
         RequestContext reqc = getRequestContext();
         HttpServletRequest req =(HttpServletRequest)reqc.getRequest();
         AnimalDao dao = new AnimalDao();

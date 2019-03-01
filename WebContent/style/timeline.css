@@ -127,18 +127,19 @@ div.command > div.removePost :hover{
 
 /* logo animation */
 .heart.outline{
-	width: 40px;
-	height: 40px;
-	background: url(../logo/web_heart_animation.png) no-repeat;
-	background-position: -30px -5px;
+    width: 40px;
+    height: 40px;
+    background: url(../logo/web_heart_animation.png) no-repeat;
+    background-position: -30px -5px;
     cursor: pointer;
 }
 .heart.red{
     width: 40px;
-	height: 40px;
-	background: url(../logo/web_heart_animation.png) no-repeat;
-	background-position: -2830px -5px;
+    height: 40px;
+    background: url(../logo/web_heart_animation.png) no-repeat;
+    background-position: -2830px -5px;
     cursor: pointer;
+    transition: background .5s steps(28);
 }
 .hukidashi {
 	width: 40px;
@@ -147,13 +148,8 @@ div.command > div.removePost :hover{
 	background-position: -30px -5px;
 	cursor: pointer;
 }
-.heart.outline:active, .hukidashi:hover {
+.hukidashi:hover {
 	background-position: -2830px -5px;
-	-webkit-transition: background 0.5s steps(28);
-	transition: background 0.5s steps(28);
-}
-.heart.red:active{
-	background-position: -30px -5px;
 	-webkit-transition: background 0.5s steps(28);
 	transition: background 0.5s steps(28);
 }
@@ -365,6 +361,7 @@ div.userid {
     margin: 12px;
     background-color: #393234;
     overflow: hidden;
+    position: relative;
 }
 .mypost img, .mypost video{
     width: 100%;
@@ -372,7 +369,14 @@ div.userid {
     object-fit: cover;
     z-index: 10;
 }
-
+/* picture-multiple-icon */
+.mini-icon{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 1.8em;
+    color: #fff;
+}
 /* button */
 #sbtn3 {
     height: 50px;
@@ -430,24 +434,4 @@ a#count {
 .mb-4.mt-2 {
     text-align: center;
     padding: 0;
-}
-
-/* new slick arrow */
-button.arrow{
-    width: 35px;
-    height: 35px;
-    background-color: #251504;
-    border: 2px solid #F4B630;
-    border-radius: 50%;
-}
-
-button.next{
-    position: absolute;
-    right: -40px;
-    top: 41%;
-}
-button.prev{
-    position: absolute;
-    left: -40px;
-    top: 41%;
 }

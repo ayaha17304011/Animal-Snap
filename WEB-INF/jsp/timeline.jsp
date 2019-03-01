@@ -150,7 +150,7 @@
 							<script>
 								likecheck("${data.postId}");
 							</script>
-							<a id="count">${data.likeCount}</a>
+							<a id="count" class="likecount">${data.likeCount}</a>
 						</span>
 						<span style="font-size: 2em;">		
 						<div class="hukidashi showreply"><span style="display:none;">${data.postId}</span></div>

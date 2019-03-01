@@ -5,9 +5,10 @@ import main.RequestContext;
 import dao.OraConnectionManager;
 import dao.AnimalDao;
 import beans.UserBean;
+import ex.*;
 
 public class GetUserInfoCommand extends AbstractCommand{
-    public ResponseContext execute(ResponseContext resc){
+    public ResponseContext execute(ResponseContext resc) throws ApplicationException{
         RequestContext reqc = getRequestContext();
         UserBean ub = null;
         AnimalDao dao = new AnimalDao();

@@ -49,5 +49,9 @@
 		<url-pattern>/WebContent/*</url-pattern>
 	</servlet-mapping>
 
+	<error-page>
+		<exception-type>java.io.IOException</exception-type>
+		<location>/WEB-INF/error/nouser.jsp</location>
+	</error-page>
 	
 </web-app>

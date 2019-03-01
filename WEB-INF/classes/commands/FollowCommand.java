@@ -7,9 +7,10 @@ import beans.FollowBean;
 import dao.AnimalDao;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import ex.*;
 
 public class FollowCommand extends AbstractCommand{
-    public ResponseContext execute(ResponseContext resc){
+    public ResponseContext execute(ResponseContext resc) throws ApplicationException{
         FollowBean fb = new FollowBean();
         AnimalDao dao = new AnimalDao();
         RequestContext reqc = getRequestContext();
@@ -32,7 +33,7 @@ public class FollowCommand extends AbstractCommand{
             OraConnectionManager.getInstance().closeConnection();
         }
 
-        resc.setTarget("timeline");
+        resc.setTarget("followcheck");
         return resc;
     }
 }

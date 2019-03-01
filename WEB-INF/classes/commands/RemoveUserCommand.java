@@ -7,9 +7,10 @@ import dao.OraConnectionManager;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import ex.*;
 
 public class RemoveUserCommand extends AbstractCommand{
-    public ResponseContext execute(ResponseContext resc){
+    public ResponseContext execute(ResponseContext resc) throws ApplicationException{
         AnimalDao dao = new AnimalDao();
         RequestContext reqc=getRequestContext();
         ArrayList<String> sqlList = new ArrayList<String>();
