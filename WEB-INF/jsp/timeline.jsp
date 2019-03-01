@@ -74,7 +74,7 @@
 								alt="レコメンド"
 								height="50px"
 							>
-							<h3 class="d-inline d-md-none"></h3>
+							<h3 class="d-inline d-md-none">おすすめ</h3>
 						</a>
 					</li>
 					<li class="nav-item">
@@ -85,7 +85,7 @@
 								alt="コレクション"
 								height="50px"
 							>
-							<h3 class="d-inline d-md-none">コレクション</h3>
+							<h3 class="d-inline d-md-none">いいねした投稿</h3>
 						</a>
 					</li>
 					<li class="nav-item">
