@@ -3,7 +3,7 @@ $(function() {
         $(".box3").removeClass("d-none");
         $(".box2").addClass("d-none");
         $(".form").append(
-            $("<h2/>").text("ロクイン"),
+            $("<h2/>").text("ログイン"),
             $("<form/>",{
                 action: 'login',
                 method: 'post'
@@ -11,16 +11,20 @@ $(function() {
                 $("<input/>",{
                     type: 'text',
                     name: 'loginid',
-                    placeholder: 'ユーザーID',
+                    placeholder: 'ログインID',
                     class: 'nyuuryoku',
-                    required:true
+                    required:true,
+                    pattern: '[0-9A-Za-z]+$',
+                    title : '数字かアルファベットで入力してください'
                 }),
                 $("<input/>",{
                     type: 'password',
                     name: 'pass',
                     placeholder: 'パスワード',
                     class: 'nyuuryoku',
-                    required:true
+                    required:true,
+                    pattern: '[0-9A-Za-z]+$',
+                    title : '数字かアルファベットで入力してください'
                 }),
                 $("<input/>",{
                     type: 'submit',
@@ -42,15 +46,20 @@ $(function() {
                 $("<input/>",{
                     type: 'text',
                     name: 'loginid',
-                    placeholder: 'ユーザーID',
+                    placeholder: 'ログインID',
                     class: 'nyuuryoku',
-                    required:true
+                    required:true,
+                    pattern: '[0-9A-Za-z]+$',
+                    title : '数字かアルファベットで入力してください'
                 }),
                 $("<input/>",{
                     type: 'text',
                     name: 'username',
-                    placeholder: '表示名',
+                    placeholder: 'ユーザー名',
                     class: 'nyuuryoku',
+
+                    maxlength : '15',
+                    title : '15文字以内で入力してください',
                     required:true
                 }),
                 $("<input/>",{
@@ -58,7 +67,9 @@ $(function() {
                     name: 'pass',
                     placeholder: 'パスワード',
                     class: 'nyuuryoku',
-                    required:true
+                    required:true,
+                    pattern: '[0-9A-Za-z]+$',
+                    title : '数字かアルファベットで入力してください'
                 }),
                 $("<input/>",{
                     type: 'submit',
