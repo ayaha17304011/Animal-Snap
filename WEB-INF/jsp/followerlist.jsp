@@ -11,7 +11,6 @@
 		<c:forEach var="data" items="${data}">
 			<div class="user">
 				<a href="mypage?userId=${data.userId}"></a>
-				<p>${data.loginId}</p>
 				<p>${data.userName}</p>
 				<img src="${data.iconImage}" class="icon rounded-circle mx-2 my-2">
 			</div>
