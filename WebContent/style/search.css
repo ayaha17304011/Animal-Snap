@@ -11,17 +11,20 @@
 }
 
 .user1 {
-	display: inline-block;
+    display: inline-block;
     margin: auto;
     text-align: center;
     font-weight: bold;
     color: black;
     margin-bottom: 40px;
+    width: 20%;
 }
 
 .user1 img {
     width: 150px;
 }
+
+
 
 .image {
 background: #000;

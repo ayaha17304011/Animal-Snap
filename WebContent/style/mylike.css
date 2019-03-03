@@ -33,3 +33,13 @@ span.popup {
     font-size: 1.8em;
     color: #fff;
 }
+.smallpost{
+	text-align: center;
+    display: inline-block;
+    width: 350px;
+    max-height: 350px;
+    margin: 12px;
+    background-color: #393234;
+    overflow: hidden;
+    position: relative;
+}
