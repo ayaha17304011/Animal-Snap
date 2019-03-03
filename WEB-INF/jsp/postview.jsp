@@ -1,7 +1,7 @@
 <%@ page pageEncoding="Windows-31J" contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<div class="post ext" id="${data[0].postId}">
+<div class="post ext ${data[0].postId}" id="${data[0].postId}">
 		<div class="top">
 			<img class="icon rounded-circle mx-2 my-2" src="${data[0].iconPath}">
 			<a href="mypage?userId=${data[0].userId}">${data[0].userName}</a>
@@ -38,7 +38,7 @@
 						</c:if>
 						<c:if test="${fn:endsWith(file[0],'video')}">
 							<div class="imgwrap">
-								<video muted>
+								<video controls>
 									<source src="${data[0].imageURL}" type="video/mp4">
 									<source src="${data[0].imageURL}" type="video/webm">
 									<source src="${data[0].imageURL}" type="video/ogg">
@@ -83,9 +83,31 @@
 			</form>
 		</div> <!-- end of bottom -->
 	</div> <!-- end of post -->
-	<script src="${pageContext.request.contextPath}/WebContent/js/script.js"></script>
 	<script>
 		$(function(){
+			$("#popup_window .heart").click(function(){
+				console.log("like");
+				var pid = $(this).closest("#popup_window .post").attr("id");
+				var counter = parseInt($("#popup_window .likecount").text());
+				console.log(counter);
+				like(pid);
+				var heart = $("#popup_window ."+ pid +" .heart");
+				if(heart.attr('class') == "heart outline"){
+					heart.removeClass("outline");
+					heart.addClass("red");
+					$("#popup_window ."+ pid +" .likecount").text(counter+1);
+					$("body > #"+pid+" .likecount").text(counter+1);
+					$("body > #"+pid+" .heart").removeClass("outline");
+					$("body > #"+pid+" .heart").addClass("red");
+				}else if(heart.attr('class') == "heart red"){
+					heart.removeClass("red");
+					heart.addClass("outline");
+					$("#popup_window ."+ pid +" .likecount").text(counter-1);
+					$("body > #"+pid+" .likecount").text(counter-1);
+					$("body > #"+pid+" .heart").removeClass("red");
+					$("body > #"+pid+" .heart").addClass("outline");
+				}
+			});
 			$(document).ready(function(){
 				if(window.innerWidth < 768){
 					$("#popup_window .post").removeClass("ext");
@@ -101,6 +123,14 @@
 			})
 			$(".single-item").slick()
 		})
+		function like(pid){
+			$.ajax({
+				url: "like",
+				data:{
+					"postId": pid
+				}
+			});
+    	}
 		// use Window InnerWidth
 		// resize event
 	</script>

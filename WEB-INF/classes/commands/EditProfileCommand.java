@@ -8,6 +8,7 @@ import dao.AnimalDao;
 import dao.OraConnectionManager;
 import java.util.ArrayList;
 import ex.*;
+import util.StringFilter;
 
 public class EditProfileCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc) throws ApplicationException{                                                                                                                                                             
@@ -21,11 +22,11 @@ public class EditProfileCommand extends AbstractCommand{
         String[] pass2Arr = (String[])reqc.getParameter("pass2");
         String[] profileArr = (String[])reqc.getParameter("profile");
 		String[] iconArr = (String[])reqc.getParameter("icon");
-		String loginid = loginidArr[0];
-		String username = usernameArr[0];
-		String pass1 = pass1Arr[0];
-		String pass2 = pass2Arr[0];
-		String profile = profileArr[0];
+		String loginid = StringFilter.htmlFilter(loginidArr[0]);
+		String username = StringFilter.htmlFilter(usernameArr[0]);
+		String pass1 = StringFilter.htmlFilter(pass1Arr[0]);
+		String pass2 = StringFilter.htmlFilter(pass2Arr[0]);
+		String profile = StringFilter.htmlFilter(profileArr[0]);
 		String icon = iconArr[0];
 
 		boolean loginid_empty = loginid.isEmpty();

@@ -6,3 +6,14 @@ FROM as_user u LEFT JOIN as_post p on(u.userId = p.userId)
 LEFT JOIN as_follower f on(u.userID = f.userId)
 WHERE (u.userId = ? or f.observerId = ?) and p.state = 1
 ORDER BY timestamp desc) where rownum < 6;
+
+
+
+SELECT * from (select distinct p.postID, u.username
+, to_char(p.timestamp,'yyyy/mm/dd hh24:mi') as timestamp,
+(SELECT count(*) FROM as_like WHERE postId = p.postId) AS like_count,
+(SELECT count(*) FROM as_reply WHERE postId = p.postId) AS reply_count
+FROM as_user u LEFT JOIN as_post p on(u.userId = p.userId)
+LEFT JOIN as_follower f on(u.userID = f.userId)
+WHERE ((u.userId = 1 or f.observerId = 1) and p.state = 1) and p.postId < 31
+ORDER BY timestamp desc) WHERE rownum < 4;

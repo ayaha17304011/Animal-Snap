@@ -73,20 +73,21 @@ $(function(){
 
         });
     });
-    $(".heart").click(function(){
+    $(document).on("click",".heart",function(){
         console.log("like");
         var pid = $(this).closest(".post").attr("id");
-        var counter = parseInt($(this).siblings(".likecount").text());
+        var counter = parseInt($("."+ pid +" .likecount").text());
+        console.log(pid);
         like(pid);
-        var heart = $(this);
+        var heart = $("."+ pid +" .heart");
         if(heart.attr('class') == "heart outline"){
             heart.removeClass("outline");
             heart.addClass("red");
-            $(this).siblings(".likecount").text(counter+1);
+            $("."+ pid +" .likecount").text(counter+1);
         }else if(heart.attr('class') == "heart red"){
             heart.removeClass("red");
             heart.addClass("outline");
-            $(this).siblings(".likecount").text(counter-1);
+            $("."+ pid +" .likecount").text(counter-1);
         }
     });
     $("div.popup_box").parent().click(function(e){
@@ -113,6 +114,7 @@ $(function(){
         $(".slick-arrow").click(function(ev){
             ev.stopPropagation();
         });
+        $(document).bind("scroll",scrollHandler);
         return false;
     });
     //reply
@@ -140,8 +142,22 @@ $(function(){
         }
         return false;
     });
+    //onscroll
+    var scrollHandler = function(){
+        var vt = $(document).scrollTop();
+        var lpTop = $(".post").last().offset().top;
+        var lastpost = $(".post").last().attr("id");
+        if(vt > (lpTop - 500)){
+            $(document).unbind("scroll",scrollHandler);
+            console.log("scroll true");
+            getNextPost(lastpost);
+        }
+    };
+
     //event
     //function
+    
+    
     function reply(pid, text) {
         console.log("pid = "+ pid +"text = "+ text);
         $.ajax({
@@ -158,6 +174,30 @@ $(function(){
         })
         .fail(function (response) {
             alert("fail");
+        });
+    }
+    function getNextPost(lpid){
+        console.log("getnext1");
+        $.ajax({
+            url: "getnextpost",
+            data:{
+                "postId": lpid
+            }
+        })
+        .done(function(res) {
+            if(res.match(/post/)){
+                $(".single-item").slick("unslick");
+                console.log("getnext done");
+                $(".post").last().after(res);
+                setTimeout(function(){
+                    slickstart();
+                    $(document).bind("scroll",scrollHandler);
+                },500);
+            }
+        })
+        .fail(function(){
+            console.log("stop");
+            return false;
         });
     }
     function getReply(pid){
@@ -226,10 +266,10 @@ function likecheck(pid){
         console.log("likecheck done");
         if(res.match(/true/)){
             console.log("t");
-            $("#"+ pid +" span.like > .heart").addClass("red");
+            $("."+ pid +" span.like > .heart").addClass("red");
 		}else if(res.match(/false/)){
             console.log("f");
-            $("#"+ pid +" span.like > .heart").addClass("outline");
+            $("."+ pid +" span.like > .heart").addClass("outline");
         }
     })
     .fail(function(res){
@@ -248,5 +288,10 @@ function followcheck(uid){
     })
     .fail(function(res){
 
+    });
+}
+function slickstart(){
+    $(".single-item").slick({
+        adaptiveHeight:true,
     });
 }

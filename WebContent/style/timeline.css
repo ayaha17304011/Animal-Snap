@@ -231,7 +231,7 @@ div.replylist .cm {
 }
 #popup_window .ext .bottom > .replylist{
     width: 365px;
-    min-height: 428px;
+    height: 428px;
 }
 #popup_window .ext .bottom > .replybox{
     position: relative;
@@ -276,6 +276,7 @@ div.replylist .cm {
     opacity: 1;
     margin: 0;
     transition: opacity .3s linear;
+    height: auto;
 }
 
 /*¶‰E‚Ì–îˆó‚ÌˆÊ’u‚ğ•Ï‚¦‚é*/
@@ -353,7 +354,7 @@ div.userid {
 
 
 /* userpost */
-.userpost{
+.smallpost{
     text-align: center;
     display: inline-block;
     width: 350px;

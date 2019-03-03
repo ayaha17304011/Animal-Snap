@@ -6,6 +6,7 @@ import dao.OraConnectionManager;
 import dao.AnimalDao;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import util.StringFilter;
 import ex.*;
 
 public class AddReplyCommand extends AbstractCommand{
@@ -21,8 +22,9 @@ public class AddReplyCommand extends AbstractCommand{
 		System.out.println(replyArr[0]);
     	String postId = pidArr[0];
 		String reply = replyArr[0];
+		String fReply = StringFilter.htmlFilter(reply);
 		System.out.println(reply);
-		String sql = "insert into as_reply(userId, postId, reply, timestamp) values("+userId+","+postId+",'"+reply+"',default)";
+		String sql = "insert into as_reply(userId, postId, reply, timestamp) values("+userId+","+postId+",'"+fReply+"',default)";
 		OraConnectionManager.getInstance().beginTransaction();
 		dao.SQLUpdate(sql);
         OraConnectionManager.getInstance().closeConnection();

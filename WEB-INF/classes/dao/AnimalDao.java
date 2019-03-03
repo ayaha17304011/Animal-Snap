@@ -68,7 +68,7 @@ public class AnimalDao{
                          "FROM as_user u LEFT JOIN as_post p on(u.userId = p.userId) "+
                          "LEFT JOIN as_follower f on(u.userID = f.userId) "+
                          "WHERE (u.userId = ? or f.observerId = ?) and p.state = 1 "+
-                         "ORDER BY timestamp desc)";
+                         "ORDER BY timestamp desc) WHERE rownum < 6";
             // System.out.println(sql);
             st = cn.prepareStatement(sql);
             st.setString(1, uid);
@@ -785,5 +785,55 @@ public class AnimalDao{
         list.add(user_list);
         list.add(post_list);
         return list;
+    }
+
+    public ArrayList getNextPost(PostBean pb){
+        Connection cn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        ArrayList postList = new ArrayList();
+        try{
+            cn = OraConnectionManager.getInstance().getConnection();
+            String sql = "SELECT * from (select distinct p.postID, u.username, u.IconPath, p.caption, p.imageURL, to_char(p.timestamp,'yyyy/mm/dd hh24:mi') as timestamp, u.userId,"+
+                         "(SELECT count(*) FROM as_like WHERE postId = p.postId) AS like_count, "+
+                         "(SELECT count(*) FROM as_reply WHERE postId = p.postId) AS reply_count "+
+                         "FROM as_user u LEFT JOIN as_post p on(u.userId = p.userId) "+
+                         "LEFT JOIN as_follower f on(u.userID = f.userId) "+
+                         "WHERE ((u.userId = ? or f.observerId = ?) and p.state = 1) and p.postId < ?"+
+                         "ORDER BY timestamp desc) WHERE rownum < 4";
+            st = cn.prepareStatement(sql);
+            st.setString(1, pb.getUserId());
+            st.setString(2, pb.getUserId());
+            st.setString(3, pb.getPostId());
+            rs = st.executeQuery();
+            while(rs.next()){
+                System.out.println("new post postid ="+rs.getString(1));
+                PostBean p = new PostBean();
+                p.setPostId(rs.getString(1));
+                p.setUserName(rs.getString(2));
+                p.setIconPath(rs.getString(3));
+                p.setCaption(rs.getString(4));
+                p.setImageURL(rs.getString(5));
+                p.setTimestamp(rs.getString(6));
+                p.setUserId(rs.getString(7));
+                p.setLikeCount(rs.getString(8));
+                p.setReplyCount(rs.getString(9));
+                postList.add(p);
+            }
+        }catch(SQLException e){
+            OraConnectionManager.getInstance().rollback();
+            e.printStackTrace();
+        }finally{
+            try{
+                if(rs != null){
+                    rs.close();
+                }if(st != null){
+                    st.close();
+                }
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        return postList;
     }
 }

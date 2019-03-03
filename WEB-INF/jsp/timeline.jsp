@@ -17,7 +17,7 @@
 		<script>
 			$(function(){
 				$(".single-item").slick({
-					adaptiveHeight: true
+					adaptiveHeight: true,
 				});
 			})
 		</script>
@@ -111,7 +111,7 @@
 			}
 		%>
 		<c:forEach var="data" items="${data}">
-			<div class="post" id="${data.postId}">
+			<div class="post ${data.postId}" id="${data.postId}">
 				<div class="top">
 					<a href="mypage?userId=${data.userId}">
 						<img class="icon rounded-circle mx-2 my-2" src="${data.iconPath}">
@@ -186,6 +186,6 @@
 			</div>
 		</c:forEach>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>	
 	</body>
 </html>

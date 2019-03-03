@@ -9,6 +9,7 @@ import main.RequestContext;
 import main.ResponseContext;
 import dao.AnimalDao;
 import beans.UserBean;
+import util.StringFilter;
 import ex.*;
 
 public class LoginCommand extends AbstractCommand{
@@ -22,11 +23,11 @@ public class LoginCommand extends AbstractCommand{
         AnimalDao dao = new AnimalDao();
 
         String[] loginIdArray = (String[])reqc.getParameter("loginid");
-        String loginId = loginIdArray[0];
+        String loginId = StringFilter.htmlFilter(loginIdArray[0]);
         ub.setLoginId(loginId);
 
         String[] passArray = (String[])reqc.getParameter("pass");
-        String pass = passArray[0];
+        String pass = StringFilter.htmlFilter(passArray[0]);
         ub.setPassword(pass);
         OraConnectionManager.getInstance().beginTransaction();
         result = dao.Login(ub);
