@@ -617,10 +617,14 @@ public class AnimalDao{
             st = cn.prepareStatement(sql);
             st.setString(1, uid);
             rs = st.executeQuery();
-            rs.next();
-            int state = Integer.parseInt(rs.getString(1));
-            if(state==0){
-                throw new NoUserException("削除されたユーザーです");
+            if(rs.next()){
+                int state = Integer.parseInt(rs.getString(1));
+                if(state==0){
+                    throw new NoUserException("削除されたユーザーです");
+                }
+            }
+            else{
+                throw new NoUserException("存在しないユーザーです。");
             }
         }catch(SQLException e){
             OraConnectionManager.getInstance().rollback();

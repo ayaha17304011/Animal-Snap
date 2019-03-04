@@ -1,10 +1,10 @@
 <%@ page isErrorPage="true" pageEncoding="Windows-31J" contentType="text/html;charset=UTF-8" %>
 <html>
     <head>
-        <meta http-equiv="Refresh" content="5;url=getpostlist">
-        <title>削除されたユーザーです</title>
+        <meta http-equiv="Refresh" content="3;url=getpostlist">
+        <title>${pageContext.exception.message}</title>
     </head>
     <body>
-        削除されたユーザーです
+        ${pageContext.exception.message}
     </body>
 </html>
