@@ -9,6 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/style/nav.css"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/WebContent/slick/slick-theme.css" media="screen" />
@@ -132,12 +133,13 @@
 					<a id="day">${data.timestamp}</a>
 				</div>				
 				<div class="body">
+					<c:set var="url" value="${data.imageURL}"/>
+					<c:set var="file" value="${fn:split(url, '|')}"/>
 					<span href="getpostview?postId=${data.postId}" class="popup">
-						<figure class="single-item">
-							<c:set var="url" value="${data.imageURL}"/>
-							<c:set var="file" value="${fn:split(url, '|')}"/>
-							<c:choose>
-								<c:when test="${fn:length(file) > 1}">
+						<c:choose>
+							<c:when test="${fn:length(file) > 1}">
+								<div class="mini-icon far fa-images"></div>
+								<figure class="single-item">
 									<c:forEach var="i" items="${file}">
 										<c:if test="${fn:endsWith(i, 'image')}">
 											<img src="${i}">
@@ -148,15 +150,21 @@
 											</video>
 										</c:if>
 									</c:forEach>
-								</c:when>
+								</figure>
+							</c:when>
 								<c:otherwise>
 									<c:if test="${fn:endsWith(file[0], 'image')}">
-										<img src="${data.imageURL}">
+										<figure class="single-item">
+											<img src="${data.imageURL}">
+										</figure>
 									</c:if>
 									<c:if test="${fn:endsWith(file[0],'video')}">
-										<video muted>
-											<source src="${data.imageURL}" type="video/mp4">
-										</video>
+										<div class="mini-icon fas fa-video"></div>
+										<figure class="single-item">
+											<video muted>
+												<source src="${data.imageURL}" type="video/mp4">
+											</video>
+										</figure>
 									</c:if>
 								</c:otherwise>
 							</c:choose>

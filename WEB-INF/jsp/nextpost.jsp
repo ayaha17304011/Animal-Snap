@@ -13,34 +13,41 @@
         </div>				
         <div class="body">
             <span href="getpostview?postId=${data.postId}" class="popup">
-                <figure class="single-item">
+                
                     <c:set var="url" value="${data.imageURL}"/>
                     <c:set var="file" value="${fn:split(url, '|')}"/>
                     <c:choose>
                         <c:when test="${fn:length(file) > 1}">
-                            <c:forEach var="i" items="${file}">
-                                <c:if test="${fn:endsWith(i, 'image')}">
-                                    <img src="${i}">
-                                </c:if>
-                                <c:if test="${fn:endsWith(i,'video')}">
-                                    <video muted>
-                                        <source src="${i}" type="video/mp4">
-                                    </video>
-                                </c:if>
-                            </c:forEach>
+                            <div class="mini-icon far fa-images"></div>
+                            <figure class="single-item">
+                                <c:forEach var="i" items="${file}">
+                                    <c:if test="${fn:endsWith(i, 'image')}">
+                                        <img src="${i}">
+                                    </c:if>
+                                    <c:if test="${fn:endsWith(i,'video')}">
+                                        <video muted>
+                                            <source src="${i}" type="video/mp4">
+                                        </video>
+                                    </c:if>
+                                </c:forEach>
+                            </figure>
                         </c:when>
                         <c:otherwise>
                             <c:if test="${fn:endsWith(file[0], 'image')}">
-                                <img src="${data.imageURL}">
+                                <figure class="single-item">
+                                    <img src="${data.imageURL}">
+                                </figure>
                             </c:if>
                             <c:if test="${fn:endsWith(file[0],'video')}">
-                                <video muted>
-                                    <source src="${data.imageURL}" type="video/mp4">
-                                </video>
+                                <div class="mini-icon fas fa-video"></div>
+                                <figure class="single-item">
+                                    <video muted>
+                                        <source src="${data.imageURL}" type="video/mp4">
+                                    </video>
+                                </figure>
                             </c:if>
                         </c:otherwise>
                     </c:choose>
-                </figure>
             </span>
         </div>
 

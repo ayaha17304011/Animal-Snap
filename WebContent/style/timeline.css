@@ -39,6 +39,7 @@ div.post > div.top img.icon{
 }
 /* post body */
 div.post > div.body{
+    position: relative;
     text-align: center;
     max-height: 800px;
     height: auto;
@@ -449,3 +450,15 @@ button.backbtn.btn.btn-outline-primary.px-3.py-3.mx-auto {
 button.toukou.btn.btn-outline-primary.px-3.py-3.mx-auto {
     width:50%;
 }
+
+/* picture-multiple-icon */
+.mini-icon{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 1.8em;
+    color: #fff;
+    z-index: 20;
+}
+
+

@@ -116,10 +116,10 @@
 			<c:set var="r" value="${data.userId}" scope="page"/>
 			<c:choose>
 				<c:when test="${s.equals(r)}">
-					<form id="editprofile" action="toeditprofile" method="POST">
+					<form id="editprofile" action="toeditprofile" method="get">
 						<input id="sbtn3" type="submit" value="プロフィールの編集" />
 					</form>
-					<form id="logout" action="logout" method="POST">
+					<form id="logout" action="logout" method="get">
 						<input id="sbtn3" type="submit" value="ログアウト" />
 					</form>
 				</c:when>

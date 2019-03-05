@@ -58,7 +58,7 @@ $(function() {
                     name: 'username',
                     placeholder: 'ƒ†[ƒU[–¼',
                     class: 'nyuuryoku',
-					pattern: '.*\S+.*',
+					pattern: "[^' ']+",
                     maxlength : '15',
                     title : '15•¶šˆÈ“à‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢',
                     required:true

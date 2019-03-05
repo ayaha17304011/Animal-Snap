@@ -97,7 +97,9 @@ $(function(){
         e.stopPropagation();
 
     });
-
+    $(document).on("click",".slick-arrow", function(e){
+        e.stopPropagation();
+    });
     $(document).ready(function(){
         var pageuid = $("#uid").text();
         $.ajax({
@@ -111,9 +113,9 @@ $(function(){
         .fail(function (response) {
         });
 
-        $(".slick-arrow").click(function(ev){
+        /* $(".slick-arrow").click(function(ev){
             ev.stopPropagation();
-        });
+        }); */
         $(document).bind("scroll",scrollHandler);
         return false;
     });

@@ -1,6 +1,10 @@
 <%@ page pageEncoding="Windows-31J" contentType="text/html;charset=Windows-31J" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<style>
+	.user img.icon{
+		width: 150px;
+	}
+</style>
 <body>
 	<c:forEach var="data" items="${data}">
 		<div class="user">
